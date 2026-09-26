@@ -1,0 +1,14 @@
+{
+  "micro_f1_mean": 0.01100095956691999,
+  "micro_f1_std": 0.0013149181178278878,
+  "macro_f1_mean": 0.010976898825264689,
+  "jaccard_mean": 0.00797129810828441,
+  "hamming_mean": 0.787710371819961,
+  "labels": [
+    "DevelopmentNotes",
+    "Expand",
+    "Parameters",
+    "Summary",
+    "Usage"
+  ]
+}
