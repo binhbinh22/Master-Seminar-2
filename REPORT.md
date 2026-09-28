@@ -21,6 +21,20 @@ Kiểm tra nhanh phát hiện:
 
 → Kết luận: dữ liệu ở dạng "exploded" (mỗi câu × mỗi category = 1 hàng), không phải "mỗi hàng là 1 mẫu với 1 nhãn `category`.
 
+### Ý nghĩa 5 nhãn (category)
+
+Taxonomy dành riêng cho comment ở mức class trong Python (NLBSE'23):
+
+| Nhãn | Ý nghĩa | Support |
+|---|---|---|
+| **Summary** | Tóm tắt chung, mục đích/chức năng chính của class | 454 |
+| **Expand** | Giải thích/mở rộng chi tiết thêm ngoài phần tóm tắt (cách hoạt động, ngữ cảnh) | 504 |
+| **Parameters** | Mô tả tham số, thuộc tính (attributes) của class/hàm | 794 |
+| **Usage** | Hướng dẫn cách dùng, ví dụ sử dụng class | 800 |
+| **DevelopmentNotes** | Ghi chú cho developer: TODO, cảnh báo, lưu ý kỹ thuật, hạn chế | 312 |
+
+Một câu comment có thể mang **nhiều nhãn cùng lúc** (VD: vừa `Usage` vừa `Parameters`) — đây chính là lý do bài toán là **multi-label**, không phải multi-class (mỗi mẫu chỉ 1 nhãn duy nhất).
+
 ## Bước 2 — data loader ([data_utils.py](data_utils.py))
 
 Viết hàm `load_multilabel()`: pivot 12,775 dòng "exploded" về lại 2,555 dòng — mỗi dòng là 1 câu comment duy nhất, với vector nhãn multi-hot 5 chiều được dựng từ `instance_type` (lấy max theo `category`).
@@ -51,11 +65,32 @@ Bài toán multi-label + đặc trưng TF-IDF thưa (sparse), số mẫu vừa p
 
 Tất cả đều dùng `class_weight='balanced'` để bù cho mất cân bằng nhãn (312 vs 800 mẫu).
 
+### Vì sao chọn nhóm mô hình tuyến tính (Logistic Regression...) thay vì thuật toán khác
+
+1. **Đặc trưng TF-IDF thưa, nhiều chiều** (~40,000 chiều: word 1-2gram + char 3-5gram). Với dữ liệu thưa/nhiều chiều, mô hình tuyến tính thường đạt hiệu quả ngang hoặc hơn mô hình phi tuyến phức tạp (Random Forest, cây quyết định) — hiện tượng quen thuộc khi xử lý văn bản kiểu bag-of-words/TF-IDF.
+2. **Số mẫu ít** (2,555 câu) — mô hình phức tạp (deep learning, ensemble cây sâu) dễ overfit trên tập nhỏ; mô hình tuyến tính có ít tham số hơn, ổn định hơn khi train/test qua CV.
+3. **Hỗ trợ multi-label tự nhiên qua One-vs-Rest**: `LogisticRegression` cho `predict_proba` mượt (xác suất), dễ kết hợp `class_weight='balanced'` để xử lý mất cân bằng nhãn, và dễ ghép với `OneVsRestClassifier`/`ClassifierChain`.
+4. **Baseline chính thức của NLBSE'23** cũng dùng mô hình nhẹ (Random Forest, TF-IDF); Logistic Regression là lựa chọn tương đương về độ phức tạp, nhanh và dễ so sánh.
+5. **Thực nghiệm xác nhận lựa chọn đúng**: chạy song song 4 biến thể tuyến tính (OVR LogReg, Classifier Chain, Linear SVM, SGD) đều cho kết quả gần như nhau (micro-F1 0.61–0.63, xem Bước 6) → không gian đặc trưng TF-IDF gần tuyến tính, tăng độ phức tạp mô hình khó cải thiện thêm nếu không tăng dữ liệu. Logistic Regression được chọn làm đại diện chính vì đơn giản, dễ diễn giải (hệ số → từ nào ảnh hưởng nhãn nào), và có `predict_proba` để tune threshold về sau.
+
 ## Bước 5 — Thiết lập k-fold cross-validation
 
 Dùng `MultilabelStratifiedKFold` (thư viện `iterative-stratification`), k=5. Đây là kỹ thuật stratify chuyên cho multi-label — đảm bảo tỷ lệ từng nhãn được giữ tương đối đều giữa các fold train/test, khác với `KFold` thường hay `StratifiedKFold` (chỉ hoạt động đúng với single-label).
 
 ## Bước 6 — Chạy evaluation
+
+### Giải thích các độ đo (metric)
+
+Với multi-label, một mẫu có thể đúng "một phần" (đúng vài nhãn, sai/thiếu vài nhãn khác), nên accuracy thường gây hiểu nhầm. Các độ đo dùng ở đây:
+
+- **Precision / Recall / F1 (micro & macro)**: coi mỗi cặp (mẫu, nhãn) là một dự đoán nhị phân độc lập.
+  - *micro*: gộp tất cả (mẫu, nhãn) lại rồi tính 1 lần → nhãn phổ biến (nhiều support) ảnh hưởng nhiều hơn.
+  - *macro*: tính F1 riêng từng nhãn rồi lấy trung bình cộng → mọi nhãn có trọng số như nhau, nhãn hiếm (`DevelopmentNotes`) ảnh hưởng ngang nhãn phổ biến.
+- **Hamming loss**: tỷ lệ ô (mẫu × nhãn) bị dự đoán sai trên tổng số ô.
+  `Hamming loss = (số ô sai) / (số mẫu × số nhãn)`. Càng **thấp** càng tốt (0 = hoàn hảo). Đo lỗi ở mức chi tiết nhất — từng quyết định nhị phân riêng lẻ.
+- **Jaccard (samples)**: với mỗi mẫu, so **tập nhãn dự đoán** với **tập nhãn thật**: `Jaccard = |Giao| / |Hợp|`, rồi lấy trung bình qua các mẫu. Càng **cao** càng tốt (1 = trùng khớp tuyệt đối cả bộ nhãn). Đây là độ đo nghiêm khắc nhất vì phạt cùng lúc cả nhãn thừa lẫn nhãn thiếu trong một mẫu — khác với F1 vốn đánh giá từng nhãn tách rời.
+
+Ba nhóm độ đo bổ sung cho nhau: F1 cho biết mô hình mạnh/yếu ở nhãn nào, Hamming loss cho biết mức lỗi tổng thể chi tiết, Jaccard cho biết mô hình có đoán **đúng trọn bộ nhãn của từng câu** hay không — quan trọng nếu ứng dụng thực tế cần cả bộ nhãn chính xác (chứ không chỉ đúng từng nhãn riêng lẻ).
 
 Chạy `python3 ml_pipeline.py --folds 5`. Kết quả trung bình 5-fold:
 
@@ -80,7 +115,7 @@ Phân tích per-label với mô hình tốt nhất (OVR Logistic Regression), tr
 
 
 
-## Bước 8 — Phân tích kết quả
+## Bước 7 — Phân tích kết quả
 
 - **F1 tỉ lệ thuận với số lượng mẫu/nhãn**: `Usage` và `Parameters` (support cao nhất, ~800) đạt F1 ~0.70–0.71; `DevelopmentNotes` (ít mẫu nhất, 312) chỉ đạt F1 ~0.39 — thấp hơn hẳn. Đây là dấu hiệu rõ ràng của bottleneck dữ liệu/mất cân bằng nhãn, không phải do mô hình yếu.
 - **Các mô hình tuyến tính cho kết quả gần như nhau** (micro-F1 0.61–0.63) → không gian đặc trưng TF-IDF gần như tách tuyến tính được cho bài toán này; tăng độ phức tạp mô hình (phi tuyến) khó cải thiện nhiều nếu không tăng dữ liệu.
@@ -93,13 +128,3 @@ Phân tích per-label với mô hình tốt nhất (OVR Logistic Regression), tr
 2. Chưa có baseline deep learning (RoBERTa) do thiếu dung lượng đĩa — script đã sẵn sàng, chỉ cần chạy lại.
 3. Ngưỡng quyết định cố định 0.5 cho các mô hình OVR/SGD, chưa tối ưu threshold riêng từng nhãn (có thể cải thiện thêm recall cho nhãn hiếm như `DevelopmentNotes`).
 
-## File liên quan
-
-| File | Vai trò |
-|---|---|
-| [data_utils.py](data_utils.py) | Load & pivot dữ liệu đúng (multi-label) |
-| [ml_pipeline.py](ml_pipeline.py) | 4 mô hình ML cổ điển + 5-fold CV |
-| [per_label_analysis.py](per_label_analysis.py) | Phân tích precision/recall/F1 theo từng nhãn |
-| [roberta_pipeline.py](roberta_pipeline.py) | Fine-tune RoBERTa baseline (sẵn sàng, chưa chạy) |
-| [results/ANALYSIS.md](results/ANALYSIS.md) | Bản tóm tắt kỹ thuật (ngắn hơn) |
-| `run_ml_baseline.py`, `full_pipeline.py`, `detailed_analysis.py`, `multiclass_pipeline.py` | Pipeline gốc, **đã lỗi**, giữ lại để đối chiếu — nên xoá hoặc archive |
