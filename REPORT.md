@@ -12,16 +12,16 @@ Ngày: 2026-09-24
 
 ## Bước 1 — Khảo sát dữ liệu thô
 
-File `python.csv` có 12,775 dòng, 6 cột: `comment_sentence_id`, `class`, `comment_sentence`, `partition`, `instance_type`, `category`.
+File có 12,775 dòng, 6 cột: `comment_sentence_id`, `class`, `comment_sentence`, `partition`, `instance_type`, `category`.
 
 Kiểm tra nhanh phát hiện:
 - Chỉ có 2,555 `comment_sentence_id` duy nhất, nhưng mỗi id lặp lại đúng 5 lần.
 - 5 lần lặp đó ứng với 5 category cố định: `Usage`, `Parameters`, `DevelopmentNotes`, `Expand`, `Summary`.
 - Cột `instance_type` (0/1) mới là **nhãn thật**: 1 nghĩa là câu đó thực sự thuộc category ghi ở hàng đó, 0 nghĩa là không.
 
-→ Kết luận: dữ liệu ở dạng "exploded" (mỗi câu × mỗi category = 1 hàng), không phải "mỗi hàng là 1 mẫu với 1 nhãn `category`" như các script gốc trong repo giả định.
+→ Kết luận: dữ liệu ở dạng "exploded" (mỗi câu × mỗi category = 1 hàng), không phải "mỗi hàng là 1 mẫu với 1 nhãn `category`.
 
-## Bước 2 — Sửa lại data loader ([data_utils.py](data_utils.py))
+## Bước 2 — data loader ([data_utils.py](data_utils.py))
 
 Viết hàm `load_multilabel()`: pivot 12,775 dòng "exploded" về lại 2,555 dòng — mỗi dòng là 1 câu comment duy nhất, với vector nhãn multi-hot 5 chiều được dựng từ `instance_type` (lấy max theo `category`).
 
