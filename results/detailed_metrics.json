@@ -1,0 +1,57 @@
+{
+  "generated": "2026-09-23T04:11:39.255055Z",
+  "n_samples": 12775,
+  "labels": [
+    "DevelopmentNotes",
+    "Expand",
+    "Parameters",
+    "Summary",
+    "Usage"
+  ],
+  "thresholds": {
+    "DevelopmentNotes": 0.0,
+    "Expand": 0.0,
+    "Parameters": 0.0,
+    "Summary": 0.0,
+    "Usage": 0.0
+  },
+  "micro_f1": 0.3333333333333333,
+  "macro_f1": 0.3333333333333333,
+  "per_label": {
+    "DevelopmentNotes": {
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.3333333333333333,
+      "support": 2555,
+      "threshold": 0.0
+    },
+    "Expand": {
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.3333333333333333,
+      "support": 2555,
+      "threshold": 0.0
+    },
+    "Parameters": {
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.3333333333333333,
+      "support": 2555,
+      "threshold": 0.0
+    },
+    "Summary": {
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.3333333333333333,
+      "support": 2555,
+      "threshold": 0.0
+    },
+    "Usage": {
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.3333333333333333,
+      "support": 2555,
+      "threshold": 0.0
+    }
+  }
+}
