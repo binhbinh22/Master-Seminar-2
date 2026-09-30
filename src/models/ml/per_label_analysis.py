@@ -8,8 +8,8 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.metrics import precision_recall_fscore_support
 from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
 
-from data_utils import load_multilabel
-from ml_pipeline import build_vectorizer
+from src.models.ml.data_utils import load_multilabel
+from src.models.ml.ml_pipeline import build_vectorizer
 
 
 def run(data_path='python.csv', folds=5):

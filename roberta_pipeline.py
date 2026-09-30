@@ -21,7 +21,7 @@ from transformers import (
     EarlyStoppingCallback,
 )
 
-from data_utils import load_multilabel
+from src.models.ml.data_utils import load_multilabel
 
 MODEL_NAME = 'roberta-base'
 MAX_LEN = 64

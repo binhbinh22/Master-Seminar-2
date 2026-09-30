@@ -17,7 +17,7 @@ from sklearn.svm import LinearSVC
 from sklearn.metrics import f1_score, jaccard_score, hamming_loss, precision_score, recall_score
 from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
 
-from data_utils import load_multilabel
+from src.models.ml.data_utils import load_multilabel
 
 
 def build_vectorizer():
