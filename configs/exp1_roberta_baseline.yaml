@@ -11,7 +11,7 @@ tokenizer:
   max_length: 128
 training:
   seed: 42
-  validation_fraction: 0.1
+  folds: 5
   epochs: 5
   batch_size: 16
   eval_batch_size: 32
