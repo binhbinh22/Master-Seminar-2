@@ -1,7 +1,0 @@
-/Users/binh/Desktop/master/seminar-2/roberta_pipeline.py:128: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
-  started = datetime.utcnow().isoformat() + 'Z'
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-/Users/binh/Desktop/master/seminar-2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:773: UserWarning: Not enough free disk space to download the file. The expected file size is: 498.82 MB. The target location /Users/binh/.cache/huggingface/hub/models--roberta-base/blobs only has 371.15 MB free disk space.
-  warnings.warn(
-/Users/binh/Desktop/master/seminar-2/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py:773: UserWarning: Not enough free disk space to download the file. The expected file size is: 498.82 MB. The target location /Users/binh/.cache/huggingface/hub/models--roberta-base/blobs only has 371.14 MB free disk space.
-  warnings.warn(
