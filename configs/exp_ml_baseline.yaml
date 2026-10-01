@@ -1,0 +1,20 @@
+experiment: exp_ml_baseline
+output_dir: results/exp_ml_baseline
+data:
+  path: data/python.csv
+features:
+  word_ngram_range: [1, 2]
+  char_ngram_range: [3, 5]
+  max_features_per_vectorizer: 20000
+models:
+  - dummy_most_frequent
+  - ovr_logreg
+  - classifier_chain_logreg
+  - ovr_linear_svc
+  - ovr_sgd
+evaluation:
+  folds: 5
+  seed: 42
+  group_aware_split: true
+  report_per_label: true
+  per_label_model: ovr_logreg
