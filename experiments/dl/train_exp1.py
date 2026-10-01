@@ -36,8 +36,9 @@ def make_loader(bundle, tokenizer, max_length, split, indices, batch_size, worke
 
 
 def train_model(config, bundle, tokenizer, device, train_indices, val_indices=None,
-                epochs=None, checkpoint_path=None, seed=None, log_dir=None):
-    """Build the Exp 1 model and datasets, then use the shared training loop."""
+                epochs=None, checkpoint_path=None, seed=None, log_dir=None,
+                model_factory=None):
+    """Build a model and datasets, then use the shared training loop."""
     training, model_config = config["training"], config["model"]
     set_seed(training["seed"] if seed is None else seed)
     length = config["tokenizer"]["max_length"]
@@ -46,19 +47,26 @@ def train_model(config, bundle, tokenizer, device, train_indices, val_indices=No
     val_loader = None if val_indices is None else make_loader(
         bundle, tokenizer, length, "train", val_indices,
         training["eval_batch_size"], training["num_workers"])
-    model = RobertaBaseline(model_name=model_config["name"],
-                            num_labels=model_config["num_labels"],
-                            threshold=model_config["threshold"]).to(device)
+    if model_factory is None:
+        model = RobertaBaseline(model_name=model_config["name"],
+                               num_labels=model_config["num_labels"],
+                               threshold=model_config["threshold"])
+    else:
+        model = model_factory(config, bundle, train_indices)
+    model = model.to(device)
     fit = fit_masked_classifier(
         model, train_loader, val_loader, device=device, training=training,
         threshold=model_config["threshold"], label_names=bundle.label_names,
         report_per_label=config["evaluation"]["report_per_label"],
         epochs=epochs, checkpoint_path=checkpoint_path, log_dir=log_dir,
     )
+    if model.loss_fn.pos_weight is not None:
+        fit["pos_weight"] = model.loss_fn.pos_weight.detach().cpu().tolist()
     return model, fit
 
 
-def run(config_path: Path, download: bool = False) -> dict:
+def run(config_path: Path, download: bool = False, *, model_factory=None,
+        required_loss: str = "BCEWithLogitsLoss") -> dict:
     with config_path.open(encoding="utf-8") as file:
         config = yaml.safe_load(file)
     dataset_config = read_config(config["dataset_config"])
@@ -68,8 +76,8 @@ def run(config_path: Path, download: bool = False) -> dict:
     model_config, training = config["model"], config["training"]
     if model_config["num_labels"] != len(bundle.label_names):
         raise ValueError("Model and dataset label counts differ")
-    if model_config["hidden_size"] != 768 or model_config["loss"] != "BCEWithLogitsLoss":
-        raise ValueError("Exp 1 requires Linear(768, 19) and BCEWithLogitsLoss")
+    if model_config["hidden_size"] != 768 or model_config["loss"] != required_loss:
+        raise ValueError(f"{config['experiment']} requires Linear(768, 19) and {required_loss}")
     if not 0 < model_config["threshold"] < 1:
         raise ValueError("threshold must be between 0 and 1")
     for key in ("batch_size", "eval_batch_size", "gradient_accumulation_steps",
@@ -106,7 +114,8 @@ def run(config_path: Path, download: bool = False) -> dict:
         print(f"fold {fold_number}/{len(fold_indices)}: train={len(train_indices)}, validation={len(val_indices)}", flush=True)
         model, fit = train_model(config, bundle, tokenizer, device, train_indices,
                                  val_indices, seed=training["seed"] + fold_number,
-                                 log_dir=tensorboard_dir / f"fold_{fold_number}")
+                                 log_dir=tensorboard_dir / f"fold_{fold_number}",
+                                 model_factory=model_factory)
         result["folds"].append({"fold": fold_number, "train_sentences": len(train_indices),
                                 "validation_sentences": len(val_indices),
                                 "validation_indices": val_indices, **fit})
@@ -128,7 +137,8 @@ def run(config_path: Path, download: bool = False) -> dict:
     print(f"training final checkpoint for {final_epochs} epochs", flush=True)
     model, final_fit = train_model(config, bundle, tokenizer, device, all_train_indices,
                                    epochs=final_epochs, checkpoint_path=output_dir / "best_model.pt",
-                                   log_dir=tensorboard_dir / "final")
+                                   log_dir=tensorboard_dir / "final",
+                                   model_factory=model_factory)
     result["final_training"] = final_fit
     result["train_sentences"] = len(all_train_indices)
     if config["evaluation"]["run_test_after_training"]:

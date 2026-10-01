@@ -65,3 +65,32 @@ Các module dùng chung cho thí nghiệm tiếp theo:
 - `src/visualization/tensorboard.py`: ghi scalar và metric theo nhãn lên TensorBoard.
 
 Mỗi thí nghiệm tự tạo dataset, model và DataLoader rồi gọi các hàm chung phù hợp.
+
+## Exp2: RoBERTa + Weighted BCE
+
+Chạy từ thư mục gốc với cùng dependencies của exp1:
+
+```bash
+python3 -m experiments.dl.train_exp2
+```
+
+Config mặc định: `configs/exp2_roberta_weighted_bce.yaml`. Có thể truyền
+`--config PATH` hoặc `--download` như exp1. Model dùng RoBERTa CLS và
+Linear(768, 19), với `BCEWithLogitsLoss(pos_weight=..., reduction="none")`.
+Loss được lấy trung bình trên các target có mask hợp lệ.
+
+Với từng nhãn, `pos_weight = số target âm / số target dương`, chỉ tính trên
+target thuộc official train của các câu trong tập train hiện tại. Mỗi fold
+tính trọng số riêng, không dùng validation hoặc test; model cuối tính lại
+trên toàn bộ official train. Nhãn không có target dương hoặc không có target
+âm dùng trọng số 1 để giữ loss hữu hạn và vẫn học từ target hiện có.
+
+Exp2 dùng cùng seed, cách chia 5 fold, threshold 0.5 và cách chọn số epoch
+cuối của exp1. Kết quả được lưu tại `results/exp2_roberta_weighted_bce/`, gồm
+checkpoint `best_model.pt`, tokenizer, config, `metrics.json`, log TensorBoard
+và đồ thị. `metrics.json` ghi `pos_weight` theo thứ tự `labels` cho từng fold
+và model cuối; trọng số cũng được lưu trong checkpoint.
+
+```bash
+tensorboard --logdir results/exp2_roberta_weighted_bce/tensorboard
+```
