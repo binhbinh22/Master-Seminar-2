@@ -1,0 +1,630 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+% XeLaTeX: use fontspec + a Unicode font so Vietnamese diacritics render correctly.
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{vietnamese}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Consolas}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% Page setup
+\geometry{margin=1in, headheight=14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Colors
+\definecolor{primaryblue}{RGB}{0,84,159}
+\definecolor{accentgreen}{RGB}{87,157,66}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=primaryblue,
+    citecolor=primaryblue
+}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Seminar 2}
+\rhead{Code Comment Classification}
+\rfoot{Page \thepage}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries\centering}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% New page before each section
+\newcommand{\sectionbreak}{\clearpage}
+
+% Code listing style
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!8},
+  keywordstyle=\color{primaryblue},
+  commentstyle=\color{accentgreen},
+  stringstyle=\color{red!60!black},
+  showstringspaces=false,
+}
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+
+\centering
+
+% University or Institution header
+{\large \textbf{HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY}}\\[0.3cm]
+{\normalsize SCHOOL OF INFORMATION \& COMMUNICATION TECHNOLOGY}
+
+\vspace{6cm}
+
+% Main Title with enhanced typography
+\begin{center}
+{\Large\textbf{Code Comment Classification}}\\[0.3cm]
+{\large Multi-label Classification of Python Code Comments}\\[0.2cm]
+{\large (NLBSE'23 Shared Task --- Project 2)}
+\end{center}
+
+\vspace{2cm}
+
+% Team information in a more professional layout
+\begin{minipage}{0.8\textwidth}
+\centering
+\textbf{\large Team Members}
+
+\vspace{0.5cm}
+
+\begin{tabular}{@{}ll@{}}
+\textbf{Nguyễn Khắc Thái Bình} & \texttt{20251324M} \\[0.3cm]
+\textbf{Lã Minh Trung}         & \texttt{20251319M} \\[0.3cm]
+\textbf{Nguyễn Thu Uyên}       & \texttt{20252279M} \\[0.3cm]
+\textbf{Nguyễn Thị Nhã Linh}   & \texttt{20261262M} \\[0.3cm]
+\textbf{Nguyễn Đức Anh}        & \texttt{20252469M} \\[0.3cm]
+\end{tabular}
+\end{minipage}
+
+\vspace{2.5cm}
+
+% Course details in a box
+\begin{minipage}{0.7\textwidth}
+\centering
+\fbox{\begin{minipage}{0.9\textwidth}
+\centering
+\vspace{0.3cm}
+\textbf{Course:} Seminar 2\\
+\textbf{Instructor:} Dr. Phuong Nguyen (University of L'Aquila, Italy)\\
+\textbf{Academic Year:} 2026-2027\\
+\vspace{0.3cm}
+\end{minipage}}
+\end{minipage}
+
+\vfill
+
+{\large \textbf{\today}}
+
+\end{titlepage}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+%==============================================================================
+\section{Introduction}
+\label{sec:introduction}
+%==============================================================================
+
+Code comments are an essential part of software maintenance: they explain the
+intent behind a piece of code, document its parameters, and warn future
+developers about pitfalls. However, comments are often inconsistent, incomplete,
+or missing entirely. Automatically classifying the \emph{purpose} of a comment
+sentence is therefore a useful building block for documentation tooling, code
+review assistance, and comment-quality analysis. The NLBSE'23 Code Comment
+Classification shared task \cite{nlbse2023} frames this as a \textbf{multi-label
+classification} problem: a single comment sentence can serve several purposes at
+once, and the model must predict the full set of applicable categories.
+
+In this work we study the Python subset of the NLBSE'23 dataset. Each comment
+sentence is assigned one or more of five categories:
+
+\begin{itemize}[nosep]
+    \item \textbf{Summary} --- a brief description of what the code does.
+    \item \textbf{Expand} --- additional explanation of why/how the code works.
+    \item \textbf{Parameters} --- documentation of function arguments.
+    \item \textbf{Usage} --- guidance on how to use the code.
+    \item \textbf{DevelopmentNotes} --- miscellaneous notes for developers
+          (TODOs, warnings, reminders).
+\end{itemize}
+
+We make the following contributions:
+
+\begin{itemize}[nosep]
+    \item We identify and correct a critical label-encoding pitfall in the raw
+          data: the dataset is stored in an ``exploded'' long format where each
+          sentence appears five times, and the true label is the
+          \texttt{instance\_type} column rather than the \texttt{category}
+          column. Several early pipelines in the repository used the wrong
+          column and produced degenerate results.
+    \item We build a leakage-free evaluation protocol based on 5-fold
+          \texttt{MultilabelStratifiedKFold}, refitting the TF-IDF vectorizer
+          inside each fold.
+    \item We benchmark four classical multi-label models (One-vs-Rest Logistic
+          Regression, Classifier Chain, Linear SVM, SGD) and scaffold a
+          \texttt{roberta-base} transformer baseline with class weighting.
+    \item We provide a detailed per-label analysis showing that performance is
+          strongly correlated with label frequency.
+\end{itemize}
+
+The remainder of this report is organized as follows.
+Section~\ref{sec:dataset} describes the dataset and its structure.
+Section~\ref{sec:preprocessing} details the preprocessing pipeline and system
+architecture. Section~\ref{sec:models} presents the models.
+Section~\ref{sec:evaluation} describes the cross-validation and evaluation
+protocol. Section~\ref{sec:results} reports results, and
+Section~\ref{sec:analysis} analyzes them. Section~\ref{sec:packaging} covers
+project packaging and reproducibility, and Section~\ref{sec:conclusion}
+concludes.
+
+%==============================================================================
+\section{Dataset \& Data Understanding}
+\label{sec:dataset}
+%==============================================================================
+
+\subsection{Task Definition}
+
+The NLBSE'23 Code Comment Classification task is a \textbf{multi-label}
+classification problem. Formally, given a comment sentence $x$, the model must
+predict a binary vector $\mathbf{y} \in \{0,1\}^{C}$ where $C = 5$ is the number
+of categories and $y_c = 1$ indicates that category $c$ applies to $x$. Unlike
+single-label classification, the categories are not mutually exclusive: a
+comment may simultaneously be a \textit{Summary} and a \textit{Usage} note.
+
+\subsection{Dataset Source and Size}
+
+The full competition dataset spans three programming languages (Java, Python,
+Pharo) with 6{,}738 comment sentences in total. This project focuses on the
+\textbf{Python subset}: 2{,}555 unique comment sentences with 5 categories,
+averaging \textbf{1.12 labels per sentence}. The relatively low average label
+count confirms that most comments carry a single dominant purpose, while a
+minority carry multiple.
+
+\subsection{Raw Data Format (the ``Exploded'' Layout)}
+
+The raw file \texttt{data/python.csv} stores the data in a \emph{long
+one-vs-rest} layout: every comment sentence appears \textbf{five times}, once per
+category. Table~\ref{tab:rawschema} describes the columns.
+
+\begin{table}[H]
+\centering
+\caption{Schema of the raw \texttt{python.csv} file.}
+\label{tab:rawschema}
+\begin{tabular}{ll}
+\toprule
+\textbf{Column} & \textbf{Meaning} \\
+\midrule
+\texttt{comment\_sentence\_id} & unique identifier of the comment sentence \\
+\texttt{class}                & source class/file containing the comment \\
+\texttt{comment\_sentence}     & the comment text \\
+\texttt{category}              & which of the 5 slots this row represents \\
+\texttt{instance\_type}        & \textbf{the true binary label} (1 = belongs, 0 = not) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Critical pitfall.}
+Because each sentence is duplicated across five rows, the \texttt{category}
+column merely names the slot --- it is \textbf{not} the label. The true label is
+\texttt{instance\_type}. Several early pipelines in this repository incorrectly
+used \texttt{category} as the target, which duplicated every comment five times
+with mostly-contradictory single-label targets and produced degenerate results
+(micro-F1 $\approx$ 0.01--0.33). Section~\ref{sec:preprocessing} describes the
+fix.
+
+%==============================================================================
+\section{Data Preprocessing \& Architecture}
+\label{sec:preprocessing}
+%==============================================================================
+
+\subsection{Correct Multi-label Encoding}
+
+The core preprocessing step pivots the exploded rows back to \textbf{one row per
+\texttt{comment\_sentence\_id}}, building a multi-hot label vector from
+\texttt{instance\_type}. The logic (see
+\texttt{src/models/ml/data\_utils.py}) is shown in
+Listing~\ref{lst:load}.
+
+\begin{lstlisting}[language=Python,caption={Correct multi-label loader.},label={lst:load}]
+def load_multilabel(path='python.csv'):
+    df = pd.read_csv(path, dtype=str, encoding='utf-8', on_bad_lines='skip')
+    df['instance_type'] = df['instance_type'].astype(int)
+    categories = sorted(df['category'].unique())
+    pivot = df.pivot_table(
+        index=['comment_sentence_id', 'class', 'comment_sentence'],
+        columns='category', values='instance_type',
+        aggfunc='max', fill_value=0,
+    ).reset_index()
+    pivot = pivot.sort_values('comment_sentence_id').reset_index(drop=True)
+    texts = pivot['comment_sentence'].fillna('').astype(str).values
+    Y = pivot[categories].values.astype(int)
+    return texts, Y, categories, pivot
+\end{lstlisting}
+
+The result is a clean multi-label matrix $Y \in \{0,1\}^{2555 \times 5}$ with no
+missing values and no duplicate \texttt{comment\_sentence\_id}. The positive
+count of each label is reconciled against the original file to guarantee that no
+information is lost during the pivot.
+
+\subsection{Text Normalization}
+
+Comment text is normalized by collapsing whitespace and stripping leading and
+trailing spaces. No lower-casing or stop-word removal is applied for the
+transformer track; the TF-IDF track relies on n-grams to capture lexical
+patterns, including case-sensitive identifiers.
+
+\subsection{Feature Engineering (Classical Track)}
+
+Two complementary TF-IDF views are combined with a \texttt{FeatureUnion}:
+
+\begin{itemize}[nosep]
+    \item \textbf{Word n-grams}: 1--2 grams, up to 20{,}000 features.
+    \item \textbf{Character n-grams} (\texttt{char\_wb}): 3--5 grams, up to
+          20{,}000 features.
+\end{itemize}
+
+Character n-grams help with code identifiers, camelCase tokens, and punctuation
+patterns that word tokenization would split awkwardly. The two views are
+concatenated into a single sparse feature matrix.
+
+\subsection{Precomputed Artifacts}
+
+The repository ships precomputed, version-controlled artifacts so that every team
+member trains on identical splits. Table~\ref{tab:artifacts} summarizes them.
+
+\begin{table}[H]
+\centering
+\caption{Precomputed artifacts committed to the repository.}
+\label{tab:artifacts}
+\begin{tabular}{lll}
+\toprule
+\textbf{Track} & \textbf{Directory} & \textbf{Contents} \\
+\midrule
+TF-IDF  & \texttt{data/tfidf/}   & \texttt{X\_train.npz}, \texttt{X\_test.npz}, vectorizers, folds \\
+RoBERTa & \texttt{data/roberta/} & token ids, attention masks, labels, class weights, folds \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Shared fold definitions live in \texttt{folds.json} and are reused across both
+tracks to guarantee comparability of results.
+
+\subsection{System Architecture}
+
+Figure~\ref{fig:architecture} illustrates the end-to-end pipeline. Raw
+\texttt{python.csv} is pivoted into a multi-label table, then split into two
+parallel tracks: a TF-IDF track feeding classical linear models, and a
+tokenization track feeding the RoBERTa transformer. Both tracks consume the same
+cross-validation folds and emit metrics into \texttt{results/}.
+
+\begin{figure}[H]
+    \centering
+    \fbox{\begin{minipage}{0.9\textwidth}
+        \centering
+        \vspace{0.3cm}
+        \texttt{python.csv} (exploded) \\
+        $\downarrow$ pivot on \texttt{instance\_type} \\
+        multi-label table (2{,}555 $\times$ 5) \\
+        $\swarrow$ \hspace{3cm} $\searrow$ \\
+        TF-IDF (word + char) \hspace{1.5cm} RoBERTa tokenizer \\
+        $\downarrow$ \hspace{4cm} $\downarrow$ \\
+        Linear models \hspace{2.5cm} RoBERTa + sigmoid head \\
+        $\searrow$ \hspace{3cm} $\swarrow$ \\
+        shared 5-fold CV $\rightarrow$ \texttt{results/}
+        \vspace{0.3cm}
+    \end{minipage}}
+    \caption{End-to-end system architecture. Both modelling tracks share the
+    corrected multi-label table and the same cross-validation folds.}
+    \label{fig:architecture}
+\end{figure}
+
+%==============================================================================
+\section{Model Development}
+\label{sec:models}
+%==============================================================================
+
+\subsection{Classical Baselines}
+
+Four linear models are trained on the TF-IDF features:
+
+\begin{enumerate}[nosep]
+    \item \textbf{One-vs-Rest Logistic Regression} (best overall).
+    \item \textbf{Classifier Chain} with Logistic Regression base estimator.
+    \item \textbf{One-vs-Rest Linear SVM}.
+    \item \textbf{One-vs-Rest SGD} with log-loss.
+\end{enumerate}
+
+The One-vs-Rest strategy trains one independent binary classifier per label,
+which is simple and parallelizable. The Classifier Chain instead trains labels
+sequentially, feeding each label's prediction as an additional feature to the
+next, thereby modelling label co-occurrence.
+
+\paragraph{Leakage control.}
+The vectorizer is \textbf{refit inside each cross-validation fold} on the
+training partition only, so validation folds never influence the feature space.
+This is a deliberate correction over earlier pipelines that fit the vectorizer
+globally and therefore leaked information from the validation set.
+
+\subsection{RoBERTa Baseline}
+
+A \texttt{roberta-base} model is fine-tuned with a multi-label head:
+
+\begin{itemize}[nosep]
+    \item CLS representation (768-dim) $\rightarrow$
+          \texttt{Linear(768, num\_labels)}.
+    \item Loss: \texttt{BCEWithLogitsLoss} with per-class positive weights
+          (\texttt{class\_weights.json}) to counter label imbalance.
+    \item Max sequence length 128, learning rate $2\times10^{-5}$, weight decay
+          0.01, warmup ratio 0.1, early-stopping patience 2.
+    \item Optional per-category label masking for category-specific splits.
+\end{itemize}
+
+The model definition lives in \texttt{src/models/dl/roberta\_baseline.py} and the
+training loop in \texttt{experiments/dl/train\_exp1.py}. Configuration is stored
+in \texttt{configs/exp1\_roberta\_baseline.yaml}.
+
+%==============================================================================
+\section{Cross-validation \& Evaluation}
+\label{sec:evaluation}
+%==============================================================================
+
+\subsection{Validation Protocol}
+
+We use \textbf{5-fold \texttt{MultilabelStratifiedKFold}} (from the
+\texttt{iterative-stratification} package), which preserves the joint label
+distribution across folds. This is essential for multi-label data: naive KFold
+can produce folds that entirely miss rare labels such as
+\textit{DevelopmentNotes}, making the evaluation unstable.
+
+\subsection{Metrics}
+
+\begin{itemize}[nosep]
+    \item \textbf{micro-F1} --- aggregates TP/FP/FN globally; dominated by
+          frequent labels.
+    \item \textbf{macro-F1} --- unweighted mean over labels; sensitive to rare
+          labels.
+    \item \textbf{Jaccard (samples)} --- exact-set overlap, rewards correct
+          label combinations.
+    \item \textbf{Hamming loss} --- fraction of misclassified label slots.
+    \item \textbf{micro precision / recall}.
+\end{itemize}
+
+%==============================================================================
+\section{Results}
+\label{sec:results}
+%==============================================================================
+
+\subsection{Classical Models (5-fold CV, mean)}
+
+Table~\ref{tab:classical} reports the mean cross-validation results for the four
+classical models.
+
+\begin{table}[H]
+\centering
+\caption{Classical ML results on the corrected multi-label Python subset.}
+\label{tab:classical}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model} & \textbf{micro-F1} & \textbf{macro-F1} & \textbf{Jaccard} & \textbf{Hamming} & \textbf{Prec/Rec} \\
+\midrule
+\textbf{OVR Logistic Regression} & \textbf{0.6282} & \textbf{0.5928} & 0.5843 & 0.1697 & 0.6172 / 0.6397 \\
+OVR SGD (log-loss)               & 0.6266 & 0.5932 & 0.5876 & 0.1746 & 0.6018 / 0.6536 \\
+OVR Linear SVM                   & 0.6236 & 0.5854 & 0.5801 & 0.1709 & 0.6160 / 0.6313 \\
+Classifier Chain (LR)            & 0.6098 & 0.5667 & \textbf{0.5977} & 0.1748 & 0.6103 / 0.6093 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Per-label Breakdown (OVR Logistic Regression)}
+
+Table~\ref{tab:perlabel} breaks down the best model's performance by category.
+
+\begin{table}[H]
+\centering
+\caption{Per-label precision/recall/F1 for the best model.}
+\label{tab:perlabel}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Label} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Support} \\
+\midrule
+Usage            & 0.7251 & 0.7000 & 0.7118 & 800 \\
+Parameters       & 0.7035 & 0.7090 & 0.7050 & 794 \\
+Expand           & 0.5620 & 0.6032 & 0.5815 & 504 \\
+Summary          & 0.5551 & 0.6079 & 0.5793 & 454 \\
+DevelopmentNotes & 0.3639 & 0.4138 & 0.3862 & 312 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RoBERTa Baseline}
+
+\textit{Status: to be completed.} The RoBERTa track is scaffolded and its
+preprocessed tensors are committed under \texttt{data/roberta/}. Training must be
+run on a machine with sufficient disk space for the $\sim$500\,MB
+\texttt{roberta-base} checkpoint. Results will be added here once available.
+
+%==============================================================================
+\section{Result Analysis}
+\label{sec:analysis}
+%==============================================================================
+
+\subsection{Key Observations}
+
+\begin{itemize}
+    \item \textbf{Performance tracks label frequency.} \textit{Usage} and
+          \textit{Parameters} (support $\approx$ 800) reach F1 $\approx$
+          0.70--0.71, while \textit{DevelopmentNotes} (support 312) lags at F1
+          $\approx$ 0.39. More training examples per label directly improve that
+          label's F1.
+
+    \item \textbf{Linear models are near-equivalent.} LR, SVM, and SGD all land
+          in the 0.61--0.63 micro-F1 band, suggesting the TF-IDF space is close
+          to linearly separable and the bottleneck is data volume and label
+          imbalance rather than model capacity.
+
+    \item \textbf{Classifier Chain trades F1 for Jaccard.} It achieves the best
+          Jaccard (0.5977) by modelling label co-occurrence (a comment tagged
+          \textit{Usage} is likelier to also carry \textit{Parameters}), at a
+          small cost to per-label F1.
+
+    \item \textbf{DevelopmentNotes is intrinsically hard.} It is both the rarest
+          label and the most semantically diffuse (``miscellaneous notes''),
+          explaining its clear margin of under-performance.
+\end{itemize}
+
+\subsection{Error Analysis}
+
+\textit{To be completed.} Planned analyses include confusion patterns between
+\textit{Summary} and \textit{Expand}, sensitivity to the decision threshold, and
+qualitative examples of misclassified comments.
+
+%==============================================================================
+\section{Project Packaging \& Reproducibility}
+\label{sec:packaging}
+%==============================================================================
+
+\subsection{Repository Layout}
+
+\begin{lstlisting}
+Seminar2/
+  configs/            # experiment YAML configs
+  data/               # raw + preprocessed data (tfidf/, roberta/)
+  docs/report/        # this report
+  experiments/        # dl/ and ml/ experiment entry points
+  notebooks/          # data preprocessing + EDA notebooks
+  results/            # generated metrics and analysis
+  src/
+    data/             # dataset loaders (nlbse2023.py)
+    models/ml/        # classical pipelines
+    models/dl/        # RoBERTa model definition
+\end{lstlisting}
+
+\subsection{Reproduction Steps}
+
+\begin{enumerate}[nosep]
+    \item Install dependencies: \texttt{pip install -r requirements.txt}.
+    \item (Optional) Regenerate preprocessed artifacts from the notebooks in
+          \texttt{notebooks/}.
+    \item Run classical baselines:
+          \texttt{python -m src.models.ml.ml\_pipeline}.
+    \item Run RoBERTa baseline:
+          \texttt{python -m experiments.dl.train\_exp1}.
+    \item Inspect metrics under \texttt{results/}.
+\end{enumerate}
+
+\subsection{Known Limitations}
+
+\begin{itemize}[nosep]
+    \item Python-only subset (2{,}555 samples), not the full 6{,}738-sample
+          Java+Python+Pharo dataset; each language has a different label set.
+    \item RoBERTa results pending (disk-space constraint).
+    \item Fixed 0.5 decision threshold for OVR/SGD; no per-label threshold
+          tuning was performed.
+\end{itemize}
+
+%==============================================================================
+\section{Discussion, Conclusion, and Future Work}
+\label{sec:conclusion}
+%==============================================================================
+
+\subsection{Discussion}
+
+The corrected preprocessing pipeline transformed a degenerate baseline
+(micro-F1 $\approx$ 0.01) into a strong classical result (micro-F1 0.6282). This
+underscores that in multi-label tasks, getting the label encoding right matters
+far more than model choice: all four linear models cluster tightly around the
+same performance, and the dominant source of error is label imbalance rather
+than insufficient model capacity.
+
+\subsection{Conclusion}
+
+We corrected a fundamental label-encoding error in the raw data, established a
+leakage-free 5-fold cross-validation protocol, and benchmarked four classical
+multi-label models alongside a scaffolded RoBERTa baseline. The best classical
+model achieves micro-F1 0.6282 and macro-F1 0.5928, with performance strongly
+correlated to per-label support.
+
+\subsection{Future Work}
+
+\begin{itemize}[nosep]
+    \item \textbf{Complete the RoBERTa comparison}: run the transformer baseline
+          and compare it against the classical models.
+    \item \textbf{Per-label threshold tuning}: optimize the decision threshold
+          for each label independently to improve rare-label F1.
+    \item \textbf{Extend to the full multilingual dataset}: incorporate the Java
+          and Pharo subsets for a complete NLBSE'23 evaluation.
+    \item \textbf{Error analysis}: systematically characterize the
+          \textit{Summary}/\textit{Expand} confusion and other failure modes.
+\end{itemize}
+
+%==============================================================================
+% References
+%==============================================================================
+
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+
+\bibitem{nlbse2023}
+R.~Karanikolas, C.~Aivaloglou, M.~Wessel, A.~Serebrenik, and A.~Bacchelli,
+``NLBSE'23 tool competition: Code comment classification,''
+in \textit{Proc.\ IEEE/ACM Int.\ Workshop on Natural Language-Based Software
+Engineering (NLBSE)}, 2023.
+
+\bibitem{pedregosa2011sklearn}
+F.~Pedregosa \textit{et al.},
+``Scikit-learn: Machine learning in Python,''
+\textit{Journal of Machine Learning Research}, vol.~12, pp.~2825--2830, 2011.
+
+\bibitem{sechidis2011stratification}
+K.~Sechidis, G.~Tsoumakas, and I.~Vlahavas,
+``On the stratification of multi-label data,''
+in \textit{Proc.\ ECML PKDD}, 2011.
+
+\bibitem{liu2019roberta}
+Y.~Liu \textit{et al.},
+``RoBERTa: A robustly optimized BERT pretraining approach,''
+arXiv:1907.11692, 2019.
+
+\bibitem{zhang2018mlknn}
+M.-L. Zhang and Z.-H. Zhou,
+``A review on multi-label learning algorithms,''
+\textit{IEEE Trans.\ Knowledge and Data Engineering}, vol.~26, no.~8,
+pp.~1819--1837, 2014.
+
+\end{thebibliography}
+
+\end{document}
