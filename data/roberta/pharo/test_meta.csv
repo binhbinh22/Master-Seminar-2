@@ -1,0 +1,348 @@
+comment_sentence_id,text,Classreferences,Collaborators,Example,Intent,Keyimplementationpoints,Keymessages,Responsibilities,partition_official
+9,users can also customise nose angle that tells how wide should the arrow lines be spread.,0,0,1,0,0,0,0,1
+23,for solid arrowhead make background paint be the same as border paint.,0,0,0,0,0,0,1,0
+41,i assume an index based way of working with children.,0,0,0,0,0,0,1,1
+45,i allow elements to optimize working with children for different scenarious.,0,0,0,0,0,0,1,0
+52,class blchildrenlinkedlist stores children using a class linkedlist,1,0,0,0,0,0,0,0
+78,example blchildrenorderedcollectionexamples #remove,0,0,1,0,0,0,0,1
+90,"by having an explicit object for each operation, the composition of operations can be inspected.",0,0,1,0,0,0,0,1
+95,api,0,0,0,0,0,1,0,0
+96,instances of me are created by calling the factory method method blchildrensubset class #on on a subclass with an instance of class blchildren as parameter.,0,0,0,0,0,1,0,0
+99,implementation details,0,0,0,0,1,0,0,1
+100,internally the result of method blchildrensubset #subsetfrom is stored into an instance variable.,0,0,0,0,1,0,0,0
+129,i am a special iterator used to iterate over concatenation rope,0,1,0,1,0,0,1,1
+137,my formula is,0,0,0,0,1,0,0,0
+149,example,0,0,1,0,0,0,0,0
+150,here you can see how to configure a fire and check a click event on a child element,0,0,1,0,0,0,0,0
+156,"i fire a class blmousedownevent , class blmouseupevent , and class blclickevent .",1,0,0,0,0,0,1,0
+157,example,0,0,1,0,0,0,0,1
+196,example,0,0,1,0,0,0,0,0
+197,child parent,0,0,1,0,0,0,0,1
+201,parent addchild child.,0,0,1,0,0,0,0,0
+246,all children of an element with gridlayout must use gridconstraints that allows users to configure how children are located within grid independently.,1,0,0,0,1,0,0,0
+247,a grid consists of cells that are separated by invisible lines.,0,0,0,0,1,0,0,0
+251,children are allowed to have fitcontent and exact resizing modes.,0,0,0,0,1,0,0,1
+252,because child s matchparent does not make sense in case of grid users should use #fill to declare that child should take all available cell s space.,0,0,0,0,1,0,0,0
+254,user can specify amount of columns or rows by sending columncount or rowcount to an instance of grid layout.,0,0,0,0,1,0,0,0
+258,rowcount anumber to specify amount of rows,0,0,0,0,0,1,0,0
+267,internal representation and key implementation points.,0,0,0,0,1,0,0,0
+336,i am a fallback host that is chosen if there are no other available and supported hosts.,0,0,0,1,0,0,1,1
+342,this may be delayed if there are background processes wanting to run to ensure that background calculation of ui elements can complete .,0,0,0,0,1,0,0,0
+350,i am a type of data source update command.,0,0,0,1,0,0,0,0
+357,this is a structural change event.,0,0,0,0,0,0,1,0
+360,blinfinitedatasource,1,1,0,0,0,0,0,1
+362,infiniteelement datasource,0,0,1,0,0,0,0,1
+364,"do event self inform item was moved from , event from asstring, to , event to asstring",0,0,1,0,0,0,0,0
+387,see blkeycombinationvisitor,1,0,0,0,0,0,0,0
+388,see blkeycombinationexamples for related examples.,1,0,0,0,0,0,0,0
+399,i am attached to a bloc element and define the visual structure of that bloc element.,0,1,0,0,0,0,1,0
+402,i support a set of attributes refered to as constraints in bloc which define the visual properties of the layout.,0,0,0,0,1,0,0,0
+447,after the entire layout phase is completed the real bounds and measured bounds will have the same value.,0,0,0,0,1,0,0,0
+450,todo explain why position is sometime changed in the measured bounds,0,0,0,0,1,0,0,0
+453,todo,0,0,0,0,1,0,0,0
+455,measurement top to bottom though all the composition of elements.,0,0,0,0,1,0,0,0
+457,space starts the layout step,0,0,0,0,1,0,0,0
+463,layout events,0,0,0,0,1,0,0,0
+464,todo,0,0,0,0,1,0,0,0
+465,layout api,0,0,0,0,1,0,0,0
+556,i represent a matrix decomposition in components.,0,0,0,1,0,0,0,0
+586,i am a host space created by blmorphichost.,0,0,0,1,0,0,0,0
+591,i act as a space host for a bloc space,0,1,0,1,0,0,0,0
+628,50@20.,0,0,1,0,0,0,0,0
+640,"the goal of this tutorial is to create an element with an arrow like pointer in the middle of the top edge, as shown below",0,0,1,0,0,0,0,0
+641,example blrectangleshapewitharrowexplanation #elementwithtoparrowgeometry nocode previewshow gtlivefor previewheight 250,0,0,1,0,0,0,0,0
+642,"a traditional way to implement such geometry is to create a subclass of class blgeometry , override method blgeometry #buildpathonspartacanvas and implement quite cumbersome algorithm that computes the location of each point and then connects those points using moveto and lineto commands provided by pathbuilder .",1,0,1,0,0,0,0,0
+645,this is where a class blvectorshape comes in handy.,1,0,1,0,0,0,0,0
+649,translating the top edge,0,0,1,0,0,0,0,0
+663,example blrectangleshapewitharrowexplanation #rectanglewithtoppolylinesplitinhalf previewshow #gtlivefor previewexpanded true previewheight 250,0,0,1,0,0,0,0,0
+721,i build sparta canvas using moz2d backend,0,0,0,0,0,0,1,0
+742,"class bltextelement provides different text measurement strategies, each suitable for a specific use case.",0,1,0,0,0,0,0,0
+750,"please note, that since the width is precise and depends on the content, whitespace is not taken into account when computing the width of the text element.",0,0,1,0,0,0,0,0
+751,example bltextelementmeasurementstrategyexamples #textelementwithlabelmeasurement nocode previewshow #gtlivefor previewheight 100,0,0,1,0,0,0,0,0
+756,example bltextelementmeasurementstrategyexamples #textelementwitheditormeasurement nocode previewshow #gtlivefor previewheight 100,0,0,1,0,0,0,0,0
+759,method bltextelement #tightmeasurement does exactly that and clips off any white space surrounding the text.,0,0,1,0,0,0,0,0
+762,conslusion,0,0,1,0,0,0,0,0
+764,example bltextelementmeasurementstrategyexamples #measurementdifference nocode previewshow #gtlivefor previewheight 220,0,0,1,0,0,0,0,0
+793,i represent a text underline attribute.,0,0,0,1,0,0,0,0
+834,labelled toggle,0,0,1,0,0,0,0,0
+844,thus being said by swapping the label and icon look we can move the icon to the right from the label,0,0,1,0,0,0,0,0
+933,i am the element with which a pager page can be resized horizontally.,0,1,0,1,0,0,0,0
+961,"then, we attach text to the enditor.",0,0,1,0,0,0,0,0
+987,i am used to record text selection intervals while user drags mouse over the text editor.,0,1,0,0,0,0,1,0
+1002,i hold all data relevant for an address,0,0,0,0,0,0,1,0
+1004,is sent after button is added to the scene graph,0,0,0,0,0,0,1,0
+1007,i allow connector to be notified and attach its own additional handlers to newly created button,0,1,0,0,0,0,1,0
+1034,picker,0,0,1,0,0,0,0,0
+1043,picker shape astring brtoggle new,0,0,1,0,0,0,0,0
+1045,margin blinsets all 3,0,0,1,0,0,0,0,1
+1046,label astring .,0,0,1,0,0,0,0,1
+1047,picker constraintsdo c,0,0,1,0,0,0,0,1
+1073,i know how to extract the dependencies of a given example.,0,0,0,0,0,0,1,0
+1074,the dependencies of a given example consists in message sends to other method constructing an example.,0,0,0,0,0,0,1,0
+1081,users should configure me with a #sourceclass .,0,0,0,0,1,1,0,0
+1082,this is the class used to look for methods defining examples.,0,0,0,0,1,0,0,1
+1089,to initialize the subjects of an example i call #gtexamplesubjects on the provider object.,0,0,1,0,1,0,0,0
+1090,to initialize various properties of an example i detect all pragmas from the example method for which a method exists in class of the example the method should have the same name as the pragma keyword .,0,0,1,0,1,0,0,1
+1137,"reignold tilfold s algorithm was originally designed only for binary trees, but later extended to work for non binary ones as well.",0,0,0,0,1,0,0,0
+1138,"while reignold tilfold s algorithm produces a compact tree layout, moen s strives to make a tighter one.",0,0,0,0,1,0,0,1
+1142,"in this implementation, we call the polylines contours.",0,0,0,0,0,0,1,1
+1147,"calculation of positions factors in the mentioned offsets, as well as the positions of the node s parent and the layout s node and level distance properties.",0,0,0,0,0,0,1,1
+1148,"additionally, this implementation supports alignment of nodes top, center, bottom in case of the vertical layout and left, center, right in case of the horizontal layout .",0,0,0,0,0,0,1,0
+1151,"generally, the differences between the implementations of the hozitonal and vertical variants are really small, revolving around one using or setting the x and the other y coordinates.",0,1,0,0,0,0,0,0
+1180,smallest enclosing circle of circles,0,0,0,1,0,0,0,0
+1186,"and add circles one by one, starting with a larger one.",0,0,1,0,0,0,0,0
+1192,two circle enclosure is also a special case and can be derived directly by method gtgraphcircleenclosure class #enclosure and,0,0,1,0,0,0,0,0
+1280,i implement an horizontal slice algorithm.,0,0,0,1,0,0,0,0
+1290,i split an area into rectangles that are close to squares aspect ratio 1 as much as possible.,0,0,0,0,0,0,1,0
+1292,i use class gtgraphtreemapsquarifystep to split area into sub areas and measure class gtgraphtreemapnode positions and extends.,0,1,0,0,0,0,1,1
+1299,the first step of our algorithm is to split the initial rectangle.,0,0,1,0,0,0,0,1
+1304,example gtgraphtreemaplayoutexamples #squarifywithsevennodesfirststep previewexpanded true nocode,0,0,1,0,0,0,0,0
+1305,"next we add a second rectangle, above the first.",0,0,1,0,0,0,0,1
+1306,the worst aspect ratio improves to example gtgraphtreemaplayoutexamples #squarifywithsevennodessecondstep label #worstvaluerounded .,0,0,1,0,0,0,0,0
+1311,"the initial subdivision we choose here is vertical, because the rectangle is higher than wider.",0,0,1,0,0,0,0,1
+1314,"in the next step, we add area 3.",0,0,1,0,0,0,0,0
+1316,example gtgraphtreemaplayoutexamples #squarifywithsevennodesfifthstep previewexpanded true nocode,0,0,1,0,0,0,0,0
+1317,addition of the next area 2 however does not improve the result as the worst aspect ratio increases from example gtgraphtreemaplayoutexamples #squarifywithsevennodesfifthstep label #worstvaluerounded to example gtgraphtreemaplayoutexamples #squarifywithsevennodessixthstep label #worstvaluerounded,0,0,1,0,0,0,0,1
+1320,example gtgraphtreemaplayoutexamples #squarifywithsevennodesseventhstep previewexpanded true nocode,0,0,1,0,0,0,0,1
+1322,the final result is the following,0,0,1,0,0,0,0,0
+1323,example gtgraphtreemaplayoutexamples #squarifywithsevennodes nocode codeexpanded false previewexpanded true .,0,0,1,0,0,0,0,1
+1365,i layout class gtgraphtreemapnode along my shorter side height .,0,0,0,0,0,0,1,1
+1369,example gtgraphtreemaplayoutexamples #squarifywithfournodesfirstarea nocode,0,0,1,0,0,0,0,1
+1403,the ui may want to display them in a transcript,0,1,0,0,0,0,0,0
+1435,i am an abstract tasker defining mandatory methods for all taskers.,0,0,0,1,0,0,0,0
+1438,method gtprototasker #addtask expanded true,0,0,0,0,0,1,0,0
+1452,message two,0,0,0,0,0,1,0,0
+1465,i indicate a passive release as no actions need to be executed.,0,0,0,0,0,0,1,0
+1468,as i am passive i do not export any metadata.,0,0,0,0,1,0,0,0
+1471,i am a valid release strategy only when all monticello baselines that load this project use the same tag to load it.,0,0,1,0,0,0,0,0
+1483,i only work with strategies of type class gtrlsemantictagreleasestrategy .,0,1,0,0,1,0,0,0
+1490,i reset both the patch and minor parts of the version number to zero.,0,0,0,0,0,0,1,0
+1509,method gtrlreleaseconfiguration #forcenewrelease force a new release in a repository even if there no new changes in that repository and all dependencies did not change.,0,0,0,0,0,1,0,0
+1524,i am sent by snippet widget looks when they request to receive a snippet model from the widget model,0,0,0,1,0,0,1,0
+1529,"because text extents are in user space coordinates, they are mostly, but not entirely, independent of the current transformation matrix.",0,0,0,0,1,0,0,0
+1530,"if you call cairo scale cr, 20, 20 , text will be drawn twice as big, but the reported text extents will not be doubled.",0,0,0,0,1,0,0,0
+1545,spartacanvas,0,0,0,1,0,0,0,0
+1548,overview,0,0,0,0,0,0,1,0
+1557,public api and key messages,0,0,0,0,0,1,0,0
+1559,stroke create a builder of stroke drawing operation,0,0,0,0,0,1,0,0
+1562,clip create a builder to clip canvas by path or rectangle,0,0,0,0,0,1,0,0
+1570,filters create a common filters factory,0,0,0,0,0,1,0,0
+1571,extent get my size width@height,0,0,0,0,0,1,0,0
+1573,asform to rasterize myself and return resulting image as form,0,0,0,0,0,1,0,0
+1576,example,0,0,1,0,0,0,0,0
+1578,language smalltalk,0,0,1,0,0,0,0,0
+1580,https github^com syrel sparta raw master images spartacanvas 01 empty^png label emptycanvas,0,0,1,1,0,0,0,0
+1582,language smalltalk,0,0,1,0,0,0,0,0
+1583,triangle canvas path,0,0,1,0,0,0,0,0
+1584,moveto 100@0,0,0,1,0,0,0,0,0
+1585,lineto 200@200,0,0,1,0,0,0,0,0
+1586,lineto 0@200,0,0,1,0,0,0,0,0
+1592,lineargradient canvas paint lineargradient,0,0,1,0,0,0,0,0
+1596,1 color blue .,0,0,1,0,0,0,0,0
+1611,language smalltalk,0,0,1,0,0,0,0,0
+1614,path triangle,0,0,1,0,0,0,0,0
+1616,draw.,0,0,1,0,0,0,0,0
+1619,language smalltalk,0,0,1,0,0,0,0,0
+1624,stddeviation 4.,0,0,1,0,0,0,0,0
+1629,type blue,0,0,1,0,0,0,0,0
+1717,i represent a line.,0,0,0,1,0,0,0,0
+1719,public api and key messages,0,0,0,0,0,1,0,0
+1720,from get my start point,0,0,0,0,0,1,0,0
+1722,spartaline from 10@10 to 20@20,0,0,0,0,0,1,0,0
+1745,example,0,0,1,0,0,0,0,0
+1766,"a paint is transformable and can be used with one of extend modes, for example repeat, reflect or clamp.",0,0,0,0,0,0,1,0
+1777,repeatx repeat only x axis,0,0,0,0,0,1,0,0
+1778,repeaty repeat only y axis,0,0,0,0,0,1,0,0
+1781,"scaleby scale me by a factor, a point or a number.",0,0,0,0,0,1,0,0
+1782,translateby translate me by a point or a number,0,0,0,0,0,1,0,0
+1808,stroke options are used in stroking operations.,0,0,0,0,0,1,1,0
+1817,"note that textrun is optimised for the case of simple ascii string all chars are 8 bit , simple multilanguage string all chars are 16 bit and complex scripts characters have various length of 8 32 bits .",0,0,0,0,1,0,0,0
+1854,cn c name withoutprefix #famixjava.,0,0,1,0,0,0,0,0
+1857,", cn .",0,0,1,0,0,0,0,0
+1860,model moosemodel new.,0,0,1,0,0,0,0,0
+1861,model silentlyaddall repo elements.,0,0,1,0,0,0,0,0
+1877,famixnamespacegroup is a moosegroup containing only famix enities of type famixnamespace.,1,1,0,1,0,0,1,0
+1887,"famixpackage represents a package in the source language, meaning that it provides a means to group entities without any baring on lexical scoping.",1,0,0,1,0,0,1,0
+1897,this is a famixtype.,0,0,0,1,0,0,0,0
+1898,example,0,0,1,0,0,0,0,0
+1912,i represent a property of the object currently been imported while it is not yet imported.,0,0,0,1,0,0,1,0
+1915,"in that case, i ll push my values in real property.",0,0,0,0,0,0,1,0
+1938,i will initialize myself with a new fmmetamodel but this one can be replaced by an existing one.,1,0,1,0,1,0,0,0
+1941,examples,0,0,1,0,0,0,0,0
+1976,printer,0,0,1,0,0,0,0,0
+1987,description,0,0,0,1,0,0,0,0
+1990,trait named #famixtmethod,0,0,1,0,0,0,0,0
+1992,package famix traits method,0,0,1,0,0,0,0,0
+2000,i am an abstract slot used to declare fame properties for a class.,0,0,0,1,0,0,1,0
+2016,"i just visit each node in the builder, and print it on the transcript.",0,0,0,0,0,0,1,0
+2045,"hapax is distributed under bsd license, see package comment.",0,1,0,1,0,0,0,0
+2062,parent malhgnode,0,0,0,0,0,1,0,0
+2064,dictionary to attach arbitrary information to a node,0,0,0,0,0,1,0,0
+2067,empty collection if the node is a leaf in the hierarchy.,0,0,0,0,0,1,0,1
+2099,"this means it finds a subset of the edges that forms a tree that includes every vertex, where the total weight of all the edges in the tree is minimized.",0,0,0,0,0,0,1,1
+2105,the class implements the identification of patterns in fca lattices.,0,0,0,0,0,0,1,1
+2155,terms subclasses bag with support for handling stopwords etc,0,0,0,1,0,0,1,0
+2159,terms addstring string using camelcasescanner new.,0,0,1,0,0,0,0,0
+2164,"hapax is distributed under bsd license, see package comment.",0,1,0,0,0,0,0,0
+2179,these meta data are used by other tools such as the smalllintmanifestchecker and the critics browser,1,1,0,0,0,0,0,0
+2206,see mooseentitystate for more information,0,0,1,0,0,0,0,0
+2207,meta descriptions,0,0,1,0,0,0,0,0
+2208,entities should also be meta described in terms of fame.,0,0,1,0,0,0,0,0
+2229,moosedescription returns the corresponding fm3metadescription instance,0,0,0,0,0,1,0,0
+2273,the moosevisuallocator is a simple template that offers a list of classes on the left hand side and some presentation on the right hand side.,0,0,0,1,0,0,1,0
+2278,i am a test resource building a famixstmodel with the package blueprint test resource entities.,1,1,0,1,0,0,1,0
+2287,the direction of the navigation incoming outgoing in out,0,0,0,0,0,1,0,0
+2296,#querylocal asymbol with afamixassociation looks for the associations of the kind afamixassociation in the direction described by the symbol in the receiver.,0,0,0,0,0,1,0,0
+2297,#queryall asymbol looks for the associations in the direction described by the symbol in the receiver and its children.,0,0,0,0,0,1,0,0
+2307,afamixmethod querylocal #out with famixaccess.,0,0,1,0,0,0,0,0
+2308,will return a mooseoutgoingqueryresult containing the famixaccess associations having afamixmethod as source,0,0,1,0,0,0,0,0
+2313,afamixclass queryalllocal #in.,0,0,1,0,0,0,0,0
+2315,afamixmethod queryalllocal #out.,0,0,1,0,0,0,0,0
+2352,a ppdebugparser is a parser that traces all the progress and returns special object that can be browsed to see how the parsing advanced over a time.,0,0,0,1,0,0,1,0
+2355,root result of root parser,0,0,0,0,0,1,0,0
+2363,a ppinfo represent the informations around a parsing result and also contain this result.,0,0,0,1,0,0,0,0
+2412,.,0,0,1,0,0,0,0,0
+2419,xac,0,0,1,0,0,0,0,0
+2430,context object,0,0,0,0,0,1,0,0
+2432,afterwaterparser,0,0,0,0,0,1,0,0
+2436,beforewaterparser,0,0,0,0,0,1,0,0
+2440,context,0,0,0,0,0,1,0,0
+2474,a xpath node applies me to filter xml elements.,0,0,0,0,0,0,1,0
+2482,i m usually invoked from a command line but not only.,0,0,0,0,0,0,1,0
+2483,my main entry point is,0,0,1,0,0,0,0,0
+2484,createconfiguration conffilename basedirectory basedirectory argdictionary arguments,0,0,1,0,0,0,0,0
+2486,pharo ui pillar^image pillar export to latex chapters chapter1 chapter1^pillar,0,0,1,0,0,0,0,0
+2492,inputfile filesystem workingdirectory chapters chapter1 chapter1^pillar .,0,0,1,0,0,0,0,0
+2493,defaultexporters latex,0,0,1,0,0,0,0,0
+2494,asdictionary,0,0,1,0,0,0,0,0
+2550,"for templates values, you can not specify directories, only ^mustache files.",0,0,0,0,0,0,1,0
+2578,an html canvas that facilitates writing html to a stream.,0,0,0,1,0,0,1,1
+2593,i can have in parameter,0,0,0,0,0,1,0,1
+2614,"i represent the abstraction over ordered, unordered html or latex list.",0,0,0,1,0,0,0,1
+2619,i am a writer for commonmark,0,0,0,1,0,0,0,0
+2624,i am visitable.,0,0,0,0,0,0,1,0
+2635,my key is instance of prparameterkey and its associated vaue is an instance of prparametervalue.,0,1,0,0,0,0,0,0
+2647,this method will return an output.,0,0,1,0,0,0,0,0
+2649,transformerinputfileon acollection,0,0,1,0,0,0,0,0
+2650,pillartransformer 1 the parameter is the priority of the transformation,0,0,1,0,0,0,0,0
+2690,i am preformatted text or source code.,0,0,0,1,0,0,0,0
+2693,i am an annotation used to show a screenshot of a given class and method.,0,0,0,1,0,0,1,0
+2698,method the targetted method,0,0,0,0,0,1,0,0
+2703,file label aa,0,0,0,0,0,1,0,0
+2724,i am a transformer for the showclass annotation.,0,0,0,1,0,0,0,0
+2731,an error about syntax,0,0,0,1,0,0,0,0
+2742,accuracy is a framework for testing the numerical accuracy of the results of methods.,0,0,0,1,0,0,1,0
+2748,an s step adams moulton method can reach order s 1.,0,0,0,0,0,0,1,0
+2750,a am3 method is implicit.,0,0,0,0,0,0,1,0
+2754,a bernoulligeneratortest is a test class for testing the behavior of bernoulligenerator,1,1,0,1,0,0,1,0
+2759,"a pmexponentialgenerator uses a uniform random variable in 0,1 to sample from an exponential distribution.",0,0,0,1,0,0,0,0
+2773,"example f x,y x^2 y",0,0,1,0,0,0,0,0
+2775,g value # 3 2 .,0,0,1,0,0,0,0,0
+2796,"you can do the last one in two ways, either by specifying a block via #cdf or by specifying a distribution with concrete parameters via #populationdistribution .",0,0,1,0,0,0,0,0
+2801,#rejectequalityhypothesiswithalpha does what its name says of course.,0,0,0,0,0,1,0,0
+2802,example,0,0,1,0,0,0,0,0
+2804,"normal distribution 0, 1",0,0,1,0,0,0,0,0
+2808,FALSE,0,0,1,0,0,0,0,0
+2823,i implement line search algorithm to find the minimum of a function g x 0 on the interval 0 x 1.,0,0,0,1,0,0,1,0
+2827,g x g 0 alpha g 0,0,0,0,0,1,0,0,0
+2829,usage,0,0,1,0,0,0,0,0
+2830,for once off use,0,0,1,0,0,0,0,1
+2901,a statetime class is a generalization of point.,0,0,0,1,0,0,0,0
+2902,it holds both a state and a time.,0,0,0,0,0,0,1,0
+2903,"we don t want to use point, since state may be a vector quantity, and the behavior of array @ number is a little off it stores points in an array, what we want is the array itself in state, and the scalar quantity in time .",0,0,0,0,1,0,0,0
+2907,basic steppers execute one timestep of a specific order with a given stepsize.,0,0,0,1,0,0,1,0
+2943,iftrue examples add met time,0,0,1,0,0,0,0,0
+2972,rtcirculartreemapbuilder,1,1,0,0,0,0,0,0
+3000,e2 s elementon end .,0,0,1,0,0,0,0,0
+3047,a rtbox is a rectangular box.,0,0,0,1,0,0,0,0
+3048,"eg,",0,0,1,0,0,0,0,0
+3052,v open,0,0,1,0,0,0,0,0
+3063,rtcalendarexample new installtitle visualizationcsv,0,0,1,0,0,0,0,0
+3069,tab values do ar value,0,0,1,0,0,0,0,0
+3078,b monthshape shape b monthshapepath 150 .,0,0,1,0,0,0,0,1
+3079,b yearshape composite comp,0,0,1,0,0,0,0,1
+3083,b dates year year 1990 to year year 2010 .,0,0,1,0,0,0,0,1
+3088,d value index,0,0,1,0,0,0,0,0
+3095,b dateinteraction popup.,0,0,1,0,0,0,0,1
+3136,"i am not a roassal shape, for that use rtellipse.",0,0,0,1,0,0,0,1
+3145,"qualitative schemes do not imply magnitude differences between legend classes, and hues are used to create the primary visual differences between classes.",0,0,0,0,0,0,1,0
+3146,qualitative schemes are best suited to representing nominal or categorical data.,0,0,0,0,0,0,1,0
+3171,rtexperimentalexample new installtitle boxselectionforedges,0,0,1,0,0,0,0,0
+3198,b rtmondrian new.,0,0,1,0,0,0,0,1
+3199,b shape box size #numberofmethods.,0,0,1,0,0,0,0,1
+3201,b layout grid.,0,0,1,0,0,0,0,1
+3202,b normalizer normalizecolor #numberofmethods.,0,0,1,0,0,0,0,1
+3206,b,0,0,1,0,0,0,0,1
+3211,b edges connectfrom #superclass.,0,0,1,0,0,0,0,0
+3218,b shape box size #numberofmethods.,0,0,1,0,0,0,0,1
+3219,b nodes collection withallsubclasses .,0,0,1,0,0,0,0,0
+3310,define a range for gt,0,0,0,0,0,0,1,0
+3311,g rtgrapher new.,0,0,1,0,0,0,0,0
+3332,highlight to indicates that some interaction be can done.,0,0,0,0,0,0,1,0
+3337,instancevariables #instvarnames,0,0,1,0,0,0,0,0
+3351,b rtmondrian new.,0,0,1,0,0,0,0,0
+3352,b shape circle size 10.,0,0,1,0,0,0,0,0
+3392,the histogram gives you a distribution frequency over the points given.,0,0,0,0,0,0,1,0
+3393,frequency on y and a collection of values per bars on x.,0,0,0,0,0,0,1,0
+3403,e rtellipse new size 30 elementon 42.,0,0,1,0,0,0,0,0
+3413,position object,0,0,0,0,0,1,0,0
+3417,color,0,0,0,0,0,1,0,0
+3453,code,0,0,1,0,0,0,0,0
+3459,@ rtdraggable.,0,0,1,0,0,0,0,0
+3472,add b2,0,0,1,0,0,0,0,0
+3502,i allow to export several views,0,0,0,0,0,0,1,0
+3529,popup object,0,0,0,0,0,1,0,0
+3531,popup,0,0,0,0,0,1,0,0
+3534,xxxxx,0,0,0,0,0,1,0,0
+3545,e2 translateby 30 @ 60.,0,0,1,0,0,0,0,0
+3551,v add l.,0,0,1,0,0,0,0,0
+3577,rtgridlayout on es.,0,0,1,0,0,0,0,0
+3699,d addmetric #second.,0,0,1,0,0,0,0,0
+3701,d addmetric #fourth.,0,0,1,0,0,0,0,1
+3704,b,0,0,1,0,0,0,0,0
+3708,b rtgrapher new.,0,0,1,0,0,0,0,0
+3712,d addmetric #numberofmethods.,0,0,1,0,0,0,0,0
+3714,b add d.,0,0,1,0,0,0,0,0
+3761,position point,0,0,0,0,0,1,0,0
+3770,rectangle,0,0,0,0,0,1,0,0
+3773,the scale of the shape,0,0,0,0,0,1,0,0
+3782,zoomlevel ln 156543034 rzoom ln 2,0,0,0,0,1,1,0,0
+3788,"depending on the rtview size and the canvas parameters, get the right tiles from osm and display them.",0,0,0,0,1,1,0,0
+3790,"from the camera, get the zoom level and offset.",0,0,0,0,1,1,0,0
+3792,make remainder zoom a transform inside the trosmshape.,0,0,0,0,1,1,0,0
+3795,display each tile.,0,0,0,0,1,0,0,0
+3854,clients can flush the response as often as they want at appropriate points in their response generation everything buffered up to that point will be sent.,0,1,0,0,0,0,0,0
+3861,self searchresultsdo aresult,0,0,1,0,0,0,0,0
+3863,acanvas flush.,0,0,1,0,0,0,0,0
+3894,cookie spec,0,0,0,0,1,0,0,0
+3896,cookie 2 spec,0,0,0,0,1,0,0,0
+3918,i make a copy of an application.,0,0,0,0,0,0,1,0
+3920,datalist together with the a new list attribute for input is used to make comboboxes,0,0,1,0,0,0,1,0
+3942,a wadevelopment is a collection of convenience methods for dealing with seaside development in squeak.,0,0,0,1,0,0,1,0
+3949,i encode everything that is written to myself using #nextput and #nextputall onto the wrapped stream.,0,0,0,0,0,1,1,0
+3952,waerrorhandler catches errors and warnings and provides two methods for handling each type of exception,0,1,0,0,0,0,1,0
+3955,"if either method is not implemented, the default implementation will call #handledefault , which can be used to provide common behaviour for both exception types.",0,0,0,0,1,0,0,0
+3966,maximumsize integer,0,0,0,0,0,1,0,0
+3982,has to be positive.,0,0,0,0,0,1,0,0
+3983,overflowaction,0,0,0,0,0,1,0,0
+4027,evaluation order,0,0,0,0,1,0,0,0
+4044,"inserting an inline frame within a section of text is much like inserting an object via the object element they both allow you to insert an html document in the middle of another, they may both be aligned with surrounding text, etc",0,0,1,0,0,0,0,0
+4045,the information to be inserted inline is designated by the src attribute of this element.,0,0,0,0,1,0,0,0
+4057,"the submitted data includes name^x x value and name^y y value where name is the value of the name attribute, and x value and y value are the x and y coordinate values, respectively.",0,0,0,0,1,0,0,0
+4081,"subclasses need to implment the methods labelforselector , model, and rows.",0,0,0,0,0,1,0,0
+4099,contact is an inst var,0,0,1,0,0,0,0,0
+4102,^ contact,0,0,1,0,0,1,0,1
+4112,asymbol #name iftrue ^ your name .,0,0,1,0,0,1,0,0
+4120,list # roger pete,0,0,1,0,0,0,0,1
+4240,i am a pharo specific url encoder.,0,0,0,1,0,0,0,0
+4247,"the appearance of all plugins, such as icons, has to be configured using css.",0,0,0,0,0,0,1,0
+4261,the request context is valid only during the request that caused it.,0,0,0,0,1,0,0,0
+4279,labelblock item item 1 iftrue first iffalse item asuppercase .,0,0,1,0,0,0,0,0
+4281,self inform result printstring,0,0,1,0,0,0,0,0
+4298,#codec,0,0,0,0,0,1,0,0
+4301,codec wacodec,0,0,0,0,0,1,0,0
+4310,its main additions are,0,0,0,0,1,0,0,0
+4311,element name #tag,0,0,0,0,1,0,0,0
+4322,access the duration how long ago the image booted as follows,0,1,0,0,0,1,1,0
+4323,wauptimetracker imageuptime.,0,1,0,0,0,1,1,0
+4324,at system startup the imageboottime is re set automatically.,0,1,0,0,0,1,1,0
