@@ -1,0 +1,16 @@
+experiment: exp_ml_baseline
+output_dir: results/exp_ml_baseline
+data:
+  processed_dir: data/processed
+  language: python
+features:
+  word_ngram_range: [1, 2]
+  char_ngram_range: [3, 5]
+  max_features_per_vectorizer: 20000
+models:
+  - dummy_most_frequent
+  - ovr_logreg
+  - classifier_chain_logreg
+  - ovr_linear_svc
+  - ovr_sgd
+  - ovr_random_forest
