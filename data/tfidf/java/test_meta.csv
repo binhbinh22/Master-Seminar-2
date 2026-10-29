@@ -1,0 +1,487 @@
+comment_sentence_id,clean_comment,Expand,Ownership,Pointer,deprecation,rational,summary,usage,partition_official
+6,the tree parameters.,1,0,0,0,0,0,0,0
+9,the tree parameters.,1,0,0,0,0,0,0,0
+13,kept small to avoid killing object store test runs too much.,1,0,0,0,0,0,0,0
+15,equals the @code match field.,1,0,0,0,0,0,0,0
+70,balancing policy.,0,0,0,0,0,1,0,1
+81,base class for all the routerrmadminservice test cases.,0,0,0,0,0,1,0,1
+103,this class maintains the map from a block to its metadata.,0,0,0,0,0,1,0,0
+122,dynamic behavior of the scheduler in a way that is consistent with the,1,0,0,0,0,0,0,1
+129,this makes it resilient to frequency of,0,0,0,0,1,0,0,1
+130,"synchronization, and rm restart issues no catch up is necessary .",0,0,0,0,1,0,0,0
+156,this is useful in situations where wildcard syntax isn t usable.,1,0,0,0,0,0,0,1
+177,ul,0,0,0,0,0,0,1,0
+192,li code sp code li,0,0,0,0,0,0,1,0
+197,li,0,0,0,0,0,0,1,1
+201,"represents a string in the version item list, usually a qualifier.",0,0,0,0,0,1,1,0
+239,exception to throw in case of a configuration problem.,0,0,0,0,0,1,0,0
+249,documentation for options.,0,0,1,0,0,0,1,0
+274,"specifically, either openssl or jsse can be used.",1,0,0,0,0,0,0,0
+281,ul,0,0,0,0,0,0,1,0
+282,li openssl uses the wildly openssl library to delegate to the,0,0,0,0,0,0,1,0
+301,p,0,0,0,0,1,0,1,0
+302,default jsse is not truly the the default jsse implementation because,0,0,0,0,1,0,1,0
+303,the gcm cipher is disabled when running on java 8.,0,0,0,0,1,0,0,0
+304,"however, the name",0,0,0,0,1,0,0,0
+305,was not changed in order to preserve backwards compatibility.,0,0,0,0,1,0,1,0
+373,not in exclusionlist is processed.,1,0,0,0,0,0,0,0
+377,in that case diskbalancer will avoid any,1,0,0,0,0,0,0,0
+419,we lazily get a proxy to one of the configured namenodes and attempt to make the request,0,0,0,0,1,0,0,0
+425,a working proxy is retained across attempts since we,0,0,0,0,1,0,0,0
+459,event watcher the re send a message after timeout.,0,0,0,0,0,1,0,0
+465,tracking.,0,0,1,0,0,0,0,0
+480,if,0,0,0,0,0,0,1,0
+481,sizedbasedweight is set to true then an application with high demand,0,0,0,0,0,0,1,0
+486,"continuously optional, default false",0,0,0,0,0,0,1,0
+519,supposed to be last writing operation and will close the file.,1,0,1,0,0,0,0,0
+537,api response for listing hdfs namespaces present in the state store.,0,0,0,0,0,1,0,0
+560,order the destinations based on consistent hashing.,0,0,0,0,0,1,0,0
+562,responsible to keep all abfs http headers here.,1,0,0,0,0,0,0,0
+566,s3 client factory used for testing with eventual consistency fault injection.,0,0,0,0,0,1,0,0
+567,this client is for testing i only i it is in the production,0,0,0,0,0,0,1,0
+594,executed if the destination store declares its support for the feature.,1,0,0,0,0,0,0,0
+601,kerberos spnego authentication mechanism and support for hadoop delegation,0,0,0,0,0,1,0,0
+605,endpoint does not trigger a spnego authentication,1,0,1,0,0,0,0,0
+619,"it knows about the pssibly empty sequence of attempts, its i o footprint,",1,0,0,0,0,0,0,0
+634,lru cache with a configurable maximum cache size and access order.,1,0,0,0,0,1,0,0
+656,"used to create channel, transfer data and command between java and native",0,0,0,0,1,0,0,0
+685,this class stores om node details.,0,0,0,0,0,1,0,0
+697,a class for parsing outputs,0,0,0,0,0,1,0,0
+699,interface for an @link org^apache.hadoop^mapreduce.outputcommitter,0,0,1,0,0,0,0,0
+703,this class represents queue user resource usage info for a given partition,0,0,0,0,1,1,0,0
+713,arbitrary integrals can be approximated numerically by qmc methods.,1,0,0,0,0,0,0,0
+715,"we use a qmc method to approximate the integral i int s f x dx ,",0,0,1,0,0,0,1,0
+718,"and f is a function describing the inscribed circle of the square s ,",0,0,0,0,0,0,1,0
+724,"for computing many digits of pi, consider using bbp.",1,0,0,0,0,0,1,0
+741,generate points in a unit square,1,0,0,0,0,0,0,0
+775,check if a record matches a query.,0,0,0,0,0,1,0,0
+783,data generator tool to generate as much keys as possible.,0,0,0,0,0,1,0,0
+793,p,1,0,0,0,0,0,0,0
+794,"it is assumed only 1 updater will be running, since updating file xattrs",1,0,0,0,0,1,0,0
+801,class representing the task for one batch of a re encryption command.,0,0,0,0,0,1,0,0
+830,internal constants for the registry.,0,0,0,0,0,1,0,0
+845,@link org^apache.hadoop^yarn.server^resourcemanager.webapp^dao.resourcerequestinfo,0,0,1,0,0,1,0,0
+898,shared functionality for hadoopstreaming formats.,0,0,0,0,0,1,0,0
+901,the option bin hadoopstreaming inputreader .,0,0,0,0,0,0,1,0
+902,@see streamxmlrecordreader,0,0,1,0,0,0,0,0
+910,constraints,1,0,0,0,0,0,0,0
+914,"the maximum depth of each subdirectory is a random number 2 maxdepth 3, maxdepth .",1,0,0,0,0,0,0,0
+917,the size of each,1,0,0,0,0,0,0,0
+918,file follows gaussian distribution.,1,0,0,0,0,0,0,0
+926,maxdepth maxdepth maximum depth of the directory tree default is 5.,0,0,0,0,0,0,1,0
+960,thrown to indicate that data locality can t be calculated or requested path is incorrect.,0,0,0,0,0,1,0,0
+972,@return a snapshot of the statistics,0,0,1,0,0,0,0,0
+973,base class for all swift rest operations.,0,0,1,0,0,0,0,0
+976,get the current operation statistics.,0,0,1,0,0,0,0,0
+982,@return a snapshot of the statistics,0,0,1,0,0,0,0,0
+992,@param r,0,0,1,0,0,0,0,0
+1049,unit test for @link federationpolicyutils .,0,0,1,0,0,1,0,1
+1052,unit test for file size count task.,0,0,0,0,0,1,0,0
+1057,"namenode, datanode, secondarynamenode and backupnode.",0,0,0,0,0,1,0,1
+1059,br,1,0,0,0,0,0,0,1
+1073,various scenarios to test in how often we flush data while uploading.,0,0,0,0,1,0,0,0
+1082,test class for @link ozonenativeauthorizer .,0,0,1,0,0,1,0,1
+1133,"are where swiftfs does not implement those features, or",0,0,0,0,1,0,0,1
+1145,aborttask,0,0,0,0,0,1,0,0
+1150,special committer that always requires commit.,0,0,0,0,0,0,1,0
+1165,config file and put some nodes to decommission state.,1,0,0,0,0,0,0,1
+1166,the test then verifies replicas are placed on the nodes that,1,0,0,0,0,0,0,0
+1173,an @link inputformat for plain text files.,0,0,1,0,0,1,0,0
+1199,"or empty, all configurations will be fetched if fieldstoretrieve",1,0,1,0,0,0,0,0
+1203,return instead.,1,0,1,0,0,0,0,0
+1206,in response.,1,0,1,0,0,0,0,0
+1233,be retrieved.,1,0,1,0,0,0,0,1
+1360,"uniformsizeinputformat extends the inputformat class, to produce",0,0,0,0,0,1,0,0
+1371,it provides,0,0,0,0,0,1,0,0
+1376,"path filelist fileutil^stat2paths fs^liststatus outdir,",0,0,0,0,0,0,1,0
+1379,it doesnt accept paths having logs.,1,0,0,0,0,0,1,0
+1400,volumeset to manage hdds volumes in a datanode.,0,0,1,0,0,1,0,0
+1433,methods defined in this interface should be non blocking call and should not,1,0,0,0,1,0,0,0
+1445,response to @link chunkfetchrequest when a chunk exists and has been successfully fetched.,0,0,0,0,0,1,0,0
+1469,a function that returns zero or more output records from each input record.,0,0,0,0,0,1,0,1
+1471,java bean class to be used with the example javasqlnetworkwordcount.,0,0,0,0,0,0,1,1
+1478,for example,1,0,0,0,0,0,0,1
+1488,batches processed exceeds numbatchestimeout .,0,0,0,0,0,0,1,0
+1513,the serializer is,1,0,0,0,0,0,0,0
+1516,p,1,0,0,0,0,0,0,0
+1522,"when using the built in key management, the implementation will automatically create unique",1,0,0,0,0,0,0,0
+1523,keys for each type written to the store.,1,0,0,0,0,0,0,0
+1527,p,1,0,0,0,0,0,0,0
+1531,by the values of those properties.,1,0,0,0,0,0,0,0
+1532,this makes it possible to provide sorting without having,1,0,0,0,0,0,0,0
+1573,implementation of kvstore that uses leveldb as the underlying data store.,0,0,0,0,0,1,0,1
+1581,a wrapper message that holds two separate pieces a header and a body .,0,0,0,0,0,1,0,0
+1595,the actual block data is not contained here.,1,0,0,0,0,0,0,1
+1597,that is returned from rpchandler^receivestream,1,0,0,0,0,0,0,0
+1608,a lot of utility methods via provider link.,0,0,0,0,1,0,0,1
+1609,"in particular, it allows to get current project,",0,0,0,0,1,0,0,0
+1610,configuration etc see icpropertyprovider interface.,0,0,0,0,1,0,0,0
+1614,"uniform manner setuplabel , setuptext etc .",0,0,0,0,1,0,0,0
+1616,communication way for new cdt model pages and tabs.,0,0,0,0,1,0,0,0
+1663,@since 40,0,0,0,1,0,0,0,0
+1688,li after eclipse started a project is being opened.,0,0,0,0,0,0,1,0
+1690,"with cconfigurationdescriptioncache icstorageelement storage, cprojectdescription parent constructor.",0,0,0,0,0,0,1,0
+1694,the reference to cache is kept in field fcfgcache.,0,0,0,0,0,0,1,1
+1698,ul,0,0,0,0,0,0,1,0
+1700,to the cconfigurationdescriptioncache.,0,0,0,0,0,0,1,1
+1703,ul,0,0,0,0,0,0,1,0
+1709,is used to persist the data.,0,0,0,0,0,0,1,1
+1713,ol,0,0,0,0,0,0,1,0
+1755,@see idebugmodelpresentation,0,0,1,0,0,0,0,0
+1757,@see icelementdelta,0,0,1,0,0,0,0,0
+1774,core launch configuration provider used by generic target types.,0,0,0,0,0,1,0,0
+1842,this class is just to replace a category reference in org^eclipse.cdt^ui that we exclude because we do not bring in the org^eclipse.cdt^managedbuild.ui plug in.,0,0,0,0,1,1,0,0
+1847,@since 22,0,0,0,1,0,0,0,0
+1850,the purpose is to find a path where stdc library is located.,0,0,0,0,1,0,0,0
+1855,configures c editor folding preferences.,0,0,0,0,0,1,0,0
+1859,tests to verify the operation of formattedvaluesvmutil,0,0,0,0,0,1,0,0
+1866,@noinstantiate this class is not intended to be instantiated by clients.,0,0,0,0,0,0,1,0
+1885,@since 12,0,0,0,1,0,0,0,0
+1891,s o u r c e s sources^mk m a k e f i l e m e t h o d s,0,0,0,0,0,0,1,0
+1897,"addprefix root ,",0,0,0,0,0,0,1,0
+1913,the logic is very simple.,0,0,0,0,0,0,1,0
+1918,p,0,0,0,0,0,0,1,0
+1925,unless told otherwise.,0,0,0,0,0,0,1,0
+1929,imanagedbuildermakefilegenerator m e t h o d s,0,0,0,0,0,0,1,0
+1932,s o u r c e s sources^mk m a k e f i l e m e t h o d s,0,0,0,0,0,0,1,0
+1935,adds a macro addition prefix to a map of macro names to entries.,0,0,0,0,0,0,1,0
+1937,c srcs,0,0,0,0,0,0,1,0
+1947,target dep1 dep2 dep3,0,0,0,0,0,0,1,0
+1952,this class is used to recursively walk the project and determine which,0,0,0,0,0,0,1,0
+1953,modules contribute buildable source files.,0,0,0,0,0,0,1,0
+2046,@author jcamelon,0,1,0,0,0,0,0,0
+2047,@deprecated replaced by @link includefilecontentprovider,0,0,1,1,0,0,0,0
+2048,@noreference this interface is not intended to be referenced by clients.,0,0,0,0,0,0,1,0
+2067,eg extern c .,0,0,0,0,0,1,0,1
+2074,a virt specifier at the end of a function declaration.,0,0,0,0,0,1,0,0
+2077,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1,0
+2078,@since 57,0,0,0,1,0,0,0,1
+2105,gdb specific part,1,0,0,0,0,0,0,0
+2142,event indicating that the back end process has started or terminated.,1,0,0,0,0,0,0,1
+2172,@since 11,0,0,0,1,0,0,0,0
+2186,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1,1
+2200,those are for readability of xml only,0,0,0,0,0,1,0,1
+2201,dummy class to represent ill defined provider.,0,0,0,0,0,1,0,1
+2204,those are for readability of xml only,0,0,0,0,0,1,0,0
+2210,language settings change event implementation.,0,0,0,0,0,1,0,1
+2250,this would happen because it,0,0,1,0,0,0,0,0
+2258,single threaded.,0,0,1,0,0,0,0,0
+2262,@since 42,0,0,0,1,0,0,0,0
+2303,r will first reset the path to its default,0,0,0,0,0,0,1,0
+2315,class to track stack depth and debug frames for our internal cache,1,0,0,0,0,0,0,0
+2319,"first, two commands such as",0,0,0,0,1,0,0,0
+2321,stack info depth 11,0,0,0,0,1,0,0,0
+2329,"also, the stack depth can be deduced from the frames list, so we don t need to ask gdb for it again.",0,0,0,0,1,0,0,0
+2330,p,0,0,0,0,1,0,0,0
+2333,with data or with error.,0,0,0,0,1,0,0,0
+2372,this can only be detected by gdb mi after gdb 68.,0,0,0,1,0,0,0,0
+2441,@author vhirsl,0,1,0,0,0,0,0,0
+2445,tests that interaction with source lookups works as expected.,0,0,0,0,0,1,0,0
+2468,li,0,0,0,0,0,0,1,0
+2471,in path passed to gcc,0,0,0,0,0,0,1,0
+2474,.,0,0,0,0,0,0,1,0
+2485,p,1,0,0,1,0,0,0,0
+2486,some of the cdt source lookup features require newer versions of gdb than,0,0,0,1,0,0,0,0
+2548,property page for tracepoint actions,0,0,0,0,0,1,0,0
+2553,the console is attached to a launch.,0,0,0,0,0,1,0,0
+2582,@noextend this class is not intended to be subclassed by clients.,0,0,0,0,0,0,1,0
+2607,preview snippets.,0,0,0,0,0,0,1,0
+2625,contains unit test cases for working copies.,0,0,0,0,0,1,0,0
+2630,base class for collection testers.,0,0,0,0,0,1,0,0
+2632,@author kevin bourrillion,0,1,0,0,0,0,0,0
+2636,abstract @link listeningexecutorservice implementation that creates @link listenablefuture,0,0,0,0,0,1,0,0
+2640,"p in addition to @link #execute , subclasses must implement all methods related to shutdown and",0,0,0,0,0,0,1,0
+2656,@link,0,0,0,0,0,0,1,0
+2708,clients won t get type,0,0,0,0,0,0,1,0
+2710,immutable empty instances are returned for collection types @code for string @code 0 for,0,0,0,0,0,0,1,0
+2758,http gee^cs.oswego^edu cgi bin viewcvs^cgi jsr166 src test tck jsr166e atomicdoublearraytest^java?revision 113,0,0,1,0,0,0,0,0
+2765,benchmark for @code baseencoding performance.,0,0,0,0,0,1,0,0
+2782,"however, serial forms generated by newer versions",1,0,0,1,0,0,0,0
+2786,it internally uses atomics and,0,0,0,1,0,0,0,0
+2833,following features,1,0,0,0,0,0,0,0
+2834,ul,1,0,0,0,0,0,0,0
+2836,li least recently used eviction when a maximum size is exceeded,1,0,0,0,0,0,0,0
+2849,"loadingcache key, graph graphs cachebuilder^newbuilder",0,0,0,0,0,0,1,0
+2852,removallistener my listener,0,0,0,0,0,0,1,0
+2857,pre,0,0,0,0,0,0,1,0
+2858,"p or equivalently,",0,0,0,0,0,0,1,0
+2865,"new cacheloader key, graph",0,0,0,0,0,0,1,0
+2871,it implements all optional operations of the @link loadingcache and,0,0,0,0,0,0,1,0
+2880,"p b note b by default, the returned cache uses equality comparisons the @link",1,0,0,0,0,0,0,0
+2882,"however, if @link",0,0,0,0,0,0,1,0
+2892,maximumweight is requested entries may be evicted on each cache modification.,0,0,0,0,0,0,1,0
+2893,p if @linkplain #expireafterwrite expireafterwrite or @linkplain #expireafteraccess,0,0,0,0,0,0,1,0
+2896,expired entries may be counted by @link,0,0,0,0,0,0,1,0
+2897,"cache#size , but will never be visible to read or write operations.",0,0,0,0,0,0,1,0
+2900,be reclaimed by the garbage collector.,0,0,0,0,0,0,1,0
+2903,"cache#cleanup such entries may be counted in @link cache#size , but will never be visible to",0,0,0,0,0,0,1,0
+2906,"will be performed during write operations, or during occasional read operations in the absence of",0,0,0,0,0,0,1,0
+2908,"the @link cache#cleanup method of the returned cache will also perform maintenance, but",0,0,0,0,0,0,1,0
+2912,"@linkplain #expireafteraccess expireafteraccess , @linkplain #weakkeys weakkeys , @linkplain",0,0,0,0,0,0,1,0
+2923,normally @code object unless it is constrained by using a method like @code,0,0,0,0,0,0,1,0
+3040,unit tests for @link cacheloader .,0,0,0,0,0,1,0,0
+3044,@author charles fry,0,1,0,0,0,0,0,0
+3059,@since 20,0,0,0,1,0,0,0,0
+3075,"p checks proper closing behavior, and ensures that ioexceptions on closeable^close are not",1,0,0,0,0,0,0,1
+3083,do not have a more specific tester like @link listtestsuitebuilder or @link,0,0,1,0,0,1,0,1
+3085,@author chris povirk,0,1,0,0,0,0,0,1
+3086,@author louis wasserman,0,1,0,0,0,0,0,0
+3095,thrown when requirements on a tester method or class conflict with each other.,0,0,0,0,0,1,0,1
+3100,@author chris nokleberg,0,1,0,0,0,0,0,1
+3107,@code entryiterator .,0,0,1,0,0,0,0,0
+3125,"addequalitygroup new user page , new user page",0,0,0,0,0,0,1,0
+3133,li comparing each object against an instance of an incompatible class returns false,0,0,0,0,1,0,0,1
+3149,@since 100,0,0,0,1,0,0,0,0
+3182,"creates, based on your criteria, a junit test suite that exhaustively tests the object generated",0,0,0,0,0,1,0,0
+3183,"by a g, selecting appropriate tests by matching them against specified features.",1,0,0,0,0,1,0,0
+3185,all the builder methods of this,0,0,0,0,0,0,1,0
+3186,"class such as @link #named return this type, so that builder methods of more derived",0,0,0,0,0,0,1,1
+3192,@author george van den driessche,0,1,0,0,0,0,1,0
+3216,@author louis wasserman,0,1,0,0,0,0,0,0
+3240,p here are some examples of recognized formats,0,0,0,0,0,0,1,0
+3241,ul,0,0,0,0,0,0,1,1
+3244,li 1920.21,0,0,0,0,0,0,1,1
+3286,serializers.,0,0,0,0,0,1,0,0
+3314,@author louis wasserman,0,1,0,0,0,0,0,1
+3318,collection implementations used in a particular multimap.,0,0,0,0,0,1,0,1
+3329,on the receiving instance you must store and use the new builder instance it returns instead.,0,0,0,0,0,0,1,0
+3335,@since 160,0,0,0,1,0,0,1,0
+3343,leaving k and v as upper bounds rather than the actual key and value types allows type,0,0,0,0,0,0,1,0
+3398,objectcounthashmap is an implementation of @code abstractobjectcountmap that uses arrays to,0,0,0,0,0,1,0,0
+3399,store key objects and count values.,0,0,0,0,0,1,0,0
+3402,minimizes object allocation and reduces memory footprint.,0,0,0,0,1,0,0,0
+3423,"correctly that is, whether its i preconditions i were met .",1,0,0,0,0,1,1,1
+3425,"of a specified type, which helps the method in which the exception was thrown communicate that",1,0,0,0,0,0,0,1
+3427,this allows constructs such as,1,0,0,0,0,0,1,1
+3437,"checkargument value 0, input is negative %s , value",0,0,0,0,0,0,1,1
+3450,if throw idiom instead.,0,0,0,0,0,0,1,0
+3452,creation.,0,0,0,0,0,0,1,0
+3460,p not every type of precondition failure is supported by these methods.,1,0,0,0,0,0,0,0
+3465,p it is of course possible to use the methods of this class to check for invalid conditions,0,0,0,0,0,0,1,1
+3469,see a,0,0,1,0,0,0,1,1
+3471,explained a in the guava user guide for more advice.,0,0,1,0,0,0,1,1
+3479,the same goes for the message accepting overloads.,0,0,0,0,0,0,1,1
+3480,h3 only @code %s is supported h3,0,0,0,0,0,0,1,0
+3483,"this only supports the @code %s specifier, not the full range of @link",0,0,0,0,0,0,1,1
+3493,@author kevin bourrillion,0,1,0,0,0,0,0,0
+3594,p all method parameters must be non null unless documented otherwise.,0,0,0,0,0,0,1,1
+3596,@author ben yu,0,1,0,0,0,0,0,1
+3598,@since 10,0,0,0,1,0,0,0,0
+3610,"this is enforced by throttling incoming requests as needed, ie",0,0,0,0,0,1,0,1
+3614,"request, and ensure that 1 qps seconds have elapsed since then.",1,0,0,0,0,0,1,1
+3617,"the last one, then we achieve the intended rate.",1,0,0,0,0,0,1,0
+3627,forget about that past underutilization.,1,0,0,0,1,0,1,0
+3630,past underutilization could mean that excess resources are available.,1,0,0,0,0,0,0,1
+3631,"then, the ratelimiter",1,0,0,0,0,0,1,0
+3634,"rate is applied to networking limiting bandwidth , where past underutilization typically",1,0,0,0,0,0,1,1
+3636,"on the other hand, past underutilization could mean that the server responsible for handling",1,0,0,0,0,0,1,1
+3638,requests become more likely to trigger expensive operations a more extreme case of this,1,0,0,0,0,0,0,1
+3652,say we leave the ratelimiter unused,0,0,0,0,0,0,1,0
+3655,storedpermits becomes 100 assuming maxstoredpermits 100 .,0,0,0,0,0,0,1,0
+3666,"1 token per second , then this will take 3 seconds.",0,0,0,0,0,0,1,0
+3671,"with underutilization, then we want stored permits to be given out faster than fresh ones,",0,0,0,0,0,0,1,0
+3681,storedpermits,0,0,0,0,0,0,1,0
+3683,rate is,0,0,0,0,0,0,1,0
+3697,this guarantees that we handle,0,0,0,0,0,0,1,0
+3704,cost as fresh ones 1 qps is the cost for each .,0,0,0,0,0,0,1,0
+3714,"completely unused, and an expensive acquire 100 request comes.",0,0,0,0,0,0,1,0
+3717,why wait without doing anything?,0,0,0,0,0,0,1,0
+3720,"instead , and postpone subsequent requests as needed.",0,0,0,0,0,0,1,0
+3724,this has important consequences it means that the ratelimiter doesn t remember the time of the,0,0,0,0,0,0,1,0
+3733,time which we translate to storedpermits.,0,0,0,0,0,0,1,0
+3735,that would have been produced in that idle time .,0,0,0,0,0,0,1,0
+3748,warmup period is the area of the trapezoid between,1,0,0,0,0,0,1,0
+3751,interval .,1,0,0,0,0,0,0,0
+3753,period.,1,0,0,0,0,0,0,0
+3755,0 thresholdpermits maxpermits,1,0,0,0,0,0,0,0
+3756,pre,1,0,0,0,0,0,0,0
+3764,the rate at which we move to the right is,1,0,0,0,0,0,1,0
+3769,"the integral of our function, between x permits and x k permits, assuming we want to",1,0,0,0,0,0,1,0
+3770,spend k saved permits.,1,0,0,0,0,0,0,0
+3771,ol,1,0,0,0,0,0,0,0
+3773,the function of width k.,0,0,0,0,0,1,1,0
+3775,equal to warmupperiod.,1,0,0,0,0,0,0,0
+3777,the,0,0,0,0,0,0,1,0
+3779,where coldfactor was hard coded as 3.,1,0,0,0,0,0,0,0
+3784,this is thresholdpermits stableintervals.,1,0,0,0,0,0,0,0
+3787,therefore,0,0,0,0,0,0,1,0
+3798,maxpermits thresholdpermits 2 warmupperiod stableinterval coldinterval,1,0,0,0,0,0,0,0
+3816,it is important to realize that such a ratelimiter has a very superficial memory of the past,1,0,0,0,1,0,1,0
+3819,"time, then a request arrived and was immediately granted?",1,0,0,0,1,0,1,0
+3826,"should speed up for a while, to take advantage of these resources.",1,0,0,0,0,0,1,0
+3829,"translates to almost empty buffers , which can be filled immediately.",1,0,0,0,0,0,0,0
+3831,"the request has become less ready for future requests , ie its caches become stale, and",1,0,0,0,0,0,1,0
+3832,requests become more likely to trigger expensive operations a more extreme case of this,1,0,0,0,0,0,0,0
+3835,"to deal with such scenarios, we add an extra dimension, that of past underutilization ,",1,0,0,0,0,0,0,0
+3841,stored permits if available,1,0,0,0,0,0,0,0
+3845,"ratelimiter being unused, we increase storedpermits by 1.",0,0,0,0,0,0,1,0
+3847,"for 10 seconds ie, we expected a request at time x, but we are at time x 10 seconds before",0,0,0,0,0,0,1,0
+3854,"immediately after, assume that an",0,0,0,0,0,0,1,0
+3855,acquire 10 request arriving.,0,0,0,0,0,0,1,0
+3861,but what does it mean to serve 7 stored,0,0,0,0,0,0,1,0
+3862,permits?,0,0,0,0,0,0,1,0
+3864,if we are primarily interested to deal,0,0,0,0,0,0,1,0
+3876,essentially measure unused time we spend unused time buying storing permits.,0,0,0,0,0,0,1,0
+3878,"permits time , thus 1 rate time permits .",0,0,0,0,0,0,1,0
+3891,this guarantees that we handle,0,0,0,0,0,0,1,0
+3895,integrals .,0,0,0,0,0,0,1,0
+3903,underutilization.,0,0,0,0,0,0,1,0
+3909,it would be nonsensical to just,0,0,0,0,0,0,1,0
+3916,"task immediately, and postpone by 100 seconds future requests, thus we allow for work to get",0,0,0,0,0,0,1,0
+3926,"past is the amount of time that the ratelimiter was formally unused, and it is that amount of",0,0,0,0,0,0,1,0
+3927,time which we translate to storedpermits.,0,0,0,0,0,0,1,0
+3937,"this implements a bursty ratelimiter, where storedpermits are translated to zero throttling.",0,0,0,0,1,0,1,0
+3939,"terms of time, in this sense if a ratelimiter is 2qps, and this time is specified as 10",0,0,0,0,1,0,0,0
+4135,be run against that class.,0,0,0,0,0,1,0,1
+4155,for example,0,0,0,0,0,0,1,0
+4161,bind paymentservice^class ^to creditcardpaymentservice^class,0,0,0,0,0,0,1,0
+4164,@author crazybob@google^com bob lee,0,1,0,0,0,0,0,1
+4184,"guice uses an i embedded domain specific language i , or edsl, to help you create bindings",0,0,0,0,0,0,1,1
+4185,simply and readably.,0,0,0,0,0,0,1,0
+4198,@link module class to serve as an explicit i manifest i for the services it provides.,0,0,0,0,0,0,1,0
+4204,specifies that a request for a @code service instance with no binding annotations should be,0,0,0,0,0,0,1,0
+4207,function of any @link implementedby @implementedby or @link providedby @providedby,0,0,0,0,0,0,1,1
+4213,this,0,0,0,0,0,0,1,0
+4216,provider#get get on the resulting provider instance to obtain the @code service instance.,0,0,0,0,0,0,1,1
+4220,follow.,0,0,0,0,0,0,1,1
+4221,you can then use guice s concept of @link scope scopes to guide when creation should,0,0,0,0,0,0,1,1
+4222,happen letting guice work for you .,0,0,0,0,0,0,1,1
+4236,create only one instance of @code serviceimpl and will reuse it for all injection requests of,0,0,0,0,0,0,1,0
+4247,"available in @code com^google.inject^servlet.servletscopes , and your modules can contribute",0,0,0,0,0,0,1,0
+4249,pre,0,0,0,0,0,0,1,0
+4260,bind service^class ^toinstance new serviceimpl,0,0,0,0,0,0,1,0
+4270,that you can t control.,0,0,0,0,0,0,1,0
+4277,"enum#valueof class, string all enums , and to @link class#forname class literals .",0,0,0,0,0,0,1,0
+4280,converttotypes .,0,0,0,0,0,0,1,0
+4296,"because of guice s library support, binding by name",0,0,0,0,0,0,1,0
+4314,"example might coexist with the concepts from another, you can most likely weave the two together.",0,0,0,0,0,0,1,0
+4315,"if the two concepts make no sense with each other, you most likely won t be able to do it.",0,0,0,0,0,0,1,0
+4320,"#install , @link #requeststaticinjection , @link #adderror and @link #currentstage are not",0,0,0,0,0,0,1,0
+4477,a base class defining a method with the same signature as foo s default method.,0,0,0,0,0,0,1,0
+4499,"@author crazybob@google^com bob lee an enum cannot be implemented by anything, so it should not be possible to have a successful valid jitable binding",0,1,0,0,1,0,0,0
+4514,utilities for testing the multibinder & mapbinder extension spi.,0,0,0,0,0,1,0,0
+4527,@since 76,0,0,0,1,0,0,0,0
+4533,shared state for @code abstractmultiselect .,0,0,1,0,0,1,0,0
+4545,@link binder,0,0,1,1,0,0,0,0
+4584,a representation of a bootstrap page being generated.,0,0,0,0,0,1,0,0
+4600,"to the renderer, invoked when any of the rendered buttons is clicked.",0,0,0,0,0,0,1,0
+4612,@since 71,0,0,0,1,0,0,0,0
+4620,shared state for the combobox component.,0,0,0,0,0,1,0,0
+4624,value provider class for declarative support.,0,0,0,0,0,1,0,0
+4627,@param t,0,0,0,0,0,0,1,0
+4634,@author vaadin ltd.,0,1,0,0,0,0,0,0
+4653,the grid bean type,0,0,0,0,0,0,1,0
+4685,the grid bean type,0,0,0,0,0,0,1,0
+4686,header and footer,0,0,0,0,0,0,1,0
+4692,header and footer,0,0,0,0,0,0,1,0
+4693,class for managing visible details rows.,0,0,0,0,0,0,1,0
+4696,header and footer,0,0,0,0,0,0,1,0
+4699,@param t,0,0,0,0,0,0,1,0
+4737,@param t,0,0,0,0,0,0,1,0
+4741,@see multiselectionmodel,0,0,1,0,0,0,0,0
+4767,mini tutorial code for,0,0,1,0,0,1,0,0
+4768,"https vaadin^com wiki wiki main widget%20styling%20using%20only%20css,",0,0,1,0,0,0,0,0
+4772,@author vaadin ltd,0,1,0,0,0,0,0,0
+4773,@since 70.0,0,0,0,1,0,0,0,0
+4782,@author vaadin ltd,0,1,0,0,0,0,0,0
+4785,the minimized view,0,0,0,0,0,1,0,0
+4814,but mandatory .,1,0,0,0,1,0,0,0
+4815,most of them are not supported in this implementation.,1,0,0,0,1,0,0,0
+4848,with the resource id dummy.,0,0,0,0,0,1,0,0
+4855,"@deprecated as of 80, no replacement available.",0,0,0,1,0,0,0,0
+4861,provides vaadin server side container data source to a,0,0,0,0,0,1,0,0
+4862,@link com^vaadin.v7^client.connectors^gridconnector gridconnector .,0,0,0,0,0,1,0,0
+4867,@since 74,0,0,0,1,0,0,0,0
+4871,@since 76,0,0,0,1,0,0,0,0
+4887,"grid#addvaluechangelistener container, object, object",0,0,1,0,0,0,0,0
+4902,"to be selected, or when all rows have been selected and are now deselected.",0,0,0,0,1,1,0,0
+4903,@since 74,0,0,0,1,0,0,0,0
+4904,@author vaadin ltd,0,1,0,0,0,0,0,0
+4916,should be written out for a component.,0,0,1,0,1,1,0,0
+4917,@see designcontext#shouldwritedata component,0,0,1,0,0,0,0,0
+4931,event fired when a spacer element is hidden or shown in escalator.,0,0,0,0,1,0,0,0
+4933,@since 77.13,0,0,0,1,0,0,0,0
+4937,a hashmap backed implementation of @link targetdetails for termina^^^n.,0,0,1,0,0,1,0,0
+4945,widgetset.,0,0,0,0,0,1,0,0
+4954,deployments and handles various portlet requests from the browser.,0,0,0,0,0,1,0,0
+4995,listener for @link vaadinservice initialization events.,0,0,0,0,0,1,0,0
+4999,listener instances are by default discovered and instantiated using,1,0,0,0,0,0,0,0
+5003,class must be listed on a separate line in a,1,0,0,0,0,0,0,0
+5010,@author vaadin ltd,0,1,0,0,0,0,0,0
+5029,@author vaadin ltd,0,1,0,0,0,0,0,0
+5045,vscrolltablebody all rows are not necessary rendered.,0,0,0,0,0,1,0,0
+5051,on horizontal scrolling we also,1,0,0,0,0,0,0,0
+5053,on,1,0,0,0,0,0,0,0
+5056,todo implement unregistering for child components in cells,1,0,0,0,0,0,0,0
+5062,example itabpanel just set contained components invisible and back,1,0,0,0,1,0,0,0
+5063,when changing tabs.,0,0,0,0,1,0,0,0
+5073,com^google.gwt^event.dom^client.blurhandler#onblur com^google.gwt^event,1,0,1,0,0,0,0,0
+5074,dom^client.blurevent,0,0,1,0,0,0,0,0
+5077,simple interface for parts of the table capable of owning a context menu.,1,0,0,0,0,0,0,0
+5090,non javadoc,1,0,1,0,0,0,0,0
+5091,@see,0,0,1,0,0,0,0,0
+5096,com^google.gwt^event.dom^client.blurhandler#onblur com^google.gwt^event,1,0,1,0,0,0,0,0
+5103,to detect if the first visible,0,0,0,0,1,0,0,0
+5106,overridden due table might not survive of visibility change scroll pos,0,0,0,0,1,0,0,0
+5116,dom^client.focusevent,0,0,1,0,0,0,0,0
+5117,non javadoc,1,0,1,0,0,0,0,0
+5118,@see,0,0,1,0,0,0,0,0
+5136,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0,0
+5140,com^google.gwt^event.dom^client.blurhandler#onblur com^google.gwt^event,1,0,1,0,0,0,0,0
+5142,non javadoc,1,0,1,0,0,0,0,0
+5147,access to touchcontextprovider.,1,0,0,0,0,0,0,1
+5148,has to be public to give tableconnector,1,0,0,0,0,0,0,0
+5157,example itabpanel just set contained components invisible and back,1,0,0,0,1,0,0,1
+5164,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0,0
+5166,non javadoc,1,0,1,0,0,0,0,0
+5175,for internal use only.,1,0,0,0,0,0,0,0
+5180,overridden due table might not survive of visibility change scroll pos,0,0,0,0,1,0,0,0
+5184,updates first visible row for the case we cannot wait,0,0,0,0,1,0,0,1
+5201,changes to manage mousedown and mouseup,0,0,0,0,1,0,0,1
+5204,example itabpanel just set contained components invisible and back,1,0,0,0,1,0,0,0
+5209,non javadoc,1,0,1,0,0,0,0,0
+5210,@see,0,0,1,0,0,0,0,0
+5214,@see,0,0,1,0,0,0,0,0
+5221,to detect if the first visible,0,0,0,0,1,0,0,1
+5226,example itabpanel just set contained components invisible and back,1,0,0,0,1,0,0,0
+5227,when changing tabs.,0,0,0,0,1,0,0,1
+5233,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0,0
+5236,@see,0,0,1,0,0,0,0,0
+5238,dom^client.blurevent,0,0,1,0,0,0,0,0
+5246,lost .,0,0,0,0,1,0,0,0
+5247,example itabpanel just set contained components invisible and back,1,0,0,0,1,0,0,1
+5259,dom^client.blurevent,0,0,1,0,0,0,0,0
+5263,reordering disabled and clicking on it resets sorting.,1,0,0,0,0,0,0,0
+5266,changes to manage mousedown and mouseup,0,0,0,0,1,0,0,0
+5275,@see,0,0,1,0,0,0,0,0
+5279,@see,0,0,1,0,0,0,0,0
+5281,dom^client.blurevent,0,0,1,0,0,0,0,1
+5288,overridden due table might not survive of visibility change scroll pos,0,0,0,0,1,0,0,0
+5290,example itabpanel just set contained components invisible and back,1,0,0,0,1,0,0,0
+5302,dom^client.blurevent,0,0,1,0,0,0,0,0
+5303,non javadoc,1,0,1,0,0,0,0,0
+5366,@author vaadin ltd.,0,1,0,0,0,0,0,0
+5375,a window is added to a @code ui using,1,0,0,0,0,1,1,0
+5379,"using the @link #window string, component constructor.",1,0,0,0,0,0,0,0
+5381,p,1,0,0,0,0,0,0,0
+5382,a window can be positioned on the screen using absolute coordinates pixels,1,0,0,0,0,0,0,1
+5388,p,1,0,0,0,0,0,0,1
+5393,@author vaadin ltd.,0,1,0,0,0,0,0,0
+5394,@since 30,0,0,0,1,0,0,0,1
+5398,"@see com^vaadin.ui^panel#changevariables java^lang.object, java^util.map",0,0,1,0,0,0,0,1
+5402,non javadoc,0,0,1,0,0,0,0,1
+5410,non javadoc,0,0,1,0,0,0,0,0
+5411,"@see com^vaadin.ui^panel#changevariables java^lang.object, java^util.map",0,0,1,0,0,0,0,0
+5412,an interface used for listening to window close events.,1,0,0,0,0,0,0,0
+5424,"@see com^vaadin.ui^panel#changevariables java^lang.object, java^util.map",0,0,1,0,0,0,0,0
+5432,an interface used for listening to window maximize restore events.,1,0,0,0,0,0,0,0
+5434,the windowmodechangelistener to a window and,1,0,0,0,0,0,0,0
+5437,@link windowmode#maximized or restored @link windowmode#normal .,1,0,0,0,0,0,0,0
+5440,non javadoc,0,0,1,0,0,0,0,0
+5447,@see com^vaadin.ui^panel#paintcontent com^vaadin.server^painttarget,0,0,1,0,0,0,0,0
+5453,@see com^vaadin.ui^panel#paintcontent com^vaadin.server^painttarget,0,0,1,0,0,0,0,0
+5457,shortcut that closes the window.,1,0,0,0,0,0,0,0
+5458,pre,0,0,0,0,0,0,1,0
+5460,within the window using helper,0,0,0,0,0,0,1,0
+5462,or globally,0,0,0,0,0,0,1,0
+5521,@author vaadin ltd,0,1,0,0,0,0,0,0

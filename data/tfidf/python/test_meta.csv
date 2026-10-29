@@ -1,0 +1,504 @@
+comment_sentence_id,clean_comment,DevelopmentNotes,Expand,Parameters,Summary,Usage
+550,if all the migrations they replace are either unapplied or missing from,0,1,0,0,0
+552,any dependency pointers to the replaced migrations are re pointed to the,0,1,0,0,0
+50,tests for the atomic decorator and context manager.,0,0,0,1,0
+70,"when these issues have been addressed, this metaclass could be used to",1,0,0,0,0
+583,of the migration file from it.,0,0,0,1,0
+86,a service specific account of type bar.,0,0,0,1,0
+88,the base class from which all management commands ultimately,0,0,0,1,0
+89,derive.,0,0,0,1,0
+92,"response if you don t need to change any of that behavior,",1,0,0,0,0
+612,"which returns a list for every key, even though most web forms submit",1,1,0,0,0
+118,"all of their logic in handle , or perform some additional",1,0,0,0,0
+119,parsing work in handle and then delegate from it to more,1,0,0,0,0
+634,"its clean method takes a decompressed list of values, which are then",0,1,0,0,0
+635,cleaned into a single value according to self^fields.,0,1,0,0,0
+129,default value is,0,0,1,0,0
+131,requires migrations checks,0,0,1,0,0
+132,"a boolean if true , the command prints a warning if the set of",0,0,1,0,0
+140,"self^check app configs from handle , where app configs",0,0,1,0,0
+667,base class for migration operations.,0,0,0,1,0
+680,overwrite existing files instead of appending a suffix to generate an,0,0,0,1,0
+201,this class and its subclasses are responsible for emitting schema changing,1,0,0,1,0
+210,base class for all query expressions.,0,0,0,1,0
+723,proxy model inheritance across apps can result in migrate not creating the table,0,0,0,1,0
+724,for the proxied model as described in #12286 .,0,0,0,1,0
+732,"multipart post data if it has been accessed via post,",0,1,0,1,0
+734,.,0,1,0,1,0
+228,this is useful for,1,0,0,0,0
+752,by genericrelation.,0,0,0,1,0
+263,"it allows the user to compose get and post requests, and",0,1,0,0,0
+287,some connector.,0,0,0,1,0
+292,a restructuredtext directive which renders a two tab code block in which,0,0,0,1,0
+294,unix oriented examples.,0,0,0,1,0
+298,a stack container for variable context,0,0,0,1,0
+301,the crypt module is not supported on all platforms.,1,0,0,0,0
+820,chain,0,0,1,0,0
+824,engines.,0,0,1,0,0
+841,was opened.,0,0,0,1,0
+331,tests for the earliest and latest objects methods,0,0,0,1,0
+337,a collection of errors that knows how to display itself in various formats.,0,0,0,1,0
+345,a wrapper around bytesio that restricts what can be read since data from,0,0,0,1,0
+349,that wouldn t work in real life.,0,1,0,0,0
+356,store any unstored,0,1,0,0,0
+361,model added for ticket 19838,1,0,0,0,0
+879,model the frame clause in window expressions.,0,0,0,1,0
+880,there are two types of frame,0,1,0,0,0
+371,on the accept encoding header.,0,0,0,1,0
+893,do not set the header if it s already set or if the response contains,1,0,0,0,0
+386,a model with a fk to itself.,0,0,0,1,0
+397,no more reads are allowed from this device.,0,1,0,1,0
+410,"function get single external self, i",0,1,0,0,0
+415,note that if get single internal and get single internal return,0,1,0,0,0
+421,"therefore, it is necessary to cache the values in a temporary",0,1,0,0,0
+425,set the single item at index i to value optional,0,1,0,0,0
+427,the object using set list.,0,1,0,0,0
+432,int maxlength,0,1,0,0,0
+434,type or tuple allowed,0,1,0,0,0
+476,an implementation of a cache binding using python memcached,0,0,0,1,0
+505,"each migration is a node, and each dependency is an edge.",1,0,0,0,0
+1046,cross reference role displayed with a %% prefix,0,0,0,1,0
+1058,geojson expects json able dict,0,0,0,1,0
+1078,as part of configuring a shell environment.,0,0,0,1,0
+1081,meth init path,0,1,0,0,0
+1082,meth init shell to be implemented by the subclass,0,1,0,0,0
+1108,vs. %cd .,1,0,0,0,0
+1144,attribute style access.,0,1,0,0,0
+1145,"protection of class members like keys, items when using attribute",0,1,0,0,0
+1149,overloaded operators.,0,1,0,0,0
+914,"display function, it will result in audio controls being displayed",0,1,0,0,0
+916,parameters,0,0,1,0,0
+918,can be one of,0,0,1,0,0
+926,bytestring containing raw pcm data or,0,0,1,0,0
+930,dependent.,0,0,1,0,0
+935,embed boolean,0,0,1,0,0
+940,"default is true , unless the keyword argument url is set, then",0,0,1,0,0
+945,autoplay bool,0,0,1,0,0
+946,set to true if the audio should immediately start playing.,0,0,1,0,0
+1284,configuration data can be nested by including a dictionary of further,0,1,0,0,0
+1286,"if the default value is an empty list, it is assumed to be a list of",1,1,0,0,0
+1287,values of the type specified.,1,1,0,0,0
+1427,"if an account is specified, the mailbox will be assigned to that account",1,0,0,0,0
+1428,and configured for automatic indexing.,1,0,0,0,0
+1438,encrypteddict which only deals in signed 64 bit int values.,0,0,0,1,0
+1442,encrypteddict which only deals in unicode values.,0,0,0,1,0
+1445,actual interpretation and,0,1,0,0,0
+1450,create forwarding drafts of one or more messages,0,0,0,1,0
+1454,try to collide a hash using the smtorp algorithm,0,0,0,1,0
+1466,"this is a router object that implements the vfs interface but,",0,0,0,1,0
+1215,base mock that pretends to be a poplib pop3 connection.,0,0,0,1,0
+1472,a posting list is a map of search terms to message ids.,0,0,0,1,0
+2051,plots .,0,0,1,0,0
+2056,center .,1,1,1,0,0
+2057,"table bool, series or dataframe, default false",0,0,1,0,0
+2058,"if true, draw a table using the data in the dataframe and the data",0,0,1,0,0
+2059,will be transposed to meet matplotlib s default layout.,0,0,1,0,0
+1548,object serving as a base class for all engines.,0,0,0,1,0
+2062,"yerr dataframe, series, array like, dict and str",0,0,1,0,0
+2065,"xerr dataframe, series, array like, dict and str",0,0,1,0,0
+1554,callable accessors like series^plot,0,0,0,1,0
+2069,labels with right in the legend.,0,0,1,0,0
+2071,"if true, boolean values can be plotted.",0,0,1,0,0
+1560,common tests for all variations of intervalindex construction.,0,0,0,1,0
+2077,"specify the plotting^backend for the whole session, set",0,0,1,0,0
+1570,interface,0,0,0,1,0
+2083,class matplotlib^axes.axes or numpy^ndarray of them,0,0,1,0,0
+1578,logic for logical operations.,0,1,0,0,0
+2090,from 0 left bottom end to 1 right top end .,1,1,1,0,0
+1588,parameters,0,0,1,0,0
+1589,values numpy^ndarray,0,0,1,0,0
+1590,a 1 d boolean dtype array with the data.,0,0,1,0,0
+1591,mask numpy^ndarray,0,0,1,0,0
+1594,"copy bool, default false",0,0,1,0,0
+1596,attributes,0,1,0,0,0
+1647,"categories sequence, optional",0,1,1,0,0
+1653,false if there is no existing ordered to maintain.,0,1,1,0,0
+1656,ordered,0,1,0,0,0
+1658,none,0,1,0,0,0
+2212,obj series,0,0,1,0,0
+2213,n int,0,0,1,0,0
+2215,returns,0,0,1,0,0
+1706,"also,",0,1,0,0,0
+1709,are not possible.,0,1,0,0,0
+1715,"categories index like, optional",0,1,1,0,0
+1716,the categories for the categorical.,0,1,1,0,0
+2231,instead of a table variable just use the create table statement.,1,0,0,0,0
+2237,also holds various flags needed to avoid having to,0,1,0,0,0
+1729,"copy bool, default false",0,0,1,0,0
+1732,name to be stored in the index.,0,0,1,0,0
+2245,extension array for string data.,0,0,0,1,0
+1736,ordered,0,1,0,0,0
+1737,methods,0,1,0,0,0
+1743,set categories,0,1,0,0,0
+1744,as ordered,0,1,0,0,0
+1746,map,0,1,0,0,0
+2258,where the elements are python strings.,0,0,1,0,0
+2261,"copy bool, default false",0,0,1,0,0
+2324,handled otherwise by a particular method.,1,0,0,0,0
+2325,patterned after python s string,1,0,0,0,0
+1839,"to compile pyx c, and stop there.",0,0,0,1,0
+2352,and the index has not been lexsorted.,0,0,0,1,0
+1844,represent a data column that can be indexed,0,0,0,1,0
+1856,"acceptable values are none, xlrd , openpyxl or odf .",0,0,1,0,0
+1888,mask numpy^ndarray,0,0,1,0,0
+1961,"subtype str, np^dtype",0,1,1,0,0
+1966,none,0,1,0,0,0
+1982,hold methods for the nonconsolidatable blocks,0,0,0,1,0
+1989,data series or dataframe,0,0,1,0,0
+2000,bar vertical bar plot,0,0,1,0,0
+2006,area area plot,0,0,1,0,0
+2008,scatter scatter plot,0,0,1,0,0
+2010,"figsize a tuple width, height in inches",0,0,1,0,0
+2012,use index as ticks for x axis.,0,0,1,0,0
+2017,if a list is passed and subplots is,0,0,1,0,0
+2020,axis grid lines.,0,0,1,0,0
+2022,place legend on axis subplots.,0,0,1,0,0
+2032,use log scaling or symlog scaling on both x and y axes.,0,0,1,0,0
+2033,versionchanged 025.0,0,0,1,0,0
+2035,values to use for the xticks.,0,0,1,0,0
+3075,passing an object to the constructor converts it to text and wraps,0,1,1,0,0
+3076,it to mark it safe without escaping.,0,1,1,0,0
+3162,storing the information.,0,0,0,1,0
+3222,memoized zipfile manifests.,0,0,0,1,0
+3224,a required metadata is missing,0,0,0,1,0
+3227,"on initiation, keys that are lists, sets or tuples are converted to",0,1,0,0,0
+3255,notany does not advance the parsing position within the,0,1,0,0,0
+3258,"also, notany does",0,1,0,0,0
+3294,raised when an attempt is made to unlock a file someone else locked.,0,0,0,1,0
+3311,a,0,1,0,0,0
+3314,"linked list node references, one for each value associated with that key.",0,1,0,1,0
+2361,class which unlike gzip^gzipfile has no support for,1,0,0,0,0
+3386,have some extra features that arguments don t have.,0,0,0,1,0
+3394,this is particularly useful for dynamic options.,0,0,1,0,0
+2378,of a path.,0,0,0,1,0
+3406,hidden from the user.,0,0,1,0,0
+2384,may be constructed using the operator.,1,1,0,0,0
+3412,param flag value which value should be used for this flag if it s,0,0,1,0,0
+3416,param multiple if this is set to true then the argument is accepted,0,0,1,0,0
+3420,arguments.,0,0,1,0,0
+3424,variable in case a prefix is defined on the,0,0,1,0,0
+2440,a case insensitive dict like object.,0,0,0,1,0
+2441,implements all methods and operations of,0,0,0,1,0
+2444,provides lower items .,0,0,0,1,0
+2448,"keys , items , iterkeys , and iteritems",1,1,0,0,0
+3493,in the toml being parsed.,0,0,0,1,0
+3500,is found stops all parsing immediately,1,0,0,0,0
+3505,compatibility shim for the urlparse^parseresultbytes object.,0,0,0,1,0
+2489,enhanced string for len operations on colored output.,0,0,0,1,0
+2500,creating instances is neither supported nor useful as it s created,1,0,0,0,0
+2503,the context is immutable.,1,0,0,0,0
+2511,"keys , values , items , iterkeys , itervalues , iteritems ,",0,0,1,0,0
+2513,additionally there is a meth resolve,0,0,1,0,0
+2550,a date literal.,0,0,0,1,0
+2563,implements a dict like class to query errors by indexes following the,0,0,0,1,0
+2578,defaults to % .,0,0,1,0,0
+2582,variable start string,0,0,1,0,0
+3610,this value to be valid.,0,0,1,0,0
+3614,param file okay controls if a file is a possible value.,0,0,1,0,0
+3615,param dir okay controls if a directory is a possible value.,0,0,1,0,0
+3617,"param readable if true, a readable check is performed.",0,0,1,0,0
+2594,line statement prefix,0,0,1,0,0
+2595,"if given and a string, this will be used as prefix for line based",0,0,1,0,0
+3620,this means,0,0,1,0,0
+3622,it,0,0,1,0,0
+2601,see also ref line statements .,0,0,1,0,0
+2602,versionadded 22,0,0,1,0,0
+2609,if this is set to true leading spaces and tabs are stripped,0,0,1,0,0
+2615,n or r n .,0,0,1,0,0
+2616,the default is n which is a,0,0,1,0,0
+2621,"the default is false , which causes a single newline,",0,0,1,0,0
+2626,this can either be import paths,0,0,1,0,0
+2628,for more information have a,0,0,1,0,0
+2631,should the optimizer be enabled?,0,0,1,0,0
+2633,undefined,0,0,1,0,0
+2656,per default this is 400 which means,0,0,1,0,0
+2664,auto reload,0,0,1,0,0
+2670,will reload the template.,0,0,1,0,0
+2675,cache for the internal jinja bytecode so that templates don t,0,0,1,0,0
+3700,to a prefix.,0,0,0,1,0
+2681,this requires,0,0,1,0,0
+3745,"param auth auth handler or user, pass tuple.",0,0,1,0,0
+3780,a context manager to remove a package for the inner block.,0,0,0,1,0
+3783,"exits correctly, the uninstallation is committed, otherwise rolled back.",0,1,0,0,0
+3793,class resourcefinder which manages the resource.,1,0,0,0,0
+3798,resource finder for file system resources.,0,0,0,1,0
+3800,manage resource extraction and packages,0,0,0,1,0
+3824,it s a good idea to set this to some sensibly high value to,0,0,1,0,0
+2806,this usually means the child has exited.,0,0,0,1,0
+3830,"these are errors raised before the request is sent to the remote server,",0,0,1,0,0
+2810,general exception for extract errors.,0,0,0,1,0
+3842,"a redirect is a http response with a status code 301, 302, 303, 307 or",0,0,1,0,0
+3844,set to 0 to fail on the first retry of this type.,0,0,1,0,0
+3845,set to false to disable and imply raise on redirect false .,0,0,1,0,0
+3846,param int status,0,0,1,0,0
+3850,set to 0 to fail on the first retry of this type.,0,0,1,0,0
+2835,the provided location.,0,1,0,0,0
+3863,param float backoff factor,0,0,1,0,0
+3864,a backoff factor to apply between attempts after the second try,0,0,1,0,0
+3872,between retries.,0,0,1,0,0
+3874,than attr retry^backoff max .,0,0,1,0,0
+3877,"exhausted, to raise a maxretryerror, or to return a response with a",0,0,1,0,0
+3883,param tuple history the history of the request encountered during,0,0,1,0,0
+3887,each list item is of class class requesthistory .,0,0,1,0,0
+3888,param bool respect retry after header,0,0,1,0,0
+3892,sequence of headers to remove from the request when a response,0,0,1,0,0
+2875,sanitizes token stream of xhtml mathml svg and of inline style attributes,0,0,0,1,0
+2887,# use followedby to match a label only if it is followed by a,1,0,0,1,0
+4013,expression is found.,0,0,0,1,0
+4015,expr target expression marking the end of the data to be skipped,0,0,1,0,0
+4020,failon default none define expressions that are not allowed to be,0,0,1,0,0
+4021,"included in the skipped test if found before the target expression is found,",0,0,1,0,0
+3000,generates a tree structure from a stream of possibly malformed html.,0,0,0,1,0
+3008,metaclass for all validators,0,0,0,1,0
+3021,yourself but the parser provides a,1,0,0,0,0
+3066,won t do any harm.,1,0,0,0,0
+4149,"at startup, this operation will not yet be bound into python.",1,0,0,0,0
+4153,torch^ops.my namespace will invoke the getattr magic method,1,0,0,0,0
+4158,torch^ops.my namespace^my op will then invoke getattr on,1,0,0,0,0
+4160,"torch^get operation , a function bound from c , and then in a similar",1,0,0,0,0
+5226,df2 float or tensor degrees of freedom parameter 2,0,0,1,0,0
+4212,implements adadelta algorithm.,0,0,0,1,0
+5237,use packrecords to pack it before using this layer.,1,0,0,0,0
+5238,this layer is not thread safe.,1,0,0,0,0
+4216,parameter groups,0,0,1,0,0
+4222,to the parameters default 10,0,0,1,0,0
+5259,max iter int maximal number of iterations per optimization step,0,0,1,0,0
+4246,numerical stability default 1e 8,0,0,1,0,0
+4249,algorithm from the paper on the convergence of adam and beyond,1,0,1,0,0
+4250,default false,0,0,1,0,0
+4275,arguments,0,0,1,0,0
+4277,parameter groups,0,0,1,0,0
+5322,creates a criterion that optimizes a multi class multi classification,0,0,0,1,0
+4303,be the same as that of the input.,0,0,1,0,0
+5333,the criterion only considers a contiguous block of non negative targets that,0,1,0,0,0
+5338,"by default,",0,0,1,0,0
+5346,default true,0,0,1,0,0
+5354,"reduction string, optional specifies the reduction to apply to the output",0,0,1,0,0
+5358,"elements in the output, sum the output will be summed.",0,0,1,0,0
+4353,of size c where c is the input size .,0,1,0,0,0
+4356,"also by default, during training this layer keeps running estimates of its",0,1,0,0,0
+4361,"if attr track running stats is set to false , this layer then does not",0,1,0,0,0
+4367,"mathematically, the",1,1,0,0,0
+4372,"because the batch normalization is done over the c dimension, computing statistics",1,0,0,0,0
+4394,"output math n, c or math n, c, l same shape as input",0,1,0,0,0
+5444,attr probs and attr logits .,0,0,0,1,0
+5464,"creates a poisson distribution parameterized by attr rate , the rate parameter.",0,0,0,1,0
+4463,"followed by a bceloss as, by combining the operations into one layer,",0,0,0,1,0
+5489,modules.,0,0,0,1,0
+5495,for dequantstub .,0,1,0,0,0
+4474,"ell x, y begin cases",0,1,0,0,0
+4481,between 0 and 1.,1,1,0,0,0
+5507,implements stochastic gradient descent optionally with momentum .,0,0,0,1,0
+4485,"ell c x, y l c l 1,c , dots,l n,c ^ top, quad",0,1,0,0,0
+4487,"1 y n,c cdot log 1 sigma x n,c right ,",0,1,0,0,0
+5512,parameter groups,0,0,1,0,0
+4506,"if given, has to be a tensor of size nbatch .",0,0,1,0,0
+4511,"some losses, there are multiple elements per sample.",0,0,1,0,0
+4519,losses are averaged or summed over observations for each minibatch depending,0,0,1,0,0
+5559,dictionary from multiprocessing handles to storageweakref,0,0,0,1,0
+5563,transform functor that applies a sequence of transforms tseq,0,0,0,1,0
+5564,component wise to each submatrix at dim,0,0,0,1,0
+5647,attention is all you need.,1,0,0,0,0
+5653,d model the number of expected features in the input required .,0,0,1,0,0
+4644,arguments,0,0,1,0,0
+4661,"when run backward is false, the run forward method will be executed, otherwise",0,1,0,0,0
+4662,run backward method will be executed.,0,1,0,0,0
+5709,args,0,0,1,0,0
+5710,kernel size int or tuple the size of the sliding blocks,0,0,1,0,0
+5711,"stride int or tuple, optional the stride of the sliding blocks in the input",0,0,1,0,0
+5719,neighborhood.,0,0,1,0,0
+4721,"it is harder to describe, but this link has a nice visualization of what attr dilation does.",0,0,1,0,0
+5746,equality holds,1,0,0,0,0
+4723,attr in channels and attr out channels must both be divisible by,0,0,1,0,0
+5753,fold and unfold operations are inverses of each,1,0,0,0,0
+4733,math left lfloor frac out channels in channels right rfloor .,0,1,0,1,0
+4736,"a tuple of three ints in which case, the first int is used for the depth dimension,",0,0,1,1,0
+4758,"padding int or tuple, optional zero padding added to all three sides of the input.",0,0,1,0,0
+4759,default 0,0,0,1,0,0
+4763,default 1,0,0,1,0,0
+4764,"groups int, optional number of blocked connections from input channels to output channels.",0,0,1,0,0
+4767,default true,0,0,1,0,0
+4771,math,0,1,0,0,0
+4774,math,0,1,0,0,0
+4781,weight tensor the learnable weights of the module of shape,0,1,0,0,0
+5890,a simple class to upload checkpoints.,0,0,0,1,0
+4885,the policy cycles the learning,0,0,0,1,0
+4893,triangular a basic triangular cycle without amplitude scaling.,0,1,1,0,0
+4894,triangular2 a basic triangular cycle that scales initial amplitude by half each cycle.,0,1,1,0,0
+5006,this will be swapped as nnq^dequantize in convert .,0,1,0,1,0
+5011,a class with torch function and a specific diagonal representation,0,0,0,1,0
+5019,diagonaltensor represents a 2d tensor with n rows and columns that has,0,1,0,0,0
+5022,main functionality of diagonaltensor is to provide a more compact,0,1,0,0,0
+5053,"computes sums or means of bags of embeddings, without instantiating the",0,0,0,1,0
+5056,"with mode sum is equivalent to class torch^nn.embedding followed by torch^sum dim 0 ,",1,0,0,0,0
+5065,"if attr per sample weights is passed, the",1,0,0,0,0
+5066,"only supported mode is sum , which computes a weighted sum according to",1,0,0,0,0
+5075,"scale grad by freq boolean, optional if given, this will scale gradients by the inverse of frequency of",0,0,1,0,0
+5077,default false .,0,0,1,0,0
+5080,specifies the way to reduce the bag.,0,0,1,0,0
+5085,default mean,0,0,1,0,0
+5096,"if attr input is 2d of shape b, n ,",0,1,0,0,0
+5109,"per sample weights tensor, optional a tensor of float double weights, or none",0,1,0,0,0
+5110,to indicate all weights should be taken to be 1 .,0,1,0,0,0
+5114,only supported for mode sum .,0,1,0,0,0
+5934,containing the exact bytes that will be sent to the server.,0,0,0,1,0
+513,this is to support the squash feature.,0,0,0,0,1
+514,the graph handler isn t responsible,0,0,0,0,1
+519,replaced migrations to point to the replacing one.,0,0,0,0,1
+24,it s possible to disable the creation of savepoints if the goal is to,0,0,0,0,1
+28,none denotes the absence of a savepoint.,0,0,0,0,1
+554,this does mean that this class must also talk to the database as well as,0,0,0,0,1
+67,automatically generated field as a subclass of autofield.,0,0,0,0,1
+105,passing the parsed arguments.,0,0,0,0,1
+112,4,0,0,0,0,1
+113,if handle or execute raised any exception eg,0,0,0,0,1
+694,the add permission limits the user s ability to view the add form,0,0,0,0,1
+288,for example f foo f bar .,0,0,0,0,1
+338,"the dictionary keys are the field names, and the values are the errors.",0,0,0,0,1
+874,cursor^execute as is.,0,0,0,0,1
+388,corresponding raw id widget won t have a magnifying glass link to select,1,0,0,0,1
+1069,this is intended for use by standalone history tools.,0,0,0,0,1
+1113,"individual methods as magic functions, and",0,0,0,0,1
+1116,initialization.,0,0,0,0,1
+1166,this class should be used as a mixin for building color schemes.,0,0,0,0,1
+1188,vid youtubevideo foo,0,0,0,0,1
+1192,display vid,0,0,0,0,1
+1193,"to calculate seconds from time as hours, minutes, seconds use",0,0,0,0,1
+1195,"start int timedelta hours 1, minutes 46, seconds 40 ^total seconds",0,0,0,0,1
+971,audio b raw wav data.,0,0,0,0,1
+974,audio data b raw wav data.,0,0,0,0,1
+1292,", int, 99 ,",0,0,0,0,1
+1294,"water liters , int, 0 ,",0,0,0,0,1
+1300,"sorted pot^keys , sorted pot^values",0,0,0,0,1
+1304,123,0,0,0,0,1
+1305,pot liquids vodka,0,0,0,0,1
+1306,123,0,0,0,0,1
+1307,pot carrots,0,0,0,0,1
+1314,0,0,0,0,0,1
+1323,traceback most recent call last,0,0,0,0,1
+1327,invalidkeyerror invalid key for config evil,0,0,0,0,1
+1333,valueerror invalid value for config potatoes moo,0,0,0,0,1
+1219,"pm pop3mailbox localhost , user a , password b ,",0,0,0,0,1
+1221,pm^stat,0,0,0,0,1
+1480,1 in sbl,0,0,0,0,1
+1225,"evil in pm, bogon in pm",0,0,0,0,1
+1485,TRUE,0,0,0,0,1
+1505,this will,0,0,0,0,1
+1509,mailpilevcard vcardline fn guy,0,0,0,0,1
+1511,vcs^get vcard d@evil^com ^fn,0,0,0,0,1
+1512,u dude,0,0,0,0,1
+1519,vcs^del vcards vcs^get vcard d@evil^com,0,0,0,0,1
+1522,vcs^del vcards vcs^find vcards guy,0,0,0,0,1
+1580,"to construct an booleanarray from generic array like input, use",0,0,0,0,1
+1602,examples,0,0,0,0,1
+1603,create an booleanarray with func pandas^array,0,1,0,0,1
+1666,examples,0,0,0,0,1
+1667,"t pd^categoricaldtype categories b , a , ordered true",0,1,0,0,1
+1668,"pd^series a , b , a , c , dtype t",0,0,0,0,1
+1671,2:00 AM,0,0,0,0,1
+1673,dtype category,0,0,0,0,1
+1764,categoricalindex can also be instantiated from a categorical,0,0,0,0,1
+2276,stringarray,0,0,0,0,1
+1765,"c pd^categorical a , b , c , a , b , c",0,0,0,0,1
+1770,"categories c , b , a",0,1,0,0,1
+2282,traceback most recent call last,0,0,0,0,1
+2284,"for comparison methods, this returns a class pandas^booleanarray",0,1,0,0,1
+2286,booleanarray,0,0,0,0,1
+1877,"integerarray is currently experimental, and its api or internal",0,1,0,0,1
+1897,integerarray,0,1,0,0,1
+1909,"1, nan, 3",0,0,0,0,1
+1967,examples,0,0,0,0,1
+1985,uses the backend specified by the,1,0,0,0,1
+1987,"by default, matplotlib is used.",1,0,0,0,1
+3080,"markup hello, em world em !",1,0,0,0,1
+3083,"markup^escape hello, em world em !",1,0,0,0,1
+3084,markup hello &lt em&gt world&lt em&gt !,1,0,0,0,1
+3086,use.,1,0,0,0,1
+4117,documentclass the class to use for the bottommost node of a document,0,0,0,0,1
+3100,markup em hello em foo,1,0,0,0,1
+3187,returns the value for the cache key.,0,0,0,0,1
+3190,the other arguments to the constructor are the prefix for all keys that,0,0,0,0,1
+3260,notany always returns,0,0,0,0,1
+3269,"# operation hierarchy, use infixnotation",0,0,0,0,1
+3295,try,0,0,0,0,1
+3323,"getitem , setitem , delitem , contains ,",0,0,0,0,1
+3325,"optional parameters have been added to some dict methods, but because the",0,0,0,0,1
+3328,key parameter has been added to these methods,0,0,0,0,1
+3331,methods with list in their,0,0,0,0,1
+3337,"getlist , add , addlist , set , setlist , setdefaultlist ,",0,0,0,0,1
+3338,"poplist , popvalue , popvalues , popitem , poplistitem ,",0,0,0,0,1
+2391,# more easily written as,0,0,0,0,1
+2392,expr integer id name expr name integer age,0,0,0,0,1
+2409,they generally,0,0,0,0,1
+2458,of how the header name was originally stored.,0,0,0,0,1
+2460,"operations are given keys that have equal ^lower s, the",0,0,0,0,1
+3509,as a list len results,0,0,0,0,1
+3510,"by list index results 0 , results 1 , etc",0,0,0,0,1
+3523,"print %s %s % s, fn eval s",1,0,0,0,1
+3524,test list result,1,0,0,0,1
+3525,test result 0,1,0,0,0,1
+3526,test result month,1,0,0,0,1
+3531,prints,0,0,0,0,1
+3533,result 0 1999,0,0,0,0,1
+3536,month in result true,0,0,0,0,1
+3541,year 1999,0,0,0,0,1
+3701,the prefix is delimited from the template by a slash per,0,1,0,0,1
+3705,"app1 packageloader mypackage^app1 ,",0,0,0,0,1
+3749,import requests,0,0,0,0,1
+3802,used as a container for an error reason supplied in a maxretryerror.,0,0,0,0,1
+3804,response needs to be chunked in order to read it as chunks.,0,0,0,0,1
+3810,"retries retry connect 5, read 2, redirect 5",0,0,0,0,1
+3812,"response http^request get , http example^com",0,0,0,0,1
+2818,"for example, you could use it to read through a file looking",0,0,0,0,1
+2819,"for patterns, or to control a modem or serial device.",0,0,0,0,1
+2882,always returns a null token list.,1,0,0,1,1
+2886,example,0,0,0,0,1
+2892,prints,0,0,0,0,1
+2893,"shape , square , color , black , posn , upper left",0,0,0,0,1
+2927,get an attribute or item from an expression that is a ascii only,0,0,0,0,1
+3998,with requests^session as s,0,0,0,0,1
+4048,sev critical,0,0,0,0,1
+4049,"94 , cosmetic , spelling error on login log n , 14",0,0,0,0,1
+5122,"embedding sum input, offsets",0,0,0,0,1
+4164,then calls this new operation,1,0,0,0,1
+5295,def init self,0,0,0,0,1
+5302,return f^relu self^conv2 x,0,0,0,0,1
+5327,"text loss x, y sum ij frac max 0, 1 x y j x i text x^size 0",0,1,0,0,1
+4308,# target output size of 5x7x9,0,0,0,0,1
+4309,"m nn^adaptivemaxpool3d 5,7,9",0,0,0,0,1
+4310,"input torch^randn 1, 64, 8, 9, 10",0,0,0,0,1
+4316,# target output size of 7x9x8,0,0,0,0,1
+5372,"# for target y, only consider labels 3 and 0, not after label 1",0,0,0,0,1
+4395,examples,0,0,0,0,1
+5448,"tensor 0., 0., 0., 1.",0,0,0,0,1
+5465,"samples are nonnegative integers, with a pmf given by",0,1,0,0,1
+5469,m poisson torch^tensor 4,0,0,0,0,1
+5470,m^sample,0,0,0,0,1
+4482,it s possible to trade off recall and precision by adding weights to positive examples.,0,1,0,0,1
+5521,"loss fn model input , target ^backward",0,0,0,0,1
+4541,examples,0,0,0,0,1
+5566,example,0,0,0,0,1
+5567,"x torch^stack torch^range 1, 10 , torch^range 1, 10 , dim 1",0,0,0,0,1
+5569,y t x,0,0,0,0,1
+5692,the total number of such blocks,0,1,0,0,1
+5698,dimensions.,0,1,0,0,1
+5700,gives all values within a certain block.,0,0,0,0,1
+5760,"output math n, c times prod text kernel size , l as described above",0,1,0,0,1
+5778,tensor 19073e 06,0,0,0,0,1
+4792,examples,0,0,0,0,1
+5896,with useoptimizer weight weight optim,0,0,0,0,1
+5900,brew^func,0,0,0,0,1
+5903,with useoptimizer optim2,0,0,0,0,1
+4967,data loader torch^utils.data^dataloader .,0,0,0,0,1
+5117,# an embedding module containing 10 tensors of size 3,0,0,0,0,1
+5936,usage,0,0,0,0,1
+5937,import requests,0,0,0,0,1
+483,it will have one or more,0,0,1,0,1
+487,"run before a list of tuples of app path, migration name",0,0,1,0,1
+488,replaces a list of migration names,0,0,1,0,1
+3078,meth escape class method instead.,0,1,1,0,1
+2504,modifications on attr parent must not,0,0,1,0,1
+3747,"param hooks dictionary of callback hooks, for internal usage.",0,0,1,0,1
+4533,"pos weight tensor, optional a weight of positive examples.",0,0,1,0,1
+5712,spatial dimensions.,0,1,1,0,1
+1986,option plotting^backend .,1,0,1,0,1
