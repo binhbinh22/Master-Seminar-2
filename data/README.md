@@ -27,3 +27,7 @@ Dữ liệu cho bài toán NLBSE'23 Code Comment Classification (Python, Java, P
 - Test (≈ 20%) và 5 fold được chia cân bằng nhãn, seed 42. Test chỉ dùng để đánh giá cuối.
 - Một nhóm trùng rất lớn có nhãn hiếm không thể tách ra nên có thể làm lệch nhãn đó, ví dụ `Ownership` của Java (nhóm 32 câu `@author kevin bourrillion`): fold validation chứa nhóm này có tỷ lệ nhãn ≈ 1,7× mức lý tưởng.
 - Chạy lại notebook sẽ ghi đè `processed/`.
+
+## Wide multi-label cho EDA (`*_preprocessed.csv`)
+
+`python_preprocessed.csv` được [notebooks/EDA_all_datasets.ipynb](../notebooks/EDA_all_datasets.ipynb) đọc và đối soát với `python.csv`. `java_preprocessed.csv` và `pharo_preprocessed.csv` tạo bằng `python src/data/make_wide.py --language java pharo`. Các file này chưa chia train/test và không phải đầu vào của `processed/`; mô hình dùng `processed/`.
