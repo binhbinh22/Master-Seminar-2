@@ -9,7 +9,13 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import FeatureUnion
 
 
-def build_vectorizer():
-    word_tfidf = TfidfVectorizer(ngram_range=(1, 2), analyzer='word', min_df=2, max_features=20000)
-    char_tfidf = TfidfVectorizer(ngram_range=(3, 5), analyzer='char_wb', min_df=2, max_features=20000)
+def build_vectorizer(word_ngram_range=(1, 2), char_ngram_range=(3, 5), max_features_per_vectorizer=20000):
+    word_tfidf = TfidfVectorizer(
+        ngram_range=tuple(word_ngram_range), analyzer='word', min_df=2,
+        max_features=max_features_per_vectorizer,
+    )
+    char_tfidf = TfidfVectorizer(
+        ngram_range=tuple(char_ngram_range), analyzer='char_wb', min_df=2,
+        max_features=max_features_per_vectorizer,
+    )
     return FeatureUnion([('word', word_tfidf), ('char', char_tfidf)])

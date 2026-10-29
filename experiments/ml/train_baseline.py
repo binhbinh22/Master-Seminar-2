@@ -1,5 +1,9 @@
 """Train and evaluate the classical ML baselines (TF-IDF + linear multi-label models)
-for the NLBSE'23 Python code-comment classification subset.
+for the NLBSE'23 code-comment classification dataset.
+
+Reads the shared, group-aware split in `data/processed/<language>/` -- the same split
+the team's RoBERTa baseline (`experiments/dl/train_exp1.py`) uses -- so the two methods'
+held-out test metrics are directly comparable.
 
 Run from the repo root:
     python -m experiments.ml.train_baseline --config configs/exp_ml_baseline.yaml
@@ -13,8 +17,8 @@ from pathlib import Path
 
 import yaml
 
-from src.models.ml.data import load_multilabel
-from src.models.ml.evaluation import evaluate_model, per_label_metrics
+from src.models.ml.data import load_processed
+from src.models.ml.evaluation import cross_validate, evaluate_on_test
 from src.models.ml.models import build_models
 
 
@@ -26,11 +30,11 @@ def run(config_path: Path) -> dict:
     output_dir = Path(config['output_dir'])
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    texts, Y, categories, groups, _ = load_multilabel(config['data']['path'])
-
-    eval_cfg = config['evaluation']
-    folds = eval_cfg['folds']
-    seed = eval_cfg['seed']
+    language = config['data']['language']
+    bundle = load_processed(language, processed_dir=config['data']['processed_dir'])
+    label_names = bundle['label_names']
+    folds = bundle['folds']
+    feature_kwargs = config.get('features', {})
 
     all_models = build_models()
     requested = config['models']
@@ -38,35 +42,48 @@ def run(config_path: Path) -> dict:
     if unknown:
         raise ValueError(f'Unknown model(s) in config: {sorted(unknown)}')
 
-    model_results = {}
+    cv_results = {}
+    test_results = {}
+    per_label_results = {}
+
     for name in requested:
-        print(f'Evaluating {name}...')
         clf = all_models[name]
-        model_results[name] = evaluate_model(lambda clf=clf: clf, texts, Y, groups, folds=folds, seed=seed)
-        m = model_results[name]
-        print(f"  micro-F1: {m['micro_f1']['mean']:.4f}  macro-F1: {m['macro_f1']['mean']:.4f}  "
-              f"jaccard: {m['jaccard']['mean']:.4f}  hamming: {m['hamming']['mean']:.4f}")
+        print(f'[{name}] cross-validating on train split ({len(folds)} folds)...')
+        cv_results[name] = cross_validate(
+            lambda clf=clf: clf, bundle['train_texts'], bundle['train_labels'], folds,
+            feature_kwargs=feature_kwargs,
+        )
+        cv = cv_results[name]
+        print(f"  CV   micro-F1: {cv['micro_f1']['mean']:.4f}  macro-F1: {cv['macro_f1']['mean']:.4f}  "
+              f"jaccard: {cv['jaccard']['mean']:.4f}  hamming: {cv['hamming']['mean']:.4f}")
+
+        print(f'[{name}] fitting on full train, evaluating on held-out test...')
+        overall, per_label = evaluate_on_test(
+            lambda clf=clf: clf,
+            bundle['train_texts'], bundle['train_labels'],
+            bundle['test_texts'], bundle['test_labels'],
+            label_names,
+            feature_kwargs=feature_kwargs,
+        )
+        test_results[name] = overall
+        per_label_results[name] = per_label
+        print(f"  TEST micro-F1: {overall['micro_f1']:.4f}  macro-F1: {overall['macro_f1']:.4f}  "
+              f"jaccard: {overall['jaccard']:.4f}  hamming: {overall['hamming']:.4f}")
 
     result = {
         'experiment': config['experiment'],
+        'language': language,
         'started': started,
         'finished': datetime.now(timezone.utc).isoformat(),
-        'n_samples': int(len(texts)),
-        'n_unique_groups': int(len(set(groups))),
-        'labels': categories,
-        'folds': folds,
-        'seed': seed,
-        'group_aware_split': eval_cfg.get('group_aware_split', True),
-        'models': model_results,
+        'n_train': int(len(bundle['train_texts'])),
+        'n_test': int(len(bundle['test_texts'])),
+        'labels': label_names,
+        'folds': len(folds),
+        'data_source': 'data/processed (shared group-aware split, same as RoBERTa baseline)',
+        'cv': cv_results,
+        'test': test_results,
+        'per_label_test': per_label_results,
     }
-
-    if eval_cfg.get('report_per_label'):
-        label_model_name = eval_cfg['per_label_model']
-        print(f'Computing per-label metrics for {label_model_name}...')
-        clf = all_models[label_model_name]
-        result['per_label'] = per_label_metrics(
-            lambda clf=clf: clf, texts, Y, groups, categories, folds=folds, seed=seed
-        )
 
     metrics_path = output_dir / 'metrics.json'
     metrics_path.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')

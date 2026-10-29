@@ -1,8 +1,7 @@
-"""Cross-validated evaluation for the multi-label classical ML models.
+"""Cross-validation + held-out test evaluation for the multi-label classical ML models.
 
-Uses the group-aware splitter in splitting.py (not plain MultilabelStratifiedKFold) so
-duplicate-text sentences never appear on both sides of a fold. See data.py and
-splitting.py docstrings for why that matters.
+Both use the pre-computed, group-aware split from `data/processed/` (see data.py) --
+this module never derives its own train/val/test split.
 """
 import numpy as np
 from sklearn.metrics import (
@@ -11,61 +10,73 @@ from sklearn.metrics import (
 )
 
 from src.models.ml.features import build_vectorizer
-from src.models.ml.splitting import group_aware_multilabel_kfold
 
 
-def evaluate_model(build_clf_fn, texts, Y, groups, folds=5, seed=42):
+def _predict(build_clf_fn, X_train, y_train, X_test):
+    clf = build_clf_fn()
+    clf.fit(X_train, y_train)
+    return np.asarray(clf.predict(X_test))
+
+
+def cross_validate(build_clf_fn, train_texts, train_labels, folds, feature_kwargs=None):
+    """5-fold CV on the training split only, using the team's pre-computed fold indices.
+
+    Used for model selection/comparison -- never touches the held-out test set.
+    """
+    feature_kwargs = feature_kwargs or {}
     metrics = {'micro_f1': [], 'macro_f1': [], 'jaccard': [], 'hamming': [],
                'precision_micro': [], 'recall_micro': []}
 
-    for train_idx, test_idx in group_aware_multilabel_kfold(texts, Y, groups, n_splits=folds, seed=seed):
-        vec = build_vectorizer()
-        X_train = vec.fit_transform(texts[train_idx])
-        X_test = vec.transform(texts[test_idx])
-        y_train, y_test = Y[train_idx], Y[test_idx]
+    for fold in folds:
+        train_idx = np.array(fold['train_indices'])
+        val_idx = np.array(fold['val_indices'])
 
-        clf = build_clf_fn()
-        clf.fit(X_train, y_train)
-        y_pred = np.asarray(clf.predict(X_test))
+        vec = build_vectorizer(**feature_kwargs)
+        X_train = vec.fit_transform(train_texts[train_idx])
+        X_val = vec.transform(train_texts[val_idx])
+        y_train, y_val = train_labels[train_idx], train_labels[val_idx]
 
-        metrics['micro_f1'].append(f1_score(y_test, y_pred, average='micro', zero_division=0))
-        metrics['macro_f1'].append(f1_score(y_test, y_pred, average='macro', zero_division=0))
-        metrics['jaccard'].append(jaccard_score(y_test, y_pred, average='samples', zero_division=0))
-        metrics['hamming'].append(hamming_loss(y_test, y_pred))
-        metrics['precision_micro'].append(precision_score(y_test, y_pred, average='micro', zero_division=0))
-        metrics['recall_micro'].append(recall_score(y_test, y_pred, average='micro', zero_division=0))
+        y_pred = _predict(build_clf_fn, X_train, y_train, X_val)
+
+        metrics['micro_f1'].append(f1_score(y_val, y_pred, average='micro', zero_division=0))
+        metrics['macro_f1'].append(f1_score(y_val, y_pred, average='macro', zero_division=0))
+        metrics['jaccard'].append(jaccard_score(y_val, y_pred, average='samples', zero_division=0))
+        metrics['hamming'].append(hamming_loss(y_val, y_pred))
+        metrics['precision_micro'].append(precision_score(y_val, y_pred, average='micro', zero_division=0))
+        metrics['recall_micro'].append(recall_score(y_val, y_pred, average='micro', zero_division=0))
 
     return {k: {'mean': float(np.mean(v)), 'std': float(np.std(v))} for k, v in metrics.items()}
 
 
-def per_label_metrics(build_clf_fn, texts, Y, groups, categories, folds=5, seed=42):
-    n_labels = len(categories)
-    p_acc = np.zeros((folds, n_labels))
-    r_acc = np.zeros((folds, n_labels))
-    f_acc = np.zeros((folds, n_labels))
-    support_total = np.zeros(n_labels)
+def evaluate_on_test(build_clf_fn, train_texts, train_labels, test_texts, test_labels, label_names,
+                      feature_kwargs=None):
+    """Fit on the FULL training split, report metrics on the held-out test split.
 
-    splits = list(group_aware_multilabel_kfold(texts, Y, groups, n_splits=folds, seed=seed))
-    for i, (train_idx, test_idx) in enumerate(splits):
-        vec = build_vectorizer()
-        X_train = vec.fit_transform(texts[train_idx])
-        X_test = vec.transform(texts[test_idx])
-        y_train, y_test = Y[train_idx], Y[test_idx]
+    This is the one number that should be compared against the RoBERTa baseline's test
+    metrics -- both methods are fit on the same train.csv and scored on the same
+    test.csv.
+    """
+    vec = build_vectorizer(**(feature_kwargs or {}))
+    X_train = vec.fit_transform(train_texts)
+    X_test = vec.transform(test_texts)
 
-        clf = build_clf_fn()
-        clf.fit(X_train, y_train)
-        y_pred = np.asarray(clf.predict(X_test))
+    y_pred = _predict(build_clf_fn, X_train, train_labels, X_test)
 
-        p, r, f, sup = precision_recall_fscore_support(y_test, y_pred, zero_division=0)
-        p_acc[i], r_acc[i], f_acc[i] = p, r, f
-        support_total += sup
+    overall = {
+        'micro_f1': float(f1_score(test_labels, y_pred, average='micro', zero_division=0)),
+        'macro_f1': float(f1_score(test_labels, y_pred, average='macro', zero_division=0)),
+        'jaccard': float(jaccard_score(test_labels, y_pred, average='samples', zero_division=0)),
+        'hamming': float(hamming_loss(test_labels, y_pred)),
+        'precision_micro': float(precision_score(test_labels, y_pred, average='micro', zero_division=0)),
+        'recall_micro': float(recall_score(test_labels, y_pred, average='micro', zero_division=0)),
+    }
 
-    out = {}
-    for j, lbl in enumerate(categories):
-        out[lbl] = {
-            'precision': float(p_acc[:, j].mean()),
-            'recall': float(r_acc[:, j].mean()),
-            'f1': float(f_acc[:, j].mean()),
-            'support_total': int(support_total[j]),
+    p, r, f, sup = precision_recall_fscore_support(test_labels, y_pred, zero_division=0)
+    per_label = {
+        label_names[j]: {
+            'precision': float(p[j]), 'recall': float(r[j]), 'f1': float(f[j]), 'support': int(sup[j]),
         }
-    return out
+        for j in range(len(label_names))
+    }
+
+    return overall, per_label
