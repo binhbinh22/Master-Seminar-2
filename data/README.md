@@ -4,7 +4,7 @@ Dữ liệu cho bài toán NLBSE'23 Code Comment Classification (Python, Java, P
 
 ## Raw
 
-`python.csv`, `java.csv`, `pharo.csv`: dữ liệu NLBSE'23 gốc ở dạng long one-vs-rest. Mỗi câu có một dòng cho từng category (`instance_type` = 1 nếu câu thuộc category đó). Cột `partition` là phân vùng train/test theo từng category nên không dùng.
+`python.csv`, `java.csv`, `pharo.csv`: dữ liệu NLBSE'23 gốc ở dạng long one-vs-rest. Mỗi câu có một dòng cho từng category (`instance_type` = 1 nếu câu thuộc category đó). Cột `partition` là phân vùng train/test theo từng category nên không dùng để chia dữ liệu.
 
 ## Processed
 
@@ -27,3 +27,9 @@ Dữ liệu cho bài toán NLBSE'23 Code Comment Classification (Python, Java, P
 - Test (≈ 20%) và 5 fold được chia cân bằng nhãn, seed 42. Test chỉ dùng để đánh giá cuối.
 - Một nhóm trùng rất lớn có nhãn hiếm không thể tách ra nên có thể làm lệch nhãn đó, ví dụ `Ownership` của Java (nhóm 32 câu `@author kevin bourrillion`): fold validation chứa nhóm này có tỷ lệ nhãn ≈ 1,7× mức lý tưởng.
 - Chạy lại notebook sẽ ghi đè `processed/`.
+
+TF-IDF, tokenizer... không nằm trong `processed/`; từng notebook huấn luyện tự tạo, và TF-IDF phải fit trên phần train của từng fold.
+
+## Wide multi-label cũ (`*_preprocessed.csv`)
+
+`python_preprocessed.csv`, `java_preprocessed.csv`, `pharo_preprocessed.csv` là bản wide multi-label chưa chia train/test, dùng cho [notebooks/EDA_all_datasets.ipynb](../notebooks/EDA_all_datasets.ipynb) (đọc `python_preprocessed.csv`). Java/Pharo được tạo bằng `python src/data/make_wide.py --language java pharo`. Các file này không phải đầu vào của `processed/`.
