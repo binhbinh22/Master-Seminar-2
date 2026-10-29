@@ -1,37 +1,33 @@
 # Data
 
-Thư mục dữ liệu cho bài toán NLBSE'23 Code Comment Classification (Python).
+Dữ liệu cho bài toán NLBSE'23 Code Comment Classification (Python, Java, Pharo).
 
-## Files
+## Raw
 
-- `python.csv`: dữ liệu NLBSE'23 gốc ở dạng long one-vs-rest. Mỗi câu có một dòng cho từng category.
-- `python_preprocessed.csv`: dữ liệu đã chuyển sang wide multi-label, một dòng cho mỗi `comment_sentence_id`.
+`python.csv`, `java.csv`, `pharo.csv`: dữ liệu NLBSE'23 gốc ở dạng long one-vs-rest. Mỗi câu có một dòng cho từng category (`instance_type` = 1 nếu câu thuộc category đó). Cột `partition` là phân vùng train/test theo từng category nên không dùng.
 
-## Preprocessed schema
+## Processed
 
-`python_preprocessed.csv` gồm:
+`processed/<ngôn ngữ>/` là bộ dữ liệu chung cho mọi mô hình, được tạo bởi [notebooks/data_preprocessing.ipynb](../notebooks/data_preprocessing.ipynb):
 
-- `comment_sentence_id`: định danh câu;
-- `class`: class/source chứa comment;
-- `comment_sentence`: text sau khi chuẩn hóa whitespace;
-- `DevelopmentNotes`, `Expand`, `Parameters`, `Summary`, `Usage`: năm nhãn nhị phân;
-- `label_count`: số nhãn dương của câu.
+| File | Nội dung |
+|---|---|
+| `train.csv`, `test.csv` | `comment_sentence_id`, `class`, `group_id`, `text`, rồi mỗi nhãn một cột 0/1 |
+| `folds.json` | 5 fold trên train: `[{"fold", "train_indices", "val_indices"}, ...]`, chỉ số là vị trí dòng (từ 0) trong `train.csv` |
+| `label_cols.json` | thứ tự cột nhãn |
 
-File processed có 2.555 dòng, không có missing value và không trùng `comment_sentence_id`. Tổng positive của từng nhãn được đối soát với file gốc.
+| Ngôn ngữ | Train | Test | Nhãn |
+|---|---|---|---|
+| python | 2.044 | 511 | 5 |
+| java | 1.934 | 484 | 7 |
+| pharo | 1.411 | 354 | 7 |
 
-## Java / Pharo
+- `text` chỉ được chuẩn hóa khoảng trắng; giữ nguyên chữ hoa/thường và ký hiệu code.
+- Các câu có text giống hệt nhau cùng một `group_id` và luôn nằm cùng phía (train/test, và train/validation của mỗi fold).
+- Test (≈ 20%) và 5 fold được chia cân bằng nhãn, seed 42. Test chỉ dùng để đánh giá cuối.
+- Một nhóm trùng rất lớn có nhãn hiếm không thể tách ra nên có thể làm lệch nhãn đó, ví dụ `Ownership` của Java (nhóm 32 câu `@author kevin bourrillion`): fold validation chứa nhóm này có tỷ lệ nhãn ≈ 1,7× mức lý tưởng.
+- Chạy lại notebook sẽ ghi đè `processed/`.
 
-Tạo wide multi-label bằng `python src/data/make_wide.py --language java pharo`:
+## Wide multi-label cho EDA (`*_preprocessed.csv`)
 
-- `java_preprocessed.csv`: 2.418 câu, 7 nhãn (`Expand, Ownership, Pointer, deprecation, rational, summary, usage`);
-- `pharo_preprocessed.csv`: 1.765 câu, 7 nhãn (`Classreferences, Collaborators, Example, Intent, Keyimplementationpoints, Keymessages, Responsibilities`).
-
-Thêm cột `partition_official`: partition theo đa số phiếu giữa các category (0 = train, 1 = test). Cột này **chỉ để đối chiếu**, không dùng để chia dữ liệu vì partition gốc nằm trên từng cặp (câu, category).
-
-## Artifacts cho mô hình
-
-Chạy `LANGUAGE=<python|java|pharo>` với `notebooks/data_preprocessing_roberta.ipynb` và `notebooks/data_preprocessing_tfidf.ipynb`.
-Cùng cách chia ở cả 3 ngôn ngữ: `MultilabelStratifiedKFold` 80/20 (seed 42) + 5-fold CV trên train.
-
-- Python: `data/roberta/`, `data/tfidf/`
-- Java/Pharo: `data/{roberta,tfidf}/{java,pharo}/`
+`python_preprocessed.csv` được [notebooks/EDA_all_datasets.ipynb](../notebooks/EDA_all_datasets.ipynb) đọc và đối soát với `python.csv`. `java_preprocessed.csv` và `pharo_preprocessed.csv` có cùng cột với file Python; chúng được tạo từ `src/data/make_wide.py` rồi bỏ cột `partition_official` mà script này ghi thêm. Các file này chưa chia train/test và không phải đầu vào của `processed/`; mô hình dùng `processed/`.
