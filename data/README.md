@@ -30,4 +30,4 @@ Dữ liệu cho bài toán NLBSE'23 Code Comment Classification (Python, Java, P
 
 ## Wide multi-label cho EDA (`*_preprocessed.csv`)
 
-`python_preprocessed.csv` được [notebooks/EDA_all_datasets.ipynb](../notebooks/EDA_all_datasets.ipynb) đọc và đối soát với `python.csv`. `java_preprocessed.csv` và `pharo_preprocessed.csv` tạo bằng `python src/data/make_wide.py --language java pharo`. Các file này chưa chia train/test và không phải đầu vào của `processed/`; mô hình dùng `processed/`.
+`python_preprocessed.csv` được [notebooks/EDA_all_datasets.ipynb](../notebooks/EDA_all_datasets.ipynb) đọc và đối soát với `python.csv`. `java_preprocessed.csv` và `pharo_preprocessed.csv` có cùng cột với file Python; chúng được tạo từ `src/data/make_wide.py` rồi bỏ cột `partition_official` mà script này ghi thêm. Các file này chưa chia train/test và không phải đầu vào của `processed/`; mô hình dùng `processed/`.
