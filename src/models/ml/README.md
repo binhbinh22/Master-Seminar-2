@@ -29,7 +29,7 @@ chứng (`assert not set(train['group_id']) & set(test['group_id'])`).
 |---|---|
 | `data.py` | `load_processed('python')` — đọc `data/processed/python/` |
 | `features.py` | TF-IDF (word n-gram + char n-gram), fit riêng mỗi lần train (không leak qua vectorizer) |
-| `models.py` | 5 model: dummy baseline + 4 biến thể tuyến tính |
+| `models.py` | 6 model: dummy baseline + 4 biến thể tuyến tính + 1 Random Forest (đối chứng phi tuyến) |
 | `evaluation.py` | `cross_validate()` dùng `folds.json` có sẵn (chọn/so sánh model) + `evaluate_on_test()` fit trên toàn bộ train, chấm trên `test.csv` (số để so với RoBERTa) |
 | `legacy/` | 4 script cũ dùng sai cột nhãn (`category` thay vì `instance_type`) — chỉ giữ để đối chiếu, xem `legacy/README.md` |
 
@@ -56,12 +56,22 @@ có 5 nhãn mâu thuẫn nhau (4/5 sai) → model gần như không học đư�
 4. **Baseline chính thức của NLBSE'23** cũng dùng mô hình nhẹ (Random Forest + TF-IDF);
    Logistic Regression tương đương về độ phức tạp, nhanh và dễ so sánh — còn RoBERTa của
    nhóm đóng vai trò baseline deep learning để đối chiếu với nhóm model nhẹ này.
-5. **Thực nghiệm xác nhận**: 4 biến thể tuyến tính cho kết quả gần như nhau (test
-   micro-F1 0.59–0.61) → không gian đặc trưng TF-IDF gần tuyến tính, tăng độ phức tạp mô
-   hình khó cải thiện thêm nếu không tăng dữ liệu. `dummy_most_frequent` (baseline sàn,
-   luôn đoán theo nhãn phổ biến nhất) cho micro-F1 = 0 — vì cả 5 nhãn đều có prevalence
-   <50%, nên "luôn đoán 0" không bắt được true positive nào — chứng minh 4 model tuyến
-   tính thực sự học được tín hiệu ngôn ngữ, không phải chỉ đoán theo tần suất.
+5. **Thực nghiệm xác nhận — có đối chứng phi tuyến thật**: 4 biến thể tuyến tính cho kết
+   quả gần như nhau (test micro-F1 0.59–0.61). Thêm `ovr_random_forest` (phi tuyến, 300
+   cây) để kiểm chứng trực tiếp giả thuyết "không gian đặc trưng gần tuyến tính": Random
+   Forest đạt CV micro-F1 0.5698 (nhích hơn Logistic Regression một chút khi validate nội
+   bộ), nhưng **tụt xuống 0.5647 trên test** — thấp hơn cả 4 model tuyến tính, và đặc biệt
+   kém hẳn ở 2 nhãn khó/hiếm (`DevelopmentNotes` F1 0.22 vs 0.34, `Expand` F1 0.39 vs 0.51
+   so với Logistic Regression). Nghĩa là Random Forest khớp tốt trên dữ liệu đã thấy
+   (CV) nhưng generalize kém hơn trên dữ liệu mới — dấu hiệu overfit trên không gian TF-IDF
+   nhiều chiều, ít mẫu. Đây là bằng chứng thực nghiệm, không chỉ suy luận lý thuyết, rằng
+   mô hình tuyến tính là lựa chọn tốt hơn cho dataset này. `dummy_most_frequent` (baseline
+   sàn, luôn đoán theo nhãn phổ biến nhất) cho micro-F1 = 0 — vì cả 5 nhãn đều có
+   prevalence <50%, nên "luôn đoán 0" không bắt được true positive nào — chứng minh các
+   model còn lại thực sự học được tín hiệu ngôn ngữ, không phải chỉ đoán theo tần suất.
+6. **Trùng đúng baseline chính thức của NLBSE'23** (TF-IDF + Random Forest) — nên
+   `ovr_random_forest` ở đây cũng đóng vai trò tái lập baseline gốc của cuộc thi để đối
+   chiếu, không chỉ là một lựa chọn kiến trúc tuỳ ý.
 
 ## Độ đo sử dụng
 
@@ -80,6 +90,7 @@ có 5 nhãn mâu thuẫn nhau (4/5 sai) → model gần như không học đư�
 | Model | micro-F1 | macro-F1 | Jaccard | Hamming |
 |---|---|---|---|---|
 | dummy_most_frequent | 0.0000 | 0.0000 | 0.0000 | 0.2242 |
+| ovr_random_forest | 0.5698 | 0.5285 | 0.5003 | **0.1800** |
 | **ovr_logreg** | **0.5630** | **0.5315** | 0.5147 | 0.1984 |
 | ovr_sgd | 0.5607 | 0.5298 | 0.5145 | 0.2044 |
 | ovr_linear_svc | 0.5529 | 0.5179 | 0.5003 | 0.2008 |
@@ -94,18 +105,26 @@ có 5 nhãn mâu thuẫn nhau (4/5 sai) → model gần như không học đư�
 | ovr_sgd | 0.6014 | 0.5576 | 0.5545 | 0.1847 |
 | ovr_linear_svc | 0.5956 | 0.5474 | 0.5373 | 0.1796 |
 | classifier_chain_logreg | 0.5895 | 0.5346 | **0.5776** | 0.1832 |
+| ovr_random_forest | 0.5647 | 0.4975 | 0.5116 | 0.1804 |
 
-Per-label trên test (ovr_logreg):
+→ Random Forest xếp **nhất trên CV** nhưng **cuối cùng trên test** — dấu hiệu overfit rõ
+ràng, không generalize tốt bằng 4 model tuyến tính (xem phân tích ở mục trên).
 
-| Label | Precision | Recall | F1 | Support |
-|---|---|---|---|---|
-| Usage | 0.7405 | 0.7312 | 0.7358 | 160 |
-| Parameters | 0.6706 | 0.7170 | 0.6930 | 159 |
-| Summary | 0.5306 | 0.5714 | 0.5503 | 91 |
-| Expand | 0.6081 | 0.4455 | 0.5143 | 101 |
-| DevelopmentNotes | 0.3067 | 0.3710 | 0.3358 | 62 |
+Per-label trên test:
 
-Số liệu đầy đủ (kèm per-label cho cả 5 model): `results/exp_ml_baseline/metrics.json`.
+| Label | Support | ovr_logreg F1 | ovr_random_forest F1 |
+|---|---|---|---|
+| Usage | 160 | **0.7358** | 0.6821 |
+| Parameters | 159 | 0.6930 | 0.6730 |
+| Summary | 91 | **0.5503** | 0.5222 |
+| Expand | 101 | **0.5143** | 0.3924 |
+| DevelopmentNotes | 62 | **0.3358** | 0.2178 |
+
+Logistic Regression thắng ở cả 5/5 nhãn trên test, cách biệt rõ nhất ở 2 nhãn hiếm/khó
+nhất (`Expand`, `DevelopmentNotes`) — đúng chỗ Random Forest dễ overfit nhất vì ít mẫu
+dương để học split.
+
+Số liệu đầy đủ (kèm per-label cho cả 6 model): `results/exp_ml_baseline/metrics.json`.
 
 **OVR Logistic Regression** là model tốt nhất trên cả CV và test — dùng model này khi so
 sánh trực tiếp với kết quả RoBERTa.

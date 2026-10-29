@@ -13,3 +13,4 @@ models:
   - classifier_chain_logreg
   - ovr_linear_svc
   - ovr_sgd
+  - ovr_random_forest

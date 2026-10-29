@@ -1,11 +1,12 @@
 """Classical multi-label model builders.
 
-All four are linear classifiers wrapped for multi-label output. See
-src/models/ml/README.md ("Vì sao chọn mô hình tuyến tính") for why linear models were
-chosen over non-linear alternatives (Random Forest, gradient boosting, etc.) for this
-dataset.
+Four are linear classifiers wrapped for multi-label output; `ovr_random_forest` is a
+non-linear comparison point (and reproduces NLBSE'23's own TF-IDF + Random Forest
+baseline). See src/models/ml/README.md ("Vì sao chọn mô hình tuyến tính") for how the
+two compare on this dataset.
 """
 from sklearn.dummy import DummyClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.multioutput import ClassifierChain
@@ -29,5 +30,8 @@ def build_models():
         ),
         'ovr_sgd': OneVsRestClassifier(
             SGDClassifier(loss='log_loss', max_iter=2000, tol=1e-3, class_weight='balanced', random_state=42)
+        ),
+        'ovr_random_forest': OneVsRestClassifier(
+            RandomForestClassifier(n_estimators=300, class_weight='balanced', random_state=42, n_jobs=-1)
         ),
     }
