@@ -1,0 +1,28 @@
+name: nlbse2023_code_comment_classification
+source: https://github.com/nlbse2023/code-comment-classification
+source_commit: 07f0b6d6e09e793652c26c288fb45e218b49f594
+data_dir: data/raw/nlbse2023
+expected_samples: 6738
+text_column: comment_sentence
+target_column: instance_type
+category_column: category
+partition_column: partition
+split:
+  strategy: official_per_label
+  train_value: 0
+  test_value: 1
+label_namespace: "{language}.{category}"
+num_labels: 19
+languages:
+  java:
+    file: java.csv
+    url: https://raw.githubusercontent.com/nlbse2023/code-comment-classification/07f0b6d6e09e793652c26c288fb45e218b49f594/java/input/java.csv
+    categories: [summary, Ownership, Expand, usage, Pointer, deprecation, rational]
+  python:
+    file: python.csv
+    url: https://raw.githubusercontent.com/nlbse2023/code-comment-classification/07f0b6d6e09e793652c26c288fb45e218b49f594/python/input/python.csv
+    categories: [Usage, Parameters, DevelopmentNotes, Expand, Summary]
+  pharo:
+    file: pharo.csv
+    url: https://raw.githubusercontent.com/nlbse2023/code-comment-classification/07f0b6d6e09e793652c26c288fb45e218b49f594/pharo/input/pharo.csv
+    categories: [Keyimplementationpoints, Example, Responsibilities, Classreferences, Intent, Keymessages, Collaborators]

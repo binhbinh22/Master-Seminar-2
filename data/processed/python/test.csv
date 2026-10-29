@@ -1,0 +1,512 @@
+comment_sentence_id,class,group_id,text,DevelopmentNotes,Expand,Parameters,Summary,Usage
+7,AppConfigStub,3,stub of an appconfig.,0,0,0,1,0
+16,Atomic,7,guarantee the atomic execution of a given block.,0,0,0,1,0
+18,Atomic,8,"when it s used as a decorator, call wraps the execution of the",0,0,0,0,1
+22,Atomic,12,"exit commits the transaction or releases the savepoint on normal exit,",0,0,0,0,1
+51,AtomicTests,21,the tests make assertions on internal attributes because there isn t a,0,1,0,0,0
+53,AtomicTests,23,since the decorator syntax is converted into a context manager see the,0,1,0,0,0
+67,AutoFieldMeta,31,automatically generated field as a subclass of autofield.,0,0,0,0,1
+84,BadSignature,37,signature does not match.,0,0,0,1,0
+86,BarAccount,38,a service specific account of type bar.,0,0,0,1,0
+97,BaseCommand,48,1,0,0,0,0,1
+101,BaseCommand,52,the run from argv method calls create parser to get,0,0,0,0,1
+107,BaseCommand,58,the execute method attempts to carry out the command by,0,0,0,0,1
+108,BaseCommand,59,calling the handle method with the parsed arguments any,0,0,0,0,1
+110,BaseCommand,61,"output and, if the command is intended to produce a block of",0,0,0,0,1
+111,BaseCommand,62,"sql statements, will be wrapped in begin and commit .",0,0,0,0,1
+115,BaseCommand,66,message to stderr .,0,0,0,0,1
+123,BaseCommand,74,"a short description of the command, which will be printed in",0,0,1,0,0
+130,BaseCommand,80,false .,0,0,1,0,0
+136,BaseCommand,86,prior to executing the command.,0,0,1,0,0
+202,BaseDatabaseSchemaEditor,93,"statements to the databases model creation removal alteration, field",1,0,0,1,0
+213,BaseUpdateView,97,using this base class requires subclassing to provide a response mixin.,1,0,0,0,0
+216,BaseYearArchiveView,98,list of objects published in a given year.,0,0,0,1,0
+227,BoundWidget,102,a container class used for iterating over widgets.,0,0,0,1,0
+228,BoundWidget,103,this is useful for,1,0,0,0,0
+229,BoundWidget,104,widgets that have choices.,1,0,0,0,0
+232,BoundWidget,107,% for radio in myform^beatles %,0,0,0,0,1
+236,BoundWidget,111,label,0,0,0,0,1
+265,Client,122,the server response objects are annotated with the details,0,1,0,0,0
+268,Client,125,client objects are stateful they will retain cookie and,0,1,0,0,0
+293,ConsoleDirective,135,the second tab shows a windows command line equivalent of the usual,0,0,0,1,0
+298,Context,137,a stack container for variable context,0,0,0,1,0
+307,CustomCacheKeyValidationTests,142,a custom cache backend that otherwise inherits from a builtin,0,1,0,1,0
+308,CustomCacheKeyValidationTests,143,"backend, and override the default key validation.",0,1,0,0,0
+325,DisallowedModelAdminToField,147,invalid to field was passed to admin view via url query string,0,0,0,1,0
+337,ErrorDict,151,a collection of errors that knows how to display itself in various formats.,0,0,0,1,0
+338,ErrorDict,152,"the dictionary keys are the field names, and the values are the errors.",0,0,0,0,1
+347,FakePayload,157,length.,0,0,0,1,0
+356,FallbackStorage,161,store any unstored,0,1,0,0,0
+378,ImageFileDescriptor,170,"assigning the width height to the width field height field, if appropriate.",0,1,0,0,0
+403,InvalidBasesError,178,a model s base classes can t be resolved.,0,0,0,1,0
+408,ListMixin,181,derived classes must call listmixin s init function,0,1,0,0,0
+409,ListMixin,182,and implement the following,0,1,0,0,0
+413,ListMixin,186,"function get single internal self, i",0,1,0,0,0
+418,ListMixin,191,"function set list self, length, items",0,1,0,0,0
+424,ListMixin,197,"function set single self, i, value",0,1,0,0,0
+426,ListMixin,199,"if left undefined, all mutations will result in rebuilding",0,1,0,0,0
+428,ListMixin,201,function len self,0,1,0,0,0
+431,ListMixin,204,the minimum legal length optional,0,1,0,0,0
+465,LogoutThenLoginTests,209,tests for the logout then login view,0,0,0,1,0
+467,MakeListTests,210,"the make list filter can destroy existing escaping, so the results are",0,1,0,0,0
+471,ManagementForm,212,keep track of how many form instances are displayed on the page.,0,0,0,1,0
+480,Migration,215,the base class for all migrations.,0,0,0,1,0
+504,MigrationGraph,222,represent the digraph of all migrations in a project.,0,0,0,1,0
+550,MigrationLoader,244,if all the migrations they replace are either unapplied or missing from,0,1,0,0,0
+555,MigrationLoader,249,"to disk, but this is probably fine.",0,0,0,0,1
+574,MigrationQuestioner,252,give the autodetector responses to questions it might have.,0,0,0,1,0
+588,ModelSignal,258,signal subclass that allows the sender to be lazily specified as a string,0,0,0,1,0
+589,ModelSignal,259,of the app label^modelname form.,0,0,0,1,0
+605,MultiValueDict,269,d^getlist doesnotexist,0,0,0,0,1
+612,MultiValueDict,274,"which returns a list for every key, even though most web forms submit",1,1,0,0,0
+633,MultiValueField,276,aggregate the logic of multiple fields.,0,0,0,1,0
+634,MultiValueField,277,"its clean method takes a decompressed list of values, which are then",0,1,0,0,0
+655,MultiWidget,285,"in addition to the values added by widget^get context , this widget",0,1,0,0,0
+663,MyModel,288,model subclass with a custom base using metaclass.,0,0,0,1,0
+670,Operation,293,as actually performing it against a live database.,0,1,0,0,0
+681,OverwritingStorage,295,unused name.,0,0,0,1,0
+689,Permission,298,the permissions system provides a way to assign permissions to specific,0,0,0,1,0
+690,Permission,299,users and groups of users.,0,0,0,1,0
+724,ProxyModelInheritanceTests,311,for the proxied model as described in #12286 .,0,0,0,1,0
+726,ProxyModelInheritanceTests,313,"apps and calls migrate, then verifies that the table has been created.",0,1,0,0,0
+731,RawPostDataException,314,you cannot access raw post data from a request that has,0,0,0,1,0
+756,ReverseGenericManyToOneDescriptor,326,post^comments is a reversegenericmanytoonedescriptor instance.,0,0,0,0,1
+763,SameAsLookup,327,the operator is the same as operator.,0,1,0,1,0
+766,SameAsLookup,330,"so if a and b are the same feature,",0,1,0,1,0
+767,SameAsLookup,331,"vertex by vertex, the operator returns true.",0,1,0,1,0
+824,TemplateDoesNotExist,355,engines.,0,0,1,0,0
+871,VariableWrapper,365,an adapter class for cursor variables that prevents the wrapped object,0,0,0,1,0
+893,XFrameOptionsMiddleware,374,do not set the header if it s already set or if the response contains,1,0,0,0,0
+895,XFrameOptionsMiddleware,376,"by default, set the x frame options header to sameorigin , meaning the",1,0,0,0,1
+898,XFrameOptionsMiddleware,379,"response from being loaded in a frame in any site, set x frame options in",1,0,0,0,1
+912,Audio,381,create an audio object.,0,0,0,1,0
+921,Audio,390,"shape nchan, nsamples .",0,0,1,0,0
+924,Audio,393,list of float or integer representing the waveform mono,0,0,1,0,0
+925,Audio,394,string containing the filename,0,0,1,0,0
+927,Audio,396,url pointing to a file on the web.,0,0,1,0,0
+928,Audio,397,"if the array option is used, the waveform will be normalized.",0,0,1,0,0
+929,Audio,398,"if a filename or url is used, the format support will be browser",0,0,1,0,0
+932,Audio,401,a url to download the data from.,0,0,1,0,0
+934,Audio,403,path to a local file to load the data from.,0,0,1,0,0
+936,Audio,405,should the audio data be embedded using a data uri true or should,0,0,1,0,0
+938,Audio,407,set this to true if you want the,0,0,1,0,0
+957,Audio,426,# generate a sound,0,0,0,0,1
+960,Audio,429,"t np^linspace 0,5,framerate 5",0,0,0,0,1
+965,Audio,434,dataright np^sin 2 np^pi 224 t,0,0,0,0,1
+1042,capture_output,443,context manager for capturing stdout err,0,0,0,1,0
+1046,CellMagicRole,445,cross reference role displayed with a %% prefix,0,0,0,1,0
+1048,DisplayHook,446,the custom ipython displayhook to replace sys^displayhook.,0,0,0,1,0
+1078,InteractiveShellApp,460,as part of configuring a shell environment.,0,0,0,1,0
+1101,Magics,471,base class for implementing magic functions.,0,0,0,1,0
+1115,Magics,480,methods are properly registered at the instance level upon instance,0,0,0,0,1
+1142,Struct,487,a dict subclass with attribute style access.,0,1,0,1,0
+1144,Struct,489,attribute style access.,0,1,0,0,0
+1148,Struct,493,intelligent merging.,0,1,0,0,0
+1160,TermColors,496,color escape sequences.,0,0,0,1,0
+1164,TermColors,500,"string, suitable for defining dummy color schemes in terminals which get",0,0,0,1,0
+1185,YouTubeVideo,507,"class for embedding a youtube video in an ipython session, based on its video id.",0,0,0,1,0
+1188,YouTubeVideo,510,vid youtubevideo foo,0,0,0,0,1
+1196,YouTubeVideo,517,other parameters can be provided as documented at,0,0,1,0,1
+1219,_MockPOP3,525,"pm pop3mailbox localhost , user a , password b ,",0,0,0,0,1
+1221,_MockPOP3,527,pm^stat,0,0,0,0,1
+1223,_MockPOP3,529,pm^iterkeys,0,0,0,0,1
+1226,_MockPOP3,532,"true, false",0,0,0,0,1
+1227,_MockPOP3,533,msg subject for msg in pm,0,0,0,0,1
+1269,ConfigDict,546,"a sanity checking, self documenting dictionary of program settings.",0,0,0,1,0
+1274,ConfigDict,48,1,0,1,1,0,0
+1277,ConfigDict,552,a data type sanity check,0,1,1,0,0
+1281,ConfigDict,555,to be dictionaries or lists of items that match the rules defined.,0,1,0,0,0
+1290,ConfigDict,562,", int , 0 ,",0,0,0,0,1
+1293,ConfigDict,565,"liquids fluids we like , false,",0,0,0,0,1
+1299,ConfigDict,571,"colors colors , red , blue ,",0,0,0,0,1
+1301,ConfigDict,573,"colors , liquids , tags , , ,",0,0,0,0,1
+1309,ConfigDict,580,pot^walk liquids^vodka,0,0,0,0,1
+1311,ConfigDict,581,"pot^walk liquids vodka , parent true",0,0,0,0,1
+1315,ConfigDict,585,"pot colors ^extend blue , red , red",0,0,0,0,1
+1424,ConfigureMailboxes,600,add one or more mailboxes.,0,0,0,1,0
+1427,ConfigureMailboxes,603,"if an account is specified, the mailbox will be assigned to that account",1,0,0,0,0
+1439,EncryptedIntDict,608,this also adds a working keys function.,0,1,0,0,0
+1445,Event,611,actual interpretation and,0,1,0,0,0
+1463,MailpileMailbox,620,instead of in filenames,0,0,0,1,0
+1478,StorageBackedLongs,628,storage sbl x01 x00 x00 x00 x00 x00 x00 x00,0,0,0,0,1
+1482,StorageBackedLongs,631,sbl^append 2,0,0,0,0,1
+1502,VCardStore,637,this is a disk backed in memory collection of vcards.,0,0,0,1,0
+1506,VCardStore,640,"# create a file for the card on disk, using a random name.",0,0,0,0,1
+1507,VCardStore,641,"vcs^add vcards mailpilevcard vcardline fn dude ,",0,0,0,0,1
+1512,VCardStore,646,u dude,0,0,0,0,1
+1513,VCardStore,647,vcs^get vcard nosuch@email^address is none,0,0,0,0,1
+1561,Base,663,input data,1,0,0,0,0
+1563,Base,665,get kwargs from breaks to the expected format.,1,0,0,0,0
+1573,BooleanArray,668,array of boolean true false data with missing values.,0,0,0,1,0
+1593,BooleanArray,683,indicates missing .,0,0,1,0,0
+1595,BooleanArray,685,whether to copy the values and mask arrays.,0,0,1,0,0
+1597,BooleanArray,687,none,0,1,0,0,0
+1599,BooleanArray,687,none,0,1,0,0,0
+1640,BusinessMixin,696,mixin to business types to provide related functions.,0,0,0,1,0
+1658,CategoricalDtype,687,none,0,1,0,0,0
+1665,CategoricalDtype,712,for more.,1,0,0,0,0
+1668,CategoricalDtype,714,"pd^series a , b , a , c , dtype t",0,0,0,0,1
+1669,CategoricalDtype,715,12:00 AM,0,0,0,0,1
+1672,CategoricalDtype,718,3 nan,0,0,0,0,1
+1674,CategoricalDtype,720,"categories 2, object b a",0,1,0,0,1
+1715,CategoricalIndex,731,"categories index like, optional",0,1,1,0,0
+1717,CategoricalIndex,733,items need to be unique.,0,0,1,0,0
+1718,CategoricalIndex,734,"if the categories are not given here and also not in dtype , they",0,1,1,0,0
+1721,CategoricalIndex,737,whether or not this categorical is treated as an ordered,0,1,1,0,0
+1723,CategoricalIndex,739,"if not given here or in dtype , the resulting",0,0,1,0,0
+1759,CategoricalIndex,757,http pandas^pydata.org pandas docs stable user guide advanced^html#categoricalindex,1,0,0,0,0
+1760,CategoricalIndex,712,for more.,1,0,0,0,0
+1846,ExcelFile,772,class for parsing tabular excel sheets into dataframe objects.,0,0,0,1,0
+1847,ExcelFile,773,uses xlrd.,1,0,0,0,0
+1853,ExcelFile,778,"if a string or path object, expected to be a path to xls, xlsx or odf file.",0,0,1,0,0
+1877,IntegerArray,786,"integerarray is currently experimental, and its api or internal",0,1,0,0,1
+1893,IntegerArray,687,none,0,1,0,0,0
+1895,IntegerArray,687,none,0,1,0,0,0
+1900,IntegerArray,797,"int array pd^array 1, none, 3 , dtype pd^int32dtype",0,1,0,0,1
+1966,IntervalDtype,687,none,0,1,0,0,0
+1969,IntervalDtype,812,interval int64,0,0,0,0,1
+1984,PlotAccessor,814,make plots of series or dataframe.,0,0,1,1,0
+1991,PlotAccessor,820,"x label or position, default none",0,0,1,0,0
+1992,PlotAccessor,821,only used if data is a dataframe.,0,0,1,0,0
+1994,PlotAccessor,823,allows plotting of one column versus another.,0,0,1,0,0
+1997,PlotAccessor,826,kind str,0,0,1,0,0
+1998,PlotAccessor,827,the kind of plot to produce,0,0,1,0,0
+1999,PlotAccessor,828,line line plot default,0,0,1,0,0
+2010,PlotAccessor,839,"figsize a tuple width, height in inches",0,0,1,0,0
+2014,PlotAccessor,843,title to use for the plot.,0,0,1,0,0
+2022,PlotAccessor,851,place legend on axis subplots.,0,0,1,0,0
+2036,PlotAccessor,863,yticks sequence,0,0,1,0,0
+2040,PlotAccessor,867,"rot int, default none",0,0,1,0,0
+2049,PlotAccessor,876,"colorbar bool, optional",0,0,1,0,0
+2054,PlotAccessor,880,from 0 left bottom end to 1 right top end .,1,1,1,0,0
+2056,PlotAccessor,882,center .,1,1,1,0,0
+2058,PlotAccessor,884,"if true, draw a table using the data in the dataframe and the data",0,0,1,0,0
+2063,PlotAccessor,889,see ref plotting with error bars visualization^errorbars for,0,0,1,0,0
+2066,PlotAccessor,892,equivalent to yerr.,0,0,1,0,0
+2069,PlotAccessor,895,labels with right in the legend.,0,0,1,0,0
+2070,PlotAccessor,896,"include bool bool, default is false",0,0,1,0,0
+2071,PlotAccessor,897,"if true, boolean values can be plotted.",0,0,1,0,0
+2083,PlotAccessor,907,class matplotlib^axes.axes or numpy^ndarray of them,0,0,1,0,0
+2085,PlotAccessor,909,will be the object returned by the backend.,0,0,1,0,0
+2087,PlotAccessor,910,see matplotlib documentation online for more on this subject,1,0,0,0,0
+2090,PlotAccessor,880,from 0 left bottom end to 1 right top end .,1,1,1,0,0
+2210,SelectNSeries,914,implement n largest smallest for series,0,0,0,1,0
+2213,SelectNSeries,916,n int,0,0,1,0,0
+2216,SelectNSeries,918,nordered series,0,0,1,0,0
+2231,SQLiteTable,922,instead of a table variable just use the create table statement.,1,0,0,0,0
+2236,SQLTable,925,do better type conversions.,0,1,0,0,0
+2247,StringArray,929,warning,0,0,1,0,0
+2248,StringArray,930,stringarray is considered experimental.,0,0,0,0,1
+2256,StringArray,929,warning,0,0,1,0,0
+2264,StringArray,687,none,0,1,0,0,0
+2266,StringArray,687,none,0,1,0,0,0
+2269,StringArray,937,the string methods are available on series backed by,0,1,0,0,0
+2276,StringArray,942,stringarray,0,0,0,0,1
+2284,StringArray,945,"for comparison methods, this returns a class pandas^booleanarray",0,1,0,0,1
+2338,TermValue,955,hold a term value the we use to construct a condition filter,0,0,0,1,0
+2357,_BZ2Proxy,964,small proxy class that enables external file object,0,0,0,1,0
+2358,_BZ2Proxy,965,support for r bz2 and w bz2 modes.,0,0,0,1,0
+2361,_BZ2Proxy,968,class which unlike gzip^gzipfile has no support for,1,0,0,0,0
+2370,_FileInFile,971,provides a part of its data as an individual file,0,0,0,1,0
+2387,And,981,example,0,0,0,0,1
+2388,And,982,integer word nums,0,0,0,0,1
+2408,Argument,987,arguments are positional parameters to a command.,0,0,0,1,0
+2444,CaseInsensitiveDict,1006,provides lower items .,0,0,0,1,0
+2448,CaseInsensitiveDict,1010,"keys , items , iterkeys , and iteritems",1,1,0,0,0
+2450,CaseInsensitiveDict,1012,"however, querying and contains",0,0,0,0,1
+2452,CaseInsensitiveDict,1014,cid caseinsensitivedict,0,0,0,0,1
+2455,CaseInsensitiveDict,1016,list cid accept # true,0,0,0,0,1
+2456,CaseInsensitiveDict,1017,"for example, headers content encoding will return the",0,0,0,0,1
+2457,CaseInsensitiveDict,1018,"value of a content encoding response header, regardless",0,0,0,0,1
+2495,CONSOLE_SCREEN_BUFFER_INFO,1026,struct in wincon^h.,0,0,0,1,0
+2503,Context_,1031,the context is immutable.,1,0,0,0,0
+2506,Context_,1034,template code only.,0,0,1,0,1
+2507,Context_,1035,template filters and global functions marked as,0,0,1,0,1
+2510,Context_,1038,"the template context supports read only dict operations get ,",0,0,1,0,0
+2572,Environment,1059,they are not shared and if no template was loaded so far.,0,1,1,1,0
+2575,Environment,1062,here are the possible initialization parameters,0,0,1,0,0
+2580,Environment,1067,the string marking the end of a block.,0,0,1,0,0
+2592,Environment,1077,the string marking the end of a comment.,0,0,1,0,0
+2596,Environment,1080,statements.,0,0,1,0,0
+2604,Environment,1086,if this is set to true the first newline after a block is,0,0,1,0,0
+2609,Environment,1089,if this is set to true leading spaces and tabs are stripped,0,0,1,0,0
+2612,Environment,1091,newline sequence,0,0,1,0,0
+2624,Environment,1103,extensions,0,0,1,0,0
+2633,Environment,1109,undefined,0,0,1,0,0
+2642,Environment,1116,if set to true the xml html autoescaping feature is enabled by,0,0,1,0,0
+2645,Environment,1119,class jinja2^utils.markup .,0,0,1,0,0
+2647,Environment,1121,be a callable that is passed the template name and has to,0,0,1,0,0
+2664,Environment,1130,auto reload,0,0,1,0,0
+2673,Environment,1136,bytecode cache,0,0,1,0,0
+2819,fdspawn,1149,"for patterns, or to control a modem or serial device.",0,0,0,0,1
+2829,FileMetadata,1155,the provided location.,0,1,0,0,0
+2835,FileMetadata,1155,the provided location.,0,1,0,0,0
+2859,FileSystemLoader,1166,"loader filesystemloader path to templates , followlinks true",0,0,0,0,1
+2873,Filter,1167,alphabetizes attributes for elements,0,0,0,1,0
+2886,FollowedBy,981,example,0,0,0,0,1
+2931,HashMissing,1187,a hash was needed for a requirement but is absent.,0,0,0,1,0
+2956,HebrewProber,1193,the hebrewprober is not using any language model.,1,0,0,0,0
+2960,HebrewProber,1194,"disjointed from the model probers, the results of the hebrewprober",1,0,0,0,0
+3012,InstalledDistribution,1201,it reads the metadata contained in pydist^json when it is,0,0,0,0,1
+3014,InstalledDistribution,1203,dry run mode is being used .,0,0,0,0,1
+3020,InternalName,1205,you cannot create these nodes,1,0,0,0,0
+3022,InternalName,1207,meth jinja2^parser.parser^free identifier method that creates,1,0,0,0,0
+3035,InvalidHeaderError,1212,exception for invalid headers.,0,0,0,1,0
+3037,InvalidVersion,1213,"an invalid version was found, users should refer to pep 440.",0,0,0,1,1
+3065,LRUCache,1227,but as long as it s only used as storage for templates this,1,0,0,0,0
+3076,Markup,1233,it to mark it safe without escaping.,0,1,1,0,0
+3077,Markup,1234,"to escape the text, use the",0,1,1,0,1
+3085,Markup,1240,this implements the html interface that some frameworks,1,0,0,0,1
+3091,Markup,1246,return a href foo foo a,1,0,0,0,1
+3163,MemcachedBytecodeCache,1259,it does not enforce a specific memcache library,0,1,0,0,0
+3164,MemcachedBytecodeCache,1260,tummy s memcache or cmemcache but will accept any class that provides,0,1,0,0,0
+3176,MemcachedBytecodeCache,1262,the minimal interface for the client passed to the constructor is this,0,0,0,0,1
+3178,MemcachedBytecodeCache,1264,"method set key, value , timeout",0,0,0,0,1
+3180,MemcachedBytecodeCache,1266,value is a string and,0,0,0,0,1
+3182,MemcachedBytecodeCache,1268,if timeout is not provided,0,0,0,0,1
+3190,MemcachedBytecodeCache,1276,the other arguments to the constructor are the prefix for all keys that,0,0,0,0,1
+3193,MemcachedBytecodeCache,1279,we recommend a high or no timeout.,0,0,0,0,1
+3240,Module_six_moves_urllib_parse,1287,lazy loading of moved objects in six^moves.urllib parse,0,0,0,1,0
+3250,Node,1292,represents an item in the tree,0,0,0,1,0
+3257,NotAny,1297,does not match at the current position.,0,1,0,0,0
+3259,NotAny,1299,not skip over leading whitespace.,0,1,0,0,0
+3263,NotAny,981,example,0,0,0,0,1
+3268,NotAny,1306,# very crude boolean expression to support parenthesis groups and,0,0,0,0,1
+3270,NotAny,1308,boolean expr boolean term zeroormore and or boolean term,0,0,0,0,1
+3273,NotAny,1311,integer word nums char .,0,0,0,0,1
+3296,NotMyLock,1313,raise notmylock,0,0,0,0,1
+3297,NotMyLock,1314,except unlockerror,0,0,0,0,1
+3305,omdict,1316,a multivalue dictionary is a dictionary that can store multiple values per,0,0,0,1,0
+3314,omdict,1325,"linked list node references, one for each value associated with that key.",0,1,0,1,0
+3326,omdict,1336,"added parameters are optional, existing use remains unaffected.",0,0,0,0,1
+3327,omdict,1337,an optional,0,0,0,0,1
+3388,Option,1355,param show default controls if the default value should be shown on the,0,0,1,0,0
+3393,Option,1360,value.,0,0,1,0,0
+3395,Option,1362,param show envvar controls if an environment variable should be shown on,0,0,1,0,0
+3397,Option,1363,"normally, environment variables",0,0,1,0,0
+3407,Option,1372,this is useful for password,0,0,1,0,0
+3422,Option,1387,param allow from autoenv if this is enabled then the value of this,0,0,1,0,0
+3424,Option,1389,variable in case a prefix is defined on the,0,0,1,0,0
+3473,PacifyFlushWrapper,1395,of the python interpreter.,0,1,0,1,0
+3477,PacifyFlushWrapper,1399,"other cleanup code, and the case where the underlying file is not a broken",0,1,0,0,0
+3500,ParseFatalException,1405,is found stops all parsing immediately,1,0,0,0,0
+3508,ParseResults,1409,the parsed data,0,0,0,1,1
+3509,ParseResults,1410,as a list len results,0,0,0,0,1
+3511,ParseResults,1412,by attribute results.,0,0,0,0,1
+3513,ParseResults,981,example,1,0,0,0,1
+3514,ParseResults,982,integer word nums,1,0,0,0,1
+3517,ParseResults,1416,integer^setresultsname day,1,0,0,0,1
+3525,ParseResults,1424,test result 0,1,0,0,0,1
+3528,ParseResults,1427,test month in result,1,0,0,0,1
+3529,ParseResults,1428,test minutes in result,1,0,0,0,1
+3530,ParseResults,1429,"test result^dump , str",1,0,0,0,1
+3534,ParseResults,1432,result month 12,0,0,0,0,1
+3536,ParseResults,1434,month in result true,0,0,0,0,1
+3537,ParseResults,1435,minutes in result false,0,0,0,0,1
+3605,Path,1444,"secondly, it can perform various",1,0,1,0,0
+3614,Path,1451,param file okay controls if a file is a possible value.,0,0,1,0,0
+3615,Path,1452,param dir okay controls if a directory is a possible value.,0,0,1,0,0
+3620,Path,1456,this means,0,0,1,0,0
+3627,Path,1461,param path type optionally a string type that should be used to,0,0,1,0,0
+3673,PoolManager,1474,param connection pool kw,0,0,1,0,0
+3674,PoolManager,1475,additional parameters are used to create fresh,0,0,1,0,0
+3675,PoolManager,1476,class urllib3^connectionpool.connectionpool instances.,0,0,1,0,0
+3676,PoolManager,981,example,0,0,0,0,1
+3701,PrefixLoader,1483,the prefix is delimited from the template by a slash per,0,1,0,0,1
+3705,PrefixLoader,1487,"app1 packageloader mypackage^app1 ,",0,0,0,0,1
+3728,ReadError,1493,raised when an archive cannot be read,0,0,0,1,0
+3735,Request,1499,param files dictionary of filename fileobject files to multipart upload.,0,0,1,0,0
+3736,Request,1500,param data the body to attach to the request.,0,0,1,0,0
+3746,Request,1507,param cookies dictionary or cookiejar of cookies to attach to this request.,0,0,1,0,0
+3749,Request,1509,import requests,0,0,0,0,1
+3778,RequirementsFileParseError,1513,raised when a general error occurs parsing a requirements file line.,0,0,0,1,0
+3781,RequirementUninstaller,1515,this uses uninstallpathset to control the workflow.,0,1,0,0,0
+3788,RequiresPythonCache,1518,cache a candidate s requires python information.,0,0,0,1,0
+3791,Resource,1520,this is,1,0,0,0,0
+3793,Resource,1522,class resourcefinder which manages the resource.,1,0,0,0,0
+3798,ResourceFinder,1523,resource finder for file system resources.,0,0,0,1,0
+3800,ResourceManager,1524,manage resource extraction and packages,0,0,0,1,0
+3802,ResponseError,1525,used as a container for an error reason supplied in a maxretryerror.,0,0,0,0,1
+3809,Retry,1530,retries can be defined as a default for a pool,0,0,0,0,1
+3819,Retry,1536,param int total,0,0,1,0,0
+3824,Retry,1541,it s a good idea to set this to some sensibly high value to,0,0,1,0,0
+3827,Retry,1544,set to false to disable and imply raise on redirect false .,0,0,1,0,0
+3830,Retry,1547,"these are errors raised before the request is sent to the remote server,",0,0,1,0,0
+3832,Retry,1548,set to 0 to fail on the first retry of this type.,0,0,1,0,0
+3833,Retry,1549,param int read,0,0,1,0,0
+3837,Retry,1548,set to 0 to fail on the first retry of this type.,0,0,1,0,0
+3838,Retry,1553,param int redirect,0,0,1,0,0
+3840,Retry,1555,limit this to avoid infinite redirect,0,0,1,0,0
+3841,Retry,1556,loops.,0,0,1,0,0
+3844,Retry,1548,set to 0 to fail on the first retry of this type.,0,0,1,0,0
+3845,Retry,1544,set to false to disable and imply raise on redirect false .,0,0,1,0,0
+3850,Retry,1548,set to 0 to fail on the first retry of this type.,0,0,1,0,0
+3863,Retry,1574,param float backoff factor,0,0,1,0,0
+3866,Retry,1577,delay .,0,0,1,0,0
+3869,Retry,1580,seconds.,0,0,1,0,0
+3872,Retry,1583,between retries.,0,0,1,0,0
+3875,Retry,1586,"by default, backoff is disabled set to 0 .",0,0,1,0,0
+3891,Retry,1602,param iterable remove headers on redirect,0,0,1,0,0
+3894,Retry,1605,request.,0,0,1,0,0
+3982,SafeFileCache,1606,a file based cache which is safe to use even when the target directory may,0,0,0,1,0
+3987,SchemaValidatorMixin,1609,validator.,0,0,0,1,0
+3990,Session,1610,a requests session.,0,0,0,1,0
+3992,Session,1612,basic usage,0,0,0,0,1
+3993,Session,1509,import requests,0,0,0,0,1
+3995,Session,1614,s^get https httpbin^org get,0,0,0,0,1
+3997,Session,1616,or as a context manager,0,0,0,0,1
+3998,Session,1617,with requests^session as s,0,0,0,0,1
+3999,Session,1614,s^get https httpbin^org get,0,0,0,0,1
+4017,SkipTo,1622,the skipped text and target expression are returned as a 2 element list .,0,0,1,0,0
+4019,SkipTo,1624,comments that might contain false matches to the target expression,0,0,1,0,0
+4023,SkipTo,981,example,0,0,0,0,1
+4030,SkipTo,982,integer word nums,0,0,0,0,1
+4033,SkipTo,1634,"# ignore quoted strings, so that a character inside a quoted string does not match",0,0,0,0,1
+4048,SkipTo,1647,sev critical,0,0,0,0,1
+4106,TarFile,1656,the tarfile class provides an interface to tar archives.,0,0,0,1,0
+4132,UnlockError,1669,base class for errors arising from attempts to release the lock.,0,0,0,1,0
+4134,UnlockError,1670,raise unlockerror,0,0,0,0,1
+4149,_OpNamespace,1677,"at startup, this operation will not yet be bound into python.",1,0,0,0,0
+4151,_OpNamespace,1679,following sequence of magic tricks will occur,1,0,0,0,1
+4152,_OpNamespace,48,1,1,0,0,0,1
+4155,_OpNamespace,1682,object called my namespace and set it as an attribute on the ops,1,0,0,0,1
+4164,_OpNamespace,1687,then calls this new operation,1,0,0,0,1
+4216,Adadelta,1694,parameter groups,0,0,1,0,0
+4219,Adadelta,1697,"eps float, optional term added to the denominator to improve",0,0,1,0,0
+4241,Adam,1694,parameter groups,0,0,1,0,0
+4244,Adam,1706,"running averages of gradient and its square default 09, 0999",0,0,1,0,0
+4245,Adam,1697,"eps float, optional term added to the denominator to improve",0,0,1,0,0
+4246,Adam,1707,numerical stability default 1e 8,0,0,1,0,0
+4252,Adam,1712,https arxiv^org abs 14126980,1,0,0,0,0
+4277,Adamax,1694,parameter groups,0,0,1,0,0
+4281,Adamax,1697,"eps float, optional term added to the denominator to improve",0,0,1,0,0
+4282,Adamax,1707,numerical stability default 1e 8,0,0,1,0,0
+4297,AdaptiveMaxPool3d,1719,"the output is of size d x h x w, for any input size.",0,1,0,0,0
+4300,AdaptiveMaxPool3d,1722,output size the target output size of the image of the form d x h x w.,0,0,1,0,0
+4305,AdaptiveMaxPool3d,1727,useful to pass to nn^maxunpool3d.,0,0,1,0,0
+4309,AdaptiveMaxPool3d,1729,"m nn^adaptivemaxpool3d 5,7,9",0,0,0,0,1
+4310,AdaptiveMaxPool3d,1730,"input torch^randn 1, 64, 8, 9, 10",0,0,0,0,1
+4312,AdaptiveMaxPool3d,1732,# target output size of 7x7x7 cube,0,0,0,0,1
+4314,AdaptiveMaxPool3d,1734,"input torch^randn 1, 64, 10, 9, 8",0,0,0,0,1
+4318,AdaptiveMaxPool3d,1734,"input torch^randn 1, 64, 10, 9, 8",0,0,0,0,1
+4359,BatchNorm1d,1746,the running estimates are kept with a default attr momentum,0,1,0,0,0
+4360,BatchNorm1d,1747,of 01.,0,1,0,0,0
+4365,BatchNorm1d,1752,this attr momentum argument is different from one used in optimizer,1,0,0,0,0
+4369,BatchNorm1d,1756,"math hat x text new 1 text momentum times hat x text momentum times x t ,",1,1,0,0,0
+4383,BatchNorm1d,1769,default 01,0,0,1,0,0
+4387,BatchNorm1d,1773,"track running stats a boolean value that when set to true , this",0,0,1,0,0
+4463,BCEWithLogitsLoss,1787,"followed by a bceloss as, by combining the operations into one layer,",0,0,0,1,0
+4471,BCEWithLogitsLoss,1794,if attr reduction is not none,0,1,0,0,0
+4472,BCEWithLogitsLoss,1795,"default mean , then",0,1,1,0,0
+4499,BCEWithLogitsLoss,1814,pos weight torch^ones 64 # all weights are equal to 1,0,0,0,0,1
+4504,BCEWithLogitsLoss,1818,"weight tensor, optional a manual rescaling weight given to the loss",0,0,1,0,0
+4508,BCEWithLogitsLoss,1822,"by default,",0,0,1,0,0
+4511,BCEWithLogitsLoss,1825,"some losses, there are multiple elements per sample.",0,0,1,0,0
+4522,BCEWithLogitsLoss,1834,batch element instead and ignores attr size average .,0,0,1,0,0
+4524,BCEWithLogitsLoss,1835,"reduction string, optional specifies the reduction to apply to the output",0,0,1,0,0
+4534,BCEWithLogitsLoss,1844,must be a vector with length equal to the number of classes.,0,0,1,0,0
+4546,BCEWithLogitsLoss,1853,output^backward,0,0,0,0,1
+4640,BuildType,1856,if attr cmake build type env,0,0,0,0,1
+4660,Caffe2OperatorTestCase,1864,"test config a namedtuple includes test name, input shape, tag, run backward.",0,1,0,0,0
+4672,ConstantPad3d,1869,"padding int, tuple the size of the padding.",0,0,1,0,0
+4711,Conv3d,1882,"in the simplest case, the output value of the layer with input size math n, c in , d, h, w",0,1,0,0,0
+4714,Conv3d,1884,"out n i, c out j bias c out j",0,1,0,0,0
+4727,Conv3d,1895,"at groups 2, the operation becomes equivalent to having two conv",0,0,0,1,0
+4734,Conv3d,1902,"the parameters attr kernel size , attr stride , attr padding , attr dilation can either be",0,0,1,1,0
+4757,Conv3d,1912,default 1,0,0,1,0,0
+4763,Conv3d,1912,default 1,0,0,1,0,0
+4765,Conv3d,1912,default 1,0,0,1,0,0
+4784,Conv3d,1923,the values of these weights are sampled from,0,1,0,0,0
+4871,ConvReLU3d,1935,we adopt the same interface as class torch^nn.quantized^conv3d .,0,1,0,0,0
+4893,CyclicLR,1945,triangular a basic triangular cycle without amplitude scaling.,0,1,1,0,0
+4964,CyclicLR,981,example,0,0,0,0,1
+4967,CyclicLR,1951,data loader torch^utils.data^dataloader .,0,0,0,0,1
+5005,DeQuantStub,1956,"dequantize stub module, before calibration, this is same as identity,",0,1,0,1,0
+5014,DiagonalTensor,1961,it is based on the diagonalarray,0,1,0,0,1
+5017,DiagonalTensor,1963,with the pytorch dispatch system happens via the torch function,0,1,0,0,0
+5020,DiagonalTensor,1965,diagonal entries set to value and all other entries set to zero.,0,1,0,0,0
+5054,EmbeddingBag,1969,intermediate embeddings.,0,0,0,1,0
+5055,EmbeddingBag,1970,"for bags of constant length and no attr per sample weights , this class",1,0,0,0,0
+5056,EmbeddingBag,1971,"with mode sum is equivalent to class torch^nn.embedding followed by torch^sum dim 0 ,",1,0,0,0,0
+5057,EmbeddingBag,1972,"with mode mean is equivalent to class torch^nn.embedding followed by torch^mean dim 0 ,",1,0,0,0,0
+5083,EmbeddingBag,1996,mean computes the average of the values,0,0,1,0,0
+5089,EmbeddingBag,2000,note this option is not,0,0,1,0,0
+5094,EmbeddingBag,2004,"inputs attr input longtensor , attr offsets longtensor, optional , and",0,1,0,0,0
+5096,EmbeddingBag,2006,"if attr input is 2d of shape b, n ,",0,1,0,0,0
+5109,EmbeddingBag,2019,"per sample weights tensor, optional a tensor of float double weights, or none",0,1,0,0,0
+5110,EmbeddingBag,2020,to indicate all weights should be taken to be 1 .,0,1,0,0,0
+5111,EmbeddingBag,2021,"if specified, attr per sample weights",0,1,0,0,0
+5119,EmbeddingBag,2027,# a batch of 2 samples of 4 indices each,0,0,0,0,1
+5124,EmbeddingBag,2032,"11306, 25798, 10044",0,0,0,0,1
+5220,FisherSnedecor,981,example,0,0,0,0,1
+5222,FisherSnedecor,2043,m^sample # fisher snedecor distributed with df1 1 and df2 2,0,0,0,0,1
+5225,FisherSnedecor,2045,df1 float or tensor degrees of freedom parameter 1,0,0,1,0,0
+5226,FisherSnedecor,2046,df2 float or tensor degrees of freedom parameter 2,0,0,1,0,0
+5238,LastNWindowCollector,2050,this layer is not thread safe.,1,0,0,0,0
+5254,LBFGS,2053,param bytes history size 1 bytes .,1,0,0,0,0
+5262,LBFGS,2060,step default max iter 125 .,0,0,1,0,0
+5292,Module,2071,import torch^nn as nn,0,0,0,0,1
+5296,Module,2075,"super model, self .",0,0,0,0,1
+5300,Module,2079,"def forward self, x",0,0,0,0,1
+5301,Module,2080,x f^relu self^conv1 x,0,0,0,0,1
+5304,Module,2083,"parameters converted too when you call meth to , etc",0,1,0,0,0
+5323,MultiLabelMarginLoss,2085,hinge loss margin based loss between input math x a 2d mini batch tensor,0,1,0,1,0
+5325,MultiLabelMarginLoss,2087,for each sample in the mini batch,0,1,0,0,0
+5333,MultiLabelMarginLoss,2089,the criterion only considers a contiguous block of non negative targets that,0,1,0,0,0
+5338,MultiLabelMarginLoss,1822,"by default,",0,0,1,0,0
+5341,MultiLabelMarginLoss,1825,"some losses, there are multiple elements per sample.",0,0,1,0,0
+5352,MultiLabelMarginLoss,1834,batch element instead and ignores attr size average .,0,0,1,0,0
+5354,MultiLabelMarginLoss,1835,"reduction string, optional specifies the reduction to apply to the output",0,0,1,0,0
+5370,MultiLabelMarginLoss,2095,loss nn^multilabelmarginloss,0,0,0,0,1
+5372,MultiLabelMarginLoss,2097,"# for target y, only consider labels 3 and 0, not after label 1",0,0,0,0,1
+5373,MultiLabelMarginLoss,2098,"y torch^longtensor 3, 0, 1, 1",0,0,0,0,1
+5426,NetModifier,2102,an abstraction class for supporting modifying a generated net.,0,0,0,1,0
+5442,OneHotCategorical,2112,and it will be normalized to sum to 1.,1,0,0,0,0
+5445,OneHotCategorical,981,example,0,0,0,0,1
+5448,OneHotCategorical,2116,"tensor 0., 0., 0., 1.",0,0,0,0,1
+5464,Poisson,2119,"creates a poisson distribution parameterized by attr rate , the rate parameter.",0,0,0,1,0
+5465,Poisson,2120,"samples are nonnegative integers, with a pmf given by",0,1,0,0,1
+5468,Poisson,981,example,0,0,0,0,1
+5473,Poisson,2124,"rate number, tensor the rate parameter",0,0,1,0,0
+5491,QuantWrapper,2129,"dequant modules, before convert function quantstub will just be observer,",0,1,0,0,0
+5492,QuantWrapper,2130,"it observes the input tensor, after convert , quantstub",0,1,0,0,0
+5494,QuantWrapper,2132,similarly,0,1,0,0,0
+5495,QuantWrapper,2133,for dequantstub .,0,1,0,0,0
+5505,ResNetBuilder,2134,helper class for constructing residual blocks.,0,0,0,1,0
+5508,SGD,2136,nesterov momentum is based on the formula from,1,1,0,0,0
+5512,SGD,1694,parameter groups,0,0,1,0,0
+5513,SGD,2138,lr float learning rate,0,0,1,0,0
+5518,SGD,981,example,0,0,0,0,1
+5566,StackTransform,981,example,0,0,0,0,1
+5568,StackTransform,2151,"t stacktransform exptransform , identity transform , dim 1",0,0,0,0,1
+5588,Task,2159,task outputs are fetched by the session at the end of the run.,0,1,0,0,0
+5590,Task,981,example,0,0,0,0,1
+5593,Task,2162,with ops^task init,0,0,0,0,1
+5597,Task,2166,with ops^loop 100,0,0,0,0,1
+5598,Task,2167,"ops^copy globl, local",0,0,0,0,1
+5639,TestYellowFin,2180,yellowfin an automatic tuner for momentum sgd,0,0,0,1,0
+5645,TransformerEncoderLayer,2182,"lukasz kaiser, and illia polosukhin.",1,0,0,0,0
+5648,TransformerEncoderLayer,2185,in advances in,1,0,0,0,0
+5651,TransformerEncoderLayer,2188,in a different way during application.,1,0,0,0,0
+5653,TransformerEncoderLayer,2189,d model the number of expected features in the input required .,0,0,1,0,0
+5656,TransformerEncoderLayer,2192,dropout the dropout value default 01 .,0,0,1,0,0
+5659,TransformerEncoderLayer,2194,"encoder layer nn^transformerencoderlayer d model 512, nhead 8",0,0,0,0,1
+5661,TransformerEncoderLayer,2196,out encoder layer src,0,0,0,0,1
+5700,Unfold,2215,gives all values within a certain block.,0,0,0,0,1
+5703,Unfold,2218,attr stride controls the stride for the sliding blocks.,0,0,1,0,0
+5713,Unfold,1912,default 1,0,0,1,0,0
+5715,Unfold,2225,both sides of input.,0,0,1,0,0
+5717,Unfold,2226,"dilation int or tuple, optional a parameter that controls the",0,0,1,0,0
+5720,Unfold,1912,default 1,0,0,1,0,0
+5725,Unfold,2233,called im2col .,0,0,1,0,0
+5731,Unfold,2238,"so, if the blocks overlap, they are not",1,0,0,0,0
+5735,Unfold,2242,consider class torch^nn.fold and,1,0,0,0,0
+5741,Unfold,2247,", stride .",1,0,0,0,0
+5764,Unfold,2265,output unfold input,0,0,0,0,1
+5771,Unfold,2272,"w torch^randn 2, 3, 4, 5",0,0,0,0,1
+5772,Unfold,2273,"inp unf torch^nn.functional^unfold inp, 4, 5",0,0,0,0,1
+5774,Unfold,2275,"out torch^nn.functional^fold out unf, 7, 8 , 1, 1",0,0,0,0,1
+5894,UseOptimizer,2283,with useoptimizer optim,0,0,0,0,1
+5923,YellowFinOptimizer,2180,yellowfin an automatic tuner for momentum sgd,0,0,0,1,0
+5933,PreparedRequest,2291,"the fully mutable class preparedrequest preparedrequest object,",0,0,0,1,0
+5937,PreparedRequest,1509,import requests,0,0,0,0,1
