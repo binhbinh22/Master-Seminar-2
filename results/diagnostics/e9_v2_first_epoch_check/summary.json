@@ -1,0 +1,41 @@
+[
+  {
+    "language": "python",
+    "fold": 0,
+    "head_version": 2,
+    "threshold": 0.5,
+    "duration_seconds": 18.441083618905395,
+    "zero_f1": false,
+    "validation_micro_f1": 0.28859060402684567,
+    "validation_macro_f1": 0.1731425543190249,
+    "predicted_positive_targets": 136,
+    "true_positive_targets": 86,
+    "metrics_path": "results/diagnostics/e9_v2_first_epoch_check/python/fold_0/first_epoch_metrics.json"
+  },
+  {
+    "language": "java",
+    "fold": 0,
+    "head_version": 2,
+    "threshold": 0.5,
+    "duration_seconds": 16.936059068888426,
+    "zero_f1": false,
+    "validation_micro_f1": 0.41475826972010177,
+    "validation_macro_f1": 0.346276765739853,
+    "predicted_positive_targets": 332,
+    "true_positive_targets": 163,
+    "metrics_path": "results/diagnostics/e9_v2_first_epoch_check/java/fold_0/first_epoch_metrics.json"
+  },
+  {
+    "language": "pharo",
+    "fold": 0,
+    "head_version": 2,
+    "threshold": 0.5,
+    "duration_seconds": 12.512308456003666,
+    "zero_f1": false,
+    "validation_micro_f1": 0.4798387096774194,
+    "validation_macro_f1": 0.18267303456979533,
+    "predicted_positive_targets": 170,
+    "true_positive_targets": 119,
+    "metrics_path": "results/diagnostics/e9_v2_first_epoch_check/pharo/fold_0/first_epoch_metrics.json"
+  }
+]

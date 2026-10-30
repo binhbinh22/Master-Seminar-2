@@ -7,6 +7,8 @@ from collections.abc import Sequence
 
 import torch
 
+from src.training.progress import progress
+
 
 SUMMARY_METRICS = (
     "micro_precision", "micro_recall", "micro_f1", "macro_precision",
@@ -64,6 +66,10 @@ def masked_multilabel_metrics(
         "hamming_loss": float((fp.sum() + fn.sum()) / total.clamp_min(1)),
         "evaluated_targets": int(total),
         "positive_targets": int(support.sum()),
+        "predicted_positive_targets": int(predicted.sum()),
+        "true_positive_targets": int(tp.sum()),
+        "false_positive_targets": int(fp.sum()),
+        "false_negative_targets": int(fn.sum()),
     }
     if per_label:
         result["per_label"] = {
@@ -73,6 +79,8 @@ def masked_multilabel_metrics(
                 "f1": float(f1[i]),
                 "average_precision": average_precisions[i] if average_precisions else None,
                 "support": int(support[i]),
+                "predicted_positive": int(predicted[i]),
+                "true_positive": int(tp[i]),
                 "evaluated_targets": int(tp[i] + fp[i] + fn[i] + tn[i]),
             }
             for i, name in enumerate(label_names)
@@ -81,7 +89,8 @@ def masked_multilabel_metrics(
 
 
 @torch.no_grad()
-def evaluate_masked_multilabel(model, loader, device, threshold, label_names, per_label) -> dict:
+def evaluate_masked_multilabel(model, loader, device, threshold, label_names, per_label,
+                              *, show_progress=True) -> dict:
     """Evaluate batches with input_ids, attention_mask, labels and label_mask."""
     model.eval()
     tp = torch.zeros(len(label_names), dtype=torch.int64)
@@ -89,7 +98,7 @@ def evaluate_masked_multilabel(model, loader, device, threshold, label_names, pe
     fn = torch.zeros_like(tp)
     tn = torch.zeros_like(tp)
     all_scores, all_labels, all_masks = [], [], []
-    for batch in loader:
+    for batch in progress(loader, enabled=show_progress, desc="Evaluate", unit="batch"):
         logits = model(
             input_ids=batch["input_ids"].to(device),
             attention_mask=batch["attention_mask"].to(device),

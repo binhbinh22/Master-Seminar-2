@@ -1,0 +1,36 @@
+dataset:
+  data_dir: data/processed
+  language: pharo
+  label_space: per_language
+evaluation:
+  report_per_label: true
+  run_test_after_training: true
+experiment: exp9_roberta_label_gnn
+model:
+  hidden_size: 768
+  name: roberta-base
+  threshold: 0.5
+  graph_hidden: 128
+  graph_threshold: 0.1
+  graph_head: residual_classifier_v2
+  num_labels: 7
+output_dir: results/exp9_roberta_label_gnn
+tokenizer:
+  max_length: 128
+training:
+  batch_size: 16
+  device: cuda:0
+  early_stopping_patience: 3
+  min_epochs: 5
+  validation_tiebreaker: micro_average_precision
+  epochs: 10
+  eval_batch_size: 32
+  gradient_accumulation_steps: 1
+  learning_rate: 2.0e-05
+  max_grad_norm: 1.0
+  mixed_precision: false
+  num_workers: 0
+  seed: 42
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+variant: label_gnn

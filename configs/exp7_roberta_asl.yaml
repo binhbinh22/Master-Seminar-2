@@ -1,0 +1,33 @@
+dataset:
+  data_dir: data/processed
+  language: python
+evaluation:
+  report_per_label: true
+  run_test_after_training: true
+experiment: exp7_roberta_asl
+model:
+  hidden_size: 768
+  name: roberta-base
+  threshold: 0.5
+  asl_gamma_pos: 1.0
+  asl_gamma_neg: 4.0
+  asl_clip: 0.05
+  asl_detach_focal: true
+output_dir: results/exp7_roberta_asl
+tokenizer:
+  max_length: 128
+training:
+  batch_size: 16
+  device: auto
+  early_stopping_patience: 2
+  epochs: 10
+  eval_batch_size: 32
+  gradient_accumulation_steps: 1
+  learning_rate: 2.0e-05
+  max_grad_norm: 1.0
+  mixed_precision: false
+  num_workers: 0
+  seed: 42
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+variant: asl
