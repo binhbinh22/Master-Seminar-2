@@ -1,0 +1,118 @@
+{
+  "summary": [
+    {
+      "experiment": "exp1_roberta_baseline",
+      "language": "java",
+      "best_epochs": [
+        4,
+        5,
+        5,
+        3,
+        5
+      ],
+      "best_at_last": 3,
+      "folds": 5,
+      "micro_e4": 0.5487195252076267,
+      "micro_e5": 0.5638426612191044,
+      "macro_e4": 0.563400328390913,
+      "macro_e5": 0.5946137990104531,
+      "source": "results/training/20261029-110404-3914273/exp1/java/metrics.json"
+    },
+    {
+      "experiment": "exp1_roberta_baseline",
+      "language": "pharo",
+      "best_epochs": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "best_at_last": 5,
+      "folds": 5,
+      "micro_e4": 0.6135160704263795,
+      "micro_e5": 0.6290935383634613,
+      "macro_e4": 0.43302041054456797,
+      "macro_e5": 0.45899274479099034,
+      "source": "results/training/20261029-110404-3914273/exp1/pharo/metrics.json"
+    },
+    {
+      "experiment": "exp1_roberta_baseline",
+      "language": "python",
+      "best_epochs": [
+        4,
+        5,
+        5,
+        5,
+        4
+      ],
+      "best_at_last": 3,
+      "folds": 5,
+      "micro_e4": 0.5517437214771128,
+      "micro_e5": 0.5601540341876535,
+      "macro_e4": 0.4539870721872852,
+      "macro_e5": 0.46744378793129127,
+      "source": "results/training/20261029-110404-3914273/exp1/python/metrics.json"
+    },
+    {
+      "experiment": "exp2_roberta_weighted_bce",
+      "language": "python",
+      "best_epochs": [
+        5,
+        4,
+        5,
+        5,
+        4
+      ],
+      "best_at_last": 3,
+      "folds": 5,
+      "micro_e4": 0.5545561184790961,
+      "micro_e5": 0.5603125114585265,
+      "macro_e4": 0.5320879771624394,
+      "macro_e5": 0.5369880450807701,
+      "source": "results/training/20261029-110404-3914273/exp2/python/metrics.json"
+    },
+    {
+      "experiment": "exp5_roberta_label_attention",
+      "language": "python",
+      "best_epochs": [
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "best_at_last": 4,
+      "folds": 5,
+      "micro_e4": 0.5591228514663303,
+      "micro_e5": 0.5664477327374839,
+      "macro_e4": 0.47728158680235405,
+      "macro_e5": 0.48393133681991957,
+      "source": "results/training/20261029-110606-3923207/exp5/python/metrics.json"
+    }
+  ],
+  "sources": [
+    "results/training/20261029-110404-3914273/exp1/java/metrics.json",
+    "results/training/20261029-110404-3914273/exp1/pharo/metrics.json",
+    "results/training/20261029-110404-3914273/exp1/python/metrics.json",
+    "results/training/20261029-110404-3914273/exp2/python/metrics.json",
+    "results/training/20261029-110606-3923207/exp4/java/metrics.json",
+    "results/training/20261029-110606-3923207/exp4/pharo/metrics.json",
+    "results/training/20261029-110606-3923207/exp4/python/metrics.json",
+    "results/training/20261029-110606-3923207/exp5/python/metrics.json"
+  ],
+  "duplicate_sources": [
+    [
+      "results/training/20261029-110606-3923207/exp4/java/metrics.json",
+      "results/training/20261029-110404-3914273/exp1/java/metrics.json"
+    ],
+    [
+      "results/training/20261029-110606-3923207/exp4/pharo/metrics.json",
+      "results/training/20261029-110404-3914273/exp1/pharo/metrics.json"
+    ],
+    [
+      "results/training/20261029-110606-3923207/exp4/python/metrics.json",
+      "results/training/20261029-110404-3914273/exp1/python/metrics.json"
+    ]
+  ]
+}

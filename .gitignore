@@ -2,3 +2,15 @@ __pycache__/
 data/raw/nlbse2023/
 results/exp1_roberta_baseline/
 results/exp2_roberta_weighted_bce/
+results/exp3_roberta_focal/
+results/exp4_roberta_threshold_tuning/
+results/exp5_roberta_label_attention/
+results/exp6_roberta_label_attention_contrastive/
+results/training/
+results/model_zoo/
+results/exp7_roberta_asl/
+results/exp8_roberta_rdrop/
+results/exp9_roberta_label_gnn/
+results/exp10_roberta_fgm/
+results/exp11_codebert_bce/
+results/exp12_roberta_label_attention_gnn/

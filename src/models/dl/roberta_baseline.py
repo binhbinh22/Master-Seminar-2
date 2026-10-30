@@ -1,4 +1,4 @@
-"""Exp 1: the main RoBERTa baseline for 19-label classification."""
+"""Exp 1: RoBERTa baseline with a head sized from the processed labels."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from transformers.modeling_outputs import SequenceClassifierOutput
 
 
 class RobertaBaseline(nn.Module):
-    """`roberta-base` CLS representation followed by a 19-output linear head."""
+    """`roberta-base` CLS representation followed by a multi-label linear head."""
 
     def __init__(
         self,
@@ -36,14 +36,16 @@ class RobertaBaseline(nn.Module):
 
     def forward(
         self,
-        input_ids: Tensor,
+        input_ids: Optional[Tensor] = None,
         attention_mask: Optional[Tensor] = None,
         labels: Optional[Tensor] = None,
         label_mask: Optional[Tensor] = None,
+        inputs_embeds: Optional[Tensor] = None,
     ) -> SequenceClassifierOutput:
         outputs = self.roberta(
             input_ids=input_ids,
             attention_mask=attention_mask,
+            inputs_embeds=inputs_embeds,
             return_dict=True,
         )
         cls_embedding = outputs.last_hidden_state[:, 0, :]

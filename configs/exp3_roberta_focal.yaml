@@ -1,0 +1,31 @@
+dataset:
+  data_dir: data/processed
+  language: python
+evaluation:
+  report_per_label: true
+  run_test_after_training: true
+experiment: exp3_roberta_focal
+model:
+  hidden_size: 768
+  name: roberta-base
+  threshold: 0.5
+  focal_gamma: 2.0
+  focal_alpha: null
+output_dir: results/exp3_roberta_focal
+tokenizer:
+  max_length: 128
+training:
+  device: auto
+  batch_size: 16
+  early_stopping_patience: 2
+  epochs: 10
+  eval_batch_size: 32
+  gradient_accumulation_steps: 1
+  learning_rate: 2.0e-05
+  max_grad_norm: 1.0
+  mixed_precision: false
+  num_workers: 0
+  seed: 42
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+variant: focal
