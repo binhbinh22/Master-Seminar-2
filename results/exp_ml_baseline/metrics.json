@@ -1,8 +1,8 @@
 {
   "experiment": "exp_ml_baseline",
   "language": "python",
-  "started": "2026-10-29T13:30:32.100331+00:00",
-  "finished": "2026-10-29T13:30:58.608377+00:00",
+  "started": "2026-10-31T03:35:23.120448+00:00",
+  "finished": "2026-10-31T03:36:21.053105+00:00",
   "n_train": 2044,
   "n_test": 511,
   "labels": [
