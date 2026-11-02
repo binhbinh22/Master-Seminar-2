@@ -1,6 +1,10 @@
 # E7–E12: phương pháp và cấu hình
 
-Các exp mới dùng `data/processed`, cùng folds, tokenizer length, optimizer,
+Quy trình chạy hiện tại: [training hai giai đoạn](two_stage_training.md).
+Giai đoạn 1 dùng `data/k_fold_data`, giai đoạn 2 dùng `data/full_training_data`.
+Các mô tả `data/processed` bên dưới thuộc protocol cũ (`--stage legacy`).
+
+Các exp dùng chung folds trong từng giai đoạn, tokenizer length, optimizer,
 giới hạn **10 epoch**, early stopping patience **2** như E1–E6, trừ E9 v2
 dùng patience **3**, chạy tối thiểu **5 epoch** trước khi cho phép dừng sớm.
 Ngưỡng dự đoán là 0.5. Không tự kết hợp các phương pháp mới với Weighted BCE,
@@ -213,6 +217,8 @@ bash scripts/train_experiments.sh --experiments 7,8,9,10,11,12 --language python
 USE_TF=0 python3 -m unittest discover -s tests -v
 ```
 
-Mặc định `--experiments all` hiện bao gồm E1–E12: 36 lượt exp/ngôn ngữ. Mỗi
+Mặc định `--experiments all` hiện bao gồm E1–E17: 51 lượt exp/ngôn ngữ. Mỗi
 lượt dùng CV và full train như trước. Các kiểm tra offline dùng backbone nhỏ,
 không tải CodeBERT/RoBERTa thật và không phải kết quả đánh giá chất lượng.
+
+Các biến thể nâng cấp CodeBERT E13–E17: [experiments_codebert.md](experiments_codebert.md).

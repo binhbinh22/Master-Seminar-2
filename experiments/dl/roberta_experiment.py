@@ -1,4 +1,4 @@
-"""Shared E1–E12 runner using the saved processed splits and folds."""
+"""Shared E1–E17 runner using the saved processed splits and folds."""
 
 from __future__ import annotations
 
@@ -36,7 +36,8 @@ def make_loader(bundle, tokenizer, max_length, split, indices, batch_size, worke
 
 
 def train_model(config, bundle, tokenizer, device, train_indices, val_indices=None,
-                epochs=None, checkpoint_path=None, seed=None, log_dir=None, max_run_epochs=None):
+                epochs=None, checkpoint_path=None, seed=None, log_dir=None, max_run_epochs=None,
+                validation_split="train"):
     """Build a model and datasets, then use the shared training loop."""
     training, model_config = config["training"], config["model"]
     set_seed(training["seed"] if seed is None else seed)
@@ -44,7 +45,7 @@ def train_model(config, bundle, tokenizer, device, train_indices, val_indices=No
     train_loader = make_loader(bundle, tokenizer, length, "train", train_indices,
                                training["batch_size"], training["num_workers"], True)
     val_loader = None if val_indices is None else make_loader(
-        bundle, tokenizer, length, "train", val_indices,
+        bundle, tokenizer, length, validation_split, val_indices,
         training["eval_batch_size"], training["num_workers"])
     model = build_model(config, bundle, train_indices)
     model = model.to(device)
@@ -69,10 +70,20 @@ def train_model(config, bundle, tokenizer, device, train_indices, val_indices=No
 
 
 def run(config_path: Path, *, language: str | None = None, data_dir=None, output_dir=None,
-        device=None) -> dict:
+        device=None, seed: int | None = None, stage="legacy", selection=None) -> dict:
+    if stage != "legacy":
+        from experiments.dl.staged_experiment import run_staged
+        return run_staged(config_path, language=language, data_dir=data_dir, output_dir=output_dir,
+                          device=device, seed=seed, stage=stage, selection=selection)
+    if selection is not None:
+        raise ValueError("A selection manifest is only supported for the final stage")
     started = time.monotonic()
     with config_path.open(encoding="utf-8") as file:
         config = yaml.safe_load(file)
+    if seed is not None:
+        if type(seed) is not int or not 0 <= seed < 2**32:
+            raise ValueError("seed must be an integer in [0, 2**32)")
+        config["training"]["seed"] = seed
     device = resolve_device(device if device is not None else config["training"].get("device", "auto"))
     config["training"]["device"] = str(device)
     if device.type == "cuda":
@@ -120,6 +131,7 @@ def run(config_path: Path, *, language: str | None = None, data_dir=None, output
         fingerprint.update(name.encode())
         fingerprint.update((Path(bundle.data_dir) / name).read_bytes())
     result = {"data_fingerprint": fingerprint.hexdigest(), "variant": config["variant"],
+              "pretrained_backbone": model_config["name"],
               "experiment": config["experiment"], "dataset_samples": len(bundle),
               "device": str(device),
               "language": language, "data_dir": bundle.data_dir,
@@ -209,10 +221,15 @@ def experiment_main(default_config):
     parser.add_argument("--data-dir", type=Path, help="Root containing python/, java/, pharo/")
     parser.add_argument("--output-dir", type=Path, help="Exact output directory; with all, append language")
     parser.add_argument("--device", help="auto, cpu, cuda:0, cuda:1, ... (default: config or auto)")
+    parser.add_argument("--seed", type=int, help="Override the base seed; fold seeds are base + fold index")
+    parser.add_argument("--stage", choices=("kfold", "final", "legacy"), default="kfold",
+                        help="kfold: screen all data; final: fixed 80/10/10; legacy: old CV + full train")
+    parser.add_argument("--selection", type=Path, help="Stage-1 selection.json to verify a final candidate")
     args = parser.parse_args()
     languages = ("python", "java", "pharo") if args.language == "all" else (args.language,)
     for language in languages:
         output = args.output_dir
         if output is not None and args.language == "all":
             output = output / language
-        run(args.config, language=language, data_dir=args.data_dir, output_dir=output, device=args.device)
+        run(args.config, language=language, data_dir=args.data_dir, output_dir=output,
+            device=args.device, seed=args.seed, stage=args.stage, selection=args.selection)

@@ -14,7 +14,7 @@ from src.models.dl.zoo import MODEL_ZOO
 
 class ModelZooTests(unittest.TestCase):
     def test_registry_matches_configs(self):
-        self.assertEqual(list(MODEL_ZOO), [f"E{i}" for i in range(1, 13)])
+        self.assertEqual(list(MODEL_ZOO), [f"E{i}" for i in range(1, 18)])
         for spec in MODEL_ZOO.values():
             config = yaml.safe_load(Path(spec.config).read_text())
             self.assertEqual(config["variant"], spec.variant)

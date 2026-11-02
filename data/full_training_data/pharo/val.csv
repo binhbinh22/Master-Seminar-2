@@ -1,0 +1,177 @@
+comment_sentence_id,class,group_id,text,Classreferences,Collaborators,Example,Intent,Keyimplementationpoints,Keymessages,Responsibilities
+10,BlArrowheadSimpleArrow,6,the with of the outer arrows can be specified by changing border width of a simple arrow arrowhead.,0,0,0,0,0,0,1
+32,BlChicken,15,how to run,0,0,1,0,0,0,0
+88,BlChildrenSubset,35,"for example, class blchildrenreversed indicates that the user wants to explicitly iterate over elements in reverse order class blchildrenaccountedbylayout indicates that only should children taken into account by layout should be included.",0,0,1,0,0,0,0
+99,BlChildrenSubset,42,implementation details,0,0,0,0,1,0,0
+127,BlCompulsoryCombinationTest,51,this class contains tests,0,0,0,0,0,0,1
+139,BlDecelerateInterpolator,59,"i meant to be immutable, therefore factor can be only set using factory method #factor on my class side",0,0,0,0,1,0,0
+148,BlDevScripterCheckFiredEventsStep,60,i check whether particular class blevent events were fired on a class blelement target.,0,0,0,0,0,0,1
+167,BlDragDelegate,64,drag delegate provides drag items when a visual element lifts.,0,0,0,0,0,0,1
+168,BlDragDelegate,65,drag gesture fails if there are no drag items,0,0,0,0,0,0,1
+199,BlElementRemovedEvent,78,child when blelementremovedevent do self inform removed from parent .,0,0,1,0,0,0,0
+220,BlExperimentalExamples,85,i contain experimental examples that only work in manually prepared laboratory environments.,0,0,0,0,0,0,1
+250,BlGridLayout,99,"grid layout supports fitcontent, matchparent and exact resizing mode of the owner.",0,0,0,0,1,0,0
+258,BlGridLayout,107,rowcount anumber to specify amount of rows,0,0,0,0,0,1,0
+359,BlInfiniteDataSourceItemRangeMoved,130,sent by,0,1,0,0,0,0,0
+387,BlKeyCombination,140,see blkeycombinationvisitor,1,0,0,0,0,0,0
+397,BlLayout,143,bloc layout,0,0,0,1,0,0,0
+410,BlLayout,155,phases are modeled as subclasses of class blspaceframephase and are executed once per frame.,0,0,0,0,1,0,0
+418,BlLayout,163,"hence, in bloc layout is not executed immediately after a property like the width of an element changes.",0,0,0,1,1,0,0
+425,BlLayout,169,a tipical example is deadling with edges.,0,0,0,0,1,0,0
+428,BlLayout,172,"the space only allows layout requests during the layouting phase a limited number of times method blspace #computelayout to avoid blocking rendering due to infinite recursions caused by layout requests, or void spending too much time on layouts in a frame.",0,0,0,0,1,0,0
+430,BlLayout,174,performing a layout,0,0,0,0,1,0,0
+437,BlLayout,177,measuring bounds,0,0,0,0,1,0,0
+462,BlLayout,202,for example when nodes change the position edges should be updated.,0,0,0,0,1,0,0
+467,BlLayout,206,concrete implementations should focus on measure with and layout in,0,0,0,0,1,1,0
+543,BlLocalImageCacheTest,51,this class contains tests,0,0,0,0,0,0,1
+583,BlMeasurementUnspecifiedMode,224,for more information see class comment of blmeasurementmode,1,0,0,0,0,0,0
+621,BlPerpendicularFractionAnchor,238,the curvature distance from the line connecting reference anchors is defined as a fraction curvaturefraction of a length between anchors.,0,0,0,0,1,0,0
+648,BlRectangleShapeWithArrowExplanation,254,example blrectangleshapewitharrowexplanation #rectangleshape previewshow #gtlivefor previewexpanded true previewheight 250,0,0,1,0,0,0,0
+664,BlRectangleShapeWithArrowExplanation,270,moving the top of the triangle,0,0,1,0,0,0,0
+742,BlTextElementMeasurementStrategyExamples,288,"class bltextelement provides different text measurement strategies, each suitable for a specific use case.",0,1,0,0,0,0,0
+750,BlTextElementMeasurementStrategyExamples,294,"please note, that since the width is precise and depends on the content, whitespace is not taken into account when computing the width of the text element.",0,0,1,0,0,0,0
+751,BlTextElementMeasurementStrategyExamples,295,example bltextelementmeasurementstrategyexamples #textelementwithlabelmeasurement nocode previewshow #gtlivefor previewheight 100,0,0,1,0,0,0,0
+823,BrExamplesShowroom,317,i am a collection of showroom examples.,0,0,0,1,0,0,0
+825,BrExamplesShowroom,319,in the example below we show all existing button styles,0,0,1,0,0,0,0
+839,BrExamplesShowroom,329,example brexamplesshowroom #materialicontoggle,0,0,1,0,0,0,0
+841,BrExamplesShowroom,330,we can compose label and icon looks to create a toggle button with both label and the icon.,0,0,1,0,0,0,0
+923,BrLook,351,i define how widgets look.,0,0,0,0,0,0,1
+960,BrTextEditorExamples,368,example brtexteditorexamples #neweditor,0,0,1,0,0,0,0
+967,BrTextEditorExamples,375,done,0,0,1,0,0,0,0
+998,Gt4XMLHighlightedToken,382,this class stores a highlight textcolor and 1 based start end highlight positions.,1,0,0,0,1,0,1
+1007,GtConnectorButtonCreatedEvent,386,i allow connector to be notified and attach its own additional handlers to newly created button,0,1,0,0,0,0,1
+1014,GtDiagrammerArrowheadFilledTriangleStencil,388,i create a filled triangle arrowhead,0,0,0,0,0,0,1
+1047,GtDiagrammerPicker,407,picker constraintsdo c,0,0,1,0,0,0,0
+1050,GtDiagrammerPicker,410,picker when brtoggleactivatedevent do anevent self inform anevent model .,0,0,1,0,0,0,0
+1090,GtExampleFactory,425,to initialize various properties of an example i detect all pragmas from the example method for which a method exists in class of the example the method should have the same name as the pragma keyword .,0,0,1,0,1,0,0
+1119,GtExampleProcessor,432,#value execute the processor.,0,0,0,0,0,1,0
+1129,GtGradAbstractTreeLayout,436,moen s algorithm attempts to create a tree with a triangular shape and place nodes somewhat simetrically.,0,0,0,0,1,0,0
+1139,GtGradAbstractTreeLayout,446,"to accomplish that, it uses shapes represented by polyline structures.",0,0,0,0,1,0,0
+1143,GtGradAbstractTreeLayout,450,"when merging contours, minimum horizontal vertical offsets at which siblings can be placed with resepct to their upper left sibling depending of the layout s orientation are calculated",0,0,0,0,0,0,1
+1145,GtGradAbstractTreeLayout,452,"at that point, the tree is traversed again, but this time from top root to the bottom.",0,0,0,0,0,0,1
+1149,GtGradAbstractTreeLayout,456,"this is done through calculation of differences in sizes of nodes compared to the largest nodes on the same level, as well as the differences in sizes of their parents compared to the largest nodes on the parent level.",0,0,0,0,0,0,1
+1182,GtGraphCircleEnclosure,461,the enclosing circle is computed using the matou ek sharir welzl http www^inf.ethz^ch personal emo publfiles subexlinprog alg16 96^pdf algorithm.,0,0,0,0,0,0,1
+1185,GtGraphCircleEnclosure,462,example gtgraphcircleenclosureexamples #emptyenclosure previewshow #gtpreviewfor previewheight 300,0,0,1,0,0,0,0
+1199,GtGraphCircleEnclosure,476,example gtgraphcircleenclosureexamples #enclosurewithfourcircles previewshow #gtpreviewfor previewexpanded previewheight 300,0,0,1,0,0,0,0
+1315,GtGraphTreemapSquarify,506,the worst aspect ratio decreases from example gtgraphtreemaplayoutexamples #squarifywithsevennodesfourthstep label #worstvaluerounded to example gtgraphtreemaplayoutexamples #squarifywithsevennodesfifthstep label #worstvaluerounded,0,0,1,0,0,0,0
+1320,GtGraphTreemapSquarify,511,example gtgraphtreemaplayoutexamples #squarifywithsevennodesseventhstep previewexpanded true nocode,0,0,1,0,0,0,0
+1364,GtGraphTreemapSquarifyLandscapeRectangle,516,my height is smaller than my width.,0,0,0,1,0,0,0
+1380,GtLibraryInstaller,522,installer,0,0,1,0,0,0,0
+1386,GtLibraryInstaller,523,extension .,0,0,1,0,0,0,0
+1424,GtPlotterAxisProjection,532,given a point 20@30 as a domain object and euclidian coordinate system.,0,0,1,0,0,0,0
+1435,GtProtoTasker,535,i am an abstract tasker defining mandatory methods for all taskers.,0,0,0,1,0,0,0
+1438,GtProtoTasker,538,method gtprototasker #addtask expanded true,0,0,0,0,0,1,0
+1440,GtProtoTasker,540,interesting taskers to explore are class gttaskerorderednonrepetitive and class gtpostponingtasker .,1,0,0,0,0,0,0
+1449,GtRemoteInspector,541,gtremoteinspector provides a mechanism for remote viewing of objects over a rest json api.,0,0,0,0,0,0,1
+1451,GtRemoteInspector,542,message one,0,0,0,0,0,1,0
+1483,GtRlCommitAndTagReleaseAction,554,i only work with strategies of type class gtrlsemantictagreleasestrategy .,0,1,0,0,1,0,0
+1489,GtRlMajorVersionComputation,556,i increment the major number of a semantic version.,0,0,0,0,0,0,1
+1504,GtRlReleaseConfiguration,563,my main api methods for setting other default options are,0,0,0,0,0,1,0
+1551,SpartaCanvas,580,for example if one wants to fill a path with a paint she needs to send #fill message to canvas to get a fill builder painter .,0,0,1,0,0,0,0
+1562,SpartaCanvas,590,clip create a builder to clip canvas by path or rectangle,0,0,0,0,0,1,0
+1572,SpartaCanvas,600,similar to create an empty canvas of size anextent and of the same type and format,0,0,0,0,0,1,0
+1578,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1582,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1591,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1598,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1604,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1605,SpartaCanvas,626,canvas fill,0,0,1,0,0,0,0
+1611,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1619,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1622,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1626,SpartaCanvas,603,language smalltalk,0,0,1,0,0,0,0
+1766,TSpartaPaint,663,"a paint is transformable and can be used with one of extend modes, for example repeat, reflect or clamp.",0,0,0,0,0,0,1
+1770,TSpartaPaint,666,i define an api of an abstract paint.,0,0,0,0,0,1,0
+1772,TSpartaPaint,668,transformation set new paint transformation.,0,0,0,0,0,1,0
+1775,TSpartaPaint,671,reflect mirror the image,0,0,0,0,0,1,0
+1778,TSpartaPaint,674,repeaty repeat only y axis,0,0,0,0,0,1,0
+1854,FamixJavaEntity,701,cn c name withoutprefix #famixjava.,0,0,1,0,0,0,0
+1913,FMFutureProperty,724,i will be useful until all my values are resolved.,0,0,0,0,0,0,1
+1928,FMModel,727,i am a model used in the scope of fame.,0,0,1,1,0,0,0
+1929,FMModel,728,i contains real instances of a class representing a concept in the current metamodel.,0,0,0,0,0,0,1
+1940,FMModel,735,#metadescriptionon allows one to get the meta description of an element.,0,0,0,1,0,1,0
+1977,FMMSEPrinter,741,printer fmmseprinter onstring.,0,0,1,0,0,0,0
+2054,MalHgNode,761,one can also store arbitrary informaition as attributes to a node.,0,0,0,0,0,1,1
+2107,MalLatticePatterns,785,data fca context lattice,0,0,1,0,0,0,0
+2113,MalLatticePatterns,791,fca model treillis context,0,0,1,0,0,0,0
+2122,MalLatticePatterns,791,fca model treillis context,0,0,1,0,0,0,0
+2174,ManifestFamixPharoSmalltalkEntities,806,these meta data are used by other tools such as the smalllintmanifestchecker and the critics browser,1,1,0,0,0,0,0
+2179,ManifestMooseQuery,806,these meta data are used by other tools such as the smalllintmanifestchecker and the critics browser,1,1,0,0,0,0,0
+2186,MooseCustomTask,808,moosecustomtask is a task perform some computation specified as a block.,0,0,0,1,0,0,0
+2195,MooseEntity,813,extension mechanism,0,0,1,0,0,0,0
+2210,MooseEntity,826,"first, on the class side, you should have a method .",0,0,1,0,0,0,0
+2290,TDependencyQueries,856,the actual core of the algorithms are in moosequerycalculator class.,1,1,0,0,0,0,0
+2313,TDependencyQueries,874,afamixclass queryalllocal #in.,0,0,1,0,0,0,0
+2421,PPSea,906,a^^^^b,0,0,1,0,0,0,0
+2427,PPSea,911,awp object,0,0,0,0,0,1,0
+2428,PPSea,912,beforewaterparser object,0,0,0,0,0,1,0
+2474,PPXPathFilter,923,a xpath node applies me to filter xml elements.,0,0,0,0,0,0,1
+2483,PRAbstractCommand,927,my main entry point is,0,0,1,0,0,0,0
+2543,PRDocumentListAnnotation,947,i allow users to get abstracts of files located in a directory and specify a link to access these files.,0,0,0,0,0,0,1
+2588,PRHTMLScriptLanguage,966,hypertext markup language,0,0,0,1,0,0,0
+2591,PRInputFileAnnotation,968,with me we can add a transformation to remplace an annotation to a pillar file by his tree.,0,0,0,0,0,0,1
+2593,PRInputFileAnnotation,970,i can have in parameter,0,0,0,0,0,1,0
+2613,PRList,976,i am an abstract list.,0,0,0,1,0,0,0
+2628,PRParagraph,982,"i m a paragraph of text containing text, line breaks or annotations.",0,0,0,1,0,0,0
+2654,PRPhase,1000,configuration self configuration,0,0,1,0,0,0,0
+2697,PRScreenshotAnnotation,1012,class the targetted class,0,0,0,0,0,1,0
+2700,PRScreenshotAnnotation,1015,width prfigure width as would be used in a more classic figure inclusion with caption .,0,0,0,0,0,1,0
+2734,PRUnorderedList,1026,i am typically used for unnumbered lists,0,1,0,0,0,0,0
+2764,PMExponentialGenerator,1040,"to generate an exponential sample x from a uniform 0,1 sample u.",0,0,0,0,1,0,0
+2774,PMGradient,1043,g pmgradient of x x first squared x second .,0,0,1,0,0,0,0
+2807,PMKolmogorovSmirnov1Sample,1059,ks rejectequalityhypothesiswithalpha 005.,0,0,1,0,0,0,0
+2823,PMLineSearch,1061,i implement line search algorithm to find the minimum of a function g x 0 on the interval 0 x 1.,0,0,0,1,0,0,1
+2825,PMLineSearch,1063,"the step from x 0 to x 1 suppose to minimize g x i^eg 0 0 , but due to nonlinearity of g x might fail to do so.",0,0,0,0,1,0,0
+2862,PMMatrix,1081,pmmatrix rows # 1 2 3 4 5 6 .,0,0,1,0,0,0,0
+2869,PMODESolver,1084,the main interface once the solver is set up it has a stepper and a solver is,0,0,0,0,0,1,0
+2909,PMStepper,1093,"solving ordinary differential equation numerically is usually done iteratively, that is a given state of an ordinary differential equation is iterated forward x t x t dt x t 2dt .",0,0,0,0,1,0,0
+2920,GLMRoassal2MorphicTest,1097,a glmroassalmorphictest is xxxxxxxxx.,0,0,0,1,0,0,0
+2930,RTAbstractExample,1101,try to use this script to know the excecution of roassal examples,0,0,1,0,0,0,0
+2939,RTAbstractExample,1110,builder iskindof rtbuilder,0,0,1,0,0,0,0
+3004,RTBezier3Line,1137,lineshape attachpoint rtshorterdistanceattachpoint instance .,0,0,1,0,0,0,0
+3006,RTBezier3Line,1139,v add e1 add e2 add e3 add edge.,0,0,1,0,0,0,0
+3073,RTCalendarExample,1164,# 253 174 97 # 254 224 139 # 255 255 191 # 217 239 139,0,0,1,0,0,0,0
+3078,RTCalendarExample,1169,b monthshape shape b monthshapepath 150 .,0,0,1,0,0,0,0
+3211,RTFilterInView,1216,b edges connectfrom #superclass.,0,0,1,0,0,0,0
+3319,RTGrapherSelectRangeViewContext,1231,rtgrapherselectrangeviewcontext ongrapher g callback elements g view attributeat #presentation selection elements .,0,0,1,0,0,0,0
+3344,RTHighlightableWithCursor,1242,b lineshape color color black.,0,0,1,0,0,0,0
+3355,RTHighlightableWithCursor,1250,b interaction showlabel,0,0,1,0,0,0,0
+3427,RTLabeled,1276,text,0,0,0,0,0,1,0
+3454,RTLineDecorationExample,1278,v b1 b2 edges,0,0,1,0,0,0,0
+3504,RTLinkView,1299,rtlinkview works with rthtml5exporter and,1,1,0,0,0,0,0
+3544,RTRectangleAttachPoint,1310,v add e1 add e2.,0,0,1,0,0,0,0
+3548,RTRectangleAttachPoint,1312,s rtarrowedline new color color black.,0,0,1,0,0,0,0
+3573,RTRotatedLabel,1320,v shape es,0,0,1,0,0,0,0
+3608,RTSmoothLayoutTranslator,1335,a rosmoothlayouttranslator is xxxxxxxxx.,0,0,0,1,0,1,0
+3626,RTSunburstBuilderExamples,1342,rtsunburstbuilderexamples new installtitle basic15,0,0,1,0,0,0,0
+3629,RTSunburstBuilderExamples,1343,b rtsunburstbuilder new.,0,0,1,0,0,0,0
+3630,RTSunburstBuilderExamples,1344,b strategy rtsunburstextentstrategy new extent 800@800 .,0,0,1,0,0,0,0
+3631,RTSunburstBuilderExamples,1345,b shape colorelement el el model subclasses isempty iftrue color purple iffalse color lightgray .,0,0,1,0,0,0,0
+3656,RTSVGPopup,1353,the click refers to the posibility of activating the popup only when the element is clicked.,0,0,0,0,0,0,1
+3666,RTTextPath,1357,i am a simple class to generate text in roassal with athens cairo that uses the textpathcommand from roassal,0,1,0,1,0,0,1
+3670,RTTextWord,1358,a rttextword represents one word of an original text.,0,0,0,1,0,1,0
+3676,RTTextWord,1276,text,0,0,0,0,0,1,0
+3692,RTVerticalMultipleData,1366,each group has the same x value.,0,0,0,0,1,0,0
+3742,RTWeightedCircleLayout,1383,rtweightedcirclelayout is a circle layout that gives more space to big elements and fewer space to small elements.,0,0,0,1,0,0,1
+3745,RTWeightedCircleLayout,1384,elements rtellipse new size 5 color color red size vv vv 4 elementson 1 to 15 .,0,0,1,0,0,0,0
+3838,WABulkReapingCache,1422,a background process should send #reap to me.,0,1,0,0,0,0,0
+3850,WAComboResponse,1425,wacomboresponse is a combination of a buffered and a streaming response.,0,0,0,1,0,0,0
+3855,WAComboResponse,1430,"for example, a search results page might use something like",0,0,1,0,0,0,0
+3859,WAComboResponse,1434,acanvas flush.,0,0,1,0,0,0,0
+3863,WAComboResponse,1434,acanvas flush.,0,0,1,0,0,0,0
+3968,WAExpiringCache,1477,maximumabsoluteage integer,0,0,0,0,0,1,0
+3986,WAExpiringCache,1492,possible values,0,0,0,0,0,1,0
+3987,WAExpiringCache,1493,#removerelativeoldest remove the entry that hasn t been accessed for the longest time,0,0,0,0,0,1,0
+4028,WAFormTag,1504,the input fields callbacks will be evaluated in the order they,0,0,0,0,1,0,0
+4043,WAIframeTag,1509,the iframe element allows authors to insert a frame within a block of text.,0,0,0,0,0,0,1
+4064,WAImageStatus,1519,a waimagestatus displays information about the current smalltalk image.,0,0,0,0,0,0,1
+4078,WALabelledFormDialog,1524,walabelledformdialog is an abstract class for generating html forms.,0,0,0,1,0,0,0
+4079,WALabelledFormDialog,1525,given a data model walabelledformdialog displays a label and input field for each instance variable of interest.,0,0,1,0,0,1,1
+4083,WALabelledFormDialog,1529,the rows method returns a collections of symbols.,0,0,1,0,0,1,0
+4106,WALabelledFormDialog,1549,self answer,0,0,1,0,0,1,0
+4112,WALabelledFormDialog,1553,asymbol #name iftrue ^ your name .,0,0,1,0,0,1,0
+4193,WAObjectTag,1566,defines an embedded object.,0,0,0,1,0,0,0
+4198,WAOptionGroupTag,1567,the optgroup element allows authors to group choices logically.,0,0,0,0,0,0,1
+4206,WAPainterVisitor,1570,an implementation of the visitor pattern for painter subclasses.,0,1,0,1,0,0,1
+4310,WATagBrush,1608,its main additions are,0,0,0,0,1,0,0
+4342,WAUrlAttribute,1618,waurlattribute represents a url attribute.,0,0,0,1,0,0,0

@@ -14,3 +14,8 @@ results/exp9_roberta_label_gnn/
 results/exp10_roberta_fgm/
 results/exp11_codebert_bce/
 results/exp12_roberta_label_attention_gnn/
+results/exp13_codebert_head_lr/
+results/exp14_codebert_llrd/
+results/exp15_codebert_rdrop/
+results/exp16_codebert_llrd_rdrop/
+results/exp17_codebert_focal/

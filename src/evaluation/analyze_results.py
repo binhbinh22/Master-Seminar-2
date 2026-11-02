@@ -56,6 +56,7 @@ def collect_results(roots):
                 "run": f"R{len(records) + 1:03}",
                 "model": variants.get(data.get("variant"), data["experiment"]),
                 "experiment": data["experiment"], "language": data["language"],
+                "stage": data.get("stage", "legacy"),
                 "data_fingerprint": data.get("data_fingerprint") or "unverified",
                 "split_source": data.get("split_source", "unknown"),
                 "seed": data.get("seed"), "device": data.get("device", "unknown"),
@@ -95,9 +96,12 @@ def comparison_plots(records, directory):
 
     names = [f"{row['model']} {row['run']}" for _, _, row in records]
     positions = np.arange(len(records))
-    fig, axes = plt.subplots(1, 2, figsize=(max(11, len(records) * 1.5), 5))
-    for index, (source, title) in enumerate((("cv", "CV at baseline threshold (mean ± fold SD)"),
-                                           ("test", "Held-out test at saved thresholds"))):
+    sources = [("cv", "CV at baseline threshold (mean ± fold SD)")]
+    if not all(data.get("stage") == "kfold" for _, data, _ in records):
+        sources.append(("test", "Test at saved thresholds"))
+    fig, axes = plt.subplots(1, len(sources), figsize=(max(11, len(records) * 1.5), 5))
+    axes = np.atleast_1d(axes)
+    for index, (source, title) in enumerate(sources):
         for offset, metric in enumerate(("micro_f1", "macro_f1")):
             values, errors = [], []
             for _, _, row in records:
@@ -166,6 +170,9 @@ def analyze_results(roots, output_dir):
               "CV ± SD describes variation across folds, not a confidence interval.",
               "E4 CV scores use the baseline threshold; test scores use OOF-tuned thresholds.",
               "Runs are compared only within the same language, data fingerprint, label order and split protocol.", ""]
+    if any(data.get("stage") == "kfold" for _, data, _ in records):
+        lines += ["Stage-1 screening uses 100% of the dataset: no full-train model or test evaluation is produced.",
+                  "Future stage-2 test rows participated in method selection, so stage-2 test is exploratory.", ""]
     cohorts = defaultdict(list)
     for record in records:
         cohorts[cohort_key(record)].append(record)
@@ -192,9 +199,11 @@ def analyze_results(roots, output_dir):
             lines += [f"![{image.stem}]({image.relative_to(output).as_posix()})", ""]
         for path, data, row in group:
             relative = Path(os.path.relpath(path, output)).as_posix()
+            checkpoint_status = ("not produced in screening CV" if data.get("stage") == "kfold"
+                                 else ("present" if row["checkpoint_exists"] else "missing"))
             lines += [f"- {row['run']}: [{data['experiment']}]({relative}); seed {row['seed']}; "
                       f"device `{row['device']}`; epochs {row['final_epochs']}; "
-                      f"checkpoint {'present' if row['checkpoint_exists'] else 'missing'}."]
+                      f"checkpoint {checkpoint_status}."]
         lines.append("")
     if skipped:
         lines += ["## Skipped files", ""] + [f"- {reason}" for reason in skipped] + [""]

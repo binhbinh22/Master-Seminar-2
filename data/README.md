@@ -1,33 +1,35 @@
-# Data
+# Dữ liệu training hai giai đoạn
 
-Dữ liệu cho bài toán NLBSE'23 Code Comment Classification (Python, Java, Pharo).
+Nguồn: `raw/nlbse2023/{python,java,pharo}.csv`, dạng long theo câu/nhãn.
+Bỏ partition gốc theo từng nhãn; giữ toàn bộ sentence ID và target sau pivot.
 
-## Raw
+| Thư mục | Nội dung mỗi ngôn ngữ | Mục đích |
+|---|---|---|
+| `k_fold_data/<language>/` | `all.csv`, `folds.json`, `label_cols.json`, `manifest.json` | 5-fold trên 100% dữ liệu để so sánh phương pháp |
+| `full_training_data/<language>/` | `train.csv`, `val.csv`, `test.csv`, `label_cols.json`, `manifest.json` | Train 80%, validation 10%, test 10% |
 
-`python.csv`, `java.csv`, `pharo.csv`: dữ liệu NLBSE'23 gốc ở dạng long one-vs-rest. Mỗi câu có một dòng cho từng category (`instance_type` = 1 nếu câu thuộc category đó). Cột `partition` là phân vùng train/test theo từng category nên không dùng.
+| Ngôn ngữ | Tổng cho CV | Train | Val | Test | Nhãn |
+|---|---:|---:|---:|---:|---:|
+| Python | 2.555 | 2.044 | 255 | 256 | 5 |
+| Java | 2.418 | 1.935 | 241 | 242 | 7 |
+| Pharo | 1.765 | 1.413 | 176 | 176 | 7 |
 
-## Processed
+CSV gồm `comment_sentence_id`, `class`, `group_id`, `text`, sau đó mỗi nhãn là
+một cột 0/1 theo thứ tự `label_cols.json`. Text chỉ chuẩn hóa khoảng trắng.
+Các câu trùng text luôn ở cùng fold/split. Phân chia seed 42, cân bằng gần đúng
+nhãn và số câu; tỷ lệ có thể lệch do số nguyên và kích thước nhóm.
+Hai bộ dùng cùng quần thể; loader kiểm tra fingerprint, độ phủ và chồng lấn nhóm.
 
-`processed/<ngôn ngữ>/` là bộ dữ liệu chung cho mọi mô hình, được tạo bởi [notebooks/data_preprocessing.ipynb](../notebooks/data_preprocessing.ipynb):
+Tạo lại bằng:
 
-| File | Nội dung |
-|---|---|
-| `train.csv`, `test.csv` | `comment_sentence_id`, `class`, `group_id`, `text`, rồi mỗi nhãn một cột 0/1 |
-| `folds.json` | 5 fold trên train: `[{"fold", "train_indices", "val_indices"}, ...]`, chỉ số là vị trí dòng (từ 0) trong `train.csv` |
-| `label_cols.json` | thứ tự cột nhãn |
+```bash
+python3 -m src.data.prepare_two_stage --raw-dir data/raw --output-dir data --folds 5 --seed 42 --force
+```
 
-| Ngôn ngữ | Train | Test | Nhãn |
-|---|---|---|---|
-| python | 2.044 | 511 | 5 |
-| java | 1.934 | 484 | 7 |
-| pharo | 1.411 | 354 | 7 |
+Không có `--force` sẽ từ chối ghi đè dữ liệu hiện có.
+Chi tiết lệnh train và chọn top 3–4: [hướng dẫn](../docs/two_stage_training.md).
+Test giai đoạn 2 đã tham gia lựa chọn phương pháp qua CV nên không độc lập.
 
-- `text` chỉ được chuẩn hóa khoảng trắng; giữ nguyên chữ hoa/thường và ký hiệu code.
-- Các câu có text giống hệt nhau cùng một `group_id` và luôn nằm cùng phía (train/test, và train/validation của mỗi fold).
-- Test (≈ 20%) và 5 fold được chia cân bằng nhãn, seed 42. Test chỉ dùng để đánh giá cuối.
-- Một nhóm trùng rất lớn có nhãn hiếm không thể tách ra nên có thể làm lệch nhãn đó, ví dụ `Ownership` của Java (nhóm 32 câu `@author kevin bourrillion`): fold validation chứa nhóm này có tỷ lệ nhãn ≈ 1,7× mức lý tưởng.
-- Chạy lại notebook sẽ ghi đè `processed/`.
-
-## Wide multi-label cho EDA (`*_preprocessed.csv`)
-
-`python_preprocessed.csv` được [notebooks/EDA_all_datasets.ipynb](../notebooks/EDA_all_datasets.ipynb) đọc và đối soát với `python.csv`. `java_preprocessed.csv` và `pharo_preprocessed.csv` có cùng cột với file Python; chúng được tạo từ `src/data/make_wide.py` rồi bỏ cột `partition_official` mà script này ghi thêm. Các file này chưa chia train/test và không phải đầu vào của `processed/`; mô hình dùng `processed/`.
+`processed/` đã được xóa. Các CSV ở gốc `data/` vẫn phục vụ notebook EDA;
+không phải đầu vào của hai giai đoạn mới. Các kiểm thử legacy dùng fixture tạm,
+không cần bộ dữ liệu `processed/` trên đĩa.
