@@ -1,48 +1,30 @@
-"""Data loading for the NLBSE'23 code comment classification dataset.
-
-Reads the team's shared, pre-split artifacts in `data/processed/<language>/` instead of
-the raw per-language CSVs. That split (train/test + 5 CV folds) is produced once by
-`notebooks/data_preprocessing.ipynb` and is group-aware: every near-duplicate sentence
-(copy-pasted docstring text) is kept on one side of every train/test and train/val
-boundary, so no model -- classical ML here or the team's RoBERTa baseline -- can leak a
-test sentence into its own training data.
-
-Both the ML and RoBERTa experiments MUST read from this same processed split. That's
-what makes their held-out test metrics directly comparable: same sentences in train,
-same sentences in test, same folds, for both methods.
+"""Load the shared two-stage dataset for classical ML, reusing the same validated
+loader the RoBERTa/CodeBERT pipeline uses (`src.data.two_stage`). This guarantees ML
+and DL read identical rows, folds and fingerprints for a given language/stage -- the
+precondition for any meaningful cross-method comparison.
 """
-import json
 from pathlib import Path
 
-import pandas as pd
+import numpy as np
 
-PROCESSED_DIR = Path(__file__).resolve().parents[3] / 'data' / 'processed'
+from src.data.two_stage import EVALUATION_NOTE, load_stage_data
+
+ROOT = Path(__file__).resolve().parents[3]
 
 
-def load_processed(language='python', processed_dir=PROCESSED_DIR):
-    lang_dir = Path(processed_dir) / language
-
-    train_df = pd.read_csv(lang_dir / 'train.csv')
-    test_df = pd.read_csv(lang_dir / 'test.csv')
-    label_names = json.loads((lang_dir / 'label_cols.json').read_text(encoding='utf-8'))
-    folds = json.loads((lang_dir / 'folds.json').read_text(encoding='utf-8'))
-
+def load(language, stage, data_dir=None):
+    root = Path(data_dir) if data_dir is not None else ROOT / "data" / (
+        "k_fold_data" if stage == "kfold" else "full_training_data"
+    )
+    bundle = load_stage_data(root, language, stage)
     return {
-        'language': language,
-        'label_names': label_names,
-        'folds': folds,
-        'train_texts': train_df['text'].fillna('').astype(str).to_numpy(),
-        'train_labels': train_df[label_names].to_numpy(dtype=int),
-        'test_texts': test_df['text'].fillna('').astype(str).to_numpy(),
-        'test_labels': test_df[label_names].to_numpy(dtype=int),
-        'train_df': train_df,
-        'test_df': test_df,
+        "bundle": bundle,
+        "texts": np.array(bundle.texts, dtype=object),
+        "labels": bundle.labels.numpy().astype(int),
+        "label_names": list(bundle.label_names),
+        "sentence_ids": list(bundle.sentence_ids),
+        "class_names": list(bundle.class_names),
     }
 
 
-if __name__ == '__main__':
-    bundle = load_processed('python')
-    print('language:', bundle['language'])
-    print('labels:', bundle['label_names'])
-    print('train:', bundle['train_texts'].shape, 'test:', bundle['test_texts'].shape)
-    print('folds:', len(bundle['folds']))
+__all__ = ["load", "EVALUATION_NOTE"]
