@@ -1,0 +1,243 @@
+comment_sentence_id,class,group_id,text,Expand,Ownership,Pointer,deprecation,rational,summary,usage
+19,AbstractContractGetFileStatusTest.java,10,"@link #listlocatedstatus path, pathfilter .",1,0,0,0,0,0,0
+75,BalancingPolicy.java,18,cluster is balanced if each pool in each node is balanced.,0,0,0,0,1,0,0
+120,CapacitySchedulerPlanFollower.java,35,"this implementation does so, by",1,0,0,0,0,0,0
+151,Classpath.java,46,the output likely will include wildcards in the classpath.,1,0,0,0,0,0,0
+366,DiskBalancerCluster.java,98,please note,1,0,0,0,0,0,0
+378,DiskBalancerCluster.java,108,nodes specified in the exclusionlist but will process all nodes in the,1,0,0,0,0,0,0
+408,DockerKillCommand.java,113,encapsulates the docker kill command and its command line arguments.,0,0,0,0,0,1,0
+411,EditLogTailer.java,115,journals and applies the transactions contained within to a given,0,0,0,0,0,1,0
+414,EditLogTailer.java,118,applying the transactions to the fsns.,1,0,0,0,0,0,0
+506,FederationStateStoreInvalidInputException.java,152,"exception thrown by the @code federationmembershipstatestoreinputvalidator ,",0,0,0,0,0,1,0
+591,ITestListPerformance.java,172,test list performance.,0,0,0,0,0,1,0
+604,KerberosDelegationTokenAuthenticator.java,178,it falls back to the @link pseudodelegationtokenauthenticator if the http,1,0,1,0,0,0,0
+637,MapContext.java,190,the context that is given to the @link mapper .,0,0,1,0,0,1,0
+672,Node2ObjectsMap.java,205,this information is built from the dn container reports.,1,0,0,0,0,0,0
+690,OpportunisticContainersStatusPBImpl.java,209,protocol buffer implementation of opportunisticcontainersstatus.,0,0,0,0,0,1,0
+692,OzoneObj.java,210,class representing an unique ozone object.,0,0,0,0,0,1,0
+699,PartialOutputCommitter.java,213,interface for an @link org^apache.hadoop^mapreduce.outputcommitter,0,0,1,0,0,0,0
+728,QuasiMonteCarlo.java,233,and then count points inside outside of the inscribed circle of the square.,1,0,0,0,0,0,0
+742,QuasiMonteCarlo.java,233,and then count points inside outside of the inscribed circle of the square.,1,0,0,0,0,0,0
+783,RandomKeyGenerator.java,239,data generator tool to generate as much keys as possible.,0,0,0,0,0,1,0
+794,ReencryptionUpdater.java,244,"it is assumed only 1 updater will be running, since updating file xattrs",1,0,0,0,0,1,0
+800,ReencryptionUpdater.java,250,processed.,1,0,0,0,0,0,0
+834,RegistryOperations.java,257,registry operations,0,0,0,0,0,1,0
+837,ResourceBlacklistRequest.java,258,@link resourceblacklistrequest encapsulates the list of resource names which should be added or removed from the em blacklist em of resources for the application.,0,0,1,0,0,1,0
+838,ResourceBlacklistRequest.java,259,@see resourcerequest,0,0,1,0,0,0,0
+849,ResourceRequestsJsonVerifications.java,266,types and its values.,1,0,1,0,0,0,0
+883,ShellBasedUnixGroupsMapping.java,273,a simple shell based implementation of @link groupmappingserviceprovider that exec s the code groups code shell command to fetch the group,0,0,0,0,0,1,0
+899,StreamBaseRecordReader.java,277,a custom reader can be,0,0,0,0,0,0,1
+902,StreamBaseRecordReader.java,280,@see streamxmlrecordreader,0,0,1,0,0,0,0
+914,StructureGenerator.java,286,"the maximum depth of each subdirectory is a random number 2 maxdepth 3, maxdepth .",1,0,0,0,0,0,0
+932,StructureGenerator.java,303,seed seed random number generator seed default is the current time.,0,0,0,0,0,0,1
+983,SwiftRestClient.java,313,generate an auth message.,0,0,1,0,0,0,0
+1015,TableConfig.java,318,class that maintains table configuration.,0,0,0,0,0,1,0
+1042,TestDataDrivenDBInputFormat.java,326,test aspects of datadrivendbinputformat,0,0,0,0,0,1,0
+1069,TestMetricsVisitor.java,337,test the metric visitor interface,0,0,0,0,0,1,0
+1073,TestNativeAzureFileSystemUploadLogic.java,340,various scenarios to test in how often we flush data while uploading.,0,0,0,0,1,0,0
+1127,TestSeveralNameNodes.java,361,test that we can start several and run with namenodes on the same minicluster,1,0,0,0,0,1,0
+1134,TestSwiftFileSystemContract.java,366,when the behavior of swiftfs does not match the normal,0,0,0,0,1,0,0
+1144,TestTaskCommit.java,369,special committer that does not cleanup temporary files in,0,0,0,0,0,1,0
+1148,TestTaskCommit.java,373,we want the test case to,0,0,0,0,1,0,0
+1163,TestUpgradeDomainBlockPlacementPolicy.java,378,end to end test case for upgrade domain,0,0,0,0,0,1,0
+1174,TextInputFormat.java,384,files are broken into lines.,0,0,1,0,0,1,0
+1200,TimelineDataToRetrieve.java,397,contains @link field#configs or @link field#all .,0,0,1,0,0,0,0
+1210,TimelineDataToRetrieve.java,400,exact metric ids or prefixes which are then compared against metric,1,0,1,0,0,0,0
+1216,TimelineDataToRetrieve.java,402,with metricfilters which is used to decide which entities to return,1,0,1,0,0,0,0
+1360,UniformSizeInputFormat.java,414,"uniformsizeinputformat extends the inputformat class, to produce",0,0,0,0,0,1,0
+1362,UniformSizeInputFormat.java,416,it looks at the copy listing and groups the contents into input splits such,1,0,0,0,0,0,0
+1364,UniformSizeInputFormat.java,418,uniform.,1,0,0,0,0,0,0
+1376,Utils.java,425,"path filelist fileutil^stat2paths fs^liststatus outdir,",0,0,0,0,0,0,1
+1377,Utils.java,426,new outputfilesfilter,0,0,0,0,0,0,1
+1381,Utils.java,425,"path filelist fileutil^stat2paths fs^liststatus outdir,",0,0,0,0,0,0,1
+1403,WritableComparator.java,431,a comparator for @link writablecomparable s.,0,0,1,0,0,1,0
+1451,ExecutorPlugin.java,447,a plugin which can be automatically instantiated within each spark executor.,0,0,0,0,0,1,0
+1477,JavaStreamingTestExample.java,454,"the rows of the text files must be in the form boolean, double .",1,0,0,0,0,0,0
+1479,JavaStreamingTestExample.java,456,"false, 392",1,0,0,0,0,0,0
+1512,KVStore.java,470,"using a @link kvstoreserializer , which can be customized by the application.",1,0,1,0,0,0,0
+1595,UploadBlockStream.java,497,the actual block data is not contained here.,1,0,0,0,0,0,0
+1612,AbstractCPropertyTab.java,505,and to handle their events see buttonpressed int,0,0,0,0,1,0,0
+1641,AddMemoryBlocks.java,514,adds memory blocks to the memory view.,0,0,0,0,0,1,0
+1678,C99BuildASTParserAction.java,524,semantic actions called by the c99 parser to build an ast.,0,0,0,0,0,1,0
+1690,CConfigurationDescriptionCache.java,530,"with cconfigurationdescriptioncache icstorageelement storage, cprojectdescription parent constructor.",0,0,0,0,0,0,1
+1691,CConfigurationDescriptionCache.java,531,li any clients needed icconfigurationdescription get cconfigurationdescription using constructor,0,0,0,0,0,0,1
+1692,CConfigurationDescriptionCache.java,532,"cconfigurationdescription cconfigurationdata data, string buildsystemid, icdataproxycontainer cr",0,0,0,0,0,0,1
+1789,CPPImplicitVariable.java,564,"code auto first, second decomposed code",0,0,0,0,0,0,1
+1865,GCCKeywords.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+1885,GnuMakefileGenerator.java,591,@since 12,0,0,0,1,0,0,0
+1887,GnuMakefileGenerator.java,592,string constants for makefile contents and messages private static final string auto dep comment ^autodeps non nls 1 private static final string message managedmakebuilder^message non nls 1 private static final string build error message ^error non nls 1 private static final string dep incl comment ^module.dep^includes non nls 1 private static final string mod incl comment ^module.make^includes non nls 1 private itool buildtools private boolean buildtoolsused private imanagedbuildinfo info private set outputextensionsset maps of macro names string to values list dependency file variables private vector dependencymakefiles ipath s relative to the top build directory or absolute,0,0,0,0,0,0,1
+1900,GnuMakefileGenerator.java,605,"process a string denoting a filepath in a way compatible for gnu make rules, handling",0,0,0,0,0,0,1
+1909,GnuMakefileGenerator.java,612,@throws nullpointerexception is path is null,0,0,0,0,0,0,1
+1920,GnuMakefileGenerator.java,619,itself.,0,0,0,0,0,0,1
+1928,GnuMakefileGenerator.java,592,string constants for makefile contents and messages private static final string auto dep comment ^autodeps non nls 1 private static final string message managedmakebuilder^message non nls 1 private static final string build error message ^error non nls 1 private static final string dep incl comment ^module.dep^includes non nls 1 private static final string mod incl comment ^module.make^includes non nls 1 private itool buildtools private boolean buildtoolsused private imanagedbuildinfo info private set outputextensionsset maps of macro names string to values list dependency file variables private vector dependencymakefiles ipath s relative to the top build directory or absolute,0,0,0,0,0,0,1
+1941,GnuMakefileGenerator.java,605,"process a string denoting a filepath in a way compatible for gnu make rules, handling",0,0,0,0,0,0,1
+1950,GnuMakefileGenerator.java,612,@throws nullpointerexception is path is null,0,0,0,0,0,0,1
+2041,ICLibraryFileEntry.java,634,see @link icsettingentry#library file .,0,0,1,0,0,0,0
+2048,ICodeReaderFactory.java,636,@noreference this interface is not intended to be referenced by clients.,0,0,0,0,0,0,1
+2060,ICPPAliasTemplateInstance.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+2068,ICPPASTLinkageSpecification.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+2077,ICPPASTVirtSpecifier.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+2101,IGDBTraceControl.java,647,it is used to do such things as start and stop tracing.,0,0,0,0,1,0,0
+2128,IInclude.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+2136,IMacroEntry.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+2148,IMSASTDeclspecList.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+2154,INodeFactory.java,660,control flow graph node factory,0,0,0,0,0,1,0
+2155,INodeFactory.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+2176,IRegisters2.java,663,@since 26,0,0,0,1,0,0,0
+2185,ITestItem.java,584,@noextend this interface is not intended to be extended by clients.,0,0,0,0,0,0,1
+2205,LanguageSettingsProvidersSerializer.java,672,wrapper for workspace providers to ensure level of indirection.,0,0,0,0,0,1,0
+2210,LanguageSettingsProvidersSerializer.java,673,language settings change event implementation.,0,0,0,0,0,1,0
+2238,MIAsyncErrorProcessor.java,676,@since 53,0,0,0,1,0,0,0
+2288,MIDataListRegisterNames.java,697,show a list of register names for the current target.,0,0,0,0,0,1,0
+2339,MIStack.java,723,base class for the iframedmdata object that uses an miframe object to,0,0,0,0,1,0,0
+2392,PDOMMacroReferenceName.java,732,"represents declarations, definitions and references to bindings, except for macros.",0,0,0,0,0,1,0
+2455,SourceLookupTest.java,749,how the program was compiled.,0,0,0,0,0,0,1
+2456,SourceLookupTest.java,750,each of these options produces different debug,0,0,0,0,0,0,1
+2458,SourceLookupTest.java,752,see the makefile for more,0,0,1,0,0,0,1
+2481,SourceLookupTest.java,758,"designed to run with gdb 74, see comment in makefile for olddwarfflags.",0,0,0,1,0,0,0
+2586,UncallCommandHandler.java,779,@since 70,0,0,0,1,0,0,0
+2639,AbstractListeningExecutorService.java,798,with the abstract @link #execute execute runnable method.,1,0,0,0,0,0,0
+2682,AbstractMultimap.java,811,@author louis wasserman,0,1,0,0,0,0,0
+2686,AbstractMultimapTester.java,811,@author louis wasserman,0,1,0,0,0,0,0
+2692,AbstractSortedKeySortedSetMultimap.java,811,@author louis wasserman,0,1,0,0,0,0,0
+2758,AtomicDoubleArrayTest.java,841,http gee^cs.oswego^edu cgi bin viewcvs^cgi jsr166 src test tck jsr166e atomicdoublearraytest^java?revision 113,0,0,1,0,0,0,0
+2793,BloomFilter.java,870,"a strategy to translate t instances, to @code numhashfunctions bit indexes.",0,0,0,0,0,0,1
+2848,CacheBuilder.java,885,pre @code,0,0,0,0,0,0,1
+2851,CacheBuilder.java,888,expireafterwrite duration^ofminutes 10,0,0,0,0,0,0,1
+2859,CacheBuilder.java,885,pre @code,0,0,0,0,0,0,1
+2879,CacheBuilder.java,906,concurrentmodificationexception .,0,0,1,0,0,0,1
+2888,CacheBuilder.java,915,"expireafterwrite , @linkplain #expireafteraccess expireafteraccess , @linkplain #weakkeys",1,0,0,0,0,0,1
+2892,CacheBuilder.java,919,maximumweight is requested entries may be evicted on each cache modification.,0,0,0,0,0,0,1
+2902,CacheBuilder.java,928,"the cache on each cache modification, on occasional cache accesses, or on calls to @link",0,0,0,0,0,0,1
+2907,CacheBuilder.java,933,writes.,0,0,0,0,0,0,1
+2908,CacheBuilder.java,934,"the @link cache#cleanup method of the returned cache will also perform maintenance, but",0,0,0,0,0,0,1
+2931,CacheBuilder.java,949,@since 100,0,0,0,1,0,0,0
+3076,CloseablesTest.java,966,propagated out from the @link closeables#close method if @code swallowexception is true.,1,0,0,0,0,0,0
+3086,CollectionTestSuiteBuilder.java,811,@author louis wasserman,0,1,0,0,0,0,0
+3108,DescendingMultiset.java,811,@author louis wasserman,0,1,0,0,0,0,0
+3125,EqualsTester.java,985,"addequalitygroup new user page , new user page",0,0,0,0,0,0,1
+3131,EqualsTester.java,989,li comparing each object against itself returns true,0,0,0,0,1,0,0
+3136,EqualsTester.java,993,li the hash codes of any two equal objects are equal,0,0,0,0,1,0,0
+3149,EqualsTester.java,949,@since 100,0,0,0,1,0,0,0
+3185,FeatureSpecificTestSuiteBuilder.java,1001,all the builder methods of this,0,0,0,0,0,0,1
+3216,ForwardingQueueTest.java,811,@author louis wasserman,0,1,0,0,0,0,0
+3221,GwtTestSuite.java,1013,grouping them into a suite is much faster than running each as a one test,0,0,0,0,1,0,0
+3222,GwtTestSuite.java,1014,"suite, as the per suite setup is expensive.",0,0,0,0,1,0,0
+3230,HostAndPort.java,1017,an immutable representation of a host and port.,0,0,0,0,0,1,1
+3237,HostAndPort.java,1022,hp^getport returns 80,0,0,0,0,0,0,1
+3238,HostAndPort.java,1023,hp^tostring returns 2001 db8 1 80,0,0,0,0,0,0,1
+3251,HostAndPort.java,1031,"brackets, colons, and port numbers.",0,0,0,0,0,0,1
+3255,HostAndPort.java,949,@since 100,0,0,0,1,0,0,0
+3285,ImmutableTable_CustomFieldSerializerBase.java,1035,this class contains static utility methods for writing @link immutabletable gwt field,0,0,0,0,0,1,0
+3300,LongMathBenchmark.java,1041,benchmarks for the non rounding methods of @code longmath .,0,0,0,0,0,1,0
+3301,LongMathBenchmark.java,811,@author louis wasserman,0,1,0,0,0,0,0
+3314,MapSerializationTester.java,811,@author louis wasserman,0,1,0,0,0,0,0
+3321,MultimapBuilder.java,885,pre @code,0,0,0,0,0,0,1
+3322,MultimapBuilder.java,1049,"listmultimap string, integer treelistmultimap",0,0,0,0,0,0,1
+3332,MultimapBuilder.java,811,@author louis wasserman,0,1,0,0,0,0,0
+3391,MultimapBuilderTest.java,811,@author louis wasserman,0,1,0,0,0,0,0
+3428,Preconditions.java,885,pre @code,0,0,0,0,0,0,1
+3435,Preconditions.java,885,pre @code,0,0,0,0,0,0,1
+3441,Preconditions.java,885,pre @code,0,0,0,0,0,0,1
+3457,Preconditions.java,1107,"p as with any performance concerns, you should consider profiling your code in a production",0,0,0,0,0,0,1
+3467,Preconditions.java,1117,doing so is b not recommended b because it is,0,0,0,0,0,0,1
+3475,Preconditions.java,1125,p projects which use @code com^google.common should generally avoid the use of @link,0,0,0,0,0,0,1
+3489,Preconditions.java,1139,h3 more information h3,0,0,1,0,0,0,0
+3594,Resources.java,1147,p all method parameters must be non null unless documented otherwise.,0,0,0,0,0,0,1
+3607,SmoothRateLimiter.java,1150,"how is the ratelimiter designed, and why?",0,0,0,0,0,0,1
+3610,SmoothRateLimiter.java,1153,"this is enforced by throttling incoming requests as needed, ie",0,0,0,0,0,1,0
+3618,SmoothRateLimiter.java,1161,if a request comes and the last request was,1,0,0,0,0,0,1
+3624,SmoothRateLimiter.java,1167,what if the ratelimiter was unused for a long period of,1,0,0,0,1,0,1
+3638,SmoothRateLimiter.java,1181,requests become more likely to trigger expensive operations a more extreme case of this,1,0,0,0,0,0,0
+3639,SmoothRateLimiter.java,1182,"example is when a server has just booted, and it is mostly busy with getting itself up to",1,0,0,0,0,0,0
+3649,SmoothRateLimiter.java,1192,how this works is best explained with an example,0,0,0,0,0,0,1
+3655,SmoothRateLimiter.java,1198,storedpermits becomes 100 assuming maxstoredpermits 100 .,0,0,0,0,0,0,1
+3662,SmoothRateLimiter.java,1205,"we serve the request partly from storedpermits, using all the",0,0,0,0,0,0,1
+3663,SmoothRateLimiter.java,1206,"remaining 70 permits, and the remaining 30, we serve them by fresh permits produced by the",0,0,0,0,0,0,1
+3666,SmoothRateLimiter.java,1209,"1 token per second , then this will take 3 seconds.",0,0,0,0,0,0,1
+3673,SmoothRateLimiter.java,1216,if we are primarily interested to,0,0,0,0,0,0,1
+3685,SmoothRateLimiter.java,1227,"thus, 1 rate time permits times",0,0,0,0,0,0,1
+3731,SmoothRateLimiter.java,1247,"expected arrival time of the next request is actually in the past, then the difference now",0,0,0,0,0,0,1
+3743,SmoothRateLimiter.java,1259,this implements the following function where coldinterval coldfactor stableinterval.,1,0,0,0,0,0,1
+3745,SmoothRateLimiter.java,1260,^ throttling,1,0,0,0,0,0,0
+3757,SmoothRateLimiter.java,1270,"before going into the details of this particular function, let s keep in mind the basics",1,0,0,0,0,0,1
+3789,SmoothRateLimiter.java,1293,thresholdpermits 05 warmupperiod stableinterval,1,0,0,0,0,0,0
+3794,SmoothRateLimiter.java,1297,"trapezoid, and it is equal to 05 stableinterval coldinterval maxpermits",1,0,0,0,0,0,0
+3801,SmoothRateLimiter.java,1150,"how is the ratelimiter designed, and why?",0,0,0,0,0,0,1
+3804,SmoothRateLimiter.java,1153,"this is enforced by throttling incoming requests as needed, ie",0,0,0,0,0,1,0
+3812,SmoothRateLimiter.java,1161,if a request comes and the last request was,1,0,0,0,0,0,1
+3818,SmoothRateLimiter.java,1167,what if the ratelimiter was unused for a long period of,1,0,0,0,1,0,1
+3832,SmoothRateLimiter.java,1181,requests become more likely to trigger expensive operations a more extreme case of this,1,0,0,0,0,0,0
+3833,SmoothRateLimiter.java,1182,"example is when a server has just booted, and it is mostly busy with getting itself up to",1,0,0,0,0,0,0
+3843,SmoothRateLimiter.java,1192,how this works is best explained with an example,0,0,0,0,0,0,1
+3849,SmoothRateLimiter.java,1198,storedpermits becomes 100 assuming maxstoredpermits 100 .,0,0,0,0,0,0,1
+3856,SmoothRateLimiter.java,1205,"we serve the request partly from storedpermits, using all the",0,0,0,0,0,0,1
+3857,SmoothRateLimiter.java,1206,"remaining 70 permits, and the remaining 30, we serve them by fresh permits produced by the",0,0,0,0,0,0,1
+3860,SmoothRateLimiter.java,1209,"1 token per second , then this will take 3 seconds.",0,0,0,0,0,0,1
+3867,SmoothRateLimiter.java,1216,if we are primarily interested to,0,0,0,0,0,0,1
+3879,SmoothRateLimiter.java,1227,"thus, 1 rate time permits times",0,0,0,0,0,0,1
+3925,SmoothRateLimiter.java,1247,"expected arrival time of the next request is actually in the past, then the difference now",0,0,0,0,0,0,1
+4119,SortedSetNavigationTester.java,811,@author louis wasserman,0,1,0,0,0,0,0
+4126,SubscriberTest.java,1307,tests for @link subscriber .,0,0,0,0,0,1,0
+4143,WrappingScheduledExecutorService.java,1311,an abstract @code scheduledexecutorservice that allows subclasses to @linkplain,0,0,0,0,0,1,0
+4145,WrappingScheduledExecutorService.java,1313,p note that task wrapping may occur even if the task is never executed.,0,0,0,0,0,0,1
+4153,AbstractModule.java,1317,"simply extend this class, implement @link #configure , and call the inherited",0,0,0,0,0,0,1
+4192,Binder.java,1337,abstractmodule .,0,0,0,0,0,0,1
+4201,Binder.java,1341,given explicitly.,0,0,0,0,0,0,1
+4221,Binder.java,1355,you can then use guice s concept of @link scope scopes to guide when creation should,0,0,0,0,0,0,1
+4222,Binder.java,1356,happen letting guice work for you .,0,0,0,0,0,0,1
+4243,Binder.java,1368,need.,0,0,0,0,0,0,1
+4258,Binder.java,1379,must be fully specified.,0,0,0,0,0,0,1
+4265,Binder.java,1381,@code service injection requests.,0,0,0,0,0,0,1
+4278,Binder.java,1390,conversions,0,0,0,0,0,0,1
+4282,Binder.java,1393,@literal @ color red color red a member variable field,0,0,0,0,0,0,1
+4300,Binder.java,1407,application.,0,0,0,0,0,0,1
+4478,DefaultMethodInterceptionTest.java,1433,foo implementation that should use superclass method rather than default method.,0,0,0,0,0,0,1
+4518,SpiUtils.java,1445,the kind of binding.,1,0,0,0,0,0,0
+4547,AbstractProperty.java,1458,an code event code object specifying the property whose read only,1,0,0,0,0,0,0
+4577,ApplicationConfiguration.java,779,@since 70,0,0,0,1,0,0,0
+4579,ApplicationConfiguration.java,779,@since 70,0,0,0,1,0,0,0
+4621,ComboBoxState.java,779,@since 70,0,0,0,1,0,0,0
+4640,FooterDoubleClickHandler.java,1481,handler for @link griddoubleclickevent s that happen in the footer of the,0,0,1,0,0,1,0
+4666,Grid.java,1489,@see grid#setselectionmodel gridselectionmodel,0,0,1,0,0,0,0
+4731,GridManyColumnsV7.java,1496,test ui for grid initial rendering performance profiling.,0,0,0,0,0,1,0
+4733,GridSelectionModel.java,1497,the server side interface that controls grid s selection state.,0,0,0,0,0,1,0
+4739,GridSelectionModel.java,1499,@see abstractselectionmodel,0,0,1,0,0,0,0
+4741,GridSelectionModel.java,1501,@see multiselectionmodel,0,0,1,0,0,0,0
+4787,PopupView.java,1512,view is displayed on a popup.,0,0,0,0,0,1,0
+4792,PopupView.java,1516,methods inherited from abstractcomponentcontainer.,1,0,0,0,1,0,0
+4802,PopupView.java,1516,methods inherited from abstractcomponentcontainer.,1,0,0,0,1,0,0
+4812,PopupView.java,1516,methods inherited from abstractcomponentcontainer.,1,0,0,0,1,0,0
+4862,RpcDataProviderExtension.java,1531,@link com^vaadin.v7^client.connectors^gridconnector gridconnector .,0,0,0,0,0,1,0
+4915,ShouldWriteDataDelegate.java,1541,delegate used by @link designcontext to determine whether container data,0,0,1,0,1,1,0
+5000,VaadinServiceInitListener.java,1569,@link serviceloader .,1,0,0,0,0,0,0
+5031,VLazyInitItemIdentifiers.java,1579,ragovercriteria string and,0,0,0,1,0,0,0
+5054,VScrollTable.java,1597,vertical scroll events we will check if we are reaching the end of area where,1,0,0,0,0,0,0
+5056,VScrollTable.java,1599,todo implement unregistering for child components in cells,1,0,0,0,0,0,0
+5063,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5069,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5086,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5092,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5109,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5115,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5130,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5136,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5158,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5164,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5172,VScrollTable.java,1622,used to recall the position of an open context menu if we need to close,1,0,0,0,0,0,0
+5183,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5189,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5205,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5211,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5227,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5233,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5248,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5254,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5270,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5276,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5291,VScrollTable.java,1606,when changing tabs.,0,0,0,0,1,0,0
+5297,VScrollTable.java,1612,com^google.gwt^event.dom^client.focushandler#onfocus com^google.gwt^event,1,0,1,0,0,0,0
+5389,Window.java,1637,"in vaadin versions prior to 70.0, window was also used as application level",1,0,0,0,0,0,0
+5437,Window.java,1655,@link windowmode#maximized or restored @link windowmode#normal .,1,0,0,0,0,0,0
+5445,Window.java,1659,browsers.,1,0,0,0,0,0,0
+5457,Window.java,1661,shortcut that closes the window.,1,0,0,0,0,0,0

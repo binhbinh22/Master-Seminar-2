@@ -1,0 +1,257 @@
+comment_sentence_id,class,group_id,text,DevelopmentNotes,Expand,Parameters,Summary,Usage
+7,AppConfigStub,3,stub of an appconfig.,0,0,0,1,0
+8,AppConfigStub,4,only provides a label and a dict of models.,0,0,1,0,0
+28,Atomic,18,none denotes the absence of a savepoint.,0,0,0,0,1
+50,AtomicTests,20,tests for the atomic decorator and context manager.,0,0,0,1,0
+70,AutoFieldMeta,34,"when these issues have been addressed, this metaclass could be used to",1,0,0,0,0
+72,AutoFieldMeta,36,for detecting automatically generated fields.,1,0,0,0,0
+98,BaseCommand,49,django admin or manage^py loads the command class,0,0,0,0,1
+101,BaseCommand,52,the run from argv method calls create parser to get,0,0,0,0,1
+106,BaseCommand,57,3,0,0,0,0,1
+114,BaseCommand,65,"commanderror , run from argv will instead print an error",0,0,0,0,1
+118,BaseCommand,69,"all of their logic in handle , or perform some additional",1,0,0,0,0
+212,BaseUpdateView,96,base view for updating an existing object.,0,0,0,1,0
+228,BoundWidget,103,this is useful for,1,0,0,0,0
+232,BoundWidget,107,% for radio in myform^beatles %,0,0,0,0,1
+249,CacheHandler,113,a cache handler to manage access to cache instances.,0,0,0,1,0
+263,Client,120,"it allows the user to compose get and post requests, and",0,1,0,0,0
+286,Combinable,131,provide the ability to combine one or two objects with,0,0,0,1,0
+288,Combinable,133,for example f foo f bar .,0,0,0,0,1
+321,DblFromGeom,146,in by reference as the last argument.,0,0,1,0,0
+348,FakePayload,158,this makes sure that views can t do anything under the test client,0,1,0,0,0
+357,FallbackStorage,162,messages in each subsequent backend.,0,1,0,0,0
+367,Group,165,table column fields,0,0,0,1,0
+388,Individual,174,corresponding raw id widget won t have a magnifying glass link to select,1,0,0,0,1
+422,ListMixin,195,temp list items,0,1,0,0,0
+427,ListMixin,200,the object using set list.,0,1,0,0,0
+429,ListMixin,202,return the length,0,1,0,0,0
+480,Migration,215,the base class for all migrations.,0,0,0,1,0
+488,Migration,221,replaces a list of migration names,0,0,1,0,1
+508,MigrationGraph,226,merely a convention to aid file listing.,1,0,0,0,0
+513,MigrationGraph,228,this is to support the squash feature.,0,0,0,0,1
+515,MigrationGraph,230,"for these instead, the code to load them in here should examine the",0,0,0,0,1
+517,MigrationGraph,232,"or not present, it should ignore the replaced ones, load in just the",0,0,0,0,1
+545,MigrationLoader,239,inherit from django^db.migrations^migration.,0,1,0,0,0
+602,MultiValueDict,267,simon,0,0,0,0,1
+605,MultiValueDict,269,d^getlist doesnotexist,0,0,0,0,1
+640,MultiValueField,283,compressed into a single value.,0,1,0,0,0
+657,MultiWidget,287,these can be looped over and rendered like normal widgets.,0,1,0,0,0
+680,OverwritingStorage,294,overwrite existing files instead of appending a suffix to generate an,0,0,0,1,0
+696,Permission,305,the change permission limits a user s ability to view the change,0,0,0,0,1
+706,Permission,309,the permissions listed above are automatically created for each model.,0,1,0,0,0
+764,SameAsLookup,328,it tests actual geometric,0,1,0,1,0
+821,TemplateDoesNotExist,352,a list of intermediate templatedoesnotexist exceptions.,0,0,1,0,0
+846,TestUtils,359,this doc output is required for testing.,1,0,0,0,0
+882,WindowFrame,372,means intended to be complete is done here.,0,1,0,0,0
+890,XFrameOptionsDecoratorsTests,373,tests for the x frame options decorators.,0,0,0,1,0
+897,XFrameOptionsMiddleware,378,to prevent the,1,0,0,0,1
+923,Audio,392,http msdn^microsoft.com en us library windows hardware dn653308 v vs.85 ^aspx,0,0,1,0,0
+926,Audio,395,bytestring containing raw pcm data or,0,0,1,0,0
+929,Audio,398,"if a filename or url is used, the format support will be browser",0,0,1,0,0
+945,Audio,414,autoplay bool,0,0,1,0,0
+948,Audio,417,normalize bool,0,0,1,0,0
+949,Audio,418,whether audio should be normalized rescaled to the maximum possible,0,0,1,0,0
+950,Audio,419,range.,0,0,1,0,0
+973,Audio,441,# from bytes,0,0,0,0,1
+1044,CapturingDisplayPublisher,444,a displaypublisher that store,0,0,0,1,0
+1048,DisplayHook,446,the custom ipython displayhook to replace sys^displayhook.,0,0,0,1,0
+1110,Magics,475,"classes providing magic functions need to subclass this class, and they",0,0,0,0,1
+1114,Magics,479,use the class decorator @magics class to ensure that the magic,0,0,0,0,1
+1147,Struct,492,the ability to restrict assignment to only existing keys.,0,1,0,0,0
+1158,TBTools,495,basic tools used by all traceback printer classes.,0,0,0,1,0
+1160,TermColors,496,color escape sequences.,0,0,0,1,0
+1191,YouTubeVideo,513,"vid youtubevideo abc , start 30",0,0,0,0,1
+1193,YouTubeVideo,514,"to calculate seconds from time as hours, minutes, seconds use",0,0,0,0,1
+1221,_MockPOP3,527,pm^stat,0,0,0,0,1
+1236,_MockPOP3,541,pm invalid key,0,0,0,0,1
+1263,AutocryptSearch,543,search for the autocrypt database.,0,0,0,1,0
+1278,ConfigDict,57,3,0,1,1,0,0
+1313,ConfigDict,583,pot colors ^append red,0,0,0,0,1
+1314,ConfigDict,584,0,0,0,0,0,1
+1315,ConfigDict,585,"pot colors ^extend blue , red , red",0,0,0,0,1
+1319,ConfigDict,584,0,0,0,0,0,1
+1426,ConfigureMailboxes,602,in the metadata index.,1,0,0,0,0
+1454,HashCash,615,try to collide a hash using the smtorp algorithm,0,0,0,1,0
+1476,StorageBackedLongs,626,this combines storagebackeddata with pack unpacklonglist to pack,0,0,0,1,0
+1478,StorageBackedLongs,628,storage sbl x01 x00 x00 x00 x00 x00 x00 x00,0,0,0,0,1
+1479,StorageBackedLongs,629,"sbl storagebackedlongs storage, sbl",0,0,0,0,1
+1502,VCardStore,637,this is a disk backed in memory collection of vcards.,0,0,0,1,0
+1504,VCardStore,638,# vcards are added to the collection using add vcard.,0,0,0,0,1
+1509,VCardStore,643,mailpilevcard vcardline fn guy,0,0,0,0,1
+1548,AbstractEngine,656,object serving as a base class for all engines.,0,0,0,1,0
+1561,Base,663,input data,1,0,0,0,0
+1597,BooleanArray,687,none,0,1,0,0,0
+1599,BooleanArray,687,none,0,1,0,0,0
+1603,BooleanArray,691,create an booleanarray with func pandas^array,0,1,0,0,1
+1658,CategoricalDtype,687,none,0,1,0,0,0
+1751,CategoricalIndex,755,if an explicit ordered true is given but no categories and the,0,1,0,0,1
+1768,CategoricalIndex,763,ordered categoricalindex can have a min and max value.,0,1,0,0,1
+1846,ExcelFile,772,class for parsing tabular excel sheets into dataframe objects.,0,0,0,1,0
+1855,ExcelFile,780,"if io is not a buffer or path, this must be set to identify io.",0,0,1,0,0
+1893,IntegerArray,687,none,0,1,0,0,0
+1895,IntegerArray,687,none,0,1,0,0,0
+1900,IntegerArray,797,"int array pd^array 1, none, 3 , dtype pd^int32dtype",0,1,0,0,1
+1907,IntegerArray,803,"pd^array 1, none, 3 , dtype int32",0,1,0,0,1
+1961,IntervalDtype,808,"subtype str, np^dtype",0,1,1,0,0
+1966,IntervalDtype,687,none,0,1,0,0,0
+1993,PlotAccessor,822,"y label, position or list of label, positions, default none",0,0,1,0,0
+1998,PlotAccessor,827,the kind of plot to produce,0,0,1,0,0
+1999,PlotAccessor,828,line line plot default,0,0,1,0,0
+2007,PlotAccessor,836,pie pie plot,0,0,1,0,0
+2020,PlotAccessor,849,axis grid lines.,0,0,1,0,0
+2023,PlotAccessor,852,style list or dict,0,0,1,0,0
+2034,PlotAccessor,861,xticks sequence,0,0,1,0,0
+2038,PlotAccessor,865,xlim 2 tuple list,0,0,1,0,0
+2048,PlotAccessor,875,name from matplotlib.,0,0,1,0,0
+2066,PlotAccessor,892,equivalent to yerr.,0,0,1,0,0
+2214,SelectNSeries,917,"keep first , last , default first",0,0,1,0,0
+2230,SQLiteTable,921,patch the sqltable for fallback support.,0,0,0,1,0
+2235,SQLTable,924,uses fact that table is reflected by sqlalchemy to,0,1,0,0,0
+2247,StringArray,929,warning,0,0,1,0,0
+2256,StringArray,929,warning,0,0,1,0,0
+2264,StringArray,687,none,0,1,0,0,0
+2266,StringArray,687,none,0,1,0,0,0
+2270,StringArray,938,a stringarray.,0,0,0,0,1
+2272,StringArray,939,stringarray returns a booleanarray for comparison methods.,1,1,0,0,0
+2284,StringArray,945,"for comparison methods, this returns a class pandas^booleanarray",0,1,0,0,1
+2328,StringMethods,953,s^str.split,0,0,0,0,1
+2338,TermValue,955,hold a term value the we use to construct a condition filter,0,0,0,1,0
+2352,UnsortedIndexError,962,and the index has not been lexsorted.,0,0,0,1,0
+2386,And,980,suppress backtracking.,1,1,0,0,0
+2392,And,986,expr integer id name expr name integer age,0,0,0,0,1
+2460,CaseInsensitiveDict,1021,"operations are given keys that have equal ^lower s, the",0,0,0,0,1
+2489,ColoredString,1023,enhanced string for len operations on colored output.,0,0,0,1,0
+2513,Context_,1041,additionally there is a meth resolve,0,0,1,0,0
+2546,DataViewSequence,1047,a sequence of data views.,0,0,0,1,0
+2563,DocumentErrorTree,1054,implements a dict like class to query errors by indexes following the,0,0,0,1,0
+2610,Environment,1090,from the start of a line to a block.,0,0,1,0,0
+2633,Environment,1109,undefined,0,0,1,0,0
+2681,Environment,1140,this requires,0,0,1,0,0
+2806,EOF,1142,this usually means the child has exited.,0,0,0,1,0
+2851,FileSystemLoader,1159,"the loader takes the path to the templates as string, or if multiple",0,0,0,0,1
+2856,FileSystemLoader,1163,per default the template encoding is utf 8 which can be changed,0,0,0,0,1
+2880,FollowedBy,1172,expression matches at the current position.,1,0,0,1,1
+2881,FollowedBy,1173,followedby,1,0,0,1,1
+3037,InvalidVersion,1213,"an invalid version was found, users should refer to pep 440.",0,0,0,1,1
+3045,KeyType,1217,"keys can be bare unquoted , or quoted using basic , or literal",0,1,1,0,0
+3046,KeyType,1218,quotes following the same escaping rules as single line stringtype.,0,1,1,0,0
+3075,Markup,1232,passing an object to the constructor converts it to text and wraps,0,1,1,0,0
+3079,Markup,1236,"markup hello, em world em !",1,0,0,0,1
+3080,Markup,1236,"markup hello, em world em !",1,0,0,0,1
+3095,Markup,1250,unicode in python 2 .,1,0,0,0,1
+3180,MemcachedBytecodeCache,1266,value is a string and,0,0,0,0,1
+3193,MemcachedBytecodeCache,1279,we recommend a high or no timeout.,0,0,0,0,1
+3226,MethodDispatcher,1282,dict with 2 special properties,0,0,0,1,0
+3242,Module_six_moves_urllib_request,1288,lazy loading of moved objects in six^moves.urllib request,0,0,0,1,0
+3246,Mul,1290,multiplies the left with the right node.,0,0,0,1,0
+3252,NoMatch,1293,a token that will never match.,0,0,0,1,0
+3257,NotAny,1297,does not match at the current position.,0,1,0,0,0
+3268,NotAny,1306,# very crude boolean expression to support parenthesis groups and,0,0,0,0,1
+3307,omdict,1318,an ordered multivalue dictionary is a multivalue dictionary that,0,0,0,1,0
+3310,omdict,1321,items.,0,1,0,0,0
+3320,omdict,1330,all dict methods that retain parity with omdict are,0,1,0,0,0
+3332,omdict,1342,"name interact with lists of values, and methods with all in their name",0,0,0,0,1
+3391,Option,1358,if this,0,0,1,0,0
+3397,Option,1363,"normally, environment variables",0,0,1,0,0
+3406,Option,1371,hidden from the user.,0,0,1,0,0
+3417,Option,1382,multiple times and recorded.,0,0,1,0,0
+3418,Option,1383,this is similar to nargs,0,0,1,0,0
+3521,ParseResults,1420,result date str^parsestring 1999 12 31,1,0,0,0,1
+3538,ParseResults,1436,"result^dump 1999 , , 12 , , 31",0,0,0,0,1
+3623,Path,1458,"will not expand a tilde prefix, as this is",0,0,1,0,0
+3680,PoolManager,1479,"r manager^request get , http yahoo^com",0,0,0,0,1
+3732,Request,1496,param method http method to use.,0,0,1,0,0
+3735,Request,1499,param files dictionary of filename fileobject files to multipart upload.,0,0,1,0,0
+3737,Request,1501,if a dictionary or,0,0,1,0,0
+3738,Request,1502,"list of tuples key, value is provided, form encoding will",0,0,1,0,0
+3742,Request,1501,if a dictionary or,0,0,1,0,0
+3743,Request,1502,"list of tuples key, value is provided, form encoding will",0,0,1,0,0
+3788,RequiresPythonCache,1518,cache a candidate s requires python information.,0,0,0,1,0
+3792,Resource,1521,"not normally instantiated by user code, but rather by a",1,0,0,0,0
+3800,ResourceManager,1524,manage resource extraction and packages,0,0,0,1,0
+3806,Retry,1527,retry configuration.,0,0,0,1,0
+3821,Retry,1538,takes precedence over other counts.,0,0,1,0,0
+3827,Retry,1544,set to false to disable and imply raise on redirect false .,0,0,1,0,0
+3829,Retry,1546,how many connection related errors to retry on.,0,0,1,0,0
+3840,Retry,1555,limit this to avoid infinite redirect,0,0,1,0,0
+3843,Retry,1558,308,0,0,1,0,0
+3845,Retry,1544,set to false to disable and imply raise on redirect false .,0,0,1,0,0
+3865,Retry,1576,most errors are resolved immediately by a second try without a,0,0,1,0,0
+3886,Retry,1597,the requests occurred.,0,0,1,0,0
+3891,Retry,1602,param iterable remove headers on redirect,0,0,1,0,0
+3990,Session,1610,a requests session.,0,0,0,1,0
+3994,Session,1613,s requests^session,0,0,0,0,1
+4027,SkipTo,1630,101 critical intermittent system crash 6,0,0,0,0,1
+4028,SkipTo,1631,94 cosmetic spelling error on login log n 14,0,0,0,0,1
+4048,SkipTo,1647,sev critical,0,0,0,0,1
+4120,TreeBuilder,1665,doctypeclass the class to use for doctypes,0,0,0,0,1
+4162,_OpNamespace,57,3,1,0,0,0,1
+4166,_OpNamespace,1689,operation will already exist .,1,0,0,0,1
+4220,Adadelta,1698,numerical stability default 1e 6,0,0,1,0,0
+4300,AdaptiveMaxPool3d,1722,output size the target output size of the image of the form d x h x w.,0,0,1,0,0
+4303,AdaptiveMaxPool3d,1725,be the same as that of the input.,0,0,1,0,0
+4389,BatchNorm1d,1775,this module does not track such statistics and always uses batch,0,0,1,0,0
+4396,BatchNorm1d,1780,# with learnable parameters,0,0,0,0,1
+4477,BCEWithLogitsLoss,1799,end cases,0,1,0,0,0
+4478,BCEWithLogitsLoss,1800,this is used for measuring the error of a reconstruction in for example,0,1,0,0,0
+4479,BCEWithLogitsLoss,1801,an auto encoder.,0,1,0,0,0
+4482,BCEWithLogitsLoss,1804,it s possible to trade off recall and precision by adding weights to positive examples.,0,1,0,0,1
+4483,BCEWithLogitsLoss,1805,in the case of multi label classification the loss can be described as,0,1,0,0,0
+4486,BCEWithLogitsLoss,1807,"l n,c w n,c left p c y n,c cdot log sigma x n,c",0,1,0,0,0
+4500,BCEWithLogitsLoss,1815,criterion torch^nn.bcewithlogitsloss pos weight pos weight,0,0,0,0,1
+4536,BCEWithLogitsLoss,1845,"input math n, where math means, any number of additional dimensions",0,1,1,0,0
+4538,BCEWithLogitsLoss,1847,output scalar.,0,0,1,0,0
+4658,Caffe2OperatorTestCase,1862,op bench it s a user defined class child of caffe2benchmarkbase,0,1,0,0,0
+4715,Conv3d,1885,"sum k 0 ^ c in 1 weight c out j , k star input n i, k",0,1,0,0,0
+4721,Conv3d,1890,"it is harder to describe, but this link has a nice visualization of what attr dilation does.",0,0,1,0,0
+4722,Conv3d,1891,attr groups controls the connections between inputs and outputs.,0,0,1,0,0
+4732,Conv3d,1900,"its own set of filters, of size",0,0,0,1,0
+4757,Conv3d,1912,default 1,0,0,1,0,0
+4763,Conv3d,1912,default 1,0,0,1,0,0
+4765,Conv3d,1912,default 1,0,0,1,0,0
+4890,CyclicLR,1944,cyclical learning rate policy changes the learning rate after every batch.,0,1,0,0,0
+5054,EmbeddingBag,1969,intermediate embeddings.,0,0,0,1,0
+5056,EmbeddingBag,1971,"with mode sum is equivalent to class torch^nn.embedding followed by torch^sum dim 0 ,",1,0,0,0,0
+5067,EmbeddingBag,1982,attr per sample weights .,1,0,0,0,0
+5070,EmbeddingBag,1984,embedding dim int the size of each embedding vector,0,0,1,0,0
+5074,EmbeddingBag,1988,default 2 .,0,0,1,0,0
+5080,EmbeddingBag,1993,specifies the way to reduce the bag.,0,0,1,0,0
+5090,EmbeddingBag,2001,supported when mode max .,0,0,1,0,0
+5113,EmbeddingBag,2023,"attr offsets , if those are not none .",0,1,0,0,0
+5124,EmbeddingBag,2032,"11306, 25798, 10044",0,0,0,0,1
+5213,ExternalInitializer,2039,executed.,0,0,0,0,1
+5214,ExternalInitializer,2040,current version is not doing any real sanity checks to the parameter.,1,0,0,0,0
+5225,FisherSnedecor,2045,df1 float or tensor degrees of freedom parameter 1,0,0,1,0,0
+5226,FisherSnedecor,2046,df2 float or tensor degrees of freedom parameter 2,0,0,1,0,0
+5237,LastNWindowCollector,2049,use packrecords to pack it before using this layer.,1,0,0,0,0
+5266,LBFGS,2064,value parameter changes default 1e 9 .,0,0,1,0,0
+5301,Module,2080,x f^relu self^conv1 x,0,0,0,0,1
+5366,MultiLabelMarginLoss,2093,"target math c or math n, c , label targets padded by 1 ensuring same shape as the input.",0,1,0,0,0
+5446,OneHotCategorical,2114,"m onehotcategorical torch^tensor 025, 025, 025, 025",0,0,0,0,1
+5450,OneHotCategorical,2117,probs tensor event probabilities,0,0,1,0,0
+5516,SGD,2140,"dampening float, optional dampening for momentum default 0",0,0,1,0,0
+5563,StackTransform,2147,transform functor that applies a sequence of transforms tseq,0,0,0,1,0
+5603,Task,2172,the task above will create 2 instances that will run in parallel.,0,0,0,0,1
+5637,TestQuantizedLinear,2179,tests the correctness of the quantized linear and linear relu op.,0,0,0,1,0
+5644,TransformerEncoderLayer,2181,"ashish vaswani, noam shazeer, niki parmar, jakob uszkoreit, llion jones, aidan n gomez,",1,0,0,0,0
+5649,TransformerEncoderLayer,2186,"neural information processing systems, pages 6000 6010.",1,0,0,0,0
+5654,TransformerEncoderLayer,2190,nhead the number of heads in the multiheadattention models required .,0,0,1,0,0
+5657,TransformerEncoderLayer,2193,"activation the activation function of intermediate layer, relu or gelu default relu .",0,0,1,0,0
+5688,Unfold,2204,"tensor of shape math n, c times prod text kernel size , l , where",0,1,0,0,1
+5708,Unfold,1890,"it is harder to describe, but this link has a nice visualization of what attr dilation does.",0,0,1,0,0
+5713,Unfold,1912,default 1,0,0,1,0,0
+5720,Unfold,1912,default 1,0,0,1,0,0
+5730,Unfold,2237,copying from the large tensor.,1,0,0,0,0
+5734,Unfold,2241,follows.,1,0,0,0,0
+5749,Unfold,2255,and dtype of the input,1,0,0,0,0
+5751,Unfold,2257,divisor fold unfold input ones,1,0,0,0,0
+5765,Unfold,2266,"# each patch contains 30 values 2x3 6 vectors, each of 5 channels",0,0,0,0,1
+5768,Unfold,2269,"torch^size 2, 30, 4",0,0,0,0,1
+5895,UseOptimizer,2284,brew^func,0,0,0,0,1
+5897,UseOptimizer,2284,brew^func,0,0,0,0,1
+5900,UseOptimizer,2284,brew^func,0,0,0,0,1
+5902,UseOptimizer,2284,brew^func,0,0,0,0,1
+5904,UseOptimizer,2284,brew^func,0,0,0,0,1
+5929,AuthBase,2289,base class that all auth implementations derive from,0,0,0,1,0
+5942,PreparedRequest,1613,s requests^session,0,0,0,0,1
+5957,Response,2297,"the class response response object, which contains a",0,0,0,1,0

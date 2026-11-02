@@ -1,0 +1,242 @@
+comment_sentence_id,class,group_id,text,Expand,Ownership,Pointer,deprecation,rational,summary,usage
+1,Abfss.java,0,azure blob file system implementation of abstractfilesystem.,0,0,0,0,0,1,0
+6,AbstractContractGetFileStatusTest.java,3,the tree parameters.,1,0,0,0,0,0,0
+9,AbstractContractGetFileStatusTest.java,3,the tree parameters.,1,0,0,0,0,0,0
+12,AbstractContractGetFileStatusTest.java,3,the tree parameters.,1,0,0,0,0,0,0
+15,AbstractContractGetFileStatusTest.java,8,equals the @code match field.,1,0,0,0,0,0,0
+16,AbstractContractGetFileStatusTest.java,3,the tree parameters.,1,0,0,0,0,0,0
+70,BalancingPolicy.java,16,balancing policy.,0,0,0,0,0,1,0
+88,BatchedRequests.java,22,the placement algorithm tends to give more optimal,1,0,0,0,0,0,0
+98,BlockPlacementStatusWithNodeGroup.java,26,an implementation of @see blockplacementstatus for,0,0,0,0,0,1,0
+105,BlocksMap.java,29,the datanodes that store the block.,1,0,0,0,0,0,0
+126,CapacitySchedulerPlanFollower.java,41,"this implementation of planfollower is relatively stateless, and it can",0,0,0,0,1,0,0
+172,ComparableVersion.java,49,code source of this file http grepcode^com file repo1^maven.org maven2 org^apache.maven maven artifact 31.1 org apache maven artifact versioning comparableversion^java modifications made on top of the source 1.,0,0,1,0,0,0,0
+173,ComparableVersion.java,50,changed package org^apache.maven^artifact.versioning to package org^apache.hadoop^util 2.,0,0,1,0,0,0,0
+188,ComparableVersion.java,54,li code milestone code or code m code li,0,0,0,0,0,0,1
+203,ComparableVersion.java,65,this class is used both for the global item list and for sub lists which start,0,0,0,0,0,1,1
+239,ConfigurationException.java,67,exception to throw in case of a configuration problem.,0,0,0,0,0,1,0
+245,CpuTimeTracker.java,68,utility for sampling and computing cpu usage.,0,0,0,0,1,1,0
+271,DefaultAnonymizingRumenSerializer.java,75,default rumen json serializer.,0,0,0,0,0,1,0
+280,DelegatingSSLSocketFactory.java,82,the factory has several different modes of operation,0,0,0,0,0,0,1
+304,DelegatingSSLSocketFactory.java,90,"however, the name",0,0,0,0,1,0,0
+352,DelegationTokenIdentifier.java,95,a delegation token identifier that is specific to hdfs.,1,0,0,0,0,1,0
+375,DiskBalancerCluster.java,105,"if inclusionlist is empty, then we assume that all live nodes in the nodes is",1,0,0,0,0,0,0
+410,EditLogTailer.java,114,editlogtailer represents a thread which periodically reads from edits,0,0,0,0,0,1,0
+417,EditLogTailer.java,121,"failover across a number of namenodes, rather than just between an active and a standby.",0,0,0,0,1,0,0
+531,FsConstants.java,158,filesystem related constants.,0,0,0,0,0,1,0
+564,IDataLoader.java,163,an idataloader loads data on demand,0,0,0,0,0,1,0
+601,KerberosDelegationTokenAuthenticator.java,176,kerberos spnego authentication mechanism and support for hadoop delegation,0,0,0,0,0,1,0
+632,LogWebService.java,188,support only atsv2 client only.,0,0,0,1,0,0,0
+658,NativeSingleLineParser.java,199,this sample parser will parse the sample log and extract the resource,0,0,0,0,0,1,0
+722,QuasiMonteCarlo.java,227,there are better methods for computing pi.,1,0,0,0,0,0,1
+724,QuasiMonteCarlo.java,229,"for computing many digits of pi, consider using bbp.",1,0,0,0,0,0,1
+801,ReencryptionUpdater.java,251,class representing the task for one batch of a re encryption command.,0,0,0,0,0,1,0
+802,ReencryptionUpdater.java,252,it,0,0,0,0,0,1,0
+831,RegistryInternalConstants.java,256,these are the things which aren t visible to users.,0,0,0,0,1,0,0
+880,SequenceFileRecordReader.java,272,an @link recordreader for @link sequencefile s.,0,0,1,0,0,1,0
+911,StructureGenerator.java,283,1,1,0,0,0,0,0,0
+912,StructureGenerator.java,284,"the number of subdirectories is a random number in minwidth, maxwidth .",1,0,0,0,0,0,0
+913,StructureGenerator.java,285,2,1,0,0,0,0,0,0
+924,StructureGenerator.java,295,the synopsis of the command is,0,0,0,0,0,0,1
+929,StructureGenerator.java,300,numoffiles #offiles the total number of files default is 10.,0,0,0,0,0,0,1
+973,SwiftRestClient.java,310,base class for all swift rest operations.,0,0,1,0,0,0,0
+1047,TestEditLogFileOutputStream.java,327,test the editlogfileoutputstream,0,0,0,0,0,1,0
+1071,TestNativeAzureFileSystemUploadLogic.java,338,"tests for the upload, buffering and flush logic in wasb.",0,0,0,0,0,1,0
+1086,TestProtoBufRpc.java,345,this test depends on test^proto definition of types in src test proto,1,0,0,0,0,0,0
+1093,TestRegistrySecurityHelper.java,348,test for registry security operations,0,0,0,0,0,1,0
+1124,TestSequenceFile.java,360,support for flat files of binary key value pairs.,1,0,0,0,0,1,0
+1133,TestSwiftFileSystemContract.java,365,"are where swiftfs does not implement those features, or",0,0,0,0,1,0,0
+1178,TextInputFormat.java,386,.,1,0,0,0,0,0,0
+1203,TimelineDataToRetrieve.java,399,return instead.,1,0,1,0,0,0,0
+1372,Utils.java,421,a path filter utility to filter out output part files in the output dir,0,0,0,0,0,1,0
+1404,WritableComparator.java,432,p this base implementation uses the natural ordering.,1,0,1,0,0,0,1
+1473,JavaStreamingTestExample.java,450,"perform streaming testing using welch s 2 sample t test on a stream of data, where the data",0,0,0,0,0,1,0
+1478,JavaStreamingTestExample.java,455,for example,1,0,0,0,0,0,0
+1485,JavaStreamingTestExample.java,462,bin run example mllib^javastreamingtestexample datadir 5 100,0,0,0,0,0,0,1
+1487,JavaStreamingTestExample.java,464,batchduration seconds until the test becomes significant p value 005 or the number of,0,0,0,0,0,0,1
+1518,KVStore.java,474,data is also automatically compressed to save disk space.,1,0,0,0,0,0,0
+1611,AbstractCPropertyTab.java,504,a standard way to create buttons ins edit del etc,0,0,0,0,1,0,0
+1662,AllTemplateEngineTests.java,517,the test suite will execute all the testcases added to the suite.,1,0,0,0,0,0,0
+1693,CConfigurationDescriptionCache.java,533,where the cconfigurationdescriptioncache is passed as data.,0,0,0,0,0,0,1
+1809,DefaultEnvironmentContextInfo.java,569,"used to represent the configuration, project, workspace and eclipse environment contexts",0,0,0,0,1,0,0
+1840,DsfDebugUITools.java,576,@since 11,0,0,0,1,0,0,0
+1855,FoldingConfigurationBlock.java,581,configures c editor folding preferences.,0,0,0,0,0,1,0
+1880,GDBSourceLookup.java,590,@since 50,0,0,0,1,0,0,0
+1910,GnuMakefileGenerator.java,613,@return a suitable make rule compatible path,0,0,0,0,0,0,1
+1951,GnuMakefileGenerator.java,613,@return a suitable make rule compatible path,0,0,0,0,0,0,1
+1953,GnuMakefileGenerator.java,628,modules contribute buildable source files.,0,0,0,0,0,0,1
+2031,IBuildObject.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2036,ICLanguageSettingPathEntry.java,633,see interface hierarchy for more specifics.,0,0,1,0,0,0,0
+2055,ICPointerType.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2061,ICPPAliasTemplateInstance.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2069,ICPPASTLinkageSpecification.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2075,ICPPASTVirtSpecifier.java,642,"there are two virt specifiers, final and override .",1,0,0,0,0,0,0
+2076,ICPPASTVirtSpecifier.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2085,ICPPPointerToMemberType.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2093,IDsfDebugServicesFactory.java,645,a factory to create dsf services.,0,0,0,0,0,1,0
+2096,IDsfDebugServicesFactory.java,576,@since 11,0,0,0,1,0,0,0
+2129,IInclude.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2137,IMacroEntry.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2141,IMIBackend.java,576,@since 11,0,0,0,1,0,0,0
+2149,IMSASTDeclspecList.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2162,IPropertyChangeParticipant.java,661,clients may implement this interface.,0,0,0,0,0,0,1
+2164,IPropertyChangeParticipant.java,590,@since 50,0,0,0,1,0,0,0
+2172,IRefreshAllTarget.java,576,@since 11,0,0,0,1,0,0,0
+2186,ITestItem.java,632,@noimplement this interface is not intended to be implemented by clients.,0,0,0,0,0,0,1
+2237,MIAsyncErrorProcessor.java,675,this class handles these type of situations by firing mierrorevent when such an error appears.,0,0,0,0,0,1,0
+2247,MIBreakpointsSynchronizer.java,677,"bug 530377 prior to fixing 530377, events that arrived from gdb faster than",0,0,1,0,0,0,0
+2316,MIStack.java,704,"a map of threadid framescacheinfo, that can be cleared based on a context.",0,0,0,0,1,0,0
+2317,MIStack.java,705,we use this cache for a few reasons,0,0,0,0,1,0,0
+2376,MIThreadGroupAddedEvent.java,728,@since 51,0,0,0,1,0,0,0
+2386,PDOMDependencyGenerator.java,731,@author doug schaefer,0,1,0,0,0,0,0
+2405,ProcStatParser.java,735,@author marc dumais,0,1,0,0,0,0,0
+2462,SourceLookupTest.java,386,.,0,0,0,0,0,0,1
+2466,SourceLookupTest.java,386,.,0,0,0,0,0,0,1
+2470,SourceLookupTest.java,386,.,0,0,0,0,0,0,1
+2474,SourceLookupTest.java,386,.,0,0,0,0,0,0,1
+2681,AbstractMultimap.java,810,"a skeleton @code multimap implementation, not necessarily in terms of a @code map .",0,0,0,0,0,1,0
+2689,AbstractSortedKeySortedSetMultimap.java,813,basic implementation of a @link sortedsetmultimap with a sorted key set.,0,0,0,0,0,1,0
+2704,ArbitraryInstances.java,823,"exposes at least one public static final constant of the same type, one of the constants will be",1,0,0,0,0,0,0
+2710,ArbitraryInstances.java,829,immutable empty instances are returned for collection types @code for string @code 0 for,0,0,0,0,0,0,1
+2716,ArbitraryInstances.java,834,@since 120,0,0,0,1,0,0,0
+2748,ArrayListMultimapGwtSerializationDependencies.java,837,the gwt supersource for this class contains a field for each type.,1,0,0,0,0,0,0
+2773,BloomFilter.java,851,they work.,0,0,1,0,0,0,0
+2778,BloomFilter.java,856,they also support a more compact serial representation via the,1,0,1,0,0,0,0
+2792,BloomFilter.java,869,"cheat sheet m total bits n expected insertions b m n, bits per insertion p expected false positive probability 1 optimal k b ln2 2 p 1 e ^ kn m ^k 3 for optimal k p 2 ^ k 06185^b 4 for optimal k m nlnp ln2 ^ 2",0,0,0,0,0,0,1
+2856,CacheBuilder.java,893,return createexpensivegraph key,0,0,0,0,0,0,1
+2867,CacheBuilder.java,893,return createexpensivegraph key,0,0,0,0,0,0,1
+2884,CacheBuilder.java,911,"likewise, if @link #weakvalues or @link #softvalues was specified, the cache uses identity",0,0,0,0,0,0,1
+2900,CacheBuilder.java,926,be reclaimed by the garbage collector.,0,0,0,0,0,0,1
+2912,CacheBuilder.java,938,"@linkplain #expireafteraccess expireafteraccess , @linkplain #weakkeys weakkeys , @linkplain",0,0,0,0,0,0,1
+2916,CacheBuilder.java,941,note that the serialized form does,0,0,0,0,0,0,1
+2922,CacheBuilder.java,946,this is,0,0,0,0,0,0,1
+2924,CacheBuilder.java,948,#removallistener,0,0,0,0,0,0,1
+2926,CacheBuilder.java,946,this is,0,0,0,0,0,0,1
+2928,CacheBuilder.java,948,#removallistener,0,0,0,0,0,0,1
+3047,ClassToInstanceMap.java,952,instance of that type.,0,0,0,0,0,1,0
+3096,ConflictingRequirementsException.java,972,@author george van den driessche,0,1,0,0,0,0,0
+3118,EqualsTester.java,980,"p this tests @code foo^equals foo , @code foo^equals null , and a few other operations.",0,0,0,0,1,0,1
+3122,EqualsTester.java,455,for example,0,0,0,0,0,0,1
+3124,EqualsTester.java,984,new equalstester,0,0,0,0,0,0,1
+3150,EqualsTester.java,996,class used to test whether equals correctly handles an instance of an incompatible class.,0,0,0,0,0,0,1
+3189,FeatureSpecificTestSuiteBuilder.java,1004,an,0,0,0,0,0,0,1
+3192,FeatureSpecificTestSuiteBuilder.java,972,@author george van den driessche,0,1,0,0,0,0,1
+3214,ForwardingQueueTest.java,1010,tests for @code forwardingqueue .,0,0,0,0,0,1,0
+3250,HostAndPort.java,1030,"p note that this is not an exhaustive list, because these methods are only concerned with",0,0,0,0,0,0,1
+3254,HostAndPort.java,1033,@author paul marks,0,1,0,0,0,0,1
+3317,MultimapBuilder.java,1045,a builder for a multimap implementation that allows customization of the backing map and value,0,0,0,0,0,1,0
+3330,MultimapBuilder.java,1056,"p the generated multimaps are serializable if the key and value types are serializable, unless",0,0,0,0,0,0,1
+3398,ObjectCountHashMap.java,1070,objectcounthashmap is an implementation of @code abstractobjectcountmap that uses arrays to,0,0,0,0,0,1,0
+3401,ObjectCountHashMap.java,1073,"implementation which stores keys and count values as map entries, @code objectcounthashmap",0,0,0,0,1,0,0
+3403,ObjectCountHashMap.java,1075,"p in the absence of element deletions, this will iterate over elements in insertion order.",0,0,0,0,0,0,1
+3423,Preconditions.java,1081,"correctly that is, whether its i preconditions i were met .",1,0,0,0,0,1,1
+3425,Preconditions.java,1083,"of a specified type, which helps the method in which the exception was thrown communicate that",1,0,0,0,0,0,0
+3427,Preconditions.java,1085,this allows constructs such as,1,0,0,0,0,0,1
+3430,Preconditions.java,1087,if value 0,1,0,0,0,0,0,1
+3431,Preconditions.java,1088,throw new illegalargumentexception input is negative value,1,0,0,0,0,0,1
+3440,Preconditions.java,1092,"p so that a hypothetical bad caller of this method, such as",0,0,0,0,0,0,1
+3443,Preconditions.java,1094,double d sqrt 10,0,0,0,0,0,0,1
+3447,Preconditions.java,1097,p avoid passing message arguments that are expensive to compute your code will always compute,0,0,0,0,0,0,1
+3478,Preconditions.java,1128,#checknotnull object or @link verify#verifynotnull object is appropriate to the situation.,0,0,0,0,0,0,1
+3608,SmoothRateLimiter.java,1151,"the primary feature of a ratelimiter is its stable rate , the maximum rate that is should",0,0,0,0,0,1,1
+3615,SmoothRateLimiter.java,1158,"for example, for a rate of",1,0,0,0,0,0,0
+3628,SmoothRateLimiter.java,1171,this may result in either underutilization or,1,0,0,0,1,0,1
+3630,SmoothRateLimiter.java,1173,past underutilization could mean that excess resources are available.,1,0,0,0,0,0,0
+3643,SmoothRateLimiter.java,1186,"this variable is zero when there is no underutilization,",1,0,0,0,0,0,1
+3652,SmoothRateLimiter.java,1195,say we leave the ratelimiter unused,0,0,0,0,0,0,1
+3677,SmoothRateLimiter.java,1220,"this role is played by storedpermitstowaittime double storedpermits, double permitstotake .",1,0,0,0,0,0,1
+3684,SmoothRateLimiter.java,1226,"permits time , thus 1 rate time permits .",0,0,0,0,0,0,1
+3715,SmoothRateLimiter.java,1235,it would be nonsensical to just,0,0,0,0,0,0,1
+3717,SmoothRateLimiter.java,1236,why wait without doing anything?,0,0,0,0,0,0,1
+3734,SmoothRateLimiter.java,1250,we increase storedpermits with the amount of permits,0,0,0,0,0,0,1
+3747,SmoothRateLimiter.java,1262,interval .,1,0,0,0,0,0,0
+3749,SmoothRateLimiter.java,1264,thresholdpermits and maxpermits,1,0,0,0,0,0,0
+3751,SmoothRateLimiter.java,1262,interval .,1,0,0,0,0,0,0
+3760,SmoothRateLimiter.java,1272,"li when the ratelimiter is not used, this goes right up to maxpermits",1,0,0,0,0,0,1
+3764,SmoothRateLimiter.java,1276,the rate at which we move to the right is,1,0,0,0,0,0,1
+3766,SmoothRateLimiter.java,1277,this ensures that the time it takes to go from 0 to,1,0,0,0,0,0,1
+3772,SmoothRateLimiter.java,1281,"p in summary, the time it takes to move to the left spend k permits , is equal to the area of",0,0,0,0,0,1,1
+3775,SmoothRateLimiter.java,1284,equal to warmupperiod.,1,0,0,0,0,0,0
+3776,SmoothRateLimiter.java,1285,and the time to go from thresholdpermits to 0 is warmupperiod 2.,1,0,0,0,0,0,1
+3780,SmoothRateLimiter.java,1288,p it remains to calculate thresholdspermits and maxpermits.,1,0,0,0,0,0,0
+3802,SmoothRateLimiter.java,1151,"the primary feature of a ratelimiter is its stable rate , the maximum rate that is should",0,0,0,0,0,1,1
+3809,SmoothRateLimiter.java,1158,"for example, for a rate of",1,0,0,0,0,0,0
+3822,SmoothRateLimiter.java,1171,this may result in either underutilization or,1,0,0,0,1,0,1
+3824,SmoothRateLimiter.java,1173,past underutilization could mean that excess resources are available.,1,0,0,0,0,0,0
+3837,SmoothRateLimiter.java,1186,"this variable is zero when there is no underutilization,",1,0,0,0,0,0,1
+3846,SmoothRateLimiter.java,1195,say we leave the ratelimiter unused,0,0,0,0,0,0,1
+3871,SmoothRateLimiter.java,1220,"this role is played by storedpermitstowaittime double storedpermits, double permitstotake .",1,0,0,0,0,0,1
+3878,SmoothRateLimiter.java,1226,"permits time , thus 1 rate time permits .",0,0,0,0,0,0,1
+3909,SmoothRateLimiter.java,1235,it would be nonsensical to just,0,0,0,0,0,0,1
+3911,SmoothRateLimiter.java,1236,why wait without doing anything?,0,0,0,0,0,0,1
+3928,SmoothRateLimiter.java,1250,we increase storedpermits with the amount of permits,0,0,0,0,0,0,1
+4116,SortedSetNavigationTester.java,1305,can t be invoked directly please see,0,0,1,0,0,0,1
+4134,TesterRequirements.java,1309,encapsulates the constraints that a class under test must satisfy in order for a tester method to,0,0,0,0,0,1,0
+4136,TesterRequirements.java,972,@author george van den driessche,0,1,0,0,0,0,0
+4152,AbstractModule.java,1316,configuration.,0,0,0,0,0,1,0
+4155,AbstractModule.java,455,for example,0,0,0,0,0,0,1
+4162,AbstractModule.java,1324,bindconstant ^annotatedwith names^named port ^to 8080,0,0,0,0,0,0,1
+4164,AbstractModule.java,1325,@author crazybob@google^com bob lee,0,1,0,0,0,0,0
+4184,Binder.java,1331,"guice uses an i embedded domain specific language i , or edsl, to help you create bindings",0,0,0,0,0,0,1
+4199,Binder.java,1340,"also,",0,0,0,0,0,0,1
+4220,Binder.java,1354,follow.,0,0,0,0,0,0,1
+4274,Binder.java,1386,constant injections must always be annotated.,0,0,0,0,0,0,1
+4285,Binder.java,1395,if your binding annotation has parameters you can apply different bindings to different specific,0,0,0,0,0,0,1
+4287,Binder.java,1397,getting your hands on the right instance of the annotation is a bit of,0,0,0,0,0,0,1
+4323,Binder.java,1325,@author crazybob@google^com bob lee,0,1,0,0,0,0,0
+4473,DefaultMethodInterceptionTest.java,1428,tests for interception of default methods.,0,0,0,0,0,1,0
+4488,Element.java,1435,all elements are,1,0,0,0,0,0,0
+4508,PrivateElementProcessor,1442,handles @code binder^newprivatebinder elements.,0,0,0,0,0,1,0
+4512,ProxyFactoryTest.java,1325,@author crazybob@google^com bob lee,0,1,0,0,0,0,0
+4546,AbstractProperty.java,1457,legacypropertyhelper has been removed in vaadin 8 events,0,0,0,1,0,0,0
+4549,AbstractProperty.java,1457,legacypropertyhelper has been removed in vaadin 8 events,0,0,0,1,0,0,0
+4794,PopupView.java,1518,but mandatory .,1,0,0,0,1,0,0
+4804,PopupView.java,1518,but mandatory .,1,0,0,0,1,0,0
+4808,PopupView.java,1522,you can get the new visibility directly,1,0,0,0,0,0,0
+4814,PopupView.java,1518,but mandatory .,1,0,0,0,1,0,0
+4886,RpcDataProviderExtension.java,1535,"@see grid#addvaluechangelistener com^vaadin.v7^data.container, object, object",0,0,1,0,0,0,0
+4917,ShouldWriteDataDelegate.java,1543,@see designcontext#shouldwritedata component,0,0,1,0,0,0,0
+4954,VaadinPortlet.java,1554,deployments and handles various portlet requests from the browser.,0,0,0,0,0,1,0
+4958,VaadinPortlet.java,1555,base class for portlet requests that need access to http servlet,1,0,0,0,0,0,0
+4968,VaadinPortlet.java,1558,portlet request for websphere portal.,1,0,0,0,0,0,0
+4971,VaadinPortlet.java,1558,portlet request for websphere portal.,1,0,0,0,0,0,0
+4976,VaadinPortlet.java,1560,this is no longer used and only provided for,0,0,0,1,0,0,0
+4979,VaadinPortlet.java,1563,individually decide whether it wants to handle a request or,0,0,0,1,0,0,0
+5047,VScrollTable.java,1590,vscrolltablebody to use the exact same space as non rendered rows would use.,1,0,0,0,0,1,0
+5053,VScrollTable.java,1596,on,1,0,0,0,0,0,0
+5055,VScrollTable.java,1598,we have rows rendered and,1,0,0,0,0,0,0
+5065,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5068,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5072,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5088,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5091,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5095,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5111,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5114,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5118,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5132,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5135,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5139,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5160,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5163,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5167,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5185,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5188,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5192,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5207,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5210,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5214,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5229,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5232,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5236,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5250,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5253,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5257,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5272,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5275,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5279,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5293,VScrollTable.java,1608,this method has logic which rows needs to be requested from server when,0,0,0,0,1,0,0
+5296,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5300,VScrollTable.java,1611,@see,0,0,1,0,0,0,0
+5406,Window.java,1644,an interface used for listening to window order change events.,1,0,0,0,0,0,0
+5463,Window.java,1665,"getui ^addaction new window^closeshortcut window, keycode^escape",1,0,0,0,0,0,0

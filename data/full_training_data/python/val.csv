@@ -1,0 +1,256 @@
+comment_sentence_id,class,group_id,text,DevelopmentNotes,Expand,Parameters,Summary,Usage
+71,AutoFieldMeta,35,deprecate inheritance from autofield and use of isinstance with autofield,1,0,0,0,0
+102,BaseCommand,53,"an argumentparser for the arguments, parses them, performs",0,0,0,0,1
+103,BaseCommand,54,any environment changes requested by options like,0,0,0,0,1
+112,BaseCommand,63,4,0,0,0,0,1
+133,BaseCommand,83,migrations on disk don t match the migrations in the database.,0,0,1,0,0
+227,BoundWidget,102,a container class used for iterating over widgets.,0,0,0,1,0
+230,BoundWidget,105,"for example, the following can be used in a",0,0,0,0,1
+236,BoundWidget,111,label,0,0,0,0,1
+237,BoundWidget,112,% endfor %,0,0,0,0,1
+272,Client,129,"contexts and templates produced by a view, rather than the",1,0,0,0,0
+349,FakePayload,159,that wouldn t work in real life.,0,1,0,0,0
+400,IntFromGeom,177,"argument is a geometry, return type is an integer.",1,0,1,0,0
+410,ListMixin,183,"function get single external self, i",0,1,0,0,0
+416,ListMixin,189,"different types of objects, set list must distinguish",0,1,0,0,0
+418,ListMixin,191,"function set list self, length, items",0,1,0,0,0
+421,ListMixin,194,"therefore, it is necessary to cache the values in a temporary",0,1,0,0,0
+435,ListMixin,208,a type or tuple of allowed item types optional,0,1,0,0,0
+512,MigrationGraph,227,migrations files can be marked as replacing another set of migrations,0,0,0,0,1
+548,MigrationLoader,242,some migrations will be marked as replacing another set of migrations.,0,1,0,0,0
+556,MigrationLoader,250,we re already not just operating,0,0,0,0,1
+575,MigrationQuestioner,253,"this base class has a built in noninteractive mode, but the",1,0,0,0,1
+583,MigrationWriter,256,of the migration file from it.,0,0,0,1,0
+594,MultiPartParser,262,"and returns a tuple of multivaluedict post , multivaluedict files .",1,0,0,0,0
+612,MultiValueDict,274,"which returns a list for every key, even though most web forms submit",1,1,0,0,0
+613,MultiValueDict,275,single name value pairs.,1,1,0,0,0
+633,MultiValueField,276,aggregate the logic of multiple fields.,0,0,0,1,0
+693,Permission,302,the django admin site uses permissions as follows,0,0,0,0,1
+694,Permission,303,the add permission limits the user s ability to view the add form,0,0,0,0,1
+742,RemoteTestRunner,318,run tests and record everything but don t display anything.,0,0,0,1,0
+808,SuccessMessageMixin,342,add a success message on successful form submission.,0,0,0,1,0
+844,TestRouter,358,routes to the other database if the model name starts with other .,0,1,0,0,0
+881,WindowFrame,371,"clauses which are subclasses, however, all processing and validation by no",0,1,0,0,0
+916,Audio,385,parameters,0,0,1,0,0
+918,Audio,387,can be one of,0,0,1,0,0
+921,Audio,390,"shape nchan, nsamples .",0,0,1,0,0
+931,Audio,400,url unicode,0,0,1,0,0
+944,Audio,413,only required when data parameter is being used as an array,0,0,1,0,0
+1068,HistoryAccessor,456,access the history database without adding to it.,0,0,0,1,0
+1101,Magics,471,base class for implementing magic functions.,0,0,0,1,0
+1134,MyFrame,484,and has a simple menu.,0,0,0,1,0
+1144,Struct,489,attribute style access.,0,1,0,0,0
+1174,UserMagics,503,placeholder for user defined magics to be added at runtime.,0,0,0,1,0
+1175,UserMagics,504,"all magics are eventually merged into a single namespace at runtime, but we",1,1,0,0,0
+1185,YouTubeVideo,507,"class for embedding a youtube video in an ipython session, based on its video id.",0,0,0,1,0
+1186,YouTubeVideo,508,"eg to embed the video from https www^youtube.com watch?v foo , you would",0,0,0,0,1
+1194,YouTubeVideo,515,class datetime^timedelta,0,0,0,0,1
+1198,YouTubeVideo,519,"when converting the notebook using nbconvert, a jpeg representation of the video",0,0,0,0,1
+1224,_MockPOP3,530,"evil , good",0,0,0,0,1
+1228,_MockPOP3,534,"msg 1 , msg 2",0,0,0,0,1
+1231,_MockPOP3,537,pm^get bytes evil,0,0,0,0,1
+1273,ConfigDict,550,each variable definition expects three values,0,1,1,0,0
+1284,ConfigDict,557,configuration data can be nested by including a dictionary of further,0,1,0,0,0
+1301,ConfigDict,573,"colors , liquids , tags , , ,",0,0,0,0,1
+1317,ConfigDict,587,"red , blue , red , red",0,0,0,0,1
+1446,Event,612,rendering of events should be handled by the respective source class.,0,1,0,0,0
+1472,OldPostingList,624,a posting list is a map of search terms to message ids.,0,0,0,1,0
+1482,StorageBackedLongs,631,sbl^append 2,0,0,0,0,1
+1507,VCardStore,641,"vcs^add vcards mailpilevcard vcardline fn dude ,",0,0,0,0,1
+1560,Base,662,common tests for all variations of intervalindex construction.,0,0,0,1,0
+1578,BooleanArray,673,logic for logical operations.,0,1,0,0,0
+1579,BooleanArray,674,see ref boolean^kleene for more.,0,1,0,0,0
+1580,BooleanArray,675,"to construct an booleanarray from generic array like input, use",0,0,0,0,1
+1588,BooleanArray,385,parameters,0,0,1,0,0
+1591,BooleanArray,681,mask numpy^ndarray,0,0,1,0,0
+1593,BooleanArray,683,indicates missing .,0,0,1,0,0
+1598,BooleanArray,688,methods,0,1,0,0,0
+1640,BusinessMixin,696,mixin to business types to provide related functions.,0,0,0,1,0
+1646,CategoricalDtype,385,parameters,0,0,1,0,0
+1657,CategoricalDtype,688,methods,0,1,0,0,0
+1662,CategoricalDtype,709,this class is useful for specifying the type of a categorical,1,0,0,0,0
+1663,CategoricalDtype,710,independent of the values.,1,0,0,0,0
+1667,CategoricalDtype,713,"t pd^categoricaldtype categories b , a , ordered true",0,1,0,0,1
+1710,CategoricalIndex,385,parameters,0,0,1,0,0
+1734,CategoricalIndex,748,codes,0,1,0,0,0
+1737,CategoricalIndex,688,methods,0,1,0,0,0
+1758,CategoricalIndex,756,see the user guide,1,0,0,0,0
+1772,CategoricalIndex,767,"categoricalindex a , b , c , a , b , c , categories c , b , a , ordered true, dtype category # noqa",0,1,0,0,0
+1844,DataIndexableCol,771,represent a data column that can be indexed,0,0,0,1,0
+1849,ExcelFile,385,parameters,0,0,1,0,0
+1877,IntegerArray,786,"integerarray is currently experimental, and its api or internal",0,1,0,0,1
+1885,IntegerArray,385,parameters,0,0,1,0,0
+1888,IntegerArray,681,mask numpy^ndarray,0,0,1,0,0
+1894,IntegerArray,688,methods,0,1,0,0,0
+1904,IntegerArray,800,"length 3, dtype int32",0,0,0,0,1
+1910,IntegerArray,800,"length 3, dtype int32",0,0,0,0,1
+1960,IntervalDtype,385,parameters,0,0,1,0,0
+1965,IntervalDtype,688,methods,0,1,0,0,0
+1984,PlotAccessor,814,make plots of series or dataframe.,0,0,1,1,0
+1988,PlotAccessor,385,parameters,0,0,1,0,0
+1996,PlotAccessor,825,dataframe.,0,0,1,0,0
+2012,PlotAccessor,841,use index as ticks for x axis.,0,0,1,0,0
+2013,PlotAccessor,842,title str or list,0,0,1,0,0
+2017,PlotAccessor,846,if a list is passed and subplots is,0,0,1,0,0
+2019,PlotAccessor,848,"grid bool, default none matlab style default",0,0,1,0,0
+2054,PlotAccessor,880,from 0 left bottom end to 1 right top end .,1,1,1,0,0
+2058,PlotAccessor,884,"if true, draw a table using the data in the dataframe and the data",0,0,1,0,0
+2061,PlotAccessor,887,table.,0,0,1,0,0
+2069,PlotAccessor,895,labels with right in the legend.,0,0,1,0,0
+2070,PlotAccessor,896,"include bool bool, default is false",0,0,1,0,0
+2071,PlotAccessor,897,"if true, boolean values can be plotted.",0,0,1,0,0
+2081,PlotAccessor,906,options to pass to matplotlib plotting method.,0,0,1,0,0
+2090,PlotAccessor,880,from 0 left bottom end to 1 right top end .,1,1,1,0,0
+2092,PlotAccessor,913,center,1,1,0,0,0
+2211,SelectNSeries,385,parameters,0,0,1,0,0
+2224,SetopCheck,919,this is called to decorate the set operations of intervalindex,1,0,0,1,0
+2248,StringArray,930,stringarray is considered experimental.,0,0,0,0,1
+2253,StringArray,385,parameters,0,0,1,0,0
+2265,StringArray,688,methods,0,1,0,0,0
+2276,StringArray,942,stringarray,0,0,0,0,1
+2285,StringArray,946,"pd^array a , none, c , dtype string a",0,1,0,0,0
+2425,Bucket,997,the buckets get an internal checksum from the cache assigned and use this,0,1,0,0,0
+2440,CaseInsensitiveDict,1002,a case insensitive dict like object.,0,0,0,1,0
+2444,CaseInsensitiveDict,1006,provides lower items .,0,0,0,1,0
+2448,CaseInsensitiveDict,1010,"keys , items , iterkeys , and iteritems",1,1,0,0,0
+2458,CaseInsensitiveDict,1019,of how the header name was originally stored.,0,0,0,0,1
+2459,CaseInsensitiveDict,1020,"if the constructor, ^update , or equality comparison",0,0,0,0,1
+2510,Context_,1038,"the template context supports read only dict operations get ,",0,0,1,0,0
+2570,Environment,1057,globals and others.,0,1,0,1,0
+2577,Environment,1064,the string marking the beginning of a block.,0,0,1,0,0
+2582,Environment,1068,variable start string,0,0,1,0,0
+2598,Environment,1082,line comment prefix,0,0,1,0,0
+2605,Environment,1087,"removed block, not variable tag!",0,0,1,0,0
+2618,Environment,1097,applications.,0,0,1,0,0
+2637,Environment,1111,a callable that can be used to process the result of a variable,0,0,1,0,0
+2646,Environment,1120,as of jinja 24 this can also,0,0,1,0,0
+2652,Environment,1123,loader,0,0,1,0,0
+2656,Environment,1126,per default this is 400 which means,0,0,1,0,0
+2812,FakeFile,1145,wrap a list of lines in an object with readline to make,0,0,0,1,0
+2825,FileMetadata,1151,usage,0,0,0,0,1
+2826,FileMetadata,1152,metadata filemetadata path to pkg info,0,0,0,0,1
+2831,FileMetadata,1151,usage,0,0,0,0,1
+2832,FileMetadata,1152,metadata filemetadata path to pkg info,0,0,0,0,1
+2888,FollowedBy,1179,data word word alphas,0,0,0,0,1
+2890,FollowedBy,1181,"attr expr group label suppress oneormore data word, stopon label ^setparseaction ^join",0,0,0,0,1
+2891,FollowedBy,1182,oneormore attr expr ^parsestring shape square color black posn upper left ^pprint,0,0,0,0,1
+3013,InstalledDistribution,1202,"instantiated., or uses a passed in metadata instance useful for when",0,0,0,0,1
+3042,Katakana,1215,unicode set for katakana unicode character range,0,0,0,1,0
+3072,Markup,1229,a string that is ready to be safely inserted into an html or xml,0,0,0,1,0
+3096,Markup,1251,"it has the same methods as that type, but",1,0,0,0,1
+3100,Markup,1255,markup em hello em foo,1,0,0,0,1
+3177,MemcachedBytecodeCache,1263,class minimalclientinterface,0,0,0,0,1
+3184,MemcachedBytecodeCache,1270,provided it s an integer with the number of seconds the cache,0,0,0,0,1
+3186,MemcachedBytecodeCache,1272,method get key,0,0,0,0,1
+3189,MemcachedBytecodeCache,1275,exist in the cache the return value must be none .,0,0,0,0,1
+3244,Module_six_moves_urllib_response,1289,lazy loading of moved objects in six^moves.urllib response,0,0,0,1,0
+3266,NotAny,1304,ident and or not word alphas,0,0,0,0,1
+3270,NotAny,1308,boolean expr boolean term zeroormore and or boolean term,0,0,0,0,1
+3305,omdict,1316,a multivalue dictionary is a dictionary that can store multiple values per,0,0,0,1,0
+3308,omdict,1319,retains the order of insertions and deletions.,0,0,0,1,0
+3319,omdict,1329,behave identically.,0,1,0,0,0
+3389,Option,1356,help page.,0,0,1,0,0
+3393,Option,1360,value.,0,0,1,0,0
+3408,Option,1373,input.,0,0,1,0,0
+3416,Option,1381,param multiple if this is set to true then the argument is accepted,0,0,1,0,0
+3421,Option,1386,param count this flag makes an option increment an integer.,0,0,1,0,0
+3520,ParseResults,1419,# parsestring returns a parseresults object,1,0,0,0,1
+3522,ParseResults,1421,"def test s, fn repr",1,0,0,0,1
+3524,ParseResults,1423,test list result,1,0,0,0,1
+3601,Path,1440,the path type is similar to the class file type but it performs,0,0,1,1,0
+3706,PrefixLoader,1488,app2 packageloader mypackage^app2,0,0,0,0,1
+3731,Request,1495,"used to prepare a class preparedrequest preparedrequest , which is sent to the server.",1,0,0,0,0
+3746,Request,1507,param cookies dictionary or cookiejar of cookies to attach to this request.,0,0,1,0,0
+3748,Request,1151,usage,0,0,0,0,1
+3749,Request,1509,import requests,0,0,0,0,1
+3807,Retry,1528,"each retry attempt will create a new retry object with updated values, so",0,1,0,0,0
+3810,Retry,1531,"retries retry connect 5, read 2, redirect 5",0,0,0,0,1
+3819,Retry,1536,param int total,0,0,1,0,0
+3842,Retry,1557,"a redirect is a http response with a status code 301, 302, 303, 307 or",0,0,1,0,0
+3860,Retry,1572,a retry is initiated if the request method is in method whitelist,0,0,1,0,0
+3876,Retry,1587,"param bool raise on redirect whether, if the number of redirects is",0,0,1,0,0
+3888,Retry,1599,param bool respect retry after header,0,0,1,0,0
+3890,Retry,1601,attr retry^retry after status codes or not.,0,0,1,0,0
+3987,SchemaValidatorMixin,1609,validator.,0,0,0,1,0
+3993,Session,1509,import requests,0,0,0,0,1
+4012,SkipTo,1618,token for skipping over all undefined text until the matched,0,0,0,1,0
+4013,SkipTo,1619,expression is found.,0,0,0,1,0
+4014,SkipTo,385,parameters,0,0,1,0,0
+4017,SkipTo,1622,the skipped text and target expression are returned as a 2 element list .,0,0,1,0,0
+4019,SkipTo,1624,comments that might contain false matches to the target expression,0,0,1,0,0
+4026,SkipTo,1629,# severity description days open,0,0,0,0,1
+4036,SkipTo,1637,string data^setparseaction tokenmap str^strip,0,0,0,0,1
+4111,TokenStreamIterator,1659,iterate over the stream,0,1,0,0,0
+4144,_OpNamespace,1673,an op namespace to dynamically bind operators into python.,1,0,0,1,1
+4212,Adadelta,1690,implements adadelta algorithm.,0,0,0,1,0
+4221,Adadelta,1699,"lr float, optional coefficient that scale delta before it is applied",0,0,1,0,0
+4252,Adam,1712,https arxiv^org abs 14126980,1,0,0,0,0
+4305,AdaptiveMaxPool3d,1727,useful to pass to nn^maxunpool3d.,0,0,1,0,0
+4346,BatchNorm1d,1737,applies batch normalization over a 2d or 3d input a mini batch of 1d,0,0,0,1,0
+4365,BatchNorm1d,1752,this attr momentum argument is different from one used in optimizer,1,0,0,0,0
+4381,BatchNorm1d,1767,can be set to none for cumulative moving average,0,0,1,0,0
+4385,BatchNorm1d,1771,learnable affine parameters.,0,0,1,0,0
+4397,BatchNorm1d,1781,m nn^batchnorm1d 100,0,0,0,0,1
+4400,BatchNorm1d,1783,"input torch^randn 20, 100",0,0,0,0,1
+4461,BCEWithLogitsLoss,1785,class.,0,0,0,1,0
+4463,BCEWithLogitsLoss,1787,"followed by a bceloss as, by combining the operations into one layer,",0,0,0,1,0
+4464,BCEWithLogitsLoss,1788,we take advantage of the log sum exp trick for numerical stability.,0,0,0,1,0
+4465,BCEWithLogitsLoss,1789,the unreduced ie with attr reduction set to none loss can be described as,0,1,0,0,0
+4469,BCEWithLogitsLoss,1792,"1 y n cdot log 1 sigma x n right ,",0,1,0,0,0
+4475,BCEWithLogitsLoss,1797,"operatorname mean l , & text if reduction text mean",0,1,0,0,0
+4487,BCEWithLogitsLoss,1808,"1 y n,c cdot log 1 sigma x n,c right ,",0,1,0,0,0
+4519,BCEWithLogitsLoss,1831,losses are averaged or summed over observations for each minibatch depending,0,0,1,0,0
+4533,BCEWithLogitsLoss,1843,"pos weight tensor, optional a weight of positive examples.",0,0,1,0,1
+4640,BuildType,1856,if attr cmake build type env,0,0,0,0,1
+4659,Caffe2OperatorTestCase,1863,"which includes input and operator, ^etc",0,1,0,0,0
+4669,ConstantPad3d,1867,pads the input tensor boundaries with a constant value.,0,0,0,1,0
+4727,Conv3d,1895,"at groups 2, the operation becomes equivalent to having two conv",0,0,0,1,0
+4730,Conv3d,1898,concatenated.,0,0,0,1,0
+4736,Conv3d,1904,"a tuple of three ints in which case, the first int is used for the depth dimension,",0,0,1,1,0
+4737,Conv3d,1905,the second int for the height dimension and the third int for the width dimension,0,0,1,1,0
+4754,Conv3d,1909,out channels int number of channels produced by the convolution,0,0,1,0,0
+4793,Conv3d,1929,# with square kernels and equal stride,0,0,0,0,1
+4883,CyclicLR,1937,sets the learning rate of each parameter group according to,0,0,0,1,0
+4887,CyclicLR,1941,the paper cyclical learning rates for training neural networks .,0,0,0,1,0
+4894,CyclicLR,1946,triangular2 a basic triangular cycle that scales initial amplitude by half each cycle.,0,1,1,0,0
+4965,CyclicLR,1949,"optimizer torch^optim.sgd model^parameters , lr 01, momentum 09",0,0,0,0,1
+4967,CyclicLR,1951,data loader torch^utils.data^dataloader .,0,0,0,0,1
+5053,EmbeddingBag,1968,"computes sums or means of bags of embeddings, without instantiating the",0,0,0,1,0
+5055,EmbeddingBag,1970,"for bags of constant length and no attr per sample weights , this class",1,0,0,0,0
+5065,EmbeddingBag,1980,"if attr per sample weights is passed, the",1,0,0,0,0
+5081,EmbeddingBag,1994,"sum computes the weighted sum, taking attr per sample weights",0,0,1,0,0
+5084,EmbeddingBag,1997,"in the bag, max computes the max value over each bag.",0,0,1,0,0
+5095,EmbeddingBag,2005,"attr per index weights tensor, optional",0,1,0,0,0
+5101,EmbeddingBag,2011,it will be treated as a concatenation of multiple bags sequences .,0,1,0,0,0
+5108,EmbeddingBag,2018,returned vectors filled by zeros.,0,1,0,0,0
+5119,EmbeddingBag,2027,# a batch of 2 samples of 4 indices each,0,0,0,0,1
+5121,EmbeddingBag,2029,"offsets torch^longtensor 0,4",0,0,0,0,1
+5198,Error,2034,each error is a section in the output of cuda memcheck.,0,0,0,1,0
+5211,ExternalInitializer,2037,this class is used in cases when the parameter should not be initialized by,0,0,0,0,1
+5253,LBFGS,2052,this is a very memory intensive optimizer it requires additional,1,0,0,0,0
+5289,Module,2068,"modules can also contain other modules, allowing to nest them in",0,1,0,0,0
+5299,Module,2078,"self^conv2 nn^conv2d 20, 20, 5",0,0,0,0,1
+5349,MultiLabelMarginLoss,1831,losses are averaged or summed over observations for each minibatch depending,0,0,1,0,0
+5374,MultiLabelMarginLoss,2099,"loss x, y",0,0,0,0,1
+5427,NetModifier,2103,inherited classes should implement the modify net method where,0,1,0,0,0
+5464,Poisson,2119,"creates a poisson distribution parameterized by attr rate , the rate parameter.",0,0,0,1,0
+5519,SGD,1949,"optimizer torch^optim.sgd model^parameters , lr 01, momentum 09",0,0,0,0,1
+5522,SGD,2144,optimizer^step,0,0,0,0,1
+5568,StackTransform,2151,"t stacktransform exptransform , identity transform , dim 1",0,0,0,0,1
+5592,Task,2161,"with node trainer , task name my task , num instances 2",0,0,0,0,1
+5655,TransformerEncoderLayer,2191,dim feedforward the dimension of the feedforward network model default 2048 .,0,0,1,0,0
+5700,Unfold,2215,gives all values within a certain block.,0,0,0,0,1
+5703,Unfold,2218,attr stride controls the stride for the sliding blocks.,0,0,1,0,0
+5715,Unfold,2225,both sides of input.,0,0,1,0,0
+5717,Unfold,2226,"dilation int or tuple, optional a parameter that controls the",0,0,1,0,0
+5724,Unfold,2232,for the case of two input spatial dimensions this operation is sometimes,0,0,1,0,0
+5725,Unfold,2233,called im2col .,0,0,1,0,0
+5737,Unfold,385,parameters,1,0,0,0,0
+5748,Unfold,2254,where divisor is a tensor that depends only on the shape,1,0,0,0,0
+5750,Unfold,2256,"input ones torch^ones input^shape, dtype input^dtype",1,0,0,0,0
+5759,Unfold,2261,"input math n, c,",0,1,0,0,1
+5763,Unfold,2264,"input torch^randn 2, 5, 3, 4",0,0,0,0,1
+5778,Unfold,2279,tensor 19073e 06,0,0,0,0,1
+5936,PreparedRequest,1151,usage,0,0,0,0,1
+5937,PreparedRequest,1509,import requests,0,0,0,0,1
+5939,PreparedRequest,2294,r req^prepare,0,0,0,0,1

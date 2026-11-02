@@ -22,7 +22,7 @@ from torch import Tensor
 from torch.utils.data import Dataset
 
 
-Split = Literal["train", "test"]
+Split = Literal["train", "validation", "test"]
 
 
 @dataclass(frozen=True)
@@ -196,7 +196,14 @@ class TokenizedNLBSEDataset(Dataset[dict[str, Tensor]]):
     ) -> None:
         self.bundle = bundle
         self.tokenizer = tokenizer
-        self.label_mask = bundle.train_mask if split == "train" else bundle.test_mask
+        if split == "validation":
+            self.label_mask = getattr(bundle, "validation_mask", None)
+            if self.label_mask is None:
+                raise ValueError("This dataset has no separate validation split")
+        elif split in ("train", "test"):
+            self.label_mask = bundle.train_mask if split == "train" else bundle.test_mask
+        else:
+            raise ValueError(f"Unknown split: {split}")
         eligible = self.label_mask.any(dim=1)
         self.indices = (
             eligible.nonzero(as_tuple=True)[0].tolist()

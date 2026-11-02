@@ -1,4 +1,4 @@
-"""Single registry of E1–E12 architectures and their configs."""
+"""Single registry of E1–E17 architectures and their configs."""
 
 from dataclasses import dataclass
 
@@ -25,6 +25,16 @@ MODEL_ZOO = {
     "E11": ModelSpec("CodeBERT + BCE", "codebert_bce", "configs/exp11_codebert_bce.yaml"),
     "E12": ModelSpec("RoBERTa + Label-Aware Attention + Label Correlation", "label_attention_gnn",
                      "configs/exp12_roberta_label_attention_gnn.yaml"),
+    "E13": ModelSpec("CodeBERT + Head Learning Rate", "codebert_head_lr",
+                     "configs/exp13_codebert_head_lr.yaml"),
+    "E14": ModelSpec("CodeBERT + Layer-wise LR Decay", "codebert_llrd",
+                     "configs/exp14_codebert_llrd.yaml"),
+    "E15": ModelSpec("CodeBERT + R-Drop", "codebert_rdrop",
+                     "configs/exp15_codebert_rdrop.yaml"),
+    "E16": ModelSpec("CodeBERT + Layer-wise LR Decay + R-Drop", "codebert_llrd_rdrop",
+                     "configs/exp16_codebert_llrd_rdrop.yaml"),
+    "E17": ModelSpec("CodeBERT + Focal Loss", "codebert_focal",
+                     "configs/exp17_codebert_focal.yaml"),
 }
 
 
@@ -42,12 +52,14 @@ def build_model(config, bundle, train_indices):
     kwargs = dict(model_name=model["name"], num_labels=len(bundle.label_names),
                   threshold=model["threshold"])
     variant = config["variant"]
-    if variant in ("bce", "threshold_tuning", "codebert_bce"):
+    if variant.startswith("codebert_") and model["name"] != "microsoft/codebert-base":
+        raise ValueError("CodeBERT experiments require microsoft/codebert-base")
+    if variant in ("bce", "threshold_tuning", "codebert_bce", "codebert_head_lr", "codebert_llrd"):
         return RobertaBaseline(**kwargs)
     if variant == "weighted_bce":
         weights = compute_pos_weight(bundle.labels[train_indices], bundle.train_mask[train_indices])
         return RobertaWeightedBCE(pos_weight=weights, **kwargs)
-    if variant == "focal":
+    if variant in ("focal", "codebert_focal"):
         return RobertaFocal(gamma=model["focal_gamma"], alpha=model.get("focal_alpha"), **kwargs)
     if variant in ("label_attention", "label_attention_contrastive"):
         return RobertaLabelAttention(
@@ -56,7 +68,7 @@ def build_model(config, bundle, train_indices):
     if variant == "asl":
         return RobertaASL(gamma_pos=model["asl_gamma_pos"], gamma_neg=model["asl_gamma_neg"],
                           clip=model["asl_clip"], detach_focal=model.get("asl_detach_focal", True), **kwargs)
-    if variant == "rdrop":
+    if variant in ("rdrop", "codebert_rdrop", "codebert_llrd_rdrop"):
         return RobertaRDrop(rdrop_alpha=model["rdrop_alpha"], **kwargs)
     if variant in ("label_gnn", "label_attention_gnn"):
         if variant == "label_gnn":

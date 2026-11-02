@@ -12,6 +12,7 @@ import yaml
 
 from test_processed_experiments import tiny_backbone, fixture
 from src.data.processed import load_processed
+from src.data.two_stage import load_stage_data
 from src.models.dl.advanced_variants import (
     AsymmetricLoss, symmetric_bernoulli_kl, compute_label_adjacency,
     RobertaRDrop, RobertaFGM, RobertaLabelGNN, RobertaAttentionGNN,
@@ -22,12 +23,12 @@ from src.models.dl.zoo import MODEL_ZOO, build_model
 
 
 class AdvancedVariantTests(unittest.TestCase):
-    def test_e9_matches_actual_processed_language_label_spaces(self):
+    def test_e9_matches_actual_kfold_language_label_spaces(self):
         config = yaml.safe_load(Path(MODEL_ZOO["E9"].config).read_text())
         with patch("src.models.dl.roberta_baseline.RobertaModel.from_pretrained", side_effect=tiny_backbone):
             for language, count in (("python", 5), ("java", 7), ("pharo", 7)):
                 with self.subTest(language=language):
-                    bundle = load_processed("data/processed", language)
+                    bundle = load_stage_data("data/k_fold_data", language, "kfold")
                     indices = bundle.folds[0]["train_indices"]
                     model = build_model(config, bundle, indices)
                     self.assertEqual(model.num_labels, count)

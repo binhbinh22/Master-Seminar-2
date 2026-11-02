@@ -1,0 +1,177 @@
+comment_sentence_id,class,group_id,text,Classreferences,Collaborators,Example,Intent,Keyimplementationpoints,Keymessages,Responsibilities
+21,BlArrowheadTriangle,11,i support background and border paints.,0,0,0,0,0,0,1
+36,BlChickenLeg,17,i am a single red chicken leg with two toes,0,0,0,1,0,0,0
+84,BlChildrenSubset,32,i capture a subset of children from a class blelement instance.,0,0,0,0,0,0,1
+91,BlChildrenSubset,38,example blchildrensubsetexamples #childrenwithmultiplecombinedsubsets,0,0,1,0,0,0,0
+120,BlClickEvent,49,mouse up,0,0,0,0,1,0,0
+189,BlElementPositionChangedEvent,73,is sent when element s position within its parent changes.,0,1,0,0,0,0,0
+200,BlElementRemovedEvent,79,parent blelement new.,0,0,1,0,0,0,0
+202,BlElementRemovedEvent,81,parent removechild child,0,0,1,0,0,0,0
+217,BlExampleElementWithBrokenOnLayout,84,i am an element with a broken onlayout method that throws error subscriptoutofbounds,0,0,0,1,0,0,1
+252,BlGridLayout,101,because child s matchparent does not make sense in case of grid users should use #fill to declare that child should take all available cell s space.,0,0,0,0,1,0,0
+259,BlGridLayout,108,cellspacing anumber to specify spacing between cells,0,0,0,0,0,1,0
+384,BlKeyCombination,138,i represent an abstract key combination which is the most important part of blshortcut .,0,0,0,1,0,0,0
+394,BlKeyCombinationConverterCNF,142,i transform composite key combination formula into a cnf https en^wikipedia.org wiki conjunctive normal form,0,0,0,0,0,1,1
+407,BlLayout,152,layout phase in a frame,0,0,0,0,1,0,0
+411,BlLayout,156,"one of them, class blspaceframelayoutphase , consists in layouting the elements contained in the space.",0,0,0,0,1,0,0
+446,BlLayout,186,the measuring phase changes only the extent in the measured bounds.,0,0,0,0,1,0,0
+450,BlLayout,190,todo explain why position is sometime changed in the measured bounds,0,0,0,0,1,0,0
+453,BlLayout,193,todo,0,0,0,0,1,0,0
+458,BlLayout,198,as we know the size of each child we compute the actual position for each child,0,0,0,0,1,0,0
+464,BlLayout,193,todo,0,0,0,0,1,0,0
+465,BlLayout,204,layout api,0,0,0,0,1,0,0
+549,BlMatrix2D,210,a21 a22 shx sy,0,0,0,0,1,0,0
+567,BlMatrixDecomposition,221,quaternion,0,0,0,0,1,0,0
+599,BlMorphicWindowOpenedEvent,229,i am fired by morphic host window when it is opened in the world,1,1,0,1,0,0,0
+607,BlMouseMoveEvent,232,the mouse move event is fired when a pointing device usually a mouse is moved while over an element.,0,1,0,0,0,0,0
+611,BlMouseProcessor,234,i convert basic events to more complex events.,0,1,0,0,0,0,1
+613,BlMouseProcessor,236,"from mouse down, mouse up, and mouse move events.",0,0,1,0,0,0,0
+626,BlPolygon,239,blpolygon vertices,0,0,1,0,0,0,0
+644,BlRectangleShapeWithArrowExplanation,250,"even more compex would be to implement the support for positioning the arrow on different edges eg left, bottom or an ability to have multiple arrows on separate edges.",0,0,1,0,0,0,0
+652,BlRectangleShapeWithArrowExplanation,258,by default the topedge of the rectangle is an instance of class bllineshape which can be translated by sending method bllineshape #moveby to the topedge,1,0,1,0,0,0,0
+655,BlRectangleShapeWithArrowExplanation,261,next step on our way to the arrow is to inject a line segment equal to the length of the arrow in the middle of the topedge .,0,0,1,0,0,0,0
+662,BlRectangleShapeWithArrowExplanation,268,we can do so by sending a method bllineshape #splitat to the now middle section of the topedge which was created by the previous line injection step,0,0,1,0,0,0,0
+663,BlRectangleShapeWithArrowExplanation,269,example blrectangleshapewitharrowexplanation #rectanglewithtoppolylinesplitinhalf previewshow #gtlivefor previewexpanded true previewheight 250,0,0,1,0,0,0,0
+743,BlTextElementMeasurementStrategyExamples,289,"there is no perfect strategy, therefore understanding the differences between them is an important step in learning how to work with text in bloc.",0,1,1,0,0,0,0
+748,BlTextElementMeasurementStrategyExamples,293,the width is given by the exact bounds of the element s text.,0,0,1,0,0,0,0
+756,BlTextElementMeasurementStrategyExamples,300,example bltextelementmeasurementstrategyexamples #textelementwitheditormeasurement nocode previewshow #gtlivefor previewheight 100,0,0,1,0,0,0,0
+764,BlTextElementMeasurementStrategyExamples,307,example bltextelementmeasurementstrategyexamples #measurementdifference nocode previewshow #gtlivefor previewheight 220,0,0,1,0,0,0,0
+815,BrEditorTextFlowLine,314,i represent a single line of a flow layout.,0,0,0,1,0,0,0
+828,BrExamplesShowroom,321,example brexamplesshowroom #glamorousbutton,0,0,1,0,0,0,0
+829,BrExamplesShowroom,322,button can also be disabled to prevent click events,0,0,1,0,0,0,0
+904,BrGlamorousIcons,344,you can import new icons using method name brglamorousicons class #importiconsfromdirectory using the script below.,0,0,0,0,1,0,1
+929,BrMaterialToggleBackgroundLook,353,i describe how background of a material toggle button changes due to toggle events,0,0,0,0,0,0,1
+988,BrTextEditorSelectionRecorder,379,additionally i play a role of a selection strategy to support single or multiple selection.,0,1,0,0,0,0,1
+1027,GtDiagrammerEllipseStencil,393,i create an ellipse element,0,0,0,0,0,0,1
+1029,GtDiagrammerExamples,394,diagrammer,0,0,1,0,0,0,0
+1040,GtDiagrammerPicker,400,am .,0,0,1,0,0,0,0
+1045,GtDiagrammerPicker,405,margin blinsets all 3,0,0,1,0,0,0,0
+1080,GtExampleFactory,415,i am a factory that can create class gtexample instances.,1,0,0,1,0,0,0
+1091,GtExampleFactory,426,then i execute those methods with the example as a receiver and the pragma arguments.,0,0,1,0,1,0,0
+1118,GtExampleProcessor,431,i maintain a context that can be accessed from within the examples being processed during the execution of the processor.,0,0,0,0,0,0,1
+1120,GtExampleProcessor,433,"can return a value, depending on the processor.",0,0,0,0,0,1,0
+1128,GtGradAbstractTreeLayout,435,this an implementation of a moen s tree layout algorithm.,0,0,0,1,0,0,0
+1134,GtGradAbstractTreeLayout,441,"the reingold tilfold algorithm, and thus moen s also, starts with a bottom up traversal of the tree.",0,0,0,0,1,0,0
+1142,GtGradAbstractTreeLayout,449,"in this implementation, we call the polylines contours.",0,0,0,0,0,0,1
+1180,GtGraphCircleEnclosure,459,smallest enclosing circle of circles,0,0,0,1,0,0,0
+1187,GtGraphCircleEnclosure,464,a circle enclosure is represented by a cyan circle.,0,0,1,0,0,0,0
+1188,GtGraphCircleEnclosure,465,an enclosure of a single circle is a special case and can be computed directly by method gtgraphcircleenclosure class #enclosure .,0,0,1,0,0,0,0
+1298,GtGraphTreemapSquarify,489,example gtgraphtreemaplayoutexamples #squarifywithsevennodes nocode codeexpanded false previewexpanded true previewshow #gtpreviewfor,0,0,1,0,0,0,0
+1318,GtGraphTreemapSquarify,509,example gtgraphtreemaplayoutexamples #squarifywithsevennodessixthstep previewexpanded true nocode,0,0,1,0,0,0,0
+1321,GtGraphTreemapSquarify,512,these steps are repeated until all rectangles have been processed.,0,0,1,0,0,0,0
+1379,GtLibraryInstaller,521,the following example shows how i am configured for sparta moz2d library.,0,0,1,0,0,0,0
+1437,GtProtoTasker,537,mandatory methods are,0,0,0,0,0,1,0
+1471,GtRlBaselineTagReleaseStrategy,551,i am a valid release strategy only when all monticello baselines that load this project use the same tag to load it.,0,0,1,0,0,0,0
+1490,GtRlMajorVersionComputation,557,i reset both the patch and minor parts of the version number to zero.,0,0,0,0,0,0,1
+1501,GtRlReleaseConfiguration,560,i model options for configuring how releases are performed.,0,0,0,0,0,0,1
+1507,GtRlReleaseConfiguration,566,these are subclasses of class gtrlsemanticversioncomputation,0,0,0,0,0,1,0
+1550,SpartaCanvas,579,in order to create and perform a drawing operation users should rely on corresponding builder.,0,0,0,0,0,0,1
+1558,SpartaCanvas,586,fill create a builder of fill drawing operation,0,0,0,0,0,1,0
+1560,SpartaCanvas,588,path create a path builder,0,0,0,0,0,1,0
+1577,SpartaCanvas,602,create an empty canvas of size 400@250,0,0,1,0,0,0,0
+1581,SpartaCanvas,606,create a triangle vector path,0,0,1,0,0,0,0
+1606,SpartaCanvas,627,paint lineargradient,0,0,1,0,0,0,0
+1617,SpartaCanvas,635,https github^com syrel sparta raw master images spartacanvas 04 stroke path^png label strokepath,0,0,1,1,0,0,0
+1625,SpartaCanvas,640,apply filter on the whole canvas,0,0,1,0,0,0,0
+1747,TSpartaCompositeFilter,655,merge canvas compositefilter,0,0,1,0,0,0,0
+1750,TSpartaCompositeFilter,658,source filter2,0,0,1,0,0,0,0
+1774,TSpartaPaint,670,clamp do not repeat me,0,0,0,0,0,1,0
+1817,TSpTextRun,684,"note that textrun is optimised for the case of simple ascii string all chars are 8 bit , simple multilanguage string all chars are 16 bit and complex scripts characters have various length of 8 32 bits .",0,0,0,0,1,0,0
+1853,FamixJavaEntity,700,famixjavaentity withallsubclasses collect c,0,0,1,0,0,0,0
+1882,FamixTDereferencedInvocation,712,represents an invocation which function is contained in a pointer.,0,0,0,1,0,0,0
+2058,MalHgNode,764,higraph malhierarchicalgraph,0,0,0,0,0,1,0
+2059,MalHgNode,765,incoming orderedcollection,0,0,0,0,0,1,0
+2062,MalHgNode,768,parent malhgnode,0,0,0,0,0,1,0
+2065,MalHgNode,771,children,0,0,0,0,0,1,0
+2067,MalHgNode,772,empty collection if the node is a leaf in the hierarchy.,0,0,0,0,0,1,0
+2075,MalHgNode,778,outgoing,0,0,0,0,0,1,0
+2077,MalHgNode,779,parent,0,0,0,0,0,1,0
+2145,MalNodeWithPreviousAndNext,801,a basic node able to host the model and to represent edges with no additional class.,0,0,0,0,0,0,1
+2187,MooseCustomTask,809,the main api is then,0,0,0,0,0,1,0
+2192,MooseEntity,811,mooseentity is an abstract entity.,0,0,0,1,0,0,0
+2217,MooseEntity,833,for example,0,0,1,0,0,0,0
+2219,MooseEntity,834,mseproperty #yourextendingattribute type #yourtype,0,0,1,0,0,0,0
+2274,MooseVisualLocator,848,it is meant to be subclassed.,0,0,0,0,1,0,0
+2278,PackageBlueprintTestResource,849,i am a test resource building a famixstmodel with the package blueprint test resource entities.,1,1,0,1,0,0,1
+2364,PPInfo,885,it is usefull to get parsing evaluation and stream position.,0,0,0,0,0,0,1
+2401,PPRelativePositionStream,891,a pprelativepositionstream is a specialized stream to get the relative position according to another stream.,0,0,0,1,0,0,1
+2517,PRBookTesterVisitor,945,checkandreportfilenamed starts the visit in a given file.,0,0,0,0,0,1,0
+2542,PRDocumentListAnnotation,946,i am class representing a documentlistannotation.,0,0,0,1,0,0,0
+2551,PRDocumentListAnnotation,955,you have to specify complete path starting from the project directory.,0,0,0,0,0,0,1
+2553,PRDocumentListAnnotation,957,doclist path blogs limit 3 sort date templates # templates docarticle^mustache templates template^mustache,0,0,1,0,0,0,0
+2569,PRFootnote,960,noted astring,0,0,1,0,0,0,0
+2570,PRFootnote,961,it create a footnote with note specified in parameter.,0,0,0,0,0,0,1
+2624,PRObject,981,i am visitable.,0,0,0,0,0,0,1
+2693,PRScreenshotAnnotation,1008,i am an annotation used to show a screenshot of a given class and method.,0,0,0,1,0,0,1
+2694,PRScreenshotAnnotation,1009,i am used in a prdocument to include a prpicture and add a png file to the figures chapter subfolder.,0,1,0,0,0,0,1
+2798,PMKolmogorovSmirnov1Sample,1052,use d max f y i i n .,0,0,0,0,0,1,0
+2834,PMLineSearch,1072,storedmethod dhblinesearch new.,0,0,1,0,0,0,0
+2836,PMLineSearch,1074,storedmethod setvalueatzero g0 derivativeatzero dg0 valueatone g1.,0,0,1,0,0,0,0
+2838,PMLineSearch,1076,optimization tip!!!,0,0,0,0,1,0,0
+2840,PMLineSearch,1078,see dhbnewtonzerofinder pmnewtonzerofinder that uses this to minimize the number of function evaluations.,0,0,0,0,1,0,0
+2903,PMStateTime,1091,"we don t want to use point, since state may be a vector quantity, and the behavior of array @ number is a little off it stores points in an array, what we want is the array itself in state, and the scalar quantity in time .",0,0,0,0,1,0,0
+2938,RTAbstractExample,1109,builder example perform met selector.,0,0,1,0,0,0,0
+2940,RTAbstractExample,1111,iftrue builder build .,0,0,1,0,0,0,0
+2966,RTAbstractStackedDataSet,1118,a data set has to be added to a rtgrapher.,0,1,0,0,0,0,0
+2972,RTAbstractTreeBuilder,1121,rtcirculartreemapbuilder,1,1,0,0,0,0,0
+3003,RTBezier3Line,1136,lineshape controlelement e3.,0,0,1,0,0,0,0
+3008,RTBezier3Line,1141,e2 @ rtdraggable.,0,0,1,0,0,0,0
+3012,RTBezier3Line,1145,v,0,0,1,0,0,0,0
+3049,RTBox,1145,v,0,0,1,0,0,0,0
+3084,RTCalendarExample,1174,b datelayout gapsize 0.,0,0,1,0,0,0,0
+3141,RTCircleTree,1191,i am a class helper to do the layout in rtcirculartreemapbuilder,0,1,0,1,0,0,1
+3171,RTExperimentalExample,1200,rtexperimentalexample new installtitle boxselectionforedges,0,0,1,0,0,0,0
+3174,RTExperimentalExample,1202,b v,0,0,1,0,0,0,0
+3202,RTFilterInView,1213,b normalizer normalizecolor #numberofmethods.,0,0,1,0,0,0,0
+3203,RTFilterInView,1214,b view @ rtfilterinview.,0,0,1,0,0,0,0
+3205,RTFilterInView,1215,with edges,0,0,1,0,0,0,0
+3210,RTFilterInView,1213,b normalizer normalizecolor #numberofmethods.,0,0,1,0,0,0,0
+3213,RTFilterInView,1214,b view @ rtfilterinview.,0,0,1,0,0,0,0
+3221,RTFilterInView,1213,b normalizer normalizecolor #numberofmethods.,0,0,1,0,0,0,0
+3336,RTHighlightableWithCursor,1234,b rtumlclassbuilder new,0,0,1,0,0,0,0
+3353,RTHighlightableWithCursor,1248,b interaction showedge,0,0,1,0,0,0,0
+3357,RTHighlightableWithCursor,1252,nodes b nodes collection withallsubclasses .,0,0,1,0,0,0,0
+3393,RTHistogramSet,1257,frequency on y and a collection of values per bars on x.,0,0,0,0,0,0,1
+3405,RTLabeled,1264,"e @ rtlabeled new text value my value is , value asstring .",0,0,1,0,0,1,0
+3406,RTLabeled,1145,v,0,0,1,0,0,0,0
+3408,RTLabeled,1265,canvas object,0,0,0,0,0,1,0
+3452,RTLineDecorationExample,1277,rtlinedecorationexample new installtitle cool,0,0,1,0,0,0,0
+3456,RTLineDecorationExample,1280,size 100,0,0,1,0,0,0,0
+3458,RTLineDecorationExample,1282,translateto 0 @ 0,0,0,1,0,0,0,0
+3461,RTLineDecorationExample,1280,size 100,0,0,1,0,0,0,0
+3473,RTLineDecorationExample,1294,addall edges.,0,0,1,0,0,0,0
+3475,RTLineDecorationExample,1145,v,0,0,1,0,0,0,0
+3530,RTPopupTest,1304,view object,0,0,0,0,0,1,0
+3547,RTRectangleAttachPoint,1141,e2 @ rtdraggable.,0,0,1,0,0,0,0
+3552,RTRectangleAttachPoint,1145,v,0,0,1,0,0,0,0
+3578,RTRotatedLabel,1324,v addall es.,0,0,1,0,0,0,0
+3651,RTSVGBoxedTextPopup,1350,"a rtsvgboxedtextpopup is a text popup, contained in a square box.",0,0,0,1,0,0,0
+3657,RTSVGPopup,1354,this is disabled by default.,0,0,0,0,0,0,1
+3688,RTTreeMapExampleTODELETE,1364,examples of rttreemap,1,0,0,1,0,0,0
+3693,RTVerticalMultipleData,1367,negative data are not allowed.,0,0,0,0,1,0,0
+3711,RTVerticalMultipleData,1380,d addmetric #numberoflinesofcode.,0,0,1,0,0,0,0
+3748,RTWeightedCircleLayout,1145,v,0,0,1,0,0,0,0
+3764,TROSMShape,1391,tiles dictionary of point form,0,0,0,0,0,1,0
+3776,TROSMShape,1397,zoom,0,0,0,0,0,1,0
+3796,TROSMShape,1416,cache each tile.,0,0,0,0,1,0,0
+3834,JQLoad,1419,load html from a remote file and inject it into the dom.,0,0,0,0,0,0,1
+3886,WACookie,1442,"i represent a cookie, a piece of information that is stored on the client and read and writable by the server.",0,0,0,1,0,0,0
+3900,WACookie,1455,https bugzilla^mozilla.org show bug^cgi?id 178993,0,0,0,0,1,0,0
+3918,WACopyHandlerPlugin,1457,i make a copy of an application.,0,0,0,0,0,0,1
+3924,WADatalistTag,1462,option value internet explorer,0,0,1,0,0,0,0
+3925,WADatalistTag,1463,option value opera,0,0,1,0,0,0,0
+3946,WADynamicVariable,1468,i exist for legacy purposes.,0,0,0,0,0,0,1
+3952,WAErrorHandler,1470,waerrorhandler catches errors and warnings and provides two methods for handling each type of exception,0,1,0,0,0,0,1
+3953,WAErrorHandler,1471,handleerror,1,0,0,0,0,1,0
+3974,WAExpiringCache,1483,has to be positive.,0,0,0,0,0,1,0
+3978,WAExpiringCache,1483,has to be positive.,0,0,0,0,0,1,0
+3982,WAExpiringCache,1483,has to be positive.,0,0,0,0,0,1,0
+3984,WAExpiringCache,1490,what to do when the maximum number of sessions is reached.,0,0,0,0,0,1,0
+4089,WALabelledFormDialog,1533,see rendernameon in example below.,0,0,0,0,0,0,1
+4101,WALabelledFormDialog,1544,model,0,0,1,0,0,1,0
+4123,WALabelledFormDialog,1561,"contact class used above has instance variables name, phonenumber with standard getter and setter methods",0,0,0,0,0,1,0
+4184,WAMemoryInput,1563,a wamemoryinput is a dialog that allows the user to enter an amount of memory.,0,0,0,1,0,0,1
+4213,WAPath,1574,"the association value is an object of your choosing, which your code uses to restore that page .",0,1,0,0,0,0,0
+4217,WAPath,1578,your code is not notified when the user clicks on a link in the wapath object.,0,0,0,0,0,1,0
+4237,WAPharoEncoder,1582,i am the common superclass for pharo encoders.,0,0,0,1,0,0,1
+4319,WAUpTimeTracker,1612,wauptimetracker is used to track the timestamp when the image last booted.,0,0,0,0,0,0,1

@@ -12,6 +12,7 @@ from transformers import get_linear_schedule_with_warmup
 from src.evaluation.multilabel import evaluate_masked_multilabel
 from src.visualization.tensorboard import log_metrics
 from src.training.progress import progress
+from src.training.optimizers import build_optimizer, optimizer_summary
 
 
 def fit_masked_classifier(
@@ -37,8 +38,12 @@ def fit_masked_classifier(
     ``label_mask``. The selected validation metric is maximized. With no
     validation loader, the model trains for the requested number of epochs.
     """
-    optimizer = torch.optim.AdamW(model.parameters(), lr=training["learning_rate"],
-                                  weight_decay=training["weight_decay"])
+    optimizer = build_optimizer(model, training)
+    optimizer_info = optimizer_summary(optimizer)
+    if len(optimizer_info["groups"]) > 1:
+        print("AdamW initial rates: " + ", ".join(
+            f"{group['name']}={group['initial_learning_rate']:.2e}"
+            for group in optimizer_info["groups"]), flush=True)
     epochs = training["epochs"] if epochs is None else epochs
     min_epochs = training.get("min_epochs", 1)
     tiebreaker = training.get("validation_tiebreaker")
@@ -88,6 +93,10 @@ def fit_masked_classifier(
                     if writer is not None:
                         writer.add_scalar("train/learning_rate", scheduler.get_last_lr()[0],
                                           (epoch - 1) * len(train_loader) + step)
+                        if len(optimizer.param_groups) > 1:
+                            for group in optimizer.param_groups:
+                                writer.add_scalar(f"train/learning_rate/{group['group_name']}", group["lr"],
+                                                  (epoch - 1) * len(train_loader) + step)
                     optimizer.zero_grad(set_to_none=True)
             record = {"epoch": epoch, "train_loss": loss_sum / len(train_loader)}
             if writer is not None:
@@ -130,4 +139,5 @@ def fit_masked_classifier(
     return {"best_epoch": best_epoch if validation_loader is not None else len(history),
             "validation": best_metrics, "history": history,
             "validation_metric": validation_metric, "validation_tiebreaker": tiebreaker,
-            "planned_epochs": epochs, "completed_epochs": len(history)}
+            "planned_epochs": epochs, "completed_epochs": len(history),
+            "optimizer": optimizer_info}

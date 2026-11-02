@@ -14,6 +14,9 @@ def main():
     train.add_argument("--exp", type=str.upper, choices=MODEL_ZOO, required=True)
     train.add_argument("--language", choices=("python", "java", "pharo", "all"), default="python")
     train.add_argument("--device", default=None)
+    train.add_argument("--seed", type=int, help="Override the base training seed")
+    train.add_argument("--stage", choices=("kfold", "final", "legacy"), default="kfold")
+    train.add_argument("--selection", type=Path)
     train.add_argument("--config", type=Path)
     train.add_argument("--data-dir", type=Path)
     train.add_argument("--output-dir", type=Path)
@@ -34,7 +37,8 @@ def main():
         output = args.output_dir
         if output is not None and args.language == "all":
             output = output / language
-        run(config, language=language, device=args.device, data_dir=args.data_dir, output_dir=output)
+        run(config, language=language, device=args.device, data_dir=args.data_dir,
+            output_dir=output, seed=args.seed, stage=args.stage, selection=args.selection)
 
 
 if __name__ == "__main__":

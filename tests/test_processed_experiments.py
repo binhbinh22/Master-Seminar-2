@@ -14,6 +14,7 @@ from transformers import RobertaConfig, RobertaModel
 
 from experiments.dl import roberta_experiment as runner
 from src.data.processed import load_processed
+from src.data.two_stage import load_stage_data
 from src.evaluation.thresholds import tune_thresholds
 from src.models.dl.roberta_variants import BinaryFocalLoss
 from src.models.dl.roberta_weighted_bce import compute_pos_weight
@@ -77,16 +78,18 @@ class ProcessedExperimentTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             resolve_device("invalid")
 
-    def test_actual_processed_data(self):
-        for language, counts in (("python", (2044, 511, 5)), ("java", (1934, 484, 7)),
-                                 ("pharo", (1411, 354, 7))):
+    def test_actual_final_data(self):
+        for language, counts in (("python", (2044, 255, 256, 5)), ("java", (1935, 241, 242, 7)),
+                                 ("pharo", (1413, 176, 176, 7))):
             with self.subTest(language=language):
-                bundle = load_processed("data/processed", language)
-                self.assertEqual((bundle.train_size, len(bundle) - bundle.train_size,
+                bundle = load_stage_data("data/full_training_data", language, "final")
+                self.assertEqual((bundle.train_size, len(bundle.validation_indices), len(bundle.test_indices),
                                   len(bundle.label_names)), counts)
                 self.assertTrue(bundle.train_mask[:bundle.train_size].all())
                 self.assertFalse(bundle.test_mask[:bundle.train_size].any())
-                self.assertTrue(bundle.test_mask[bundle.train_size:].all())
+                self.assertTrue(bundle.validation_mask[bundle.validation_indices].all())
+                self.assertFalse(bundle.test_mask[bundle.validation_indices].any())
+                self.assertTrue(bundle.test_mask[bundle.test_indices].all())
 
     def test_loader_rejects_leakage_and_bad_fold(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -149,7 +152,7 @@ class ProcessedExperimentTests(unittest.TestCase):
         self.assertTrue(torch.equal(model.weight, snapshots[0]))
         self.assertFalse(torch.equal(snapshots[0], snapshots[1]))
 
-    def test_all_twelve_experiments_end_to_end(self):
+    def test_all_registered_experiments_end_to_end(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             fixture(root)
@@ -166,7 +169,15 @@ class ProcessedExperimentTests(unittest.TestCase):
                         config_path = root / f"exp{number}.yaml"
                         config_path.write_text(yaml.safe_dump(config))
                         output = root / f"out{number}"
-                        result = entry.run(config_path, data_dir=root, output_dir=output, device="cpu")
+                        with patch.object(runner, "set_seed", wraps=runner.set_seed) as set_seed:
+                            result = entry.run(config_path, data_dir=root, output_dir=output,
+                                               device="cpu", seed=123 if number >= 13 else None)
+                        expected_seed = 123 if number >= 13 else 42
+                        self.assertEqual([call.args[0] for call in set_seed.call_args_list],
+                                         [expected_seed, expected_seed + 1, expected_seed])
+                        self.assertEqual(result["seed"], expected_seed)
+                        saved_config = yaml.safe_load((output / "config.yaml").read_text())
+                        self.assertEqual(saved_config["training"]["seed"], expected_seed)
                         self.assertEqual(result["device"], "cpu")
                         backbone_factory.assert_called_with(config["model"]["name"])
                         token_factory.assert_called_with(config["model"]["name"], use_fast=True)
@@ -191,8 +202,15 @@ class ProcessedExperimentTests(unittest.TestCase):
                             self.assertEqual(graph["labels"], ["a", "b", "c"])
                             self.assertEqual(graph["language"], "python")
                             self.assertEqual(graph["train_sentences"], 10)
-                        if number == 11:
+                        if number == 11 or number >= 13:
                             self.assertEqual(config["model"]["name"], "microsoft/codebert-base")
+                            self.assertEqual(result["pretrained_backbone"], "microsoft/codebert-base")
+                        if number in (13, 14, 16):
+                            groups = result["final_training"]["optimizer"]["groups"]
+                            rates = {group["name"]: group["initial_learning_rate"] for group in groups}
+                            self.assertEqual(rates["head"], 1e-4)
+                            self.assertEqual(rates["encoder_layer_0"], 2e-5)
+                            self.assertAlmostEqual(rates["embeddings"], 2e-5 * (.9 if number != 13 else 1))
                         if number == 4:
                             self.assertEqual(result["threshold_tuning"]["source"], "out_of_fold_train")
                             oof = torch.load(output / "oof_predictions.pt", weights_only=True)
