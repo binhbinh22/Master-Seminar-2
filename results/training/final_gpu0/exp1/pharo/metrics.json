@@ -1,0 +1,1269 @@
+{
+  "stage": "final",
+  "protocol": "train_val_test_80_10_10",
+  "split_source": "train_val_test_80_10_10",
+  "model": "E1",
+  "experiment": "exp1_roberta_baseline",
+  "variant": "bce",
+  "pretrained_backbone": "roberta-base",
+  "language": "pharo",
+  "labels": [
+    "Classreferences",
+    "Collaborators",
+    "Example",
+    "Intent",
+    "Keyimplementationpoints",
+    "Keymessages",
+    "Responsibilities"
+  ],
+  "seed": 42,
+  "device": "cuda:0",
+  "data_dir": "/root/trunglm8/Master-Seminar-2/data/full_training_data/pharo",
+  "dataset_samples": 1765,
+  "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+  "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e",
+  "configuration_fingerprint": "48475327954bba6cb3fddebeb23824ed8f42649b5c3bb2fac4c6766d666563b7",
+  "fold_count": 0,
+  "threshold": 0.5,
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "test_independent_of_method_selection": false,
+  "tensorboard_log_dir": "/root/trunglm8/Master-Seminar-2/results/training/final_gpu0/exp1/pharo/tensorboard/20261103-084034-574311",
+  "split_unit": "normalized_text_group",
+  "training": {
+    "best_epoch": 8,
+    "validation": {
+      "micro_precision": 0.8,
+      "micro_recall": 0.7487684729064039,
+      "micro_f1": 0.7735368956743003,
+      "macro_precision": 0.7588674552142044,
+      "macro_recall": 0.6787097405961361,
+      "macro_f1": 0.7126340903069197,
+      "micro_average_precision": 0.8336573663622983,
+      "macro_average_precision": 0.7668922832372846,
+      "hamming_loss": 0.07224025974025974,
+      "evaluated_targets": 1232,
+      "positive_targets": 203,
+      "predicted_positive_targets": 190,
+      "true_positive_targets": 152,
+      "false_positive_targets": 38,
+      "false_negative_targets": 51,
+      "per_label": {
+        "Classreferences": {
+          "precision": 0.8333333333333334,
+          "recall": 0.625,
+          "f1": 0.7142857142857143,
+          "average_precision": 0.8092544710191769,
+          "support": 8,
+          "predicted_positive": 6,
+          "true_positive": 5,
+          "evaluated_targets": 176
+        },
+        "Collaborators": {
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "f1": 0.4,
+          "average_precision": 0.5071756282565516,
+          "support": 12,
+          "predicted_positive": 8,
+          "true_positive": 4,
+          "evaluated_targets": 176
+        },
+        "Example": {
+          "precision": 0.8888888888888888,
+          "recall": 0.8648648648648649,
+          "f1": 0.8767123287671232,
+          "average_precision": 0.934162686670851,
+          "support": 74,
+          "predicted_positive": 72,
+          "true_positive": 64,
+          "evaluated_targets": 176
+        },
+        "Intent": {
+          "precision": 0.8947368421052632,
+          "recall": 0.7727272727272727,
+          "f1": 0.8292682926829268,
+          "average_precision": 0.8464146900291507,
+          "support": 22,
+          "predicted_positive": 19,
+          "true_positive": 17,
+          "evaluated_targets": 176
+        },
+        "Keyimplementationpoints": {
+          "precision": 0.72,
+          "recall": 0.782608695652174,
+          "f1": 0.75,
+          "average_precision": 0.6714666938561693,
+          "support": 23,
+          "predicted_positive": 25,
+          "true_positive": 18,
+          "evaluated_targets": 176
+        },
+        "Keymessages": {
+          "precision": 0.7692307692307693,
+          "recall": 0.6451612903225806,
+          "f1": 0.7017543859649122,
+          "average_precision": 0.8195740924058054,
+          "support": 31,
+          "predicted_positive": 26,
+          "true_positive": 20,
+          "evaluated_targets": 176
+        },
+        "Responsibilities": {
+          "precision": 0.7058823529411765,
+          "recall": 0.7272727272727273,
+          "f1": 0.7164179104477612,
+          "average_precision": 0.7801977204232876,
+          "support": 33,
+          "predicted_positive": 34,
+          "true_positive": 24,
+          "evaluated_targets": 176
+        }
+      }
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.4968711974915494,
+        "validation": {
+          "micro_precision": 0.6766917293233082,
+          "micro_recall": 0.4433497536945813,
+          "micro_f1": 0.5357142857142857,
+          "macro_precision": 0.2744708994708995,
+          "macro_recall": 0.26734526734526737,
+          "macro_f1": 0.2686027832554739,
+          "micro_average_precision": 0.6030396640058232,
+          "macro_average_precision": 0.45407263451079605,
+          "hamming_loss": 0.1266233766233766,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 133,
+          "true_positive_targets": 90,
+          "false_positive_targets": 43,
+          "false_negative_targets": 113,
+          "per_label": {
+            "Classreferences": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "average_precision": 0.07016407960597099,
+              "support": 8,
+              "predicted_positive": 0,
+              "true_positive": 0,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "average_precision": 0.2818965123967275,
+              "support": 12,
+              "predicted_positive": 0,
+              "true_positive": 0,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.7407407407407407,
+              "recall": 0.8108108108108109,
+              "f1": 0.7741935483870968,
+              "average_precision": 0.855941899096675,
+              "support": 74,
+              "predicted_positive": 81,
+              "true_positive": 60,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 0.625,
+              "recall": 0.45454545454545453,
+              "f1": 0.5263157894736842,
+              "average_precision": 0.4919849860023657,
+              "support": 22,
+              "predicted_positive": 16,
+              "true_positive": 10,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "average_precision": 0.44019737889362887,
+              "support": 23,
+              "predicted_positive": 0,
+              "true_positive": 0,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "average_precision": 0.370240723506627,
+              "support": 31,
+              "predicted_positive": 0,
+              "true_positive": 0,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.5555555555555556,
+              "recall": 0.6060606060606061,
+              "f1": 0.5797101449275363,
+              "average_precision": 0.6680828620735775,
+              "support": 33,
+              "predicted_positive": 36,
+              "true_positive": 20,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.2921612426806032,
+        "validation": {
+          "micro_precision": 0.7328767123287672,
+          "micro_recall": 0.5270935960591133,
+          "micro_f1": 0.6131805157593123,
+          "macro_precision": 0.5220853058572358,
+          "macro_recall": 0.3451661803695464,
+          "macro_f1": 0.3566031690798389,
+          "micro_average_precision": 0.7155347413332962,
+          "macro_average_precision": 0.6253197566256875,
+          "hamming_loss": 0.10957792207792208,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 146,
+          "true_positive_targets": 107,
+          "false_positive_targets": 39,
+          "false_negative_targets": 96,
+          "per_label": {
+            "Classreferences": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "average_precision": 0.3906556885472736,
+              "support": 8,
+              "predicted_positive": 0,
+              "true_positive": 0,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "average_precision": 0.547225503975479,
+              "support": 12,
+              "predicted_positive": 0,
+              "true_positive": 0,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.7901234567901234,
+              "recall": 0.8648648648648649,
+              "f1": 0.8258064516129032,
+              "average_precision": 0.909701920874328,
+              "support": 74,
+              "predicted_positive": 81,
+              "true_positive": 64,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 0.7894736842105263,
+              "recall": 0.6818181818181818,
+              "f1": 0.7317073170731707,
+              "average_precision": 0.7725950628046901,
+              "support": 22,
+              "predicted_positive": 19,
+              "true_positive": 15,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.5,
+              "recall": 0.043478260869565216,
+              "f1": 0.08,
+              "average_precision": 0.4862147808297782,
+              "support": 23,
+              "predicted_positive": 2,
+              "true_positive": 1,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 1.0,
+              "recall": 0.12903225806451613,
+              "f1": 0.22857142857142856,
+              "average_precision": 0.590358500416271,
+              "support": 31,
+              "predicted_positive": 4,
+              "true_positive": 4,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.575,
+              "recall": 0.696969696969697,
+              "f1": 0.6301369863013698,
+              "average_precision": 0.6804868389319924,
+              "support": 33,
+              "predicted_positive": 40,
+              "true_positive": 23,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.22808874256155465,
+        "validation": {
+          "micro_precision": 0.7386363636363636,
+          "micro_recall": 0.6403940886699507,
+          "micro_f1": 0.6860158311345647,
+          "macro_precision": 0.6735611381514046,
+          "macro_recall": 0.5585732861328934,
+          "macro_f1": 0.6044763124185987,
+          "micro_average_precision": 0.7715852488778763,
+          "macro_average_precision": 0.6968057921975105,
+          "hamming_loss": 0.09659090909090909,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 176,
+          "true_positive_targets": 130,
+          "false_positive_targets": 46,
+          "false_negative_targets": 73,
+          "per_label": {
+            "Classreferences": {
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5,
+              "average_precision": 0.537721027479092,
+              "support": 8,
+              "predicted_positive": 8,
+              "true_positive": 4,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.7142857142857143,
+              "recall": 0.4166666666666667,
+              "f1": 0.5263157894736842,
+              "average_precision": 0.6107463934190277,
+              "support": 12,
+              "predicted_positive": 7,
+              "true_positive": 5,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.863013698630137,
+              "recall": 0.8513513513513513,
+              "f1": 0.8571428571428571,
+              "average_precision": 0.9181709560252873,
+              "support": 74,
+              "predicted_positive": 73,
+              "true_positive": 63,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 0.6666666666666666,
+              "recall": 0.6363636363636364,
+              "f1": 0.6511627906976745,
+              "average_precision": 0.7799301498679364,
+              "support": 22,
+              "predicted_positive": 21,
+              "true_positive": 14,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.5789473684210527,
+              "recall": 0.4782608695652174,
+              "f1": 0.5238095238095238,
+              "average_precision": 0.6124485789626719,
+              "support": 23,
+              "predicted_positive": 19,
+              "true_positive": 11,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.7368421052631579,
+              "recall": 0.45161290322580644,
+              "f1": 0.56,
+              "average_precision": 0.6892842446869925,
+              "support": 31,
+              "predicted_positive": 19,
+              "true_positive": 14,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.6551724137931034,
+              "recall": 0.5757575757575758,
+              "f1": 0.6129032258064516,
+              "average_precision": 0.7293391949415655,
+              "support": 33,
+              "predicted_positive": 29,
+              "true_positive": 19,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.18060042432854684,
+        "validation": {
+          "micro_precision": 0.7727272727272727,
+          "micro_recall": 0.6699507389162561,
+          "micro_f1": 0.7176781002638523,
+          "macro_precision": 0.7236779828339319,
+          "macro_recall": 0.5989077431924557,
+          "macro_f1": 0.6398517154691828,
+          "micro_average_precision": 0.7952040647207893,
+          "macro_average_precision": 0.7490065729303895,
+          "hamming_loss": 0.08685064935064934,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 176,
+          "true_positive_targets": 136,
+          "false_positive_targets": 40,
+          "false_negative_targets": 67,
+          "per_label": {
+            "Classreferences": {
+              "precision": 0.7142857142857143,
+              "recall": 0.625,
+              "f1": 0.6666666666666666,
+              "average_precision": 0.7974914965986395,
+              "support": 8,
+              "predicted_positive": 7,
+              "true_positive": 5,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.45454545454545453,
+              "recall": 0.4166666666666667,
+              "f1": 0.43478260869565216,
+              "average_precision": 0.5994055068092757,
+              "support": 12,
+              "predicted_positive": 11,
+              "true_positive": 5,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.953125,
+              "recall": 0.8243243243243243,
+              "f1": 0.8840579710144928,
+              "average_precision": 0.9358440232735443,
+              "support": 74,
+              "predicted_positive": 64,
+              "true_positive": 61,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 0.9411764705882353,
+              "recall": 0.7272727272727273,
+              "f1": 0.8205128205128205,
+              "average_precision": 0.8100772173059732,
+              "support": 22,
+              "predicted_positive": 17,
+              "true_positive": 16,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.75,
+              "recall": 0.2608695652173913,
+              "f1": 0.3870967741935484,
+              "average_precision": 0.618259351405937,
+              "support": 23,
+              "predicted_positive": 8,
+              "true_positive": 6,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.6428571428571429,
+              "recall": 0.5806451612903226,
+              "f1": 0.6101694915254238,
+              "average_precision": 0.7453094171576223,
+              "support": 31,
+              "predicted_positive": 28,
+              "true_positive": 18,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.6097560975609756,
+              "recall": 0.7575757575757576,
+              "f1": 0.6756756756756757,
+              "average_precision": 0.7366589979617343,
+              "support": 33,
+              "predicted_positive": 41,
+              "true_positive": 25,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.1401604934271132,
+        "validation": {
+          "micro_precision": 0.7582417582417582,
+          "micro_recall": 0.6798029556650246,
+          "micro_f1": 0.7168831168831169,
+          "macro_precision": 0.7922155300562059,
+          "macro_recall": 0.5861615814280611,
+          "macro_f1": 0.6543862316831325,
+          "micro_average_precision": 0.8113369261494399,
+          "macro_average_precision": 0.7524000358339721,
+          "hamming_loss": 0.08847402597402597,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 182,
+          "true_positive_targets": 138,
+          "false_positive_targets": 44,
+          "false_negative_targets": 65,
+          "per_label": {
+            "Classreferences": {
+              "precision": 1.0,
+              "recall": 0.375,
+              "f1": 0.5454545454545454,
+              "average_precision": 0.8056982816711591,
+              "support": 8,
+              "predicted_positive": 3,
+              "true_positive": 3,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.7142857142857143,
+              "recall": 0.4166666666666667,
+              "f1": 0.5263157894736842,
+              "average_precision": 0.5671177575434541,
+              "support": 12,
+              "predicted_positive": 7,
+              "true_positive": 5,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.863013698630137,
+              "recall": 0.8513513513513513,
+              "f1": 0.8571428571428571,
+              "average_precision": 0.9325611544352502,
+              "support": 74,
+              "predicted_positive": 73,
+              "true_positive": 63,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 1.0,
+              "recall": 0.6363636363636364,
+              "f1": 0.7777777777777778,
+              "average_precision": 0.8371711647716236,
+              "support": 22,
+              "predicted_positive": 14,
+              "true_positive": 14,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.7777777777777778,
+              "recall": 0.6086956521739131,
+              "f1": 0.6829268292682927,
+              "average_precision": 0.6295320176727974,
+              "support": 23,
+              "predicted_positive": 18,
+              "true_positive": 14,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.6538461538461539,
+              "recall": 0.5483870967741935,
+              "f1": 0.5964912280701754,
+              "average_precision": 0.7471662346065605,
+              "support": 31,
+              "predicted_positive": 26,
+              "true_positive": 17,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.5365853658536586,
+              "recall": 0.6666666666666666,
+              "f1": 0.5945945945945946,
+              "average_precision": 0.7475536401369599,
+              "support": 33,
+              "predicted_positive": 41,
+              "true_positive": 22,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.11015552407904958,
+        "validation": {
+          "micro_precision": 0.7814207650273224,
+          "micro_recall": 0.7044334975369458,
+          "micro_f1": 0.7409326424870466,
+          "macro_precision": 0.8021347130401457,
+          "macro_recall": 0.6326369036747719,
+          "macro_f1": 0.6892626290315211,
+          "micro_average_precision": 0.8154471936332905,
+          "macro_average_precision": 0.7630124231160127,
+          "hamming_loss": 0.08116883116883117,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 183,
+          "true_positive_targets": 143,
+          "false_positive_targets": 40,
+          "false_negative_targets": 60,
+          "per_label": {
+            "Classreferences": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "average_precision": 0.8194444444444444,
+              "support": 8,
+              "predicted_positive": 4,
+              "true_positive": 4,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.625,
+              "recall": 0.4166666666666667,
+              "f1": 0.5,
+              "average_precision": 0.5341741796344132,
+              "support": 12,
+              "predicted_positive": 8,
+              "true_positive": 5,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.8873239436619719,
+              "recall": 0.8513513513513513,
+              "f1": 0.8689655172413793,
+              "average_precision": 0.9311298138444868,
+              "support": 74,
+              "predicted_positive": 71,
+              "true_positive": 63,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 1.0,
+              "recall": 0.7727272727272727,
+              "f1": 0.8717948717948718,
+              "average_precision": 0.8405347127476674,
+              "support": 22,
+              "predicted_positive": 17,
+              "true_positive": 17,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.68,
+              "recall": 0.7391304347826086,
+              "f1": 0.7083333333333334,
+              "average_precision": 0.6496825386580424,
+              "support": 23,
+              "predicted_positive": 25,
+              "true_positive": 17,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.875,
+              "recall": 0.45161290322580644,
+              "f1": 0.5957446808510638,
+              "average_precision": 0.8038483426452065,
+              "support": 31,
+              "predicted_positive": 16,
+              "true_positive": 14,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.5476190476190477,
+              "recall": 0.696969696969697,
+              "f1": 0.6133333333333333,
+              "average_precision": 0.7622729298378278,
+              "support": 33,
+              "predicted_positive": 42,
+              "true_positive": 23,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.09058666239712346,
+        "validation": {
+          "micro_precision": 0.7577319587628866,
+          "micro_recall": 0.7241379310344828,
+          "micro_f1": 0.7405541561712846,
+          "macro_precision": 0.7683750707133974,
+          "macro_recall": 0.6842469598430326,
+          "macro_f1": 0.7104433576976081,
+          "micro_average_precision": 0.8199485574968802,
+          "macro_average_precision": 0.7598369299313233,
+          "hamming_loss": 0.0836038961038961,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 194,
+          "true_positive_targets": 147,
+          "false_positive_targets": 47,
+          "false_negative_targets": 56,
+          "per_label": {
+            "Classreferences": {
+              "precision": 1.0,
+              "recall": 0.75,
+              "f1": 0.8571428571428571,
+              "average_precision": 0.8209033613445378,
+              "support": 8,
+              "predicted_positive": 6,
+              "true_positive": 6,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.5555555555555556,
+              "recall": 0.4166666666666667,
+              "f1": 0.47619047619047616,
+              "average_precision": 0.5278980779466351,
+              "support": 12,
+              "predicted_positive": 9,
+              "true_positive": 5,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.8840579710144928,
+              "recall": 0.8243243243243243,
+              "f1": 0.8531468531468531,
+              "average_precision": 0.9338352068227151,
+              "support": 74,
+              "predicted_positive": 69,
+              "true_positive": 61,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 0.8095238095238095,
+              "recall": 0.7727272727272727,
+              "f1": 0.7906976744186046,
+              "average_precision": 0.8386873826152763,
+              "support": 22,
+              "predicted_positive": 21,
+              "true_positive": 17,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.6428571428571429,
+              "recall": 0.782608695652174,
+              "f1": 0.7058823529411765,
+              "average_precision": 0.6192943616618285,
+              "support": 23,
+              "predicted_positive": 28,
+              "true_positive": 18,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.9411764705882353,
+              "recall": 0.5161290322580645,
+              "f1": 0.6666666666666666,
+              "average_precision": 0.7974650534957184,
+              "support": 31,
+              "predicted_positive": 17,
+              "true_positive": 16,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.5454545454545454,
+              "recall": 0.7272727272727273,
+              "f1": 0.6233766233766234,
+              "average_precision": 0.7807750656325523,
+              "support": 33,
+              "predicted_positive": 44,
+              "true_positive": 24,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.07494073068158011,
+        "validation": {
+          "micro_precision": 0.8,
+          "micro_recall": 0.7487684729064039,
+          "micro_f1": 0.7735368956743003,
+          "macro_precision": 0.7588674552142044,
+          "macro_recall": 0.6787097405961361,
+          "macro_f1": 0.7126340903069197,
+          "micro_average_precision": 0.8336573663622983,
+          "macro_average_precision": 0.7668922832372846,
+          "hamming_loss": 0.07224025974025974,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 190,
+          "true_positive_targets": 152,
+          "false_positive_targets": 38,
+          "false_negative_targets": 51,
+          "per_label": {
+            "Classreferences": {
+              "precision": 0.8333333333333334,
+              "recall": 0.625,
+              "f1": 0.7142857142857143,
+              "average_precision": 0.8092544710191769,
+              "support": 8,
+              "predicted_positive": 6,
+              "true_positive": 5,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.5,
+              "recall": 0.3333333333333333,
+              "f1": 0.4,
+              "average_precision": 0.5071756282565516,
+              "support": 12,
+              "predicted_positive": 8,
+              "true_positive": 4,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.8888888888888888,
+              "recall": 0.8648648648648649,
+              "f1": 0.8767123287671232,
+              "average_precision": 0.934162686670851,
+              "support": 74,
+              "predicted_positive": 72,
+              "true_positive": 64,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 0.8947368421052632,
+              "recall": 0.7727272727272727,
+              "f1": 0.8292682926829268,
+              "average_precision": 0.8464146900291507,
+              "support": 22,
+              "predicted_positive": 19,
+              "true_positive": 17,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.72,
+              "recall": 0.782608695652174,
+              "f1": 0.75,
+              "average_precision": 0.6714666938561693,
+              "support": 23,
+              "predicted_positive": 25,
+              "true_positive": 18,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.7692307692307693,
+              "recall": 0.6451612903225806,
+              "f1": 0.7017543859649122,
+              "average_precision": 0.8195740924058054,
+              "support": 31,
+              "predicted_positive": 26,
+              "true_positive": 20,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.7058823529411765,
+              "recall": 0.7272727272727273,
+              "f1": 0.7164179104477612,
+              "average_precision": 0.7801977204232876,
+              "support": 33,
+              "predicted_positive": 34,
+              "true_positive": 24,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 9,
+        "train_loss": 0.06432453867341026,
+        "validation": {
+          "micro_precision": 0.78125,
+          "micro_recall": 0.7389162561576355,
+          "micro_f1": 0.759493670886076,
+          "macro_precision": 0.762168957639341,
+          "macro_recall": 0.6895104882482161,
+          "macro_f1": 0.7205397883969312,
+          "micro_average_precision": 0.8288227102509417,
+          "macro_average_precision": 0.765193126773304,
+          "hamming_loss": 0.07711038961038962,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 192,
+          "true_positive_targets": 150,
+          "false_positive_targets": 42,
+          "false_negative_targets": 53,
+          "per_label": {
+            "Classreferences": {
+              "precision": 0.8571428571428571,
+              "recall": 0.75,
+              "f1": 0.8,
+              "average_precision": 0.8114987422216338,
+              "support": 8,
+              "predicted_positive": 7,
+              "true_positive": 6,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.5555555555555556,
+              "recall": 0.4166666666666667,
+              "f1": 0.47619047619047616,
+              "average_precision": 0.5142563723959073,
+              "support": 12,
+              "predicted_positive": 9,
+              "true_positive": 5,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.9,
+              "recall": 0.8513513513513513,
+              "f1": 0.875,
+              "average_precision": 0.9324889077103042,
+              "support": 74,
+              "predicted_positive": 70,
+              "true_positive": 63,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 0.9444444444444444,
+              "recall": 0.7727272727272727,
+              "f1": 0.85,
+              "average_precision": 0.8453384381825136,
+              "support": 22,
+              "predicted_positive": 18,
+              "true_positive": 17,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.7619047619047619,
+              "recall": 0.6956521739130435,
+              "f1": 0.7272727272727273,
+              "average_precision": 0.6548795505139686,
+              "support": 23,
+              "predicted_positive": 21,
+              "true_positive": 16,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.7307692307692307,
+              "recall": 0.6129032258064516,
+              "f1": 0.6666666666666666,
+              "average_precision": 0.8021919478562667,
+              "support": 31,
+              "predicted_positive": 26,
+              "true_positive": 19,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.5853658536585366,
+              "recall": 0.7272727272727273,
+              "f1": 0.6486486486486487,
+              "average_precision": 0.7956979285325334,
+              "support": 33,
+              "predicted_positive": 41,
+              "true_positive": 24,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      },
+      {
+        "epoch": 10,
+        "train_loss": 0.05857160775346702,
+        "validation": {
+          "micro_precision": 0.7956989247311828,
+          "micro_recall": 0.729064039408867,
+          "micro_f1": 0.7609254498714653,
+          "macro_precision": 0.7682070136850305,
+          "macro_recall": 0.6665492152869433,
+          "macro_f1": 0.708026719192967,
+          "micro_average_precision": 0.8345282708184399,
+          "macro_average_precision": 0.772484724207575,
+          "hamming_loss": 0.07548701298701299,
+          "evaluated_targets": 1232,
+          "positive_targets": 203,
+          "predicted_positive_targets": 186,
+          "true_positive_targets": 148,
+          "false_positive_targets": 38,
+          "false_negative_targets": 55,
+          "per_label": {
+            "Classreferences": {
+              "precision": 0.8571428571428571,
+              "recall": 0.75,
+              "f1": 0.8,
+              "average_precision": 0.8084595584595585,
+              "support": 8,
+              "predicted_positive": 7,
+              "true_positive": 6,
+              "evaluated_targets": 176
+            },
+            "Collaborators": {
+              "precision": 0.5,
+              "recall": 0.3333333333333333,
+              "f1": 0.4,
+              "average_precision": 0.5117648924560327,
+              "support": 12,
+              "predicted_positive": 8,
+              "true_positive": 4,
+              "evaluated_targets": 176
+            },
+            "Example": {
+              "precision": 0.9014084507042254,
+              "recall": 0.8648648648648649,
+              "f1": 0.8827586206896552,
+              "average_precision": 0.9350418841020144,
+              "support": 74,
+              "predicted_positive": 71,
+              "true_positive": 64,
+              "evaluated_targets": 176
+            },
+            "Intent": {
+              "precision": 1.0,
+              "recall": 0.6818181818181818,
+              "f1": 0.8108108108108109,
+              "average_precision": 0.8483624018507262,
+              "support": 22,
+              "predicted_positive": 15,
+              "true_positive": 15,
+              "evaluated_targets": 176
+            },
+            "Keyimplementationpoints": {
+              "precision": 0.6956521739130435,
+              "recall": 0.6956521739130435,
+              "f1": 0.6956521739130435,
+              "average_precision": 0.6828513276731203,
+              "support": 23,
+              "predicted_positive": 23,
+              "true_positive": 16,
+              "evaluated_targets": 176
+            },
+            "Keymessages": {
+              "precision": 0.7916666666666666,
+              "recall": 0.6129032258064516,
+              "f1": 0.6909090909090909,
+              "average_precision": 0.8145474197663034,
+              "support": 31,
+              "predicted_positive": 24,
+              "true_positive": 19,
+              "evaluated_targets": 176
+            },
+            "Responsibilities": {
+              "precision": 0.631578947368421,
+              "recall": 0.7272727272727273,
+              "f1": 0.676056338028169,
+              "average_precision": 0.8063655851452695,
+              "support": 33,
+              "predicted_positive": 38,
+              "true_positive": 24,
+              "evaluated_targets": 176
+            }
+          }
+        }
+      }
+    ],
+    "validation_metric": "micro_f1",
+    "validation_tiebreaker": null,
+    "planned_epochs": 10,
+    "completed_epochs": 10,
+    "optimizer": {
+      "name": "AdamW",
+      "groups": [
+        {
+          "name": "all",
+          "initial_learning_rate": 2e-05,
+          "weight_decay": 0.01,
+          "parameter_count": 124651015
+        }
+      ]
+    }
+  },
+  "validation": {
+    "micro_precision": 0.8,
+    "micro_recall": 0.7487684729064039,
+    "micro_f1": 0.7735368956743003,
+    "macro_precision": 0.7588674552142044,
+    "macro_recall": 0.6787097405961361,
+    "macro_f1": 0.7126340903069197,
+    "micro_average_precision": 0.8336573663622983,
+    "macro_average_precision": 0.7668922832372846,
+    "hamming_loss": 0.07224025974025974,
+    "evaluated_targets": 1232,
+    "positive_targets": 203,
+    "predicted_positive_targets": 190,
+    "true_positive_targets": 152,
+    "false_positive_targets": 38,
+    "false_negative_targets": 51,
+    "per_label": {
+      "Classreferences": {
+        "precision": 0.8333333333333334,
+        "recall": 0.625,
+        "f1": 0.7142857142857143,
+        "average_precision": 0.8092544710191769,
+        "support": 8,
+        "predicted_positive": 6,
+        "true_positive": 5,
+        "evaluated_targets": 176
+      },
+      "Collaborators": {
+        "precision": 0.5,
+        "recall": 0.3333333333333333,
+        "f1": 0.4,
+        "average_precision": 0.5071756282565516,
+        "support": 12,
+        "predicted_positive": 8,
+        "true_positive": 4,
+        "evaluated_targets": 176
+      },
+      "Example": {
+        "precision": 0.8888888888888888,
+        "recall": 0.8648648648648649,
+        "f1": 0.8767123287671232,
+        "average_precision": 0.934162686670851,
+        "support": 74,
+        "predicted_positive": 72,
+        "true_positive": 64,
+        "evaluated_targets": 176
+      },
+      "Intent": {
+        "precision": 0.8947368421052632,
+        "recall": 0.7727272727272727,
+        "f1": 0.8292682926829268,
+        "average_precision": 0.8464146900291507,
+        "support": 22,
+        "predicted_positive": 19,
+        "true_positive": 17,
+        "evaluated_targets": 176
+      },
+      "Keyimplementationpoints": {
+        "precision": 0.72,
+        "recall": 0.782608695652174,
+        "f1": 0.75,
+        "average_precision": 0.6714666938561693,
+        "support": 23,
+        "predicted_positive": 25,
+        "true_positive": 18,
+        "evaluated_targets": 176
+      },
+      "Keymessages": {
+        "precision": 0.7692307692307693,
+        "recall": 0.6451612903225806,
+        "f1": 0.7017543859649122,
+        "average_precision": 0.8195740924058054,
+        "support": 31,
+        "predicted_positive": 26,
+        "true_positive": 20,
+        "evaluated_targets": 176
+      },
+      "Responsibilities": {
+        "precision": 0.7058823529411765,
+        "recall": 0.7272727272727273,
+        "f1": 0.7164179104477612,
+        "average_precision": 0.7801977204232876,
+        "support": 33,
+        "predicted_positive": 34,
+        "true_positive": 24,
+        "evaluated_targets": 176
+      }
+    }
+  },
+  "train_sentences": 1413,
+  "validation_sentences": 176,
+  "test_sentences": 176,
+  "selected_from": null,
+  "thresholds": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "test": {
+    "micro_precision": 0.7771739130434783,
+    "micro_recall": 0.7009803921568627,
+    "micro_f1": 0.7371134020618557,
+    "macro_precision": 0.754631720661587,
+    "macro_recall": 0.6186090809179426,
+    "macro_f1": 0.6719574998644766,
+    "micro_average_precision": 0.7990427193632487,
+    "macro_average_precision": 0.668132811434123,
+    "hamming_loss": 0.08279220779220779,
+    "evaluated_targets": 1232,
+    "positive_targets": 204,
+    "predicted_positive_targets": 184,
+    "true_positive_targets": 143,
+    "false_positive_targets": 41,
+    "false_negative_targets": 61,
+    "per_label": {
+      "Classreferences": {
+        "precision": 0.75,
+        "recall": 0.42857142857142855,
+        "f1": 0.5454545454545454,
+        "average_precision": 0.37327820194673456,
+        "support": 7,
+        "predicted_positive": 4,
+        "true_positive": 3,
+        "evaluated_targets": 176
+      },
+      "Collaborators": {
+        "precision": 0.7777777777777778,
+        "recall": 0.5384615384615384,
+        "f1": 0.6363636363636364,
+        "average_precision": 0.4733670412315082,
+        "support": 13,
+        "predicted_positive": 9,
+        "true_positive": 7,
+        "evaluated_targets": 176
+      },
+      "Example": {
+        "precision": 0.8354430379746836,
+        "recall": 0.88,
+        "f1": 0.8571428571428571,
+        "average_precision": 0.9412398173809258,
+        "support": 75,
+        "predicted_positive": 79,
+        "true_positive": 66,
+        "evaluated_targets": 176
+      },
+      "Intent": {
+        "precision": 0.8095238095238095,
+        "recall": 0.8095238095238095,
+        "f1": 0.8095238095238095,
+        "average_precision": 0.8848527821262671,
+        "support": 21,
+        "predicted_positive": 21,
+        "true_positive": 17,
+        "evaluated_targets": 176
+      },
+      "Keyimplementationpoints": {
+        "precision": 0.55,
+        "recall": 0.4782608695652174,
+        "f1": 0.5116279069767442,
+        "average_precision": 0.5101158798375786,
+        "support": 23,
+        "predicted_positive": 20,
+        "true_positive": 11,
+        "evaluated_targets": 176
+      },
+      "Keymessages": {
+        "precision": 0.85,
+        "recall": 0.5483870967741935,
+        "f1": 0.6666666666666666,
+        "average_precision": 0.740194932636326,
+        "support": 31,
+        "predicted_positive": 20,
+        "true_positive": 17,
+        "evaluated_targets": 176
+      },
+      "Responsibilities": {
+        "precision": 0.7096774193548387,
+        "recall": 0.6470588235294118,
+        "f1": 0.676923076923077,
+        "average_precision": 0.7538810248795207,
+        "support": 34,
+        "predicted_positive": 31,
+        "true_positive": 22,
+        "evaluated_targets": 176
+      }
+    }
+  },
+  "duration_seconds": 154.81005944823846,
+  "complete": true,
+  "plots": [
+    "/root/trunglm8/Master-Seminar-2/results/training/final_gpu0/exp1/pharo/plots/training_curves.png",
+    "/root/trunglm8/Master-Seminar-2/results/training/final_gpu0/exp1/pharo/plots/test_summary.png",
+    "/root/trunglm8/Master-Seminar-2/results/training/final_gpu0/exp1/pharo/plots/test_per_label.png"
+  ]
+}

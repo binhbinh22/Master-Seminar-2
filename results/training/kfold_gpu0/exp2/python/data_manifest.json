@@ -1,0 +1,24 @@
+{
+  "protocol": "kfold_all_data",
+  "language": "python",
+  "seed": 42,
+  "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c",
+  "source_raw": "/root/trunglm8/Master-Seminar-2/data/raw/nlbse2023/python.csv",
+  "source_raw_sha256": "293914241158acbad61674b5321500bace54d42cb40e8800390cba7328ca4381",
+  "counts": {
+    "all": 2555
+  },
+  "label_positive_counts": {
+    "all": {
+      "DevelopmentNotes": 312,
+      "Expand": 504,
+      "Parameters": 794,
+      "Summary": 454,
+      "Usage": 800
+    }
+  },
+  "grouping": "exact_normalized_text",
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "fold_count": 5,
+  "target_ratios": null
+}

@@ -1,0 +1,58 @@
+{
+  "source": "current_train_indices",
+  "label_space": "per_language",
+  "language": "python",
+  "labels": [
+    "DevelopmentNotes",
+    "Expand",
+    "Parameters",
+    "Summary",
+    "Usage"
+  ],
+  "num_nodes": 5,
+  "train_sentences": 2044,
+  "threshold": 0.1,
+  "normalization": "symmetric_degree_normalized_cosine_cooccurrence_with_self_loops",
+  "num_edges": 2,
+  "isolated_labels": [
+    "Parameters",
+    "Summary"
+  ],
+  "adjacency": [
+    [
+      0.8658007979393005,
+      0.0,
+      0.0,
+      0.0,
+      0.12861913442611694
+    ],
+    [
+      0.0,
+      0.9071193933486938,
+      0.0,
+      0.0,
+      0.08696769177913666
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.12861913442611694,
+      0.08696768432855606,
+      0.0,
+      0.0,
+      0.7952977418899536
+    ]
+  ]
+}
