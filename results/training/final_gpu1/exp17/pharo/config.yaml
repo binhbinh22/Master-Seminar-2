@@ -1,0 +1,33 @@
+dataset:
+  data_dir: /root/trunglm8/Master-Seminar-2/data/full_training_data
+  language: pharo
+evaluation:
+  report_per_label: true
+  run_test_after_training: true
+experiment: exp17_codebert_focal
+model:
+  hidden_size: 768
+  name: microsoft/codebert-base
+  threshold: 0.5
+  focal_gamma: 2.0
+  focal_alpha: null
+output_dir: /root/trunglm8/Master-Seminar-2/results/training/final_gpu1/exp17/pharo
+tokenizer:
+  max_length: 128
+training:
+  batch_size: 16
+  device: cuda:1
+  early_stopping_patience: 2
+  epochs: 10
+  eval_batch_size: 32
+  gradient_accumulation_steps: 1
+  learning_rate: 2.0e-05
+  max_grad_norm: 1.0
+  mixed_precision: false
+  num_workers: 0
+  seed: 42
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  folds: 0
+variant: codebert_focal
+stage: final

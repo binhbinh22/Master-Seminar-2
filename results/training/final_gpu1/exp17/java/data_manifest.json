@@ -1,0 +1,50 @@
+{
+  "protocol": "train_val_test_80_10_10",
+  "language": "java",
+  "seed": 42,
+  "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842",
+  "source_raw": "/root/trunglm8/Master-Seminar-2/data/raw/nlbse2023/java.csv",
+  "source_raw_sha256": "82f1eb502eb2f0457865704d337192950812e5dbf2caaa63078fbc9ec7e5be28",
+  "counts": {
+    "train": 1935,
+    "val": 241,
+    "test": 242
+  },
+  "label_positive_counts": {
+    "train": {
+      "Expand": 506,
+      "Ownership": 95,
+      "Pointer": 294,
+      "deprecation": 102,
+      "rational": 224,
+      "summary": 332,
+      "usage": 730
+    },
+    "val": {
+      "Expand": 63,
+      "Ownership": 9,
+      "Pointer": 35,
+      "deprecation": 13,
+      "rational": 28,
+      "summary": 41,
+      "usage": 91
+    },
+    "test": {
+      "Expand": 63,
+      "Ownership": 11,
+      "Pointer": 35,
+      "deprecation": 12,
+      "rational": 28,
+      "summary": 42,
+      "usage": 91
+    }
+  },
+  "grouping": "exact_normalized_text",
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "fold_count": 0,
+  "target_ratios": {
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1
+  }
+}

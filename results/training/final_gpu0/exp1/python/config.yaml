@@ -1,0 +1,31 @@
+dataset:
+  data_dir: /root/trunglm8/Master-Seminar-2/data/full_training_data
+  language: python
+evaluation:
+  report_per_label: true
+  run_test_after_training: true
+experiment: exp1_roberta_baseline
+model:
+  hidden_size: 768
+  name: roberta-base
+  threshold: 0.5
+output_dir: /root/trunglm8/Master-Seminar-2/results/training/final_gpu0/exp1/python
+tokenizer:
+  max_length: 128
+training:
+  device: cuda:0
+  batch_size: 16
+  early_stopping_patience: 2
+  epochs: 10
+  eval_batch_size: 32
+  gradient_accumulation_steps: 1
+  learning_rate: 2.0e-05
+  max_grad_norm: 1.0
+  mixed_precision: false
+  num_workers: 0
+  seed: 42
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  folds: 0
+variant: bce
+stage: final
