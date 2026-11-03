@@ -1,0 +1,295 @@
+{
+  "notebooks": [
+    {
+      "notebook": "notebooks/EDA_all_datasets.ipynb",
+      "output_directory": "EDA_all_datasets",
+      "executed_code_cells": 12,
+      "figure_count": 20,
+      "dpi": 300,
+      "source_sha256": "9c0d47ab415c004abe45942ddefce8f4ff014de8f2519cea362e0bbef9067579",
+      "execution_adjustments": [],
+      "figures": [
+        {
+          "file": "cell_005_figure_01.png",
+          "source_cell_index": 4,
+          "titles": [
+            "Sentence population",
+            "Available exact-text groups"
+          ]
+        },
+        {
+          "file": "cell_007_figure_01.png",
+          "source_cell_index": 6,
+          "titles": [
+            "Python: positive-label prevalence | N = 2,555"
+          ]
+        },
+        {
+          "file": "cell_007_figure_02.png",
+          "source_cell_index": 6,
+          "titles": [
+            "Java: positive-label prevalence | N = 2,418"
+          ]
+        },
+        {
+          "file": "cell_007_figure_03.png",
+          "source_cell_index": 6,
+          "titles": [
+            "Pharo: positive-label prevalence | N = 1,765"
+          ]
+        },
+        {
+          "file": "cell_008_figure_01.png",
+          "source_cell_index": 7,
+          "titles": [
+            "Python | cardinality = 1.121",
+            "Java | cardinality = 1.177",
+            "Pharo | cardinality = 1.158"
+          ]
+        },
+        {
+          "file": "cell_010_figure_01.png",
+          "source_cell_index": 9,
+          "titles": [
+            "Python: Jaccard similarity | diagonal omitted"
+          ]
+        },
+        {
+          "file": "cell_010_figure_02.png",
+          "source_cell_index": 9,
+          "titles": [
+            "Java: Jaccard similarity | diagonal omitted"
+          ]
+        },
+        {
+          "file": "cell_010_figure_03.png",
+          "source_cell_index": 9,
+          "titles": [
+            "Pharo: Jaccard similarity | diagonal omitted"
+          ]
+        },
+        {
+          "file": "cell_012_figure_01.png",
+          "source_cell_index": 11,
+          "titles": [
+            "Full empirical distribution",
+            "Full empirical distribution"
+          ]
+        },
+        {
+          "file": "cell_014_figure_01.png",
+          "source_cell_index": 13,
+          "titles": [
+            "Sentence concentration across source classes"
+          ]
+        },
+        {
+          "file": "cell_016_figure_01.png",
+          "source_cell_index": 15,
+          "titles": [
+            "Exact normalized-text repetition"
+          ]
+        },
+        {
+          "file": "cell_018_figure_01.png",
+          "source_cell_index": 17,
+          "titles": [
+            "Python: original category-specific partitions"
+          ]
+        },
+        {
+          "file": "cell_018_figure_02.png",
+          "source_cell_index": 17,
+          "titles": [
+            "Java: original category-specific partitions"
+          ]
+        },
+        {
+          "file": "cell_018_figure_03.png",
+          "source_cell_index": 17,
+          "titles": [
+            "Pharo: original category-specific partitions"
+          ]
+        },
+        {
+          "file": "cell_020_figure_01.png",
+          "source_cell_index": 19,
+          "titles": [
+            "Python: fixed stage-2 label shift"
+          ]
+        },
+        {
+          "file": "cell_020_figure_02.png",
+          "source_cell_index": 19,
+          "titles": [
+            "Java: fixed stage-2 label shift"
+          ]
+        },
+        {
+          "file": "cell_020_figure_03.png",
+          "source_cell_index": 19,
+          "titles": [
+            "Pharo: fixed stage-2 label shift"
+          ]
+        },
+        {
+          "file": "cell_021_figure_01.png",
+          "source_cell_index": 20,
+          "titles": [
+            "Python: actual CV validation-label shift"
+          ]
+        },
+        {
+          "file": "cell_021_figure_02.png",
+          "source_cell_index": 20,
+          "titles": [
+            "Java: actual CV validation-label shift"
+          ]
+        },
+        {
+          "file": "cell_021_figure_03.png",
+          "source_cell_index": 20,
+          "titles": [
+            "Pharo: actual CV validation-label shift"
+          ]
+        }
+      ]
+    },
+    {
+      "notebook": "notebooks/EDA_python_code_comment_classification.ipynb",
+      "output_directory": "EDA_python_code_comment_classification",
+      "executed_code_cells": 9,
+      "figure_count": 8,
+      "dpi": 300,
+      "source_sha256": "e253a60261b08f309c9c8e6a140f77b155ad126571f7766a5483b61b8b59d890",
+      "execution_adjustments": [],
+      "figures": [
+        {
+          "file": "cell_005_figure_01.png",
+          "source_cell_index": 4,
+          "titles": [
+            "Python: positive support and text diversity"
+          ]
+        },
+        {
+          "file": "cell_007_figure_01.png",
+          "source_cell_index": 6,
+          "titles": [
+            "Python: Conditional co-occurrence | diagonal omitted"
+          ]
+        },
+        {
+          "file": "cell_009_figure_01.png",
+          "source_cell_index": 8,
+          "titles": [
+            "Python: eight most frequent positive-label sets"
+          ]
+        },
+        {
+          "file": "cell_011_figure_01.png",
+          "source_cell_index": 10,
+          "titles": [
+            "Python: word-length distributions by positive label"
+          ]
+        },
+        {
+          "file": "cell_013_figure_01.png",
+          "source_cell_index": 12,
+          "titles": [
+            "Python: frequent lexical terms"
+          ]
+        },
+        {
+          "file": "cell_015_figure_01.png",
+          "source_cell_index": 14,
+          "titles": [
+            "Python: largest exact-text group's contribution"
+          ]
+        },
+        {
+          "file": "cell_017_figure_01.png",
+          "source_cell_index": 16,
+          "titles": [
+            "Python: actual CV validation-label shift"
+          ]
+        },
+        {
+          "file": "cell_017_figure_02.png",
+          "source_cell_index": 16,
+          "titles": [
+            "Python: fixed stage-2 label shift"
+          ]
+        }
+      ]
+    },
+    {
+      "notebook": "notebooks/EDA_visualizations.ipynb",
+      "output_directory": "EDA_visualizations",
+      "executed_code_cells": 6,
+      "figure_count": 7,
+      "dpi": 300,
+      "source_sha256": "04d93c8e2d52d1d8e6f6eaab678bbb5b8937a0763f24100b45d4fe6dcd5266aa",
+      "execution_adjustments": [],
+      "figures": [
+        {
+          "file": "cell_005_figure_01.png",
+          "source_cell_index": 4,
+          "titles": [
+            "Sentence population",
+            "Positive-target density"
+          ]
+        },
+        {
+          "file": "cell_007_figure_01.png",
+          "source_cell_index": 6,
+          "titles": [
+            "Python: support and text diversity"
+          ]
+        },
+        {
+          "file": "cell_007_figure_02.png",
+          "source_cell_index": 6,
+          "titles": [
+            "Java: support and text diversity"
+          ]
+        },
+        {
+          "file": "cell_007_figure_03.png",
+          "source_cell_index": 6,
+          "titles": [
+            "Pharo: support and text diversity"
+          ]
+        },
+        {
+          "file": "cell_009_figure_01.png",
+          "source_cell_index": 8,
+          "titles": [
+            "RoBERTa token lengths, before truncation"
+          ]
+        },
+        {
+          "file": "cell_011_figure_01.png",
+          "source_cell_index": 10,
+          "titles": [
+            "Group constraints and actual CV label variation"
+          ]
+        },
+        {
+          "file": "cell_013_figure_01.png",
+          "source_cell_index": 12,
+          "titles": [
+            "Source-class overlap: final train and test"
+          ]
+        }
+      ]
+    }
+  ],
+  "total_figures": 35,
+  "shared_utilities_sha256": "713cefb6c928ebdf894c96ab69ec799f4bd2b8760efa1ad70e83abc5ecbfa161",
+  "raw_file_sha256": {
+    "java.csv": "82f1eb502eb2f0457865704d337192950812e5dbf2caaa63078fbc9ec7e5be28",
+    "pharo.csv": "ddf4a52bcb69df8208b8dc5100827f2fe177c33849284baec93b739580aae560",
+    "python.csv": "293914241158acbad61674b5321500bace54d42cb40e8800390cba7328ca4381"
+  },
+  "note": "Notebooks executed without source rewrites. Cell indices are zero-based; filenames use one-based cell numbers."
+}
