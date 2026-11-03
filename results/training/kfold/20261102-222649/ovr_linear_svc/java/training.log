@@ -1,0 +1,11 @@
+2026-11-02 22:27:06,545 ovr_linear_svc java: screening fold 1/5
+2026-11-02 22:27:07,087   micro-F1=0.6135 macro-F1=0.6352 hamming=0.1275
+2026-11-02 22:27:07,087 ovr_linear_svc java: screening fold 2/5
+2026-11-02 22:27:07,643   micro-F1=0.6577 macro-F1=0.6977 hamming=0.1130
+2026-11-02 22:27:07,643 ovr_linear_svc java: screening fold 3/5
+2026-11-02 22:27:08,149   micro-F1=0.5565 macro-F1=0.6017 hamming=0.1449
+2026-11-02 22:27:08,149 ovr_linear_svc java: screening fold 4/5
+2026-11-02 22:27:08,659   micro-F1=0.5054 macro-F1=0.5619 hamming=0.1494
+2026-11-02 22:27:08,660 ovr_linear_svc java: screening fold 5/5
+2026-11-02 22:27:09,196   micro-F1=0.5724 macro-F1=0.6240 hamming=0.1420
+2026-11-02 22:27:09,314 Done in 2.7s. Output: results/training/kfold/20261102-222649/ovr_linear_svc/java

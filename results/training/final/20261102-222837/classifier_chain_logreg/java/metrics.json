@@ -1,0 +1,215 @@
+{
+  "stage": "final",
+  "protocol": "train_val_test_80_10_10",
+  "method": "classifier_chain_logreg",
+  "model_type": "classical_ml",
+  "language": "java",
+  "labels": [
+    "Expand",
+    "Ownership",
+    "Pointer",
+    "deprecation",
+    "rational",
+    "summary",
+    "usage"
+  ],
+  "seed": 42,
+  "device": "cpu",
+  "data_dir": "/Users/binh/Desktop/master/seminar-2/data/full_training_data/java",
+  "dataset_samples": 2418,
+  "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+  "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842",
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "test_independent_of_method_selection": false,
+  "split_unit": "normalized_text_group",
+  "train_sentences": 1935,
+  "validation_sentences": 241,
+  "test_sentences": 242,
+  "validation": {
+    "micro_precision": 0.6666666666666666,
+    "micro_recall": 0.6214285714285714,
+    "micro_f1": 0.6432532347504621,
+    "macro_precision": 0.751632101243632,
+    "macro_recall": 0.6681869620894012,
+    "macro_f1": 0.6988238030254836,
+    "micro_average_precision": 0.6592788888626404,
+    "macro_average_precision": 0.6784242962678336,
+    "hamming_loss": 0.11440426793123888,
+    "evaluated_targets": 1687,
+    "positive_targets": 280,
+    "predicted_positive_targets": 261,
+    "true_positive_targets": 174,
+    "false_positive_targets": 87,
+    "false_negative_targets": 106,
+    "per_label": {
+      "Expand": {
+        "precision": 0.5365853658536586,
+        "recall": 0.3492063492063492,
+        "f1": 0.4230769230769231,
+        "average_precision": 0.5208669554537805,
+        "support": 63,
+        "predicted_positive": 41,
+        "true_positive": 22,
+        "evaluated_targets": 241
+      },
+      "Ownership": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "average_precision": 1.0000000000000002,
+        "support": 9,
+        "predicted_positive": 9,
+        "true_positive": 9,
+        "evaluated_targets": 241
+      },
+      "Pointer": {
+        "precision": 0.8787878787878788,
+        "recall": 0.8285714285714286,
+        "f1": 0.8529411764705882,
+        "average_precision": 0.8870667130488559,
+        "support": 35,
+        "predicted_positive": 33,
+        "true_positive": 29,
+        "evaluated_targets": 241
+      },
+      "deprecation": {
+        "precision": 1.0,
+        "recall": 0.6153846153846154,
+        "f1": 0.7619047619047619,
+        "average_precision": 0.686144167723115,
+        "support": 13,
+        "predicted_positive": 8,
+        "true_positive": 8,
+        "evaluated_targets": 241
+      },
+      "rational": {
+        "precision": 0.6521739130434783,
+        "recall": 0.5357142857142857,
+        "f1": 0.5882352941176471,
+        "average_precision": 0.42986940970633736,
+        "support": 28,
+        "predicted_positive": 23,
+        "true_positive": 15,
+        "evaluated_targets": 241
+      },
+      "summary": {
+        "precision": 0.5306122448979592,
+        "recall": 0.6341463414634146,
+        "f1": 0.5777777777777777,
+        "average_precision": 0.5989339247910643,
+        "support": 41,
+        "predicted_positive": 49,
+        "true_positive": 26,
+        "evaluated_targets": 241
+      },
+      "usage": {
+        "precision": 0.6632653061224489,
+        "recall": 0.7142857142857143,
+        "f1": 0.6878306878306878,
+        "average_precision": 0.6260889031516812,
+        "support": 91,
+        "predicted_positive": 98,
+        "true_positive": 65,
+        "evaluated_targets": 241
+      }
+    }
+  },
+  "test": {
+    "micro_precision": 0.7014388489208633,
+    "micro_recall": 0.6914893617021277,
+    "micro_f1": 0.6964285714285714,
+    "macro_precision": 0.7866633553992894,
+    "macro_recall": 0.7242194313622885,
+    "macro_f1": 0.7470092465079677,
+    "micro_average_precision": 0.7503105785422438,
+    "macro_average_precision": 0.7930312471149358,
+    "hamming_loss": 0.10035419126328217,
+    "evaluated_targets": 1694,
+    "positive_targets": 282,
+    "predicted_positive_targets": 278,
+    "true_positive_targets": 195,
+    "false_positive_targets": 83,
+    "false_negative_targets": 87,
+    "per_label": {
+      "Expand": {
+        "precision": 0.5967741935483871,
+        "recall": 0.5873015873015873,
+        "f1": 0.592,
+        "average_precision": 0.678476926650839,
+        "support": 63,
+        "predicted_positive": 62,
+        "true_positive": 37,
+        "evaluated_targets": 242
+      },
+      "Ownership": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "average_precision": 1.0,
+        "support": 11,
+        "predicted_positive": 11,
+        "true_positive": 11,
+        "evaluated_targets": 242
+      },
+      "Pointer": {
+        "precision": 0.7419354838709677,
+        "recall": 0.6571428571428571,
+        "f1": 0.696969696969697,
+        "average_precision": 0.7827662007275238,
+        "support": 35,
+        "predicted_positive": 31,
+        "true_positive": 23,
+        "evaluated_targets": 242
+      },
+      "deprecation": {
+        "precision": 1.0,
+        "recall": 0.9166666666666666,
+        "f1": 0.9565217391304348,
+        "average_precision": 0.9692982456140351,
+        "support": 12,
+        "predicted_positive": 11,
+        "true_positive": 11,
+        "evaluated_targets": 242
+      },
+      "rational": {
+        "precision": 0.875,
+        "recall": 0.5,
+        "f1": 0.6363636363636364,
+        "average_precision": 0.6815948455901385,
+        "support": 28,
+        "predicted_positive": 16,
+        "true_positive": 14,
+        "evaluated_targets": 242
+      },
+      "summary": {
+        "precision": 0.5813953488372093,
+        "recall": 0.5952380952380952,
+        "f1": 0.5882352941176471,
+        "average_precision": 0.6493079467885592,
+        "support": 42,
+        "predicted_positive": 43,
+        "true_positive": 25,
+        "evaluated_targets": 242
+      },
+      "usage": {
+        "precision": 0.7115384615384616,
+        "recall": 0.8131868131868132,
+        "f1": 0.7589743589743589,
+        "average_precision": 0.789774564433455,
+        "support": 91,
+        "predicted_positive": 104,
+        "true_positive": 74,
+        "evaluated_targets": 242
+      }
+    }
+  },
+  "validation_note": "Diagnostic only -- not used to select hyperparameters or a checkpoint; classical linear models here have no per-epoch state to select.",
+  "fit_seconds": 0.6462911670096219,
+  "predict_seconds": 0.07656837499234825,
+  "duration_seconds": 0.9136233329772949,
+  "complete": true,
+  "plots": [
+    "results/training/final/20261102-222837/classifier_chain_logreg/java/plots/test_summary.png",
+    "results/training/final/20261102-222837/classifier_chain_logreg/java/plots/test_per_label.png"
+  ]
+}

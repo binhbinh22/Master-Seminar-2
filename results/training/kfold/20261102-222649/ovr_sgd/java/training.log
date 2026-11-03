@@ -1,0 +1,11 @@
+2026-11-02 22:27:12,580 ovr_sgd java: screening fold 1/5
+2026-11-02 22:27:12,816   micro-F1=0.6138 macro-F1=0.6417 hamming=0.1355
+2026-11-02 22:27:12,817 ovr_sgd java: screening fold 2/5
+2026-11-02 22:27:13,042   micro-F1=0.6749 macro-F1=0.7240 hamming=0.1092
+2026-11-02 22:27:13,042 ovr_sgd java: screening fold 3/5
+2026-11-02 22:27:13,257   micro-F1=0.5737 macro-F1=0.6149 hamming=0.1417
+2026-11-02 22:27:13,257 ovr_sgd java: screening fold 4/5
+2026-11-02 22:27:13,487   micro-F1=0.5246 macro-F1=0.5755 hamming=0.1485
+2026-11-02 22:27:13,488 ovr_sgd java: screening fold 5/5
+2026-11-02 22:27:13,706   micro-F1=0.5792 macro-F1=0.6254 hamming=0.1420
+2026-11-02 22:27:13,826 Done in 1.2s. Output: results/training/kfold/20261102-222649/ovr_sgd/java

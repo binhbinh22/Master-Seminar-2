@@ -1,0 +1,11 @@
+2026-11-02 22:26:53,933 ovr_logreg java: screening fold 1/5
+2026-11-02 22:26:54,343   micro-F1=0.6193 macro-F1=0.6406 hamming=0.1316
+2026-11-02 22:26:54,343 ovr_logreg java: screening fold 2/5
+2026-11-02 22:26:54,723   micro-F1=0.6808 macro-F1=0.7298 hamming=0.1068
+2026-11-02 22:26:54,723 ovr_logreg java: screening fold 3/5
+2026-11-02 22:26:55,106   micro-F1=0.5714 macro-F1=0.6156 hamming=0.1399
+2026-11-02 22:26:55,106 ovr_logreg java: screening fold 4/5
+2026-11-02 22:26:55,490   micro-F1=0.5298 macro-F1=0.5769 hamming=0.1423
+2026-11-02 22:26:55,490 ovr_logreg java: screening fold 5/5
+2026-11-02 22:26:55,911   micro-F1=0.5848 macro-F1=0.6321 hamming=0.1367
+2026-11-02 22:26:56,033 Done in 2.0s. Output: results/training/kfold/20261102-222649/ovr_logreg/java

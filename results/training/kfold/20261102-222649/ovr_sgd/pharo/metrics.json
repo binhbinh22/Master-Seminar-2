@@ -1,0 +1,641 @@
+{
+  "stage": "kfold",
+  "protocol": "kfold_all_data",
+  "method": "ovr_sgd",
+  "model_type": "classical_ml",
+  "language": "pharo",
+  "labels": [
+    "Classreferences",
+    "Collaborators",
+    "Example",
+    "Intent",
+    "Keyimplementationpoints",
+    "Keymessages",
+    "Responsibilities"
+  ],
+  "seed": 42,
+  "device": "cpu",
+  "data_dir": "/Users/binh/Desktop/master/seminar-2/data/k_fold_data/pharo",
+  "dataset_samples": 1765,
+  "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+  "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e",
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "test_independent_of_method_selection": false,
+  "split_unit": "normalized_text_group",
+  "folds": [
+    {
+      "micro_precision": 0.6522842639593909,
+      "micro_recall": 0.6299019607843137,
+      "micro_f1": 0.6408977556109726,
+      "macro_precision": 0.5618207917200079,
+      "macro_recall": 0.5219367731696324,
+      "macro_f1": 0.5377907435830537,
+      "micro_average_precision": 0.7171612288772728,
+      "macro_average_precision": 0.6021770812846203,
+      "hamming_loss": 0.11688311688311688,
+      "evaluated_targets": 2464,
+      "positive_targets": 408,
+      "predicted_positive_targets": 394,
+      "true_positive_targets": 257,
+      "false_positive_targets": 137,
+      "false_negative_targets": 151,
+      "per_label": {
+        "Classreferences": {
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "f1": 0.4,
+          "average_precision": 0.5432547443687474,
+          "support": 15,
+          "predicted_positive": 10,
+          "true_positive": 5,
+          "evaluated_targets": 352
+        },
+        "Collaborators": {
+          "precision": 0.25,
+          "recall": 0.2,
+          "f1": 0.2222222222222222,
+          "average_precision": 0.22400741837162333,
+          "support": 25,
+          "predicted_positive": 20,
+          "true_positive": 5,
+          "evaluated_targets": 352
+        },
+        "Example": {
+          "precision": 0.831081081081081,
+          "recall": 0.82,
+          "f1": 0.825503355704698,
+          "average_precision": 0.9145758480890054,
+          "support": 150,
+          "predicted_positive": 148,
+          "true_positive": 123,
+          "evaluated_targets": 352
+        },
+        "Intent": {
+          "precision": 0.6808510638297872,
+          "recall": 0.7272727272727273,
+          "f1": 0.7032967032967034,
+          "average_precision": 0.7974536792193189,
+          "support": 44,
+          "predicted_positive": 47,
+          "true_positive": 32,
+          "evaluated_targets": 352
+        },
+        "Keyimplementationpoints": {
+          "precision": 0.5789473684210527,
+          "recall": 0.4782608695652174,
+          "f1": 0.5238095238095238,
+          "average_precision": 0.5891647099087544,
+          "support": 46,
+          "predicted_positive": 38,
+          "true_positive": 22,
+          "evaluated_targets": 352
+        },
+        "Keymessages": {
+          "precision": 0.6181818181818182,
+          "recall": 0.5573770491803278,
+          "f1": 0.5862068965517241,
+          "average_precision": 0.6710228085452798,
+          "support": 61,
+          "predicted_positive": 55,
+          "true_positive": 34,
+          "evaluated_targets": 352
+        },
+        "Responsibilities": {
+          "precision": 0.47368421052631576,
+          "recall": 0.5373134328358209,
+          "f1": 0.5034965034965035,
+          "average_precision": 0.47576036048961307,
+          "support": 67,
+          "predicted_positive": 76,
+          "true_positive": 36,
+          "evaluated_targets": 352
+        }
+      },
+      "fold": 0,
+      "train_size": 1413,
+      "val_size": 352,
+      "fit_seconds": 0.19816862500738353,
+      "predict_seconds": 0.0319414590485394
+    },
+    {
+      "micro_precision": 0.6545893719806763,
+      "micro_recall": 0.6609756097560976,
+      "micro_f1": 0.6577669902912622,
+      "macro_precision": 0.5825211019970346,
+      "macro_recall": 0.5812926513460216,
+      "macro_f1": 0.5787905565404305,
+      "micro_average_precision": 0.7225790837742704,
+      "macro_average_precision": 0.6089800030302577,
+      "hamming_loss": 0.11380145278450363,
+      "evaluated_targets": 2478,
+      "positive_targets": 410,
+      "predicted_positive_targets": 414,
+      "true_positive_targets": 271,
+      "false_positive_targets": 143,
+      "false_negative_targets": 139,
+      "per_label": {
+        "Classreferences": {
+          "precision": 0.4666666666666667,
+          "recall": 0.4666666666666667,
+          "f1": 0.4666666666666667,
+          "average_precision": 0.49677758734639466,
+          "support": 15,
+          "predicted_positive": 15,
+          "true_positive": 7,
+          "evaluated_targets": 354
+        },
+        "Collaborators": {
+          "precision": 0.38095238095238093,
+          "recall": 0.3076923076923077,
+          "f1": 0.3404255319148936,
+          "average_precision": 0.3243581930778639,
+          "support": 26,
+          "predicted_positive": 21,
+          "true_positive": 8,
+          "evaluated_targets": 354
+        },
+        "Example": {
+          "precision": 0.8613138686131386,
+          "recall": 0.7919463087248322,
+          "f1": 0.8251748251748252,
+          "average_precision": 0.927528065085553,
+          "support": 149,
+          "predicted_positive": 137,
+          "true_positive": 118,
+          "evaluated_targets": 354
+        },
+        "Intent": {
+          "precision": 0.7555555555555555,
+          "recall": 0.7727272727272727,
+          "f1": 0.7640449438202247,
+          "average_precision": 0.8320745287088064,
+          "support": 44,
+          "predicted_positive": 45,
+          "true_positive": 34,
+          "evaluated_targets": 354
+        },
+        "Keyimplementationpoints": {
+          "precision": 0.5,
+          "recall": 0.425531914893617,
+          "f1": 0.45977011494252873,
+          "average_precision": 0.43349495374178243,
+          "support": 47,
+          "predicted_positive": 40,
+          "true_positive": 20,
+          "evaluated_targets": 354
+        },
+        "Keymessages": {
+          "precision": 0.6507936507936508,
+          "recall": 0.6721311475409836,
+          "f1": 0.6612903225806451,
+          "average_precision": 0.728444206353197,
+          "support": 61,
+          "predicted_positive": 63,
+          "true_positive": 41,
+          "evaluated_targets": 354
+        },
+        "Responsibilities": {
+          "precision": 0.46236559139784944,
+          "recall": 0.6323529411764706,
+          "f1": 0.5341614906832298,
+          "average_precision": 0.5201824868982068,
+          "support": 68,
+          "predicted_positive": 93,
+          "true_positive": 43,
+          "evaluated_targets": 354
+        }
+      },
+      "fold": 1,
+      "train_size": 1411,
+      "val_size": 354,
+      "fit_seconds": 0.18658545904327184,
+      "predict_seconds": 0.029900000081397593
+    },
+    {
+      "micro_precision": 0.6487179487179487,
+      "micro_recall": 0.6200980392156863,
+      "micro_f1": 0.6340852130325815,
+      "macro_precision": 0.5692293062191022,
+      "macro_recall": 0.5492513303886414,
+      "macro_f1": 0.5568970557042353,
+      "micro_average_precision": 0.6626267787793665,
+      "macro_average_precision": 0.5869037265070224,
+      "hamming_loss": 0.11817078106029948,
+      "evaluated_targets": 2471,
+      "positive_targets": 408,
+      "predicted_positive_targets": 390,
+      "true_positive_targets": 253,
+      "false_positive_targets": 137,
+      "false_negative_targets": 155,
+      "per_label": {
+        "Classreferences": {
+          "precision": 0.5333333333333333,
+          "recall": 0.5,
+          "f1": 0.5161290322580645,
+          "average_precision": 0.6007112699966289,
+          "support": 16,
+          "predicted_positive": 15,
+          "true_positive": 8,
+          "evaluated_targets": 353
+        },
+        "Collaborators": {
+          "precision": 0.3125,
+          "recall": 0.2,
+          "f1": 0.24390243902439024,
+          "average_precision": 0.2789837144979641,
+          "support": 25,
+          "predicted_positive": 16,
+          "true_positive": 5,
+          "evaluated_targets": 353
+        },
+        "Example": {
+          "precision": 0.8148148148148148,
+          "recall": 0.7333333333333333,
+          "f1": 0.7719298245614035,
+          "average_precision": 0.8814444629304043,
+          "support": 150,
+          "predicted_positive": 135,
+          "true_positive": 110,
+          "evaluated_targets": 353
+        },
+        "Intent": {
+          "precision": 0.6363636363636364,
+          "recall": 0.6511627906976745,
+          "f1": 0.6436781609195402,
+          "average_precision": 0.6272078107952318,
+          "support": 43,
+          "predicted_positive": 44,
+          "true_positive": 28,
+          "evaluated_targets": 353
+        },
+        "Keyimplementationpoints": {
+          "precision": 0.5102040816326531,
+          "recall": 0.5434782608695652,
+          "f1": 0.5263157894736842,
+          "average_precision": 0.569728340111676,
+          "support": 46,
+          "predicted_positive": 49,
+          "true_positive": 25,
+          "evaluated_targets": 353
+        },
+        "Keymessages": {
+          "precision": 0.7076923076923077,
+          "recall": 0.7540983606557377,
+          "f1": 0.7301587301587301,
+          "average_precision": 0.6837875655953365,
+          "support": 61,
+          "predicted_positive": 65,
+          "true_positive": 46,
+          "evaluated_targets": 353
+        },
+        "Responsibilities": {
+          "precision": 0.4696969696969697,
+          "recall": 0.4626865671641791,
+          "f1": 0.46616541353383456,
+          "average_precision": 0.46646292162191527,
+          "support": 67,
+          "predicted_positive": 66,
+          "true_positive": 31,
+          "evaluated_targets": 353
+        }
+      },
+      "fold": 2,
+      "train_size": 1412,
+      "val_size": 353,
+      "fit_seconds": 0.17201041709631681,
+      "predict_seconds": 0.03723491705022752
+    },
+    {
+      "micro_precision": 0.6739130434782609,
+      "micro_recall": 0.6804878048780488,
+      "micro_f1": 0.6771844660194175,
+      "macro_precision": 0.5957659781840362,
+      "macro_recall": 0.583110502110167,
+      "macro_f1": 0.5801688514812283,
+      "micro_average_precision": 0.7347808380706881,
+      "macro_average_precision": 0.6079741149192734,
+      "hamming_loss": 0.10764872521246459,
+      "evaluated_targets": 2471,
+      "positive_targets": 410,
+      "predicted_positive_targets": 414,
+      "true_positive_targets": 279,
+      "false_positive_targets": 135,
+      "false_negative_targets": 131,
+      "per_label": {
+        "Classreferences": {
+          "precision": 0.3333333333333333,
+          "recall": 0.1875,
+          "f1": 0.24,
+          "average_precision": 0.24087171058054307,
+          "support": 16,
+          "predicted_positive": 9,
+          "true_positive": 3,
+          "evaluated_targets": 353
+        },
+        "Collaborators": {
+          "precision": 0.4090909090909091,
+          "recall": 0.34615384615384615,
+          "f1": 0.375,
+          "average_precision": 0.3121357868559102,
+          "support": 26,
+          "predicted_positive": 22,
+          "true_positive": 9,
+          "evaluated_targets": 353
+        },
+        "Example": {
+          "precision": 0.8914728682170543,
+          "recall": 0.7666666666666667,
+          "f1": 0.8243727598566308,
+          "average_precision": 0.903413204579733,
+          "support": 150,
+          "predicted_positive": 129,
+          "true_positive": 115,
+          "evaluated_targets": 353
+        },
+        "Intent": {
+          "precision": 0.8421052631578947,
+          "recall": 0.7272727272727273,
+          "f1": 0.7804878048780488,
+          "average_precision": 0.8388918043637988,
+          "support": 44,
+          "predicted_positive": 38,
+          "true_positive": 32,
+          "evaluated_targets": 353
+        },
+        "Keyimplementationpoints": {
+          "precision": 0.4838709677419355,
+          "recall": 0.6521739130434783,
+          "f1": 0.5555555555555556,
+          "average_precision": 0.6639827480260909,
+          "support": 46,
+          "predicted_positive": 62,
+          "true_positive": 30,
+          "evaluated_targets": 353
+        },
+        "Keymessages": {
+          "precision": 0.6896551724137931,
+          "recall": 0.6557377049180327,
+          "f1": 0.6722689075630253,
+          "average_precision": 0.7351688465467373,
+          "support": 61,
+          "predicted_positive": 58,
+          "true_positive": 40,
+          "evaluated_targets": 353
+        },
+        "Responsibilities": {
+          "precision": 0.5208333333333334,
+          "recall": 0.746268656716418,
+          "f1": 0.6134969325153374,
+          "average_precision": 0.5613547034821006,
+          "support": 67,
+          "predicted_positive": 96,
+          "true_positive": 50,
+          "evaluated_targets": 353
+        }
+      },
+      "fold": 3,
+      "train_size": 1412,
+      "val_size": 353,
+      "fit_seconds": 0.263461249996908,
+      "predict_seconds": 0.03690499998629093
+    },
+    {
+      "micro_precision": 0.6478149100257069,
+      "micro_recall": 0.6191646191646192,
+      "micro_f1": 0.6331658291457286,
+      "macro_precision": 0.5727272525567187,
+      "macro_recall": 0.5297486035023761,
+      "macro_f1": 0.5481622335975427,
+      "micro_average_precision": 0.6844751028272381,
+      "macro_average_precision": 0.5786944078210167,
+      "hamming_loss": 0.11817078106029948,
+      "evaluated_targets": 2471,
+      "positive_targets": 407,
+      "predicted_positive_targets": 389,
+      "true_positive_targets": 252,
+      "false_positive_targets": 137,
+      "false_negative_targets": 155,
+      "per_label": {
+        "Classreferences": {
+          "precision": 0.45454545454545453,
+          "recall": 0.3333333333333333,
+          "f1": 0.38461538461538464,
+          "average_precision": 0.27105361798131705,
+          "support": 15,
+          "predicted_positive": 11,
+          "true_positive": 5,
+          "evaluated_targets": 353
+        },
+        "Collaborators": {
+          "precision": 0.42857142857142855,
+          "recall": 0.36,
+          "f1": 0.391304347826087,
+          "average_precision": 0.3986929736908785,
+          "support": 25,
+          "predicted_positive": 21,
+          "true_positive": 9,
+          "evaluated_targets": 353
+        },
+        "Example": {
+          "precision": 0.7945205479452054,
+          "recall": 0.7785234899328859,
+          "f1": 0.7864406779661017,
+          "average_precision": 0.8829588440839526,
+          "support": 149,
+          "predicted_positive": 146,
+          "true_positive": 116,
+          "evaluated_targets": 353
+        },
+        "Intent": {
+          "precision": 0.5555555555555556,
+          "recall": 0.5813953488372093,
+          "f1": 0.5681818181818182,
+          "average_precision": 0.6169259670897371,
+          "support": 43,
+          "predicted_positive": 45,
+          "true_positive": 25,
+          "evaluated_targets": 353
+        },
+        "Keyimplementationpoints": {
+          "precision": 0.5681818181818182,
+          "recall": 0.5319148936170213,
+          "f1": 0.5494505494505495,
+          "average_precision": 0.6092136271270634,
+          "support": 47,
+          "predicted_positive": 44,
+          "true_positive": 25,
+          "evaluated_targets": 353
+        },
+        "Keymessages": {
+          "precision": 0.673469387755102,
+          "recall": 0.5409836065573771,
+          "f1": 0.6,
+          "average_precision": 0.6448641730146221,
+          "support": 61,
+          "predicted_positive": 49,
+          "true_positive": 33,
+          "evaluated_targets": 353
+        },
+        "Responsibilities": {
+          "precision": 0.5342465753424658,
+          "recall": 0.582089552238806,
+          "f1": 0.5571428571428572,
+          "average_precision": 0.6271516517595456,
+          "support": 67,
+          "predicted_positive": 73,
+          "true_positive": 39,
+          "evaluated_targets": 353
+        }
+      },
+      "fold": 4,
+      "train_size": 1412,
+      "val_size": 353,
+      "fit_seconds": 0.39005866704974324,
+      "predict_seconds": 0.02986495802178979
+    }
+  ],
+  "cross_validation": {
+    "micro_precision": {
+      "mean": 0.6554639076323967,
+      "std": 0.010668419353577315,
+      "defined_folds": 5
+    },
+    "micro_recall": {
+      "mean": 0.6421256067597532,
+      "std": 0.027335046467926314,
+      "defined_folds": 5
+    },
+    "micro_f1": {
+      "mean": 0.6486200508199925,
+      "std": 0.0187704597555248,
+      "defined_folds": 5
+    },
+    "macro_precision": {
+      "mean": 0.5764128861353799,
+      "std": 0.013133634374889992,
+      "defined_folds": 5
+    },
+    "macro_recall": {
+      "mean": 0.5530679721033677,
+      "std": 0.028402013047227132,
+      "defined_folds": 5
+    },
+    "macro_f1": {
+      "mean": 0.5603618881812981,
+      "std": 0.01872314621790088,
+      "defined_folds": 5
+    },
+    "micro_average_precision": {
+      "mean": 0.7043246064657672,
+      "std": 0.029825737580048008,
+      "defined_folds": 5
+    },
+    "macro_average_precision": {
+      "mean": 0.5969458667124381,
+      "std": 0.01348859363404981,
+      "defined_folds": 5
+    },
+    "hamming_loss": {
+      "mean": 0.11493497140013681,
+      "std": 0.004447202690900614,
+      "defined_folds": 5
+    }
+  },
+  "cv_population_sentences": 1765,
+  "test_sentences": 0,
+  "selection_metric": "cv_micro_f1_mean",
+  "out_of_fold": {
+    "micro_precision": 0.655672163918041,
+    "micro_recall": 0.6421928536465982,
+    "micro_f1": 0.6488625123639961,
+    "macro_precision": 0.5769599114836862,
+    "macro_recall": 0.5531465564046124,
+    "macro_f1": 0.5626197033320428,
+    "micro_average_precision": 0.7037151572952063,
+    "macro_average_precision": 0.5790541673455866,
+    "hamming_loss": 0.11493322541481182,
+    "evaluated_targets": 12355,
+    "positive_targets": 2043,
+    "predicted_positive_targets": 2001,
+    "true_positive_targets": 1312,
+    "false_positive_targets": 689,
+    "false_negative_targets": 731,
+    "per_label": {
+      "Classreferences": {
+        "precision": 0.4666666666666667,
+        "recall": 0.36363636363636365,
+        "f1": 0.40875912408759124,
+        "average_precision": 0.3804868159477463,
+        "support": 77,
+        "predicted_positive": 60,
+        "true_positive": 28,
+        "evaluated_targets": 1765
+      },
+      "Collaborators": {
+        "precision": 0.36,
+        "recall": 0.28346456692913385,
+        "f1": 0.31718061674008813,
+        "average_precision": 0.2789613069317903,
+        "support": 127,
+        "predicted_positive": 100,
+        "true_positive": 36,
+        "evaluated_targets": 1765
+      },
+      "Example": {
+        "precision": 0.837410071942446,
+        "recall": 0.7780748663101604,
+        "f1": 0.8066528066528067,
+        "average_precision": 0.9028544615999772,
+        "support": 748,
+        "predicted_positive": 695,
+        "true_positive": 582,
+        "evaluated_targets": 1765
+      },
+      "Intent": {
+        "precision": 0.6894977168949772,
+        "recall": 0.6926605504587156,
+        "f1": 0.6910755148741419,
+        "average_precision": 0.727030124697172,
+        "support": 218,
+        "predicted_positive": 219,
+        "true_positive": 151,
+        "evaluated_targets": 1765
+      },
+      "Keyimplementationpoints": {
+        "precision": 0.5236051502145923,
+        "recall": 0.5258620689655172,
+        "f1": 0.524731182795699,
+        "average_precision": 0.5617406345464935,
+        "support": 232,
+        "predicted_positive": 233,
+        "true_positive": 122,
+        "evaluated_targets": 1765
+      },
+      "Keymessages": {
+        "precision": 0.6689655172413793,
+        "recall": 0.6360655737704918,
+        "f1": 0.6521008403361345,
+        "average_precision": 0.6850081387353039,
+        "support": 305,
+        "predicted_positive": 290,
+        "true_positive": 194,
+        "evaluated_targets": 1765
+      },
+      "Responsibilities": {
+        "precision": 0.49257425742574257,
+        "recall": 0.5922619047619048,
+        "f1": 0.5378378378378378,
+        "average_precision": 0.5172976889606224,
+        "support": 336,
+        "predicted_positive": 404,
+        "true_positive": 199,
+        "evaluated_targets": 1765
+      }
+    }
+  },
+  "duration_seconds": 1.4899321659468114,
+  "complete": true,
+  "plots": [
+    "results/training/kfold/20261102-222649/ovr_sgd/pharo/plots/cross_validation.png"
+  ]
+}

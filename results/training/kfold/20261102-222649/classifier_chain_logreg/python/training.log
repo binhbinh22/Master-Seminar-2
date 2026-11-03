@@ -1,0 +1,11 @@
+2026-11-02 22:26:57,866 classifier_chain_logreg python: screening fold 1/5
+2026-11-02 22:26:58,288   micro-F1=0.5849 macro-F1=0.5402 hamming=0.1867
+2026-11-02 22:26:58,288 classifier_chain_logreg python: screening fold 2/5
+2026-11-02 22:26:58,706   micro-F1=0.5466 macro-F1=0.5131 hamming=0.2020
+2026-11-02 22:26:58,706 classifier_chain_logreg python: screening fold 3/5
+2026-11-02 22:26:59,115   micro-F1=0.5795 macro-F1=0.5432 hamming=0.1863
+2026-11-02 22:26:59,115 classifier_chain_logreg python: screening fold 4/5
+2026-11-02 22:26:59,506   micro-F1=0.5589 macro-F1=0.5104 hamming=0.1969
+2026-11-02 22:26:59,506 classifier_chain_logreg python: screening fold 5/5
+2026-11-02 22:26:59,914   micro-F1=0.5418 macro-F1=0.5093 hamming=0.2035
+2026-11-02 22:27:00,018 Done in 2.1s. Output: results/training/kfold/20261102-222649/classifier_chain_logreg/python

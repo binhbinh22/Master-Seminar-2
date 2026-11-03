@@ -1,0 +1,3 @@
+2026-11-02 22:28:45,207 ovr_linear_svc java: fit on 1935 train sentences in 0.53s
+2026-11-02 22:28:45,252   validation micro-F1=0.5974  test micro-F1=0.6838
+2026-11-02 22:28:45,573 Done in 0.7s. Output: results/training/final/20261102-222837/ovr_linear_svc/java

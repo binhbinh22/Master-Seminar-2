@@ -6,7 +6,6 @@ results/exp3_roberta_focal/
 results/exp4_roberta_threshold_tuning/
 results/exp5_roberta_label_attention/
 results/exp6_roberta_label_attention_contrastive/
-results/training/
 results/model_zoo/
 results/exp7_roberta_asl/
 results/exp8_roberta_rdrop/
@@ -19,3 +18,5 @@ results/exp14_codebert_llrd/
 results/exp15_codebert_rdrop/
 results/exp16_codebert_llrd_rdrop/
 results/exp17_codebert_focal/
+*.csv
+*.joblib

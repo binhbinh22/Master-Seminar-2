@@ -1,0 +1,11 @@
+2026-11-02 22:27:00,062 classifier_chain_logreg java: screening fold 1/5
+2026-11-02 22:27:00,575   micro-F1=0.6184 macro-F1=0.6434 hamming=0.1278
+2026-11-02 22:27:00,575 classifier_chain_logreg java: screening fold 2/5
+2026-11-02 22:27:01,064   micro-F1=0.6679 macro-F1=0.7222 hamming=0.1092
+2026-11-02 22:27:01,065 classifier_chain_logreg java: screening fold 3/5
+2026-11-02 22:27:01,548   micro-F1=0.5665 macro-F1=0.6134 hamming=0.1414
+2026-11-02 22:27:01,549 classifier_chain_logreg java: screening fold 4/5
+2026-11-02 22:27:02,033   micro-F1=0.4905 macro-F1=0.5555 hamming=0.1659
+2026-11-02 22:27:02,033 classifier_chain_logreg java: screening fold 5/5
+2026-11-02 22:27:02,528   micro-F1=0.5511 macro-F1=0.6067 hamming=0.1491
+2026-11-02 22:27:02,646 Done in 2.6s. Output: results/training/kfold/20261102-222649/classifier_chain_logreg/java

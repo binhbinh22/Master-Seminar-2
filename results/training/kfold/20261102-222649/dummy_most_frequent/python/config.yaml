@@ -1,0 +1,25 @@
+method: dummy_most_frequent
+model_type: classical_ml
+language: python
+stage: kfold
+seed: 42
+features:
+  type: tfidf_word_char
+  word_ngram_range:
+  - 1
+  - 2
+  char_ngram_range:
+  - 3
+  - 5
+  max_features_per_vectorizer: 20000
+model:
+  wrapper: OneVsRestClassifier
+  wrapper_params:
+    n_jobs: null
+    verbose: 0
+  base_estimator: DummyClassifier
+  base_params:
+    constant: null
+    random_state: null
+    strategy: most_frequent
+output_dir: results/training/kfold/20261102-222649/dummy_most_frequent/python

@@ -1,0 +1,11 @@
+2026-11-02 22:27:15,425 ovr_random_forest python: screening fold 1/5
+2026-11-02 22:27:19,684   micro-F1=0.6000 macro-F1=0.5562 hamming=0.1706
+2026-11-02 22:27:19,684 ovr_random_forest python: screening fold 2/5
+2026-11-02 22:27:23,293   micro-F1=0.6023 macro-F1=0.5573 hamming=0.1726
+2026-11-02 22:27:23,293 ovr_random_forest python: screening fold 3/5
+2026-11-02 22:27:27,615   micro-F1=0.5851 macro-F1=0.5393 hamming=0.1793
+2026-11-02 22:27:27,616 ovr_random_forest python: screening fold 4/5
+2026-11-02 22:27:33,481   micro-F1=0.5733 macro-F1=0.5249 hamming=0.1816
+2026-11-02 22:27:33,482 ovr_random_forest python: screening fold 5/5
+2026-11-02 22:27:37,739   micro-F1=0.5805 macro-F1=0.5363 hamming=0.1762
+2026-11-02 22:27:37,859 Done in 22.4s. Output: results/training/kfold/20261102-222649/ovr_random_forest/python

@@ -1,0 +1,11 @@
+2026-11-02 22:28:05,007 ovr_random_forest pharo: screening fold 1/5
+2026-11-02 22:28:09,895   micro-F1=0.6518 macro-F1=0.5117 hamming=0.1080
+2026-11-02 22:28:09,896 ovr_random_forest pharo: screening fold 2/5
+2026-11-02 22:28:13,431   micro-F1=0.6692 macro-F1=0.5597 hamming=0.1057
+2026-11-02 22:28:13,431 ovr_random_forest pharo: screening fold 3/5
+2026-11-02 22:28:16,900   micro-F1=0.6113 macro-F1=0.4842 hamming=0.1194
+2026-11-02 22:28:16,900 ovr_random_forest pharo: screening fold 4/5
+2026-11-02 22:28:21,841   micro-F1=0.6596 macro-F1=0.5329 hamming=0.1044
+2026-11-02 22:28:21,841 ovr_random_forest pharo: screening fold 5/5
+2026-11-02 22:28:24,988   micro-F1=0.6368 macro-F1=0.5099 hamming=0.1149
+2026-11-02 22:28:25,096 Done in 20.0s. Output: results/training/kfold/20261102-222649/ovr_random_forest/pharo
