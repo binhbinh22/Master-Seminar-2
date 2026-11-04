@@ -13,7 +13,7 @@ from sklearn.multioutput import ClassifierChain
 from sklearn.svm import LinearSVC
 
 
-def build_models():
+def build_models(seed=42):
     return {
         'dummy_most_frequent': OneVsRestClassifier(
             DummyClassifier(strategy='most_frequent')
@@ -23,15 +23,19 @@ def build_models():
         ),
         'classifier_chain_logreg': ClassifierChain(
             LogisticRegression(max_iter=2000, class_weight='balanced', C=5.0),
-            order='random', random_state=42,
+            order='random', random_state=seed,
         ),
         'ovr_linear_svc': OneVsRestClassifier(
             LinearSVC(class_weight='balanced', C=1.0)
         ),
         'ovr_sgd': OneVsRestClassifier(
-            SGDClassifier(loss='log_loss', max_iter=2000, tol=1e-3, class_weight='balanced', random_state=42)
+            SGDClassifier(loss='log_loss', max_iter=2000, tol=1e-3, class_weight='balanced', random_state=seed)
         ),
         'ovr_random_forest': OneVsRestClassifier(
-            RandomForestClassifier(n_estimators=300, class_weight='balanced', random_state=42, n_jobs=-1)
+            RandomForestClassifier(n_estimators=300, class_weight='balanced', random_state=seed, n_jobs=-1)
         ),
     }
+
+
+MODEL_KEYS = ('dummy_most_frequent', 'ovr_logreg', 'classifier_chain_logreg',
+              'ovr_linear_svc', 'ovr_sgd', 'ovr_random_forest')

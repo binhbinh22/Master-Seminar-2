@@ -1,0 +1,11 @@
+2026-11-02 22:27:04,805 ovr_linear_svc python: screening fold 1/5
+2026-11-02 22:27:05,138   micro-F1=0.5855 macro-F1=0.5490 hamming=0.1879
+2026-11-02 22:27:05,138 ovr_linear_svc python: screening fold 2/5
+2026-11-02 22:27:05,462   micro-F1=0.5760 macro-F1=0.5467 hamming=0.1855
+2026-11-02 22:27:05,464 ovr_linear_svc python: screening fold 3/5
+2026-11-02 22:27:05,783   micro-F1=0.5767 macro-F1=0.5408 hamming=0.1902
+2026-11-02 22:27:05,783 ovr_linear_svc python: screening fold 4/5
+2026-11-02 22:27:06,100   micro-F1=0.5652 macro-F1=0.5248 hamming=0.1949
+2026-11-02 22:27:06,100 ovr_linear_svc python: screening fold 5/5
+2026-11-02 22:27:06,416   micro-F1=0.5619 macro-F1=0.5291 hamming=0.1992
+2026-11-02 22:27:06,518 Done in 1.7s. Output: results/training/kfold/20261102-222649/ovr_linear_svc/python

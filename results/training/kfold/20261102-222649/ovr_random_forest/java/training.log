@@ -1,0 +1,11 @@
+2026-11-02 22:27:37,940 ovr_random_forest java: screening fold 1/5
+2026-11-02 22:27:44,446   micro-F1=0.5865 macro-F1=0.6115 hamming=0.1343
+2026-11-02 22:27:44,447 ovr_random_forest java: screening fold 2/5
+2026-11-02 22:27:50,553   micro-F1=0.6336 macro-F1=0.6827 hamming=0.1222
+2026-11-02 22:27:50,554 ovr_random_forest java: screening fold 3/5
+2026-11-02 22:27:55,305   micro-F1=0.5704 macro-F1=0.6009 hamming=0.1405
+2026-11-02 22:27:55,305 ovr_random_forest java: screening fold 4/5
+2026-11-02 22:28:00,184   micro-F1=0.5350 macro-F1=0.5811 hamming=0.1553
+2026-11-02 22:28:00,184 ovr_random_forest java: screening fold 5/5
+2026-11-02 22:28:04,859   micro-F1=0.5375 macro-F1=0.5965 hamming=0.1564
+2026-11-02 22:28:04,979 Done in 27.0s. Output: results/training/kfold/20261102-222649/ovr_random_forest/java

@@ -1,0 +1,215 @@
+{
+  "stage": "final",
+  "protocol": "train_val_test_80_10_10",
+  "method": "dummy_most_frequent",
+  "model_type": "classical_ml",
+  "language": "java",
+  "labels": [
+    "Expand",
+    "Ownership",
+    "Pointer",
+    "deprecation",
+    "rational",
+    "summary",
+    "usage"
+  ],
+  "seed": 42,
+  "device": "cpu",
+  "data_dir": "/Users/binh/Desktop/master/seminar-2/data/full_training_data/java",
+  "dataset_samples": 2418,
+  "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+  "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842",
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "test_independent_of_method_selection": false,
+  "split_unit": "normalized_text_group",
+  "train_sentences": 1935,
+  "validation_sentences": 241,
+  "test_sentences": 242,
+  "validation": {
+    "micro_precision": 0.0,
+    "micro_recall": 0.0,
+    "micro_f1": 0.0,
+    "macro_precision": 0.0,
+    "macro_recall": 0.0,
+    "macro_f1": 0.0,
+    "micro_average_precision": 0.16597510373443983,
+    "macro_average_precision": 0.16597510373443985,
+    "hamming_loss": 0.16597510373443983,
+    "evaluated_targets": 1687,
+    "positive_targets": 280,
+    "predicted_positive_targets": 0,
+    "true_positive_targets": 0,
+    "false_positive_targets": 0,
+    "false_negative_targets": 280,
+    "per_label": {
+      "Expand": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.26141078838174275,
+        "support": 63,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 241
+      },
+      "Ownership": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.03734439834024896,
+        "support": 9,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 241
+      },
+      "Pointer": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.14522821576763487,
+        "support": 35,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 241
+      },
+      "deprecation": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.05394190871369295,
+        "support": 13,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 241
+      },
+      "rational": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.11618257261410789,
+        "support": 28,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 241
+      },
+      "summary": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.17012448132780084,
+        "support": 41,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 241
+      },
+      "usage": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.3775933609958506,
+        "support": 91,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 241
+      }
+    }
+  },
+  "test": {
+    "micro_precision": 0.0,
+    "micro_recall": 0.0,
+    "micro_f1": 0.0,
+    "macro_precision": 0.0,
+    "macro_recall": 0.0,
+    "macro_f1": 0.0,
+    "micro_average_precision": 0.16646989374262103,
+    "macro_average_precision": 0.16646989374262103,
+    "hamming_loss": 0.16646989374262103,
+    "evaluated_targets": 1694,
+    "positive_targets": 282,
+    "predicted_positive_targets": 0,
+    "true_positive_targets": 0,
+    "false_positive_targets": 0,
+    "false_negative_targets": 282,
+    "per_label": {
+      "Expand": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.2603305785123967,
+        "support": 63,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 242
+      },
+      "Ownership": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.045454545454545456,
+        "support": 11,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 242
+      },
+      "Pointer": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.1446280991735537,
+        "support": 35,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 242
+      },
+      "deprecation": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.049586776859504134,
+        "support": 12,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 242
+      },
+      "rational": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.11570247933884298,
+        "support": 28,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 242
+      },
+      "summary": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.17355371900826447,
+        "support": 42,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 242
+      },
+      "usage": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "average_precision": 0.3760330578512397,
+        "support": 91,
+        "predicted_positive": 0,
+        "true_positive": 0,
+        "evaluated_targets": 242
+      }
+    }
+  },
+  "validation_note": "Diagnostic only -- not used to select hyperparameters or a checkpoint; classical linear models here have no per-epoch state to select.",
+  "fit_seconds": 0.1213183340150863,
+  "predict_seconds": 0.03111049998551607,
+  "duration_seconds": 0.32791445904877037,
+  "complete": true,
+  "plots": [
+    "results/training/final/20261102-222837/dummy_most_frequent/java/plots/test_summary.png",
+    "results/training/final/20261102-222837/dummy_most_frequent/java/plots/test_per_label.png"
+  ]
+}

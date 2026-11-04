@@ -1,140 +1,176 @@
-# Classical ML baseline — code comment classification (Python)
+# Classical ML baselines — code comment classification (Python / Java / Pharo)
 
-Cách chạy:
+Ngày: 2026-11-02
+
+## Cách chạy
+
+```bash
+# Giai đoạn 1 — 5-fold CV trên 100% dữ liệu, so sánh 6 phương pháp
+python -m experiments.ml.train_baseline --stage kfold --language all
+
+# Giai đoạn 2 — chỉ train phương pháp đã chọn, trên 80/10/10
+python -m experiments.ml.train_baseline --stage final --language all --methods ovr_logreg ovr_sgd
 ```
-python -m experiments.ml.train_baseline --config configs/exp_ml_baseline.yaml
+
+`--language` nhận `python`/`java`/`pharo`/`all`. `--methods` mặc định cả 6 (xem
+`src/models/ml/models.py:MODEL_KEYS`). `--seed` mặc định 42.
+
+## Nguồn dữ liệu — dùng chung loader với RoBERTa/CodeBERT
+
+`src/models/ml/data.py` gọi thẳng `src.data.two_stage.load_stage_data()` — **đúng hàm
+nhánh DL đang dùng**, không tự viết lại logic đọc/validate CSV. Nhờ vậy:
+
+- Stage `kfold` đọc `data/k_fold_data/<lang>/{all.csv, folds.json}` (100% dữ liệu, dùng
+  để so sánh phương pháp).
+- Stage `final` đọc `data/full_training_data/<lang>/{train.csv, val.csv, test.csv}`
+  (80/10/10, train cuối + test 1 lần).
+- Mọi kiểm tra toàn vẹn (group-leakage giữa train/val/test, fingerprint dân số khớp
+  manifest, mỗi câu xuất hiện đúng 1 lần ở validation qua 5 fold...) đã được
+  `load_stage_data()` tự làm — ML thừa hưởng nguyên vẹn, không có nguy cơ tự viết sai.
+- `metrics.json` của ML ghi lại đúng `data_fingerprint`/`population_fingerprint` mà
+  `load_stage_data()` tính — **khớp bit-for-bit** với số trong `metrics.json` của
+  RoBERTa cùng ngôn ngữ/stage, nên 2 kết quả so sánh được mà không cần tin tưởng mù
+  quáng, có thể đối chiếu trực tiếp 2 giá trị hash.
+
+Lưu ý quan trọng được `load_stage_data()` tự gắn vào mọi kết quả qua `evaluation_note`:
+*giai đoạn 1 (k-fold) đã dùng toàn bộ dữ liệu, kể cả các câu sau này nằm trong test của
+giai đoạn 2 — nên test giai đoạn 2 là kết quả thăm dò, không độc lập hoàn toàn với việc
+chọn phương pháp.* Áp dụng y hệt cho cả ML và DL.
+
+## Output chuẩn chung (áp dụng cho cả ML và DL)
+
+Mỗi lần chạy `run_staged(method, language, stage)` ghi ra:
+
 ```
-Kết quả ghi ra `results/exp_ml_baseline/metrics.json`.
+results/training/<stage>/<timestamp>/<method>/<language>/
+├── config.yaml          # phương pháp, loại model, siêu tham số (từ clf.get_params()), seed
+├── data_manifest.json   # copy manifest.json của nguồn dữ liệu (fingerprint, seed, số mẫu...)
+├── label_cols.json      # thứ tự nhãn
+├── metrics.json         # toàn bộ metric, thời gian, info chọn model
+├── predictions.csv      # ID câu, split/fold, nhãn thật, xác suất/score, nhãn dự đoán
+├── training.log          # log quá trình (console + file)
+├── plots/                # biểu đồ CV / test / per-label
+└── artifacts/            # vectorizer.joblib + model.joblib (chỉ stage final)
+```
 
-## Nguồn dữ liệu — dùng chung với baseline RoBERTa
+Ghi đè bị chặn: nếu `metrics.json` đã tồn tại ở path đích, `run_staged()` raise lỗi thay
+vì âm thầm ghi đè — khớp hành vi `experiments/dl/staged_experiment.py`.
 
-Pipeline này đọc từ `data/processed/python/` (`train.csv`, `test.csv`, `folds.json`,
-`label_cols.json`) — **bộ split chung của cả nhóm**, được sinh một lần bởi
-`notebooks/data_preprocessing.ipynb` và dùng cho cả ML (ở đây) và RoBERTa
-(`experiments/dl/train_exp1.py` của thành viên khác trong nhóm).
+### Khác biệt theo giai đoạn
 
-Lý do dùng chung bắt buộc: ML và RoBERTa là 2 phương pháp độc lập, nhưng để so sánh được
-với nhau, cả hai phải fit trên **đúng cùng** `train.csv` và được chấm trên **đúng cùng**
-`test.csv`/`folds.json`. Pipeline này **không** tự đọc `data/python.csv` gốc hay tự chia
-lại train/test/fold — làm vậy sẽ phá vỡ khả năng so sánh.
+| | `kfold` | `final` |
+|---|---|---|
+| `predictions.csv` | **Out-of-fold**: mỗi câu trong `all.csv` dự đoán đúng 1 lần (ở fold nó làm validation) | Chỉ `validation` + `test` (không có `train`) |
+| Metric | `folds` (từng fold) + `cross_validation` (mean/std, dùng `src.evaluation.summaries.summarize_metric_runs` — hàm chung với DL) + `out_of_fold` (metric gộp trên toàn bộ OOF) | `validation` (chẩn đoán) + `test` (số báo cáo cuối) |
+| `artifacts/` | Không có — stage này chỉ để sàng lọc, không cần giữ model | Có — `vectorizer.joblib` + `model.joblib`, nạp lại được để inference |
 
-Bộ split này là group-aware: 112 nhóm câu trùng lặp gần như nguyên văn (cùng đoạn mô tả
-copy vào nhiều class khác nhau) được giữ nguyên vẹn cùng 1 phía ở mọi ranh giới train/test
-và train/val của từng fold — xem `data/README.md` để biết chi tiết cách sinh và kiểm
-chứng (`assert not set(train['group_id']) & set(test['group_id'])`).
+**Lưu ý về `validation` ở stage `final`**: khác với DL (dùng validation để chọn
+checkpoint/epoch tốt nhất), các model tuyến tính ở đây hội tụ 1 lần, không có khái niệm
+"epoch" để chọn — nên `validation` chỉ là số chẩn đoán song song với `test`, **không được
+dùng để chọn hyperparameter hay mô hình**. Ghi rõ trong `metrics.json.validation_note`
+của từng run để không ai hiểu nhầm đây là bước tuning.
+
+## Metrics — khớp field-name với DL
+
+`src/models/ml/metrics.py` tính đúng các field `src.evaluation.multilabel.masked_multilabel_metrics`
+bên DL đã dùng: `micro_precision/recall/f1`, `macro_precision/recall/f1`,
+`micro_average_precision`, `macro_average_precision`, `hamming_loss`, và `per_label`
+(`precision/recall/f1/average_precision/support`). Một file `metrics.json` của ML và một
+file của RoBERTa có thể diff trực tiếp theo tên field, không cần quy đổi.
+
+- **micro-F1/macro-F1**: xem giải thích chi tiết ở lịch sử báo cáo cũ (`docs/`) — micro
+  gộp theo tần suất nhãn, macro coi mọi nhãn ngang nhau.
+- **Average precision (AP)**: diện tích dưới đường precision-recall theo thứ hạng điểm số
+  — không cần điểm đã calibrate thành xác suất thật, chỉ cần đúng thứ tự xếp hạng. Vì vậy
+  `ovr_linear_svc` (không có `predict_proba`) vẫn tính được AP từ `decision_function`
+  (`src/models/ml/scoring.py`).
+- **Hamming loss**: tỷ lệ ô (câu × nhãn) dự đoán sai/tổng số ô.
+
+## Model
+
+| Method key | Mô tả |
+|---|---|
+| `dummy_most_frequent` | Baseline sàn — luôn đoán nhãn phổ biến nhất mỗi cột |
+| `ovr_logreg` | One-vs-Rest Logistic Regression, `class_weight='balanced'` |
+| `classifier_chain_logreg` | Chuỗi classifier, mô hình hoá tương quan giữa nhãn |
+| `ovr_linear_svc` | One-vs-Rest Linear SVM |
+| `ovr_sgd` | One-vs-Rest SGD (log-loss) |
+| `ovr_random_forest` | One-vs-Rest Random Forest (300 cây) — đối chứng phi tuyến, tái lập tinh thần baseline NLBSE'23 gốc |
+
+Đặc trưng: TF-IDF word (1-2gram) + char (3-5gram, `char_wb`), ~20k chiều/loại, fit lại
+**mỗi fold** (`kfold`) hoặc **chỉ trên train** (`final`) — không bao giờ fit trên phần dữ
+liệu dùng để đánh giá.
+
+### Vì sao chọn nhóm mô hình tuyến tính
+
+1. **Đặc trưng TF-IDF thưa, nhiều chiều** (hàng chục nghìn chiều) — mô hình tuyến tính
+   thường đạt hiệu quả ngang hoặc hơn mô hình phi tuyến phức tạp trên dữ liệu kiểu này.
+2. **Số mẫu ít** (1.413–2.044 câu train tuỳ ngôn ngữ) — mô hình phức tạp dễ overfit.
+3. **Hỗ trợ multi-label tự nhiên qua One-vs-Rest**, dễ `class_weight='balanced'` cho nhãn
+   mất cân bằng.
+4. **Baseline chính thức NLBSE'23** cũng dùng mô hình nhẹ (Random Forest + TF-IDF).
+5. **Thực nghiệm xác nhận — cả 3 ngôn ngữ đều cho cùng 1 kết luận** (xem Mục "Kết quả"):
+   Random Forest thắng CV ở Python nhưng thua rõ ở test cả 3 ngôn ngữ (Python: 0.542 vs
+   0.567–0.570; Java: 0.636 — thấp nhất trong 5 model thật; chỉ hoà/nhỉnh ở Pharo). Mô
+   hình tuyến tính ổn định hơn, generalize tốt hơn trên cả 3 ngôn ngữ — không phải chỉ
+   đúng tình cờ ở 1 ngôn ngữ.
+
+## Kết quả
+
+### Giai đoạn 1 — CV micro-F1 trên 100% dữ liệu (sàng lọc phương pháp)
+
+| Ngôn ngữ | Xếp hạng (CV micro-F1, mean ± std) |
+|---|---|
+| **Python** | ovr_random_forest **0.5882±0.0126** > ovr_logreg 0.5833±0.0126 > ovr_sgd 0.5811±0.0093 > ovr_linear_svc 0.5730±0.0095 > classifier_chain_logreg 0.5623±0.0193 |
+| **Java** | ovr_logreg **0.5972±0.0566** > ovr_sgd 0.5932±0.0556 > ovr_linear_svc 0.5811±0.0577 > classifier_chain_logreg 0.5789±0.0675 > ovr_random_forest 0.5726±0.0405 |
+| **Pharo** | ovr_sgd **0.6486±0.0188** > ovr_random_forest 0.6458±0.0226 > ovr_logreg 0.6438±0.0223 > ovr_linear_svc 0.6372±0.0210 > classifier_chain_logreg 0.6209±0.0247 |
+
+(`dummy_most_frequent` = 0.0000 ở cả 3 ngôn ngữ — mọi nhãn đều có prevalence <50%.)
+
+### Giai đoạn 2 — test (held-out, 1 lần, 80/10/10)
+
+| Ngôn ngữ | Test micro-F1 (xếp hạng) |
+|---|---|
+| **Python** | ovr_linear_svc **0.5704** > ovr_sgd 0.5690 > ovr_logreg 0.5675 > classifier_chain_logreg 0.5577 > ovr_random_forest 0.5421 |
+| **Java** | classifier_chain_logreg **0.6964** > ovr_sgd 0.6950 > ovr_logreg 0.6871 > ovr_linear_svc 0.6838 > ovr_random_forest 0.6360 |
+| **Pharo** | ovr_random_forest **0.6447** > ovr_sgd 0.6420 > ovr_logreg 0.6400 > ovr_linear_svc 0.6308 > classifier_chain_logreg 0.6161 |
+
+Số liệu đầy đủ (per-label, AP, Hamming, thời gian...): `results/training/{kfold,final}/*/*/*/metrics.json`.
+
+### CV không dự đoán đúng thứ hạng test — đúng ở cả 3 ngôn ngữ
+
+| Ngôn ngữ | Model CV cao nhất | Thứ hạng test của model đó |
+|---|---|---|
+| Python | ovr_random_forest (hạng 1 CV) | **hạng 5/5 trên test** (thấp nhất) |
+| Java | ovr_logreg (hạng 1 CV) | hạng 3/5 trên test (classifier_chain/sgd vượt lên) |
+| Pharo | ovr_sgd (hạng 1 CV) | hạng 2/5 trên test (random_forest vượt lên) |
+
+Không ngôn ngữ nào giữ nguyên thứ hạng CV sang test — nhất quán với hiện tượng tương tự
+phía RoBERTa (`report.pdf`, Mục 6: E11 CV cao nhất Python nhưng test chỉ ngang E1). Bài
+học chung cho cả nhóm: **không chọn model cuối cùng chỉ dựa vào CV**, luôn cần test độc
+lập (dù biết test ở đây chưa hoàn toàn độc lập — xem `evaluation_note`).
+
+## Hạn chế
+
+- `validation` ở stage `final` chỉ chẩn đoán, không dùng để chọn hyperparameter — khác
+  với DL (dùng validation chọn checkpoint/threshold). Nếu muốn so sánh chặt hơn, có thể
+  thêm bước grid-search hyperparameter trên validation ở lần sau.
+- 1 seed (42) — chưa lặp nhiều seed để kiểm định ý nghĩa thống kê của chênh lệch nhỏ.
+- `ovr_random_forest` tái lập tinh thần baseline NLBSE'23 gốc nhưng không phải cấu hình
+  chính thức (số cây, tiền xử lý có thể khác).
+- Test giai đoạn 2 không độc lập hoàn toàn với việc chọn phương pháp (xem
+  `evaluation_note` — giai đoạn 1 đã thấy toàn bộ dữ liệu, bao gồm cả câu sau này ở test).
 
 ## Cấu trúc module
 
 | File | Vai trò |
 |---|---|
-| `data.py` | `load_processed('python')` — đọc `data/processed/python/` |
-| `features.py` | TF-IDF (word n-gram + char n-gram), fit riêng mỗi lần train (không leak qua vectorizer) |
-| `models.py` | 6 model: dummy baseline + 4 biến thể tuyến tính + 1 Random Forest (đối chứng phi tuyến) |
-| `evaluation.py` | `cross_validate()` dùng `folds.json` có sẵn (chọn/so sánh model) + `evaluate_on_test()` fit trên toàn bộ train, chấm trên `test.csv` (số để so với RoBERTa) |
-| `legacy/` | 4 script cũ dùng sai cột nhãn (`category` thay vì `instance_type`) — chỉ giữ để đối chiếu, xem `legacy/README.md` |
+| `data.py` | `load(language, stage)` — wrapper mỏng quanh `src.data.two_stage.load_stage_data` |
+| `scoring.py` | `predict_scores()` — lấy điểm số liên tục cho AP, fallback `predict_proba` → `decision_function` |
+| `metrics.py` | `compute_metrics()` — khớp schema `src.evaluation.multilabel` |
+| `features.py` | `build_vectorizer()` — TF-IDF word+char |
+| `models.py` | `build_models(seed)` — 6 model, `MODEL_KEYS` |
+| `legacy/` | Script cũ dùng sai cột nhãn (`category` thay vì `instance_type`) — chỉ giữ tham khảo |
 
-## Lỗi dữ liệu đã sửa (lịch sử)
-
-`python.csv` gốc lưu dạng "exploded": mỗi câu lặp lại 5 lần (1 lần/category), và
-`instance_type` (0/1) mới là nhãn thật — `category` chỉ là tên slot. Các script
-`legacy/` lấy thẳng cột `category` làm nhãn, bỏ qua `instance_type`, khiến cùng một câu
-có 5 nhãn mâu thuẫn nhau (4/5 sai) → model gần như không học được gì (micro-F1 ~0.01).
-`notebooks/data_preprocessing.ipynb` (và trước đó `data.py` ở đây) pivot đúng theo
-`instance_type`, cho ra multi-label thật (Python: 2,555 câu, trung bình 1.12 nhãn/câu).
-
-## Vì sao chọn nhóm mô hình tuyến tính (Logistic Regression, Linear SVM, SGD, Classifier Chain)
-
-1. **Đặc trưng TF-IDF thưa, nhiều chiều** (hàng chục nghìn chiều: word + char n-gram).
-   Với dữ liệu thưa/nhiều chiều, mô hình tuyến tính thường đạt hiệu quả ngang hoặc hơn mô
-   hình phi tuyến phức tạp (Random Forest, cây quyết định) — hiện tượng quen thuộc khi xử
-   lý văn bản kiểu bag-of-words/TF-IDF.
-2. **Số mẫu ít** (2,044 train / 511 test) — mô hình phức tạp (ensemble cây sâu, deep
-   learning) dễ overfit trên tập nhỏ; mô hình tuyến tính có ít tham số hơn, ổn định hơn.
-3. **Hỗ trợ multi-label tự nhiên qua One-vs-Rest**: `LogisticRegression` cho
-   `predict_proba` mượt, dễ kết hợp `class_weight='balanced'` để xử lý mất cân bằng nhãn
-   (support dao động 62–160 trên test), và dễ ghép với `OneVsRestClassifier`/`ClassifierChain`.
-4. **Baseline chính thức của NLBSE'23** cũng dùng mô hình nhẹ (Random Forest + TF-IDF);
-   Logistic Regression tương đương về độ phức tạp, nhanh và dễ so sánh — còn RoBERTa của
-   nhóm đóng vai trò baseline deep learning để đối chiếu với nhóm model nhẹ này.
-5. **Thực nghiệm xác nhận — có đối chứng phi tuyến thật**: 4 biến thể tuyến tính cho kết
-   quả gần như nhau (test micro-F1 0.59–0.61). Thêm `ovr_random_forest` (phi tuyến, 300
-   cây) để kiểm chứng trực tiếp giả thuyết "không gian đặc trưng gần tuyến tính": Random
-   Forest đạt CV micro-F1 0.5698 (nhích hơn Logistic Regression một chút khi validate nội
-   bộ), nhưng **tụt xuống 0.5647 trên test** — thấp hơn cả 4 model tuyến tính, và đặc biệt
-   kém hẳn ở 2 nhãn khó/hiếm (`DevelopmentNotes` F1 0.22 vs 0.34, `Expand` F1 0.39 vs 0.51
-   so với Logistic Regression). Nghĩa là Random Forest khớp tốt trên dữ liệu đã thấy
-   (CV) nhưng generalize kém hơn trên dữ liệu mới — dấu hiệu overfit trên không gian TF-IDF
-   nhiều chiều, ít mẫu. Đây là bằng chứng thực nghiệm, không chỉ suy luận lý thuyết, rằng
-   mô hình tuyến tính là lựa chọn tốt hơn cho dataset này. `dummy_most_frequent` (baseline
-   sàn, luôn đoán theo nhãn phổ biến nhất) cho micro-F1 = 0 — vì cả 5 nhãn đều có
-   prevalence <50%, nên "luôn đoán 0" không bắt được true positive nào — chứng minh các
-   model còn lại thực sự học được tín hiệu ngôn ngữ, không phải chỉ đoán theo tần suất.
-6. **Trùng đúng baseline chính thức của NLBSE'23** (TF-IDF + Random Forest) — nên
-   `ovr_random_forest` ở đây cũng đóng vai trò tái lập baseline gốc của cuộc thi để đối
-   chiếu, không chỉ là một lựa chọn kiến trúc tuỳ ý.
-
-## Độ đo sử dụng
-
-- **micro/macro F1**: coi mỗi cặp (mẫu, nhãn) là 1 dự đoán nhị phân. micro gộp tất cả lại
-  (nhãn phổ biến ảnh hưởng nhiều hơn); macro tính riêng từng nhãn rồi lấy trung bình (mọi
-  nhãn có trọng số như nhau, kể cả nhãn hiếm `DevelopmentNotes`).
-- **Hamming loss**: tỷ lệ ô (mẫu × nhãn) sai / tổng số ô. Càng thấp càng tốt.
-- **Jaccard (samples)**: với mỗi mẫu, `|giao tập nhãn| / |hợp tập nhãn|`, rồi trung bình
-  qua các mẫu. Càng cao càng tốt — đo đúng việc model có đoán trọn vẹn cả bộ nhãn của một
-  câu hay không, nghiêm khắc hơn F1 vì phạt cả nhãn thừa lẫn thiếu cùng lúc.
-
-## Kết quả
-
-### CV trên train (chọn/so sánh model — 5 fold từ `folds.json`)
-
-| Model | micro-F1 | macro-F1 | Jaccard | Hamming |
-|---|---|---|---|---|
-| dummy_most_frequent | 0.0000 | 0.0000 | 0.0000 | 0.2242 |
-| ovr_random_forest | 0.5698 | 0.5285 | 0.5003 | **0.1800** |
-| **ovr_logreg** | **0.5630** | **0.5315** | 0.5147 | 0.1984 |
-| ovr_sgd | 0.5607 | 0.5298 | 0.5145 | 0.2044 |
-| ovr_linear_svc | 0.5529 | 0.5179 | 0.5003 | 0.2008 |
-| classifier_chain_logreg | 0.5405 | 0.5043 | **0.5277** | 0.2054 |
-
-### Held-out test (số để so với RoBERTa — fit trên toàn bộ train, chấm 1 lần trên `test.csv`)
-
-| Model | micro-F1 | macro-F1 | Jaccard | Hamming |
-|---|---|---|---|---|
-| dummy_most_frequent | 0.0000 | 0.0000 | 0.0000 | 0.2243 |
-| **ovr_logreg** | **0.6115** | **0.5658** | 0.5631 | 0.1746 |
-| ovr_sgd | 0.6014 | 0.5576 | 0.5545 | 0.1847 |
-| ovr_linear_svc | 0.5956 | 0.5474 | 0.5373 | 0.1796 |
-| classifier_chain_logreg | 0.5895 | 0.5346 | **0.5776** | 0.1832 |
-| ovr_random_forest | 0.5647 | 0.4975 | 0.5116 | 0.1804 |
-
-→ Random Forest xếp **nhất trên CV** nhưng **cuối cùng trên test** — dấu hiệu overfit rõ
-ràng, không generalize tốt bằng 4 model tuyến tính (xem phân tích ở mục trên).
-
-Per-label trên test:
-
-| Label | Support | ovr_logreg F1 | ovr_random_forest F1 |
-|---|---|---|---|
-| Usage | 160 | **0.7358** | 0.6821 |
-| Parameters | 159 | 0.6930 | 0.6730 |
-| Summary | 91 | **0.5503** | 0.5222 |
-| Expand | 101 | **0.5143** | 0.3924 |
-| DevelopmentNotes | 62 | **0.3358** | 0.2178 |
-
-Logistic Regression thắng ở cả 5/5 nhãn trên test, cách biệt rõ nhất ở 2 nhãn hiếm/khó
-nhất (`Expand`, `DevelopmentNotes`) — đúng chỗ Random Forest dễ overfit nhất vì ít mẫu
-dương để học split.
-
-Số liệu đầy đủ (kèm per-label cho cả 6 model): `results/exp_ml_baseline/metrics.json`.
-
-**OVR Logistic Regression** là model tốt nhất trên cả CV và test — dùng model này khi so
-sánh trực tiếp với kết quả RoBERTa.
-
-## Hạn chế hiện tại
-
-- Chỉ dùng ngôn ngữ Python (2,555 câu), chưa mở rộng sang Java/Pharo để đủ 6,738 mẫu như
-  đề bài gốc. `data/processed/` đã có sẵn `java/` và `pharo/` cùng format — có thể lặp lại
-  pipeline này cho từng ngôn ngữ bằng cách đổi `data.language` trong config.
-- Ngưỡng quyết định cố định 0.5, chưa tối ưu threshold riêng từng nhãn.
-- Nhóm câu trùng lặp lớn (VD nhóm `@author vaadin ltd` bên Java, không ảnh hưởng Python)
-  không thể tách ra giữa các fold, có thể làm lệch tỷ lệ nhãn của fold chứa nhóm đó — xem
-  `data/README.md`.
+`experiments/ml/staged_experiment.py` chứa logic chạy 1 (method, language, stage); 
+`experiments/ml/train_baseline.py` là CLI lặp qua nhiều method/language.

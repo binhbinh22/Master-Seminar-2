@@ -1,0 +1,36 @@
+method: ovr_logreg
+model_type: classical_ml
+language: java
+stage: kfold
+seed: 42
+features:
+  type: tfidf_word_char
+  word_ngram_range:
+  - 1
+  - 2
+  char_ngram_range:
+  - 3
+  - 5
+  max_features_per_vectorizer: 20000
+model:
+  wrapper: OneVsRestClassifier
+  wrapper_params:
+    n_jobs: null
+    verbose: 0
+  base_estimator: LogisticRegression
+  base_params:
+    C: 5.0
+    class_weight: balanced
+    dual: false
+    fit_intercept: true
+    intercept_scaling: 1
+    l1_ratio: 0.0
+    max_iter: 2000
+    n_jobs: null
+    penalty: deprecated
+    random_state: null
+    solver: lbfgs
+    tol: 0.0001
+    verbose: 0
+    warm_start: false
+output_dir: results/training/kfold/20261102-222649/ovr_logreg/java

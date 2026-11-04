@@ -1,0 +1,11 @@
+2026-11-02 22:26:51,477 dummy_most_frequent pharo: screening fold 1/5
+2026-11-02 22:26:51,616   micro-F1=0.0000 macro-F1=0.0000 hamming=0.1656
+2026-11-02 22:26:51,616 dummy_most_frequent pharo: screening fold 2/5
+2026-11-02 22:26:51,749   micro-F1=0.0000 macro-F1=0.0000 hamming=0.1655
+2026-11-02 22:26:51,750 dummy_most_frequent pharo: screening fold 3/5
+2026-11-02 22:26:51,886   micro-F1=0.0000 macro-F1=0.0000 hamming=0.1651
+2026-11-02 22:26:51,886 dummy_most_frequent pharo: screening fold 4/5
+2026-11-02 22:26:52,019   micro-F1=0.0000 macro-F1=0.0000 hamming=0.1659
+2026-11-02 22:26:52,019 dummy_most_frequent pharo: screening fold 5/5
+2026-11-02 22:26:52,153   micro-F1=0.0000 macro-F1=0.0000 hamming=0.1647
+2026-11-02 22:26:52,251 Done in 0.7s. Output: results/training/kfold/20261102-222649/dummy_most_frequent/pharo

@@ -1,0 +1,11 @@
+2026-11-02 22:27:02,668 classifier_chain_logreg pharo: screening fold 1/5
+2026-11-02 22:27:03,073   micro-F1=0.6395 macro-F1=0.5409 hamming=0.1185
+2026-11-02 22:27:03,073 classifier_chain_logreg pharo: screening fold 2/5
+2026-11-02 22:27:03,483   micro-F1=0.6269 macro-F1=0.5439 hamming=0.1263
+2026-11-02 22:27:03,483 classifier_chain_logreg pharo: screening fold 3/5
+2026-11-02 22:27:03,882   micro-F1=0.5942 macro-F1=0.4939 hamming=0.1360
+2026-11-02 22:27:03,883 classifier_chain_logreg pharo: screening fold 4/5
+2026-11-02 22:27:04,278   micro-F1=0.6479 macro-F1=0.5484 hamming=0.1161
+2026-11-02 22:27:04,278 classifier_chain_logreg pharo: screening fold 5/5
+2026-11-02 22:27:04,669   micro-F1=0.5958 macro-F1=0.5126 hamming=0.1340
+2026-11-02 22:27:04,778 Done in 2.1s. Output: results/training/kfold/20261102-222649/classifier_chain_logreg/pharo

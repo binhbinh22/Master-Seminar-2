@@ -1,0 +1,11 @@
+2026-11-02 22:26:49,728 dummy_most_frequent python: screening fold 1/5
+2026-11-02 22:26:49,879   micro-F1=0.0000 macro-F1=0.0000 hamming=0.2243
+2026-11-02 22:26:49,879 dummy_most_frequent python: screening fold 2/5
+2026-11-02 22:26:50,015   micro-F1=0.0000 macro-F1=0.0000 hamming=0.2239
+2026-11-02 22:26:50,015 dummy_most_frequent python: screening fold 3/5
+2026-11-02 22:26:50,151   micro-F1=0.0000 macro-F1=0.0000 hamming=0.2247
+2026-11-02 22:26:50,151 dummy_most_frequent python: screening fold 4/5
+2026-11-02 22:26:50,289   micro-F1=0.0000 macro-F1=0.0000 hamming=0.2247
+2026-11-02 22:26:50,289 dummy_most_frequent python: screening fold 5/5
+2026-11-02 22:26:50,441   micro-F1=0.0000 macro-F1=0.0000 hamming=0.2234
+2026-11-02 22:26:50,564 Done in 0.9s. Output: results/training/kfold/20261102-222649/dummy_most_frequent/python

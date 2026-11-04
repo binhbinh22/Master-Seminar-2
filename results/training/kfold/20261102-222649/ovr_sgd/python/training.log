@@ -1,0 +1,11 @@
+2026-11-02 22:27:11,494 ovr_sgd python: screening fold 1/5
+2026-11-02 22:27:11,672   micro-F1=0.5938 macro-F1=0.5548 hamming=0.1906
+2026-11-02 22:27:11,672 ovr_sgd python: screening fold 2/5
+2026-11-02 22:27:11,850   micro-F1=0.5814 macro-F1=0.5526 hamming=0.1883
+2026-11-02 22:27:11,851 ovr_sgd python: screening fold 3/5
+2026-11-02 22:27:12,028   micro-F1=0.5792 macro-F1=0.5415 hamming=0.1945
+2026-11-02 22:27:12,028 ovr_sgd python: screening fold 4/5
+2026-11-02 22:27:12,204   micro-F1=0.5834 macro-F1=0.5470 hamming=0.1910
+2026-11-02 22:27:12,204 ovr_sgd python: screening fold 5/5
+2026-11-02 22:27:12,399   micro-F1=0.5678 macro-F1=0.5339 hamming=0.1980
+2026-11-02 22:27:12,550 Done in 1.0s. Output: results/training/kfold/20261102-222649/ovr_sgd/python

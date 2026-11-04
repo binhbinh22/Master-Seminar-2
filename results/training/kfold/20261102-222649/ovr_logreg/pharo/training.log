@@ -1,0 +1,11 @@
+2026-11-02 22:26:56,056 ovr_logreg pharo: screening fold 1/5
+2026-11-02 22:26:56,401   micro-F1=0.6454 macro-F1=0.5411 hamming=0.1173
+2026-11-02 22:26:56,401 ovr_logreg pharo: screening fold 2/5
+2026-11-02 22:26:56,752   micro-F1=0.6520 macro-F1=0.5688 hamming=0.1146
+2026-11-02 22:26:56,752 ovr_logreg pharo: screening fold 3/5
+2026-11-02 22:26:57,107   micro-F1=0.6148 macro-F1=0.5341 hamming=0.1222
+2026-11-02 22:26:57,107 ovr_logreg pharo: screening fold 4/5
+2026-11-02 22:26:57,425   micro-F1=0.6747 macro-F1=0.5911 hamming=0.1093
+2026-11-02 22:26:57,425 ovr_logreg pharo: screening fold 5/5
+2026-11-02 22:26:57,737   micro-F1=0.6324 macro-F1=0.5372 hamming=0.1186
+2026-11-02 22:26:57,841 Done in 1.7s. Output: results/training/kfold/20261102-222649/ovr_logreg/pharo

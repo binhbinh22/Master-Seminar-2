@@ -1,0 +1,11 @@
+2026-11-02 22:27:09,336 ovr_linear_svc pharo: screening fold 1/5
+2026-11-02 22:27:09,740   micro-F1=0.6376 macro-F1=0.5320 hamming=0.1149
+2026-11-02 22:27:09,740 ovr_linear_svc pharo: screening fold 2/5
+2026-11-02 22:27:10,154   micro-F1=0.6574 macro-F1=0.5830 hamming=0.1098
+2026-11-02 22:27:10,154 ovr_linear_svc pharo: screening fold 3/5
+2026-11-02 22:27:10,567   micro-F1=0.6080 macro-F1=0.5303 hamming=0.1226
+2026-11-02 22:27:10,567 ovr_linear_svc pharo: screening fold 4/5
+2026-11-02 22:27:10,975   micro-F1=0.6566 macro-F1=0.5558 hamming=0.1101
+2026-11-02 22:27:10,975 ovr_linear_svc pharo: screening fold 5/5
+2026-11-02 22:27:11,359   micro-F1=0.6261 macro-F1=0.5356 hamming=0.1170
+2026-11-02 22:27:11,467 Done in 2.1s. Output: results/training/kfold/20261102-222649/ovr_linear_svc/pharo

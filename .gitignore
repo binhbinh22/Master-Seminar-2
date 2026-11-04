@@ -13,3 +13,6 @@ flax_model.msgpack
 # Prediction artifacts are results, not model weights.
 !oof_predictions.pt
 !predictions.pt
+
+# Serialized ML models and vectorizers.
+*.joblib
