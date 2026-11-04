@@ -1,3 +1,0 @@
-2026-11-02 22:28:38,305 dummy_most_frequent pharo: fit on 1413 train sentences in 0.11s
-2026-11-02 22:28:38,338   validation micro-F1=0.0000  test micro-F1=0.0000
-2026-11-02 22:28:38,651 Done in 0.3s. Output: results/training/final/20261102-222837/dummy_most_frequent/pharo

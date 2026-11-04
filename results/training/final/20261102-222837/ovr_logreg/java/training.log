@@ -1,3 +1,0 @@
-2026-11-02 22:28:39,750 ovr_logreg java: fit on 1935 train sentences in 0.38s
-2026-11-02 22:28:39,792   validation micro-F1=0.6046  test micro-F1=0.6871
-2026-11-02 22:28:40,221 Done in 0.6s. Output: results/training/final/20261102-222837/ovr_logreg/java

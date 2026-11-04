@@ -1,3 +1,0 @@
-2026-11-02 22:28:37,303 dummy_most_frequent python: fit on 2044 train sentences in 0.11s
-2026-11-02 22:28:37,334   validation micro-F1=0.0000  test micro-F1=0.0000
-2026-11-02 22:28:37,650 Done in 0.5s. Output: results/training/final/20261102-222837/dummy_most_frequent/python

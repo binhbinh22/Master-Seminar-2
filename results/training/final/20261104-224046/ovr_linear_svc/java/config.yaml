@@ -1,0 +1,34 @@
+method: ovr_linear_svc
+model_type: classical_ml
+language: java
+stage: final
+seed: 42
+features:
+  type: tfidf_word_char
+  word_ngram_range:
+  - 1
+  - 2
+  char_ngram_range:
+  - 3
+  - 5
+  max_features_per_vectorizer: 20000
+model:
+  wrapper: OneVsRestClassifier
+  wrapper_params:
+    n_jobs: null
+    verbose: 0
+  base_estimator: LinearSVC
+  base_params:
+    C: 1.0
+    class_weight: balanced
+    dual: auto
+    fit_intercept: true
+    intercept_scaling: 1
+    loss: squared_hinge
+    max_iter: 1000
+    multi_class: ovr
+    penalty: l2
+    random_state: null
+    tol: 0.0001
+    verbose: 0
+output_dir: results/training/final/20261104-224046/ovr_linear_svc/java

@@ -1,0 +1,3 @@
+2026-11-04 22:42:38,207 ovr_random_forest pharo: fit on 1413 train sentences in 2.53s
+2026-11-04 22:42:39,056   validation micro-F1=0.6011  test micro-F1=0.6447
+2026-11-04 22:42:58,204 Done in 22.2s. Output: results/training/final/20261104-224046/ovr_random_forest/pharo

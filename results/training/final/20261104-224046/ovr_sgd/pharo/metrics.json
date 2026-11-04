@@ -1,0 +1,217 @@
+{
+  "stage": "final",
+  "protocol": "train_val_test_80_10_10",
+  "method": "ovr_sgd",
+  "model_type": "classical_ml",
+  "language": "pharo",
+  "labels": [
+    "Classreferences",
+    "Collaborators",
+    "Example",
+    "Intent",
+    "Keyimplementationpoints",
+    "Keymessages",
+    "Responsibilities"
+  ],
+  "seed": 42,
+  "device": "cpu",
+  "data_dir": "/Users/binh/Desktop/master/seminar-2/data/full_training_data/pharo",
+  "dataset_samples": 1765,
+  "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+  "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e",
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "test_independent_of_method_selection": false,
+  "split_unit": "normalized_text_group",
+  "train_sentences": 1413,
+  "validation_sentences": 176,
+  "test_sentences": 176,
+  "validation": {
+    "micro_precision": 0.640625,
+    "micro_recall": 0.6059113300492611,
+    "micro_f1": 0.6227848101265823,
+    "macro_precision": 0.5720015017747053,
+    "macro_recall": 0.5448050143001054,
+    "macro_f1": 0.5559937562825416,
+    "micro_average_precision": 0.7134863346581495,
+    "macro_average_precision": 0.6243277251841128,
+    "hamming_loss": 0.12094155844155845,
+    "evaluated_targets": 1232,
+    "positive_targets": 203,
+    "predicted_positive_targets": 192,
+    "true_positive_targets": 123,
+    "false_positive_targets": 69,
+    "false_negative_targets": 80,
+    "per_label": {
+      "Classreferences": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
+        "average_precision": 0.5658627087198516,
+        "support": 8,
+        "predicted_positive": 8,
+        "true_positive": 4,
+        "evaluated_targets": 176
+      },
+      "Collaborators": {
+        "precision": 0.4166666666666667,
+        "recall": 0.4166666666666667,
+        "f1": 0.4166666666666667,
+        "average_precision": 0.4639199029669696,
+        "support": 12,
+        "predicted_positive": 12,
+        "true_positive": 5,
+        "evaluated_targets": 176
+      },
+      "Example": {
+        "precision": 0.9016393442622951,
+        "recall": 0.7432432432432432,
+        "f1": 0.8148148148148148,
+        "average_precision": 0.9290937847426926,
+        "support": 74,
+        "predicted_positive": 61,
+        "true_positive": 55,
+        "evaluated_targets": 176
+      },
+      "Intent": {
+        "precision": 0.631578947368421,
+        "recall": 0.5454545454545454,
+        "f1": 0.5853658536585366,
+        "average_precision": 0.645140682635464,
+        "support": 22,
+        "predicted_positive": 19,
+        "true_positive": 12,
+        "evaluated_targets": 176
+      },
+      "Keyimplementationpoints": {
+        "precision": 0.4074074074074074,
+        "recall": 0.4782608695652174,
+        "f1": 0.44,
+        "average_precision": 0.563059765965161,
+        "support": 23,
+        "predicted_positive": 27,
+        "true_positive": 11,
+        "evaluated_targets": 176
+      },
+      "Keymessages": {
+        "precision": 0.7142857142857143,
+        "recall": 0.6451612903225806,
+        "f1": 0.6779661016949152,
+        "average_precision": 0.7408746683666029,
+        "support": 31,
+        "predicted_positive": 28,
+        "true_positive": 20,
+        "evaluated_targets": 176
+      },
+      "Responsibilities": {
+        "precision": 0.43243243243243246,
+        "recall": 0.48484848484848486,
+        "f1": 0.45714285714285713,
+        "average_precision": 0.4623425628920487,
+        "support": 33,
+        "predicted_positive": 37,
+        "true_positive": 16,
+        "evaluated_targets": 176
+      }
+    }
+  },
+  "test": {
+    "micro_precision": 0.6467661691542289,
+    "micro_recall": 0.6372549019607843,
+    "micro_f1": 0.6419753086419753,
+    "macro_precision": 0.6048711816909955,
+    "macro_recall": 0.5706826357687319,
+    "macro_f1": 0.578814601446832,
+    "micro_average_precision": 0.6618431509971445,
+    "macro_average_precision": 0.5889168561093522,
+    "hamming_loss": 0.1176948051948052,
+    "evaluated_targets": 1232,
+    "positive_targets": 204,
+    "predicted_positive_targets": 201,
+    "true_positive_targets": 130,
+    "false_positive_targets": 71,
+    "false_negative_targets": 74,
+    "per_label": {
+      "Classreferences": {
+        "precision": 0.4444444444444444,
+        "recall": 0.5714285714285714,
+        "f1": 0.5,
+        "average_precision": 0.49186176172485224,
+        "support": 7,
+        "predicted_positive": 9,
+        "true_positive": 4,
+        "evaluated_targets": 176
+      },
+      "Collaborators": {
+        "precision": 0.75,
+        "recall": 0.46153846153846156,
+        "f1": 0.5714285714285714,
+        "average_precision": 0.4491168122499285,
+        "support": 13,
+        "predicted_positive": 8,
+        "true_positive": 6,
+        "evaluated_targets": 176
+      },
+      "Example": {
+        "precision": 0.7875,
+        "recall": 0.84,
+        "f1": 0.8129032258064516,
+        "average_precision": 0.9121559201127495,
+        "support": 75,
+        "predicted_positive": 80,
+        "true_positive": 63,
+        "evaluated_targets": 176
+      },
+      "Intent": {
+        "precision": 0.6842105263157895,
+        "recall": 0.6190476190476191,
+        "f1": 0.65,
+        "average_precision": 0.6055735821386361,
+        "support": 21,
+        "predicted_positive": 19,
+        "true_positive": 13,
+        "evaluated_targets": 176
+      },
+      "Keyimplementationpoints": {
+        "precision": 0.41379310344827586,
+        "recall": 0.5217391304347826,
+        "f1": 0.46153846153846156,
+        "average_precision": 0.42985862570142314,
+        "support": 23,
+        "predicted_positive": 29,
+        "true_positive": 12,
+        "evaluated_targets": 176
+      },
+      "Keymessages": {
+        "precision": 0.6086956521739131,
+        "recall": 0.45161290322580644,
+        "f1": 0.5185185185185185,
+        "average_precision": 0.6634177169722243,
+        "support": 31,
+        "predicted_positive": 23,
+        "true_positive": 14,
+        "evaluated_targets": 176
+      },
+      "Responsibilities": {
+        "precision": 0.5454545454545454,
+        "recall": 0.5294117647058824,
+        "f1": 0.5373134328358209,
+        "average_precision": 0.5704335738656515,
+        "support": 34,
+        "predicted_positive": 33,
+        "true_positive": 18,
+        "evaluated_targets": 176
+      }
+    }
+  },
+  "validation_note": "Diagnostic only -- not used to select hyperparameters or a checkpoint; classical linear models here have no per-epoch state to select.",
+  "fit_seconds": 0.15520845795981586,
+  "predict_seconds": 0.02773241698741913,
+  "training_curve_param": "estimator__max_iter",
+  "duration_seconds": 1.3866584170609713,
+  "complete": true,
+  "plots": [
+    "results/training/final/20261104-224046/ovr_sgd/pharo/plots/test_summary.png",
+    "results/training/final/20261104-224046/ovr_sgd/pharo/plots/test_per_label.png",
+    "results/training/final/20261104-224046/ovr_sgd/pharo/plots/training_curves.png"
+  ]
+}

@@ -11,19 +11,16 @@ Sinh tự động bởi `python -m src.evaluation.ml_leaderboard`. Xếp hạng 
 | java | ovr_linear_svc | 0.5811 | 0.0577 | 0.6241 | 0.1354 |
 | java | classifier_chain_logreg | 0.5789 | 0.0675 | 0.6282 | 0.1387 |
 | java | ovr_random_forest | 0.5726 | 0.0405 | 0.6146 | 0.1417 |
-| java | dummy_most_frequent | 0.0 | 0.0 | 0.0 | 0.1681 |
 | pharo | ovr_sgd | 0.6486 | 0.0188 | 0.5604 | 0.1149 |
 | pharo | ovr_random_forest | 0.6458 | 0.0226 | 0.5196 | 0.1105 |
 | pharo | ovr_logreg | 0.6438 | 0.0223 | 0.5545 | 0.1164 |
 | pharo | ovr_linear_svc | 0.6372 | 0.021 | 0.5474 | 0.1149 |
 | pharo | classifier_chain_logreg | 0.6209 | 0.0247 | 0.5279 | 0.1262 |
-| pharo | dummy_most_frequent | 0.0 | 0.0 | 0.0 | 0.1654 |
 | python | ovr_random_forest | 0.5882 | 0.0126 | 0.5428 | 0.176 |
 | python | ovr_logreg | 0.5833 | 0.0126 | 0.547 | 0.1885 |
 | python | ovr_sgd | 0.5811 | 0.0093 | 0.5459 | 0.1925 |
 | python | ovr_linear_svc | 0.573 | 0.0095 | 0.5381 | 0.1915 |
 | python | classifier_chain_logreg | 0.5623 | 0.0193 | 0.5233 | 0.1951 |
-| python | dummy_most_frequent | 0.0 | 0.0 | 0.0 | 0.2242 |
 
 ## Giai đoạn 2 — Validation / Test (80/10/10, held-out)
 
@@ -34,17 +31,14 @@ Sinh tự động bởi `python -m src.evaluation.ml_leaderboard`. Xếp hạng 
 | java | ovr_logreg | 0.6046 | 0.6871 | 0.7344 | 0.1027 |
 | java | ovr_linear_svc | 0.5974 | 0.6838 | 0.7335 | 0.1015 |
 | java | ovr_random_forest | 0.5438 | 0.636 | 0.6495 | 0.1216 |
-| java | dummy_most_frequent | 0.0 | 0.0 | 0.0 | 0.1665 |
 | pharo | ovr_random_forest | 0.6011 | 0.6447 | 0.5607 | 0.1136 |
 | pharo | ovr_sgd | 0.6228 | 0.642 | 0.5788 | 0.1177 |
 | pharo | ovr_logreg | 0.6294 | 0.64 | 0.5653 | 0.1169 |
 | pharo | ovr_linear_svc | 0.628 | 0.6308 | 0.5601 | 0.1169 |
 | pharo | classifier_chain_logreg | 0.599 | 0.6161 | 0.5197 | 0.1274 |
-| pharo | dummy_most_frequent | 0.0 | 0.0 | 0.0 | 0.1656 |
 | python | ovr_linear_svc | 0.5486 | 0.5704 | 0.5295 | 0.1906 |
 | python | ovr_sgd | 0.5685 | 0.569 | 0.5268 | 0.1953 |
 | python | ovr_logreg | 0.5654 | 0.5675 | 0.5244 | 0.1953 |
 | python | classifier_chain_logreg | 0.5887 | 0.5577 | 0.5275 | 0.1945 |
 | python | ovr_random_forest | 0.5772 | 0.5421 | 0.5019 | 0.1953 |
-| python | dummy_most_frequent | 0.0 | 0.0 | 0.0 | 0.2242 |
 

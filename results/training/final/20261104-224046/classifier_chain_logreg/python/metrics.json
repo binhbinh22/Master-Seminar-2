@@ -1,0 +1,175 @@
+{
+  "stage": "final",
+  "protocol": "train_val_test_80_10_10",
+  "method": "classifier_chain_logreg",
+  "model_type": "classical_ml",
+  "language": "python",
+  "labels": [
+    "DevelopmentNotes",
+    "Expand",
+    "Parameters",
+    "Summary",
+    "Usage"
+  ],
+  "seed": 42,
+  "device": "cpu",
+  "data_dir": "/Users/binh/Desktop/master/seminar-2/data/full_training_data/python",
+  "dataset_samples": 2555,
+  "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+  "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c",
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "test_independent_of_method_selection": false,
+  "split_unit": "normalized_text_group",
+  "train_sentences": 2044,
+  "validation_sentences": 255,
+  "test_sentences": 256,
+  "validation": {
+    "micro_precision": 0.5949820788530465,
+    "micro_recall": 0.5824561403508772,
+    "micro_f1": 0.5886524822695035,
+    "macro_precision": 0.5377525366614551,
+    "macro_recall": 0.5206525565990654,
+    "macro_f1": 0.5261909209732949,
+    "micro_average_precision": 0.576018607575945,
+    "macro_average_precision": 0.5390066985322602,
+    "hamming_loss": 0.18196078431372548,
+    "evaluated_targets": 1275,
+    "positive_targets": 285,
+    "predicted_positive_targets": 279,
+    "true_positive_targets": 166,
+    "false_positive_targets": 113,
+    "false_negative_targets": 119,
+    "per_label": {
+      "DevelopmentNotes": {
+        "precision": 0.37037037037037035,
+        "recall": 0.3225806451612903,
+        "f1": 0.3448275862068966,
+        "average_precision": 0.3072822474326374,
+        "support": 31,
+        "predicted_positive": 27,
+        "true_positive": 10,
+        "evaluated_targets": 255
+      },
+      "Expand": {
+        "precision": 0.4583333333333333,
+        "recall": 0.44,
+        "f1": 0.4489795918367347,
+        "average_precision": 0.4398258206741764,
+        "support": 50,
+        "predicted_positive": 48,
+        "true_positive": 22,
+        "evaluated_targets": 255
+      },
+      "Parameters": {
+        "precision": 0.6881720430107527,
+        "recall": 0.810126582278481,
+        "f1": 0.7441860465116279,
+        "average_precision": 0.8027739016881246,
+        "support": 79,
+        "predicted_positive": 93,
+        "true_positive": 64,
+        "evaluated_targets": 255
+      },
+      "Summary": {
+        "precision": 0.47058823529411764,
+        "recall": 0.35555555555555557,
+        "f1": 0.4050632911392405,
+        "average_precision": 0.43737307438084067,
+        "support": 45,
+        "predicted_positive": 34,
+        "true_positive": 16,
+        "evaluated_targets": 255
+      },
+      "Usage": {
+        "precision": 0.7012987012987013,
+        "recall": 0.675,
+        "f1": 0.6878980891719745,
+        "average_precision": 0.707778448485522,
+        "support": 80,
+        "predicted_positive": 77,
+        "true_positive": 54,
+        "evaluated_targets": 255
+      }
+    }
+  },
+  "test": {
+    "micro_precision": 0.5688405797101449,
+    "micro_recall": 0.5470383275261324,
+    "micro_f1": 0.5577264653641207,
+    "macro_precision": 0.5456241440815408,
+    "macro_recall": 0.5128631667720851,
+    "macro_f1": 0.5275014154523302,
+    "micro_average_precision": 0.5771589466993569,
+    "macro_average_precision": 0.5800700889977707,
+    "hamming_loss": 0.19453125,
+    "evaluated_targets": 1280,
+    "positive_targets": 287,
+    "predicted_positive_targets": 276,
+    "true_positive_targets": 157,
+    "false_positive_targets": 119,
+    "false_negative_targets": 130,
+    "per_label": {
+      "DevelopmentNotes": {
+        "precision": 0.4230769230769231,
+        "recall": 0.3548387096774194,
+        "f1": 0.38596491228070173,
+        "average_precision": 0.41490061995049005,
+        "support": 31,
+        "predicted_positive": 26,
+        "true_positive": 11,
+        "evaluated_targets": 256
+      },
+      "Expand": {
+        "precision": 0.5217391304347826,
+        "recall": 0.47058823529411764,
+        "f1": 0.4948453608247423,
+        "average_precision": 0.5470662544551075,
+        "support": 51,
+        "predicted_positive": 46,
+        "true_positive": 24,
+        "evaluated_targets": 256
+      },
+      "Parameters": {
+        "precision": 0.5925925925925926,
+        "recall": 0.6,
+        "f1": 0.5962732919254659,
+        "average_precision": 0.6628251066182608,
+        "support": 80,
+        "predicted_positive": 81,
+        "true_positive": 48,
+        "evaluated_targets": 256
+      },
+      "Summary": {
+        "precision": 0.5789473684210527,
+        "recall": 0.4888888888888889,
+        "f1": 0.5301204819277109,
+        "average_precision": 0.5486306149189013,
+        "support": 45,
+        "predicted_positive": 38,
+        "true_positive": 22,
+        "evaluated_targets": 256
+      },
+      "Usage": {
+        "precision": 0.611764705882353,
+        "recall": 0.65,
+        "f1": 0.6303030303030303,
+        "average_precision": 0.7269278490460938,
+        "support": 80,
+        "predicted_positive": 85,
+        "true_positive": 52,
+        "evaluated_targets": 256
+      }
+    }
+  },
+  "validation_note": "Diagnostic only -- not used to select hyperparameters or a checkpoint; classical linear models here have no per-epoch state to select.",
+  "fit_seconds": 0.4318863330408931,
+  "predict_seconds": 0.05207991704810411,
+  "training_curve_param": "estimator__max_iter",
+  "duration_seconds": 7.446826084051281,
+  "complete": true,
+  "plots": [
+    "results/training/final/20261104-224046/classifier_chain_logreg/python/plots/test_summary.png",
+    "results/training/final/20261104-224046/classifier_chain_logreg/python/plots/test_per_label.png",
+    "results/training/final/20261104-224046/classifier_chain_logreg/python/plots/training_curves.png"
+  ]
+}
