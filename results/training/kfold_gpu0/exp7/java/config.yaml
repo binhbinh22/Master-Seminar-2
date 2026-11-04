@@ -1,0 +1,35 @@
+dataset:
+  data_dir: /root/trunglm8/Master-Seminar-2/data/k_fold_data
+  language: java
+evaluation:
+  report_per_label: true
+  run_test_after_training: true
+experiment: exp7_roberta_asl
+model:
+  hidden_size: 768
+  name: roberta-base
+  threshold: 0.5
+  asl_gamma_pos: 1.0
+  asl_gamma_neg: 4.0
+  asl_clip: 0.05
+  asl_detach_focal: true
+output_dir: /root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp7/java
+tokenizer:
+  max_length: 128
+training:
+  batch_size: 16
+  device: cuda:0
+  early_stopping_patience: 2
+  epochs: 10
+  eval_batch_size: 32
+  gradient_accumulation_steps: 1
+  learning_rate: 2.0e-05
+  max_grad_norm: 1.0
+  mixed_precision: false
+  num_workers: 0
+  seed: 42
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  folds: 5
+variant: asl
+stage: kfold

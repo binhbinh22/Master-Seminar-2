@@ -1,0 +1,88 @@
+{
+  "source": "current_train_indices",
+  "label_space": "per_language",
+  "language": "java",
+  "labels": [
+    "Expand",
+    "Ownership",
+    "Pointer",
+    "deprecation",
+    "rational",
+    "summary",
+    "usage"
+  ],
+  "num_nodes": 7,
+  "train_sentences": 1935,
+  "threshold": 0.1,
+  "normalization": "symmetric_degree_normalized_cosine_cooccurrence_with_self_loops",
+  "num_edges": 4,
+  "isolated_labels": [
+    "Ownership",
+    "deprecation"
+  ],
+  "adjacency": [
+    [
+      0.6755352020263672,
+      0.0,
+      0.1708284318447113,
+      0.0,
+      0.08574015647172928,
+      0.0,
+      0.09810139238834381
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.1708284318447113,
+      0.0,
+      0.7273015379905701,
+      0.0,
+      0.0,
+      0.10522586107254028,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.08574015647172928,
+      0.0,
+      0.0,
+      0.0,
+      0.900981068611145,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.10522586107254028,
+      0.0,
+      0.0,
+      0.8839916586875916,
+      0.0
+    ],
+    [
+      0.09810139238834381,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8875529766082764
+    ]
+  ]
+}

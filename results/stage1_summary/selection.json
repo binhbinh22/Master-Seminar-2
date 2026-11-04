@@ -1,0 +1,230 @@
+{
+  "stage": "kfold_selection",
+  "selection_metric": "cv_micro_f1_mean",
+  "top_k_per_language": 4,
+  "evaluation_note": "Stage-1 CV used all data, including future stage-2 test rows; final test is exploratory, not independent of method selection.",
+  "selected": {
+    "java": [
+      {
+        "model": "E15",
+        "variant": "codebert_rdrop",
+        "language": "java",
+        "cv_micro_f1_mean": 0.6225012340577283,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.041606310067449824,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842",
+        "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+        "configuration_fingerprint": "503ab187a6259bb6f20aabbf54d56ca0fcb56532c1bb2ed33ef04ccfee08fea4",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp15/java/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp15/java/metrics.json"
+        ]
+      },
+      {
+        "model": "E17",
+        "variant": "codebert_focal",
+        "language": "java",
+        "cv_micro_f1_mean": 0.6154088387360719,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.0258504468077363,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842",
+        "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+        "configuration_fingerprint": "c63ba699957d15e9c7ff7e8d9e5e90acd2e3f693f19b5cbc364927eabec760ea",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp17/java/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp17/java/metrics.json"
+        ]
+      },
+      {
+        "model": "E9",
+        "variant": "label_gnn",
+        "language": "java",
+        "cv_micro_f1_mean": 0.6124898981779352,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.05553019092152675,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842",
+        "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+        "configuration_fingerprint": "29e2b8b9b3e49958197d937660f8453b886e4e538eae71050e0668308b334234",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp9/java/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp9/java/metrics.json"
+        ]
+      },
+      {
+        "model": "E12",
+        "variant": "label_attention_gnn",
+        "language": "java",
+        "cv_micro_f1_mean": 0.6116934128442039,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.05194724800780025,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842",
+        "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+        "configuration_fingerprint": "54ae124f829102fd454166ceb70ee3383a8e5b4f3e6438de77add5e8d67e88d9",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp12/java/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp12/java/metrics.json"
+        ]
+      }
+    ],
+    "pharo": [
+      {
+        "model": "E3",
+        "variant": "focal",
+        "language": "pharo",
+        "cv_micro_f1_mean": 0.7151935842358091,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.023336348044712046,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e",
+        "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+        "configuration_fingerprint": "5616be919d6ef1d70abfc94f9f5605db16209aea24ce78ebe3d0e48116b45846",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp3/pharo/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp3/pharo/metrics.json"
+        ]
+      },
+      {
+        "model": "E9",
+        "variant": "label_gnn",
+        "language": "pharo",
+        "cv_micro_f1_mean": 0.7123808267123861,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.03037603761977543,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e",
+        "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+        "configuration_fingerprint": "29e2b8b9b3e49958197d937660f8453b886e4e538eae71050e0668308b334234",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp9/pharo/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp9/pharo/metrics.json"
+        ]
+      },
+      {
+        "model": "E8",
+        "variant": "rdrop",
+        "language": "pharo",
+        "cv_micro_f1_mean": 0.710438245037357,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.030708419033206345,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e",
+        "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+        "configuration_fingerprint": "b8bb43072ddd85d01c64771d691b831ca4873f3d040d7e23fce3a9e597df7008",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp8/pharo/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu0/exp8/pharo/metrics.json"
+        ]
+      },
+      {
+        "model": "E12",
+        "variant": "label_attention_gnn",
+        "language": "pharo",
+        "cv_micro_f1_mean": 0.7068417479033716,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.03672085256169167,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e",
+        "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+        "configuration_fingerprint": "54ae124f829102fd454166ceb70ee3383a8e5b4f3e6438de77add5e8d67e88d9",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp12/pharo/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp12/pharo/metrics.json"
+        ]
+      }
+    ],
+    "python": [
+      {
+        "model": "E15",
+        "variant": "codebert_rdrop",
+        "language": "python",
+        "cv_micro_f1_mean": 0.6479155833205629,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.023746931196680247,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c",
+        "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+        "configuration_fingerprint": "503ab187a6259bb6f20aabbf54d56ca0fcb56532c1bb2ed33ef04ccfee08fea4",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp15/python/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp15/python/metrics.json"
+        ]
+      },
+      {
+        "model": "E13",
+        "variant": "codebert_head_lr",
+        "language": "python",
+        "cv_micro_f1_mean": 0.6454714957444931,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.016282170855004826,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c",
+        "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+        "configuration_fingerprint": "978bea722c26d4aa5b7db359d552abe5ee53b22faa1cb5935bb137e763a67444",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp13/python/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp13/python/metrics.json"
+        ]
+      },
+      {
+        "model": "E17",
+        "variant": "codebert_focal",
+        "language": "python",
+        "cv_micro_f1_mean": 0.6451653151273058,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.021852521476465273,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c",
+        "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+        "configuration_fingerprint": "c63ba699957d15e9c7ff7e8d9e5e90acd2e3f693f19b5cbc364927eabec760ea",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp17/python/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp17/python/metrics.json"
+        ]
+      },
+      {
+        "model": "E11",
+        "variant": "codebert_bce",
+        "language": "python",
+        "cv_micro_f1_mean": 0.6397093826270239,
+        "cv_micro_f1_seed_std": null,
+        "mean_fold_std": 0.0180709587116763,
+        "seeds": [
+          42
+        ],
+        "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c",
+        "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+        "configuration_fingerprint": "e4e5f00cf8a7ac96254d28a84c2170320d868cf26a4d0171f05c4d943e79332d",
+        "config_path": "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp11/python/config.yaml",
+        "metrics_paths": [
+          "/root/trunglm8/Master-Seminar-2/results/training/kfold_gpu1/exp11/python/metrics.json"
+        ]
+      }
+    ]
+  }
+}

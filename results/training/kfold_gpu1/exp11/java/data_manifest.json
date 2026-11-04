@@ -1,0 +1,26 @@
+{
+  "protocol": "kfold_all_data",
+  "language": "java",
+  "seed": 42,
+  "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842",
+  "source_raw": "/root/trunglm8/Master-Seminar-2/data/raw/nlbse2023/java.csv",
+  "source_raw_sha256": "82f1eb502eb2f0457865704d337192950812e5dbf2caaa63078fbc9ec7e5be28",
+  "counts": {
+    "all": 2418
+  },
+  "label_positive_counts": {
+    "all": {
+      "Expand": 632,
+      "Ownership": 115,
+      "Pointer": 364,
+      "deprecation": 127,
+      "rational": 280,
+      "summary": 415,
+      "usage": 912
+    }
+  },
+  "grouping": "exact_normalized_text",
+  "evaluation_note": "Exploratory evaluation: stage-1 method selection used all rows, including the rows assigned to stage-2 validation/test. Stage-2 test is not independent of method selection.",
+  "fold_count": 5,
+  "target_ratios": null
+}

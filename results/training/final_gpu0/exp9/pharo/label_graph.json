@@ -1,0 +1,89 @@
+{
+  "source": "current_train_indices",
+  "label_space": "per_language",
+  "language": "pharo",
+  "labels": [
+    "Classreferences",
+    "Collaborators",
+    "Example",
+    "Intent",
+    "Keyimplementationpoints",
+    "Keymessages",
+    "Responsibilities"
+  ],
+  "num_nodes": 7,
+  "train_sentences": 1413,
+  "threshold": 0.1,
+  "normalization": "symmetric_degree_normalized_cosine_cooccurrence_with_self_loops",
+  "num_edges": 5,
+  "isolated_labels": [
+    "Example",
+    "Keyimplementationpoints",
+    "Keymessages"
+  ],
+  "adjacency": [
+    [
+      0.6560086607933044,
+      0.22634673118591309,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.09395898878574371
+    ],
+    [
+      0.22634673118591309,
+      0.5487673878669739,
+      0.0,
+      0.12958191335201263,
+      0.0,
+      0.0,
+      0.13752587139606476
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.12958189845085144,
+      0.0,
+      0.6966627836227417,
+      0.0,
+      0.0,
+      0.14863261580467224
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.09395898878574371,
+      0.13752588629722595,
+      0.0,
+      0.14863261580467224,
+      0.0,
+      0.0,
+      0.6217328310012817
+    ]
+  ]
+}

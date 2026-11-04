@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,landscape,left=12mm,right=12mm,top=9mm,bottom=9mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{booktabs,tabularx,array}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.0}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\begin{document}
+\begin{center}
+{\fontsize{16}{20}\selectfont\bfseries KẾT QUẢ GIAI ĐOẠN 2: TRAIN / VALIDATION / TEST}\\[4pt]
+5 phương pháp × 3 ngôn ngữ; tỷ lệ xấp xỉ 80/10/10; seed 42.\\[3pt]
+E1 là baseline. Model được chọn checkpoint theo validation micro F1 rồi đánh giá trên test.
+\end{center}
+\vspace{1pt}
+{\large\bfseries Python} \hfill Train: 2.044 / Validation: 255 / Test: 256\par\vspace{3pt}
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}p{4.9cm} C C C C c c c r@{}}
+\toprule
+\textbf{Mã} & \textbf{Phương pháp} & \shortstack{\textbf{Val micro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test micro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test macro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test micro}\\\textbf{AP (\%)}} & \textbf{Hamming} & \shortstack{\textbf{Δ micro F1}\\\textbf{so với E1}} & \shortstack{\textbf{Best}\\\textbf{epoch}} & \textbf{Phút} \\
+\midrule
+E15 & CodeBERT + R-Drop & 65,41 & \textbf{65,41} & 59,65 & 75,85 & 0,1437 & +4,67 & 9 & 6,8 \\
+E9 & RoBERTa + Label GNN & 63,02 & 62,85 & 56,34 & 67,79 & 0,1570 & +2,11 & 6 & 3,3 \\
+E17 & CodeBERT + Focal Loss & 61,33 & 62,48 & 56,69 & 74,74 & 0,1492 & +1,73 & 4 & 2,3 \\
+E1 & RoBERTa + BCE & 63,97 & 60,74 & 55,47 & 65,71 & 0,1656 & — & 9 & 3,7 \\
+E3 & RoBERTa + Focal Loss & 63,62 & 59,00 & 54,96 & 68,80 & 0,1727 & -1,74 & 10 & 3,7 \\
+\bottomrule
+\end{tabularx}\par\vspace{6pt}
+{\large\bfseries Java} \hfill Train: 1.935 / Validation: 241 / Test: 242\par\vspace{3pt}
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}p{4.9cm} C C C C c c c r@{}}
+\toprule
+\textbf{Mã} & \textbf{Phương pháp} & \shortstack{\textbf{Val micro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test micro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test macro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test micro}\\\textbf{AP (\%)}} & \textbf{Hamming} & \shortstack{\textbf{Δ micro F1}\\\textbf{so với E1}} & \shortstack{\textbf{Best}\\\textbf{epoch}} & \textbf{Phút} \\
+\midrule
+E17 & CodeBERT + Focal Loss & 63,38 & \textbf{70,34} & 73,42 & 80,40 & 0,0921 & +0,88 & 3 & 1,8 \\
+E1 & RoBERTa + BCE & 57,61 & 69,47 & 69,46 & 75,80 & 0,0945 & — & 6 & 2,8 \\
+E15 & CodeBERT + R-Drop & 64,02 & 69,14 & 72,84 & 79,86 & 0,0933 & -0,33 & 3 & 3,2 \\
+E3 & RoBERTa + Focal Loss & 60,55 & 68,39 & 71,11 & 79,10 & 0,1009 & -1,07 & 5 & 2,5 \\
+E9 & RoBERTa + Label GNN & 59,65 & 67,62 & 73,71 & 74,65 & 0,1068 & -1,84 & 8 & 3,4 \\
+\bottomrule
+\end{tabularx}\par\vspace{6pt}
+{\large\bfseries Pharo} \hfill Train: 1.413 / Validation: 176 / Test: 176\par\vspace{3pt}
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}p{4.9cm} C C C C c c c r@{}}
+\toprule
+\textbf{Mã} & \textbf{Phương pháp} & \shortstack{\textbf{Val micro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test micro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test macro}\\\textbf{F1 (\%)}} & \shortstack{\textbf{Test micro}\\\textbf{AP (\%)}} & \textbf{Hamming} & \shortstack{\textbf{Δ micro F1}\\\textbf{so với E1}} & \shortstack{\textbf{Best}\\\textbf{epoch}} & \textbf{Phút} \\
+\midrule
+E1 & RoBERTa + BCE & 77,35 & \textbf{73,71} & 67,20 & 79,90 & 0,0828 & — & 8 & 2,6 \\
+E9 & RoBERTa + Label GNN & 73,63 & 71,57 & 60,58 & 77,66 & 0,0909 & -2,14 & 7 & 2,6 \\
+E17 & CodeBERT + Focal Loss & 71,66 & 70,80 & 62,83 & 80,84 & 0,0917 & -2,91 & 10 & 2,7 \\
+E15 & CodeBERT + R-Drop & 75,66 & 70,50 & 61,94 & 80,13 & 0,0917 & -3,22 & 6 & 3,8 \\
+E3 & RoBERTa + Focal Loss & 76,80 & 69,19 & 60,15 & 79,56 & 0,0990 & -4,52 & 5 & 1,8 \\
+\bottomrule
+\end{tabularx}\par\vspace{6pt}
+{\small
+\textbf{Ghi chú.} In đậm giá trị test micro F1 cao nhất trong mỗi ngôn ngữ chỉ để mô tả kết quả, không dùng test để chọn lại phương pháp.
+Δ là chênh lệch micro F1 so với E1, tính bằng điểm phần trăm. F1/AP càng cao càng tốt; Hamming loss càng thấp càng tốt.\par\vspace{3pt}
+Mỗi phương pháp chỉ chạy một seed và một bộ chia cố định nên không báo cáo độ lệch chuẩn.
+Best epoch được chọn bằng validation; phút là tổng thời gian lượt chạy, không phải benchmark tốc độ được kiểm soát.\par\vspace{3pt}
+\textbf{Giới hạn:} Test giai đoạn 2 đã tham gia K-fold ở giai đoạn 1, nên kết quả không độc lập với lựa chọn phương pháp.\par\vspace{3pt}
+\textbf{Nguồn:} 15 file metrics.json hoàn tất trong final\_gpu0 và final\_gpu1. Các phương pháp được sắp theo test micro F1 giảm dần trong từng ngôn ngữ.
+}
+\end{document}
