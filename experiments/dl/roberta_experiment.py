@@ -70,11 +70,13 @@ def train_model(config, bundle, tokenizer, device, train_indices, val_indices=No
 
 
 def run(config_path: Path, *, language: str | None = None, data_dir=None, output_dir=None,
-        device=None, seed: int | None = None, stage="legacy", selection=None) -> dict:
+        device=None, seed: int | None = None, stage="legacy", selection=None, storage_backend="file") -> dict:
     if stage != "legacy":
         from experiments.dl.staged_experiment import run_staged
         return run_staged(config_path, language=language, data_dir=data_dir, output_dir=output_dir,
-                          device=device, seed=seed, stage=stage, selection=selection)
+                          device=device, seed=seed, stage=stage, selection=selection, storage_backend=storage_backend)
+    if storage_backend != "file":
+        raise ValueError("Memory storage is supported by the staged protocol; choose kfold or final")
     if selection is not None:
         raise ValueError("A selection manifest is only supported for the final stage")
     started = time.monotonic()
@@ -225,6 +227,7 @@ def experiment_main(default_config):
     parser.add_argument("--stage", choices=("kfold", "final", "legacy"), default="kfold",
                         help="kfold: screen all data; final: fixed 80/10/10; legacy: old CV + full train")
     parser.add_argument("--selection", type=Path, help="Stage-1 selection.json to verify a final candidate")
+    parser.add_argument("--storage", choices=("file", "memory"), default="file", help="Staged dataset persistence backend")
     args = parser.parse_args()
     languages = ("python", "java", "pharo") if args.language == "all" else (args.language,)
     for language in languages:
@@ -232,4 +235,4 @@ def experiment_main(default_config):
         if output is not None and args.language == "all":
             output = output / language
         run(args.config, language=language, data_dir=args.data_dir, output_dir=output,
-            device=args.device, seed=args.seed, stage=args.stage, selection=args.selection)
+            device=args.device, seed=args.seed, stage=args.stage, selection=args.selection, storage_backend=args.storage)

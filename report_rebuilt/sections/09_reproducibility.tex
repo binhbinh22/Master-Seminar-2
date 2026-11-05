@@ -1,0 +1,47 @@
+\section{Reproducibility}
+\subsection{Source, data and environment}
+The project separates \texttt{configs/}, \texttt{data/}, \texttt{src/}, \texttt{experiments/}, \texttt{scripts/}, \texttt{notebooks/} and \texttt{results/}. Appendix~\ref{app:evidence} maps report sections to artifacts. The original manuscript and scientific metrics are preserved; new storage adapters and report assets are revision-time additions rather than new model experiments.
+
+The prepared data roots are \texttt{data/k\_fold\_data/} and \texttt{data/full\_training\_data/}. Raw category-wise CSVs are tracked directly under \texttt{data/}; the default downloader directory is not required for using these copies. Configuration files pin the upstream dataset commit, while saved manifests identify populations and splits.
+
+The requirements specify torch $\geq2.4,<3$, transformers $\geq4.40,<5$, PyYAML $\geq6,<7$, tensorboard $\geq2.14,<3$, matplotlib $\geq3.7,<4$, tqdm $\geq4.66,<5$, NumPy $\geq1.24,<3$, pandas $\geq2.0,<3$, scikit-learn $\geq1.4,<2$, and joblib $\geq1.3,<2$. The current verification environment uses Python 3.12.10 on Windows. Record exact dependency/device versions before future training; pretrained weights require network access or a local cache.
+
+\subsection{Installation and dataset preparation}
+From the repository root:
+\begin{lstlisting}
+python -m pip install -r requirements.txt
+python -m src.data.prepare_two_stage --raw-dir data --output-dir report_rebuilt/reproduction_data --folds 5 --seed 42
+\end{lstlisting}
+The second command writes a new tree and preserves archived splits. Pass its \texttt{k\_fold\_data} or \texttt{full\_training\_data} subdirectory via \texttt{--data-dir} to use regenerated data; otherwise runners use the original prepared roots. The verified regeneration recreates all six staged dataset byte fingerprints, sentence orders, labels and fold definitions.
+
+\subsection{Training and evaluation}
+These commands invoke real entry points; they are reproduction instructions, not additional training claimed in this revision. Choose fresh output paths for each run.
+\begin{lstlisting}
+python -m experiments.ml.train_baseline --stage kfold --language all --seed 42 --output-dir results/reproduction_ml_cv
+python -m experiments.ml.train_baseline --stage final --language all --methods ovr_logreg classifier_chain_logreg ovr_linear_svc ovr_sgd ovr_random_forest --seed 42 --output-dir results/reproduction_ml_final
+python -m experiments.dl.train_exp1 --stage kfold --language python --device cpu --seed 42 --output-dir results/reproduction_e1_cv/python
+python -m experiments.dl.train_exp1 --stage final --language python --device cpu --seed 42 --output-dir results/reproduction_e1_final/python
+\end{lstlisting}
+Use an available CUDA device for practical neural execution. Both CLI families accept \texttt{--storage memory} to load a snapshot through MemoryStore; \texttt{--storage file} is the default. The same parsing, validation and model code is used. Result export directories remain on the filesystem.
+
+In a Bash-capable environment, complete screening and the historical final neural subset can be run with:
+\begin{lstlisting}
+bash scripts/train_kfold.sh --seed 42 --device cuda:0 --output-dir results/reproduction_dl_cv
+bash scripts/train_full.sh --experiments 1,3,9,15,17 --seed 42 --device cuda:0 --output-dir results/reproduction_dl_final
+\end{lstlisting}
+Alternatively, the \path{src.evaluation.two_stage_results} module's \texttt{select} command writes a top-four manifest for \texttt{train\_full.sh --selection}; that follows a different candidate set from the historical fixed five. All neural experiments use base seed 42, with fold seeds base plus fold index. The evaluation design is specified in Section~5 and qualified in Section~\ref{sec:validity}.
+
+\subsection{Artifacts, visualizations and software checks}
+Runs export configurations, label order, data manifests, metrics and plots. CV outputs include fold records; final neural code can save checkpoints/thresholds, and ML code can export prediction CSVs and serialized models. The distributed scientific evidence is the stored JSON/CSV metadata and figures; availability limits are listed in Section~\ref{sec:validity}.
+\begin{lstlisting}
+python report_rebuilt/scripts/audit.py
+python report_rebuilt/scripts/research_assets.py
+python report_rebuilt/scripts/diagrams.py
+python -m unittest discover -s tests -v
+\end{lstlisting}
+The report scripts generate tables, EDA, annotated examples and learning diagnostics from existing data/history files without fitting research models. Storage tests cover both adapter contracts and all six actual staged datasets. Offline training tests use tiny mocked backbones; they are software checks rather than research replications. Test/build outcomes are recorded in \texttt{validation.md}.
+
+Three EDA notebooks include saved outputs. The notebook exporter is \path{scripts/export_eda_figures.py}; its raw-data and local tokenizer prerequisites are documented in \path{notebooks/README.md}. The report's direct EDA script uses the same prepared sentence populations and is independent of executing those notebooks.
+
+\subsection{Report build}
+The PDF is committed as \texttt{report\_rebuilt/main.pdf}. To rebuild, run XeLaTeX, BibTeX, then XeLaTeX twice from \texttt{report\_rebuilt/}, or upload the source bundle to Overleaf and select XeLaTeX. The cover follows the original manuscript's institution, instructor and team details. Times New Roman is selected when installed, with TeX Gyre Termes as fallback. Numerical checks and visual review accompany the build; source files remain editable.

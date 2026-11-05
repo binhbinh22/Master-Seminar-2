@@ -81,7 +81,7 @@ xong toàn bộ solver). `src/models/ml/curves.py` tái tạo lại đường co
 SGD không-shuffle-ngẫu-nhiên-khác-seed), refit ở `max_iter=k` cho đúng trạng thái mà 1
 lần fit dài hơn sẽ đi qua ở bước thứ k — đây là tái dựng quỹ đạo tối ưu thật, không phải
 nội suy giả. Cái giá phải trả là refit lại nhiều lần thay vì 1 lần fit duy nhất (chấp
-nhận được — toàn bộ 18 run stage `final` kèm curve chạy trong ~2.5 phút).
+nhận được — toàn bộ 15 run stage `final` kèm curve chạy trong ~2.5 phút).
 
 `dummy_most_frequent` không có trong `CURVE_PARAM` — nó không tối ưu gì nên không có gì
 để vẽ, `plots/` của nó chỉ có `test_summary.png` + `test_per_label.png`.

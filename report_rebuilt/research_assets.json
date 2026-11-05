@@ -1,0 +1,141 @@
+{
+  "lengths": {
+    "python": {
+      "word_median": 6.0,
+      "word_p95": 13.0,
+      "word_max": 26,
+      "char_median": 37.0
+    },
+    "java": {
+      "word_median": 6.0,
+      "word_p95": 16.0,
+      "word_max": 115,
+      "char_median": 43.0
+    },
+    "pharo": {
+      "word_median": 7.0,
+      "word_p95": 22.0,
+      "word_max": 47,
+      "char_median": 44.0
+    }
+  },
+  "ml_curves": {
+    "python": {
+      "source": "results/training/final/20261104-224046/ovr_logreg/python/training_curve.json",
+      "first_train_hl": 0.300880626223092,
+      "last_train_hl": 0.01780821917808219,
+      "last_val_micro": 0.5654450261780105
+    },
+    "java": {
+      "source": "results/training/final/20261104-224046/ovr_logreg/java/training_curve.json",
+      "first_train_hl": 0.19099298634182355,
+      "last_train_hl": 0.022000738279808047,
+      "last_val_micro": 0.6045627376425855
+    },
+    "pharo": {
+      "source": "results/training/final/20261104-224046/ovr_logreg/pharo/training_curve.json",
+      "first_train_hl": 0.3786270346779901,
+      "last_train_hl": 0.00626832473966232,
+      "last_val_micro": 0.6294416243654822
+    }
+  },
+  "neural_curves": [
+    {
+      "language": "python",
+      "model": "E1",
+      "best_epoch": 9,
+      "completed_epochs": 10,
+      "source": "results/training/final_gpu0/exp1/python/metrics.json"
+    },
+    {
+      "language": "python",
+      "model": "E15",
+      "best_epoch": 9,
+      "completed_epochs": 10,
+      "source": "results/training/final_gpu1/exp15/python/metrics.json"
+    },
+    {
+      "language": "java",
+      "model": "E1",
+      "best_epoch": 6,
+      "completed_epochs": 8,
+      "source": "results/training/final_gpu0/exp1/java/metrics.json"
+    },
+    {
+      "language": "java",
+      "model": "E15",
+      "best_epoch": 3,
+      "completed_epochs": 5,
+      "source": "results/training/final_gpu1/exp15/java/metrics.json"
+    },
+    {
+      "language": "pharo",
+      "model": "E1",
+      "best_epoch": 8,
+      "completed_epochs": 10,
+      "source": "results/training/final_gpu0/exp1/pharo/metrics.json"
+    },
+    {
+      "language": "pharo",
+      "model": "E15",
+      "best_epoch": 6,
+      "completed_epochs": 8,
+      "source": "results/training/final_gpu1/exp15/pharo/metrics.json"
+    }
+  ],
+  "examples": [
+    {
+      "language": "python",
+      "id": "8",
+      "text": "only provides a label and a dict of models.",
+      "labels": [
+        "Parameters"
+      ]
+    },
+    {
+      "language": "python",
+      "id": "19",
+      "text": "decorated function in the instance itself, used as a context manager.",
+      "labels": [
+        "Expand",
+        "Usage"
+      ]
+    },
+    {
+      "language": "java",
+      "id": "61",
+      "text": "contains all the state data that needs to be stored persistently for an application",
+      "labels": [
+        "rational",
+        "summary"
+      ]
+    },
+    {
+      "language": "pharo",
+      "id": "3",
+      "text": "i contain examples of different types of blarrowheadelement",
+      "labels": [
+        "Classreferences",
+        "Responsibilities"
+      ]
+    }
+  ],
+  "displayed_score_deltas": {
+    "pharo_E3_minus_E1_pp": "1.0800",
+    "pharo_E15_minus_E11_pp": "1.5100"
+  },
+  "java_rational": {
+    "exp1": {
+      "tp": 3,
+      "fp": 2,
+      "fn": 25,
+      "support": 28
+    },
+    "exp17": {
+      "tp": 12,
+      "fp": 2,
+      "fn": 16,
+      "support": 28
+    }
+  }
+}

@@ -1,0 +1,14 @@
+\begin{table}[htbp]
+\centering\small
+\caption{Stage 1 micro-F1: mean and sample standard deviation across five folds. E1 uses fold validation for checkpoint selection.}\label{tab:mlcv}
+\begin{tabular}{lrrr}\toprule
+Method & Python & Java & Pharo\\\midrule
+Logistic regression & 0.5833 $\pm$ 0.0126 & 0.5972 $\pm$ 0.0566 & 0.6438 $\pm$ 0.0223\\
+Classifier chain & 0.5623 $\pm$ 0.0193 & 0.5789 $\pm$ 0.0675 & 0.6209 $\pm$ 0.0247\\
+Linear SVM & 0.5730 $\pm$ 0.0095 & 0.5811 $\pm$ 0.0577 & 0.6372 $\pm$ 0.0210\\
+SGD & 0.5811 $\pm$ 0.0093 & 0.5932 $\pm$ 0.0556 & 0.6486 $\pm$ 0.0188\\
+Random forest & 0.5882 $\pm$ 0.0126 & 0.5726 $\pm$ 0.0405 & 0.6458 $\pm$ 0.0226\\
+Majority dummy & 0.0000 $\pm$ 0.0000 & 0.0000 $\pm$ 0.0000 & 0.0000 $\pm$ 0.0000\\
+RoBERTa E1 & 0.6169 $\pm$ 0.0177 & 0.5968 $\pm$ 0.0688 & 0.7044 $\pm$ 0.0374\\
+\bottomrule\end{tabular}
+\end{table}

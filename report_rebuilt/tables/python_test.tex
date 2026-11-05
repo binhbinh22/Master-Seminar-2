@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering\small
+\caption{Python Stage 2 test results. HL is Hamming loss (lower is better).}\label{tab:pythontest}
+\begin{tabular}{lrrrr}\toprule
+Method & Micro-F1 & Macro-F1 & HL & Micro-AP\\\midrule
+E15 & 0.6541 & 0.5965 & 0.1437 & 0.7585\\
+E9 & 0.6285 & 0.5634 & 0.1570 & 0.6779\\
+E17 & 0.6248 & 0.5669 & 0.1492 & 0.7474\\
+E1 & 0.6074 & 0.5547 & 0.1656 & 0.6571\\
+E3 & 0.5900 & 0.5496 & 0.1727 & 0.6880\\
+Linear SVM & 0.5704 & 0.5295 & 0.1906 & 0.6326\\
+SGD & 0.5690 & 0.5268 & 0.1953 & 0.6395\\
+Logistic regression & 0.5675 & 0.5244 & 0.1953 & 0.6392\\
+Classifier chain & 0.5577 & 0.5275 & 0.1945 & 0.5772\\
+Random forest & 0.5421 & 0.5019 & 0.1953 & 0.6408\\
+\bottomrule\end{tabular}
+\end{table}

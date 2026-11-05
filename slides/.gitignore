@@ -1,0 +1,10 @@
+/build/
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.xdv
+/slides_overleaf.zip

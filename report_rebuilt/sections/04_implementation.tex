@@ -1,0 +1,42 @@
+\section{Software Architecture and Implementation}
+\subsection{System architecture}
+Our application separates data preparation, feature/model construction, training, evaluation and visualization. Python entry points and Bash wrappers orchestrate experiments. Both model families consume shared validated staged datasets, while fitting and numerical scoring remain specialized. Figures~\ref{fig:modules} and~\ref{fig:pipeline} show the interactions.
+\reportfigure{modules}{Software modules with interchangeable staged-dataset stores. FileStore and MemoryStore implement the same byte interface before the shared loader validates records and creates a StageBundle.}{fig:modules}{1}
+\reportfigure{pipeline}{Experimental flow from category-wise records to model comparison. Configurations, metrics, plots and manifests are exported through filesystem run directories.}{fig:pipeline}{1}
+
+\subsection{Data access and persistence}
+The \texttt{ByteStore} protocol provides \texttt{read\_bytes(path)} and \texttt{write\_bytes(path,value)}. \texttt{FileStore} persists bytes through filesystem paths. \texttt{MemoryStore} maintains an isolated byte dictionary and can import a prepared dataset snapshot. Both preserve path keys and raise \texttt{FileNotFoundError} for missing data. Memory writes change only the snapshot; file writes change the target file.
+
+The staged loader accepts an injected store. CSV parsing, label validation, group checks, masks and fingerprints remain independent of its backend. Both ML and neural CLIs expose \texttt{--storage file|memory}: only store construction changes. After the initial memory snapshot, loader reads and manifest copying use the injected store; feature extraction, fitting and evaluation are unchanged. Six passing tests cover read/write behavior, snapshot isolation, shared validation failures and equivalence of all six real language--stage datasets, including masks, folds and fingerprints.
+
+The adapter layer was added during report revision; archived scientific results predate it and were not retrained. Its scope is staged-dataset persistence. Run directories, plots, tokenizers and checkpoint exports still have explicit filesystem output paths. This allows dataset access to switch independently while keeping shareable result artifacts. A fully interchangeable artifact-export layer is a separate extension.
+
+\subsection{Preprocessing components}
+\texttt{prepare\_two\_stage.py} validates raw records, pivots targets, normalizes text, groups duplicates and constructs partitions. \texttt{two\_stage.py} validates saved partitions before fitting. \texttt{StageBundle} carries texts, targets, masks, indices and provenance. A population fingerprint identifies canonical records and label order; a file fingerprint identifies dataset bytes.
+
+\subsection{Feature extraction}
+The ML branch fits a fresh word/character TF-IDF \texttt{FeatureUnion} inside each training fold. The neural branch uses \texttt{TokenizedNLBSEDataset} to return token IDs, attention masks, binary targets and label masks, padded/truncated to 128 positions. They share target/split semantics without sharing tokenization.
+
+\subsection{Model interfaces}
+Classical estimators expose scikit-learn's \texttt{fit}, \texttt{predict}, and probability or decision-score methods. \texttt{predict\_scores} supplies ranking scores for AP. Neural forward calls return logits and optional masked loss through \texttt{SequenceClassifierOutput}. The \texttt{MODEL\_ZOO} registry maps E1--E17 to configurations and factories. Positive weights and label graphs use current training indices only.
+
+\subsection{Training pipeline}
+Classical fitting clones a model and learns its vectorizer on training text; final validation is diagnostic. Separate refits at iteration/tree limits produce ML curve files. Neural training applies AdamW, warmup/linear decay, clipping, epoch validation, early stopping and best-state restoration. Stored histories support Section~\ref{sec:learning}.
+
+\subsection{Evaluation pipeline}
+Both branches return a common schema: micro/macro precision, recall and F1, Hamming loss, AP and label counts. ML uses NumPy/scikit-learn; neural evaluation accumulates masked tensor counts. Summaries use fold means and sample SD. JSON metrics and manifests support reproducible figure/table generation; artifact-availability limits are stated in Section~\ref{sec:validity}.
+
+\subsection{Execution environment}
+CPU/CUDA selection is supported. Dependencies include PyTorch, Transformers, scikit-learn, NumPy, pandas, PyYAML, matplotlib, tensorboard, tqdm and joblib. Section~9 gives version ranges and commands. Three Jupyter EDA notebooks have saved outputs; a dedicated Colab setup has not been validated. Storage tests and report builds use Python 3.12.10 on Windows, which identifies the revision environment rather than the original training machine.
+\begin{table}[htbp]\centering\small
+\caption{Software components and verification scope.}\label{tab:implementation}
+\begin{tabularx}{\linewidth}{lXX}\toprule
+Component & Responsibility & Verification\\\midrule
+FileStore / MemoryStore & Interchangeable dataset byte access & Six passing contract/integration tests\\
+Shared loader & Schema, groups, coverage, masks and hashes & Six real dataset snapshots equivalent\\
+TF-IDF and ML builders & Five learners plus diagnostic dummy & Code/configurations and stored results\\
+Model zoo / neural training & E1--E17 and checkpoint policies & Code/configurations and histories\\
+Evaluation / visualization & Common metrics, EDA and figures & Numerical checks and document QA\\
+Filesystem exports & Metrics, plots, tokenizer/model writes & Code inspected; archived coverage varies\\
+Jupyter EDA & Dataset exploration & Three notebooks with saved outputs\\\bottomrule
+\end{tabularx}\end{table}

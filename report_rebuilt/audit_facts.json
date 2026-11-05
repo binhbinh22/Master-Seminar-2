@@ -1,0 +1,1201 @@
+{
+  "commit": "2a540d47c9d71b2c3457dd07a65283916771df8c",
+  "python_audit": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "datasets": {
+    "python": {
+      "sentences": 2555,
+      "labels": [
+        "DevelopmentNotes",
+        "Expand",
+        "Parameters",
+        "Summary",
+        "Usage"
+      ],
+      "positive": 2864,
+      "negative": 9911,
+      "cardinality": 1.1209393346379648,
+      "density": 0.22418786692759296,
+      "unique_text_groups": 2299,
+      "duplicate_excess": 256,
+      "multilabel_rows": 284,
+      "zero_label_rows": 0,
+      "split_counts": {
+        "train": 2044,
+        "val": 255,
+        "test": 256
+      },
+      "class_overlap_train_test": 97,
+      "test_classes": 119,
+      "supports": {
+        "DevelopmentNotes": 312,
+        "Expand": 504,
+        "Parameters": 794,
+        "Summary": 454,
+        "Usage": 800
+      },
+      "test_supports": {
+        "DevelopmentNotes": 31,
+        "Expand": 51,
+        "Parameters": 80,
+        "Summary": 45,
+        "Usage": 80
+      },
+      "cv_leader": "E15",
+      "test_dl_leader": "E15"
+    },
+    "java": {
+      "sentences": 2418,
+      "labels": [
+        "Expand",
+        "Ownership",
+        "Pointer",
+        "deprecation",
+        "rational",
+        "summary",
+        "usage"
+      ],
+      "positive": 2845,
+      "negative": 14081,
+      "cardinality": 1.1765922249793217,
+      "density": 0.16808460356847454,
+      "unique_text_groups": 1668,
+      "duplicate_excess": 750,
+      "multilabel_rows": 397,
+      "zero_label_rows": 0,
+      "split_counts": {
+        "train": 1935,
+        "val": 241,
+        "test": 242
+      },
+      "class_overlap_train_test": 93,
+      "test_classes": 112,
+      "supports": {
+        "Expand": 632,
+        "Ownership": 115,
+        "Pointer": 364,
+        "deprecation": 127,
+        "rational": 280,
+        "summary": 415,
+        "usage": 912
+      },
+      "test_supports": {
+        "Expand": 63,
+        "Ownership": 11,
+        "Pointer": 35,
+        "deprecation": 12,
+        "rational": 28,
+        "summary": 42,
+        "usage": 91
+      },
+      "cv_leader": "E15",
+      "test_dl_leader": "E17"
+    },
+    "pharo": {
+      "sentences": 1765,
+      "labels": [
+        "Classreferences",
+        "Collaborators",
+        "Example",
+        "Intent",
+        "Keyimplementationpoints",
+        "Keymessages",
+        "Responsibilities"
+      ],
+      "positive": 2043,
+      "negative": 10312,
+      "cardinality": 1.1575070821529745,
+      "density": 0.16535815459328207,
+      "unique_text_groups": 1620,
+      "duplicate_excess": 145,
+      "multilabel_rows": 231,
+      "zero_label_rows": 0,
+      "split_counts": {
+        "train": 1413,
+        "val": 176,
+        "test": 176
+      },
+      "class_overlap_train_test": 74,
+      "test_classes": 93,
+      "supports": {
+        "Classreferences": 77,
+        "Collaborators": 127,
+        "Example": 748,
+        "Intent": 218,
+        "Keyimplementationpoints": 232,
+        "Keymessages": 305,
+        "Responsibilities": 336
+      },
+      "test_supports": {
+        "Classreferences": 7,
+        "Collaborators": 13,
+        "Example": 75,
+        "Intent": 21,
+        "Keyimplementationpoints": 23,
+        "Keymessages": 31,
+        "Responsibilities": 34
+      },
+      "cv_leader": "E3",
+      "test_dl_leader": "E1"
+    }
+  },
+  "runs": [
+    {
+      "path": "results/training/final/20261104-224046/classifier_chain_logreg/java/metrics.json",
+      "language": "java",
+      "model": "classifier_chain_logreg",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final/20261104-224046/classifier_chain_logreg/pharo/metrics.json",
+      "language": "pharo",
+      "model": "classifier_chain_logreg",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final/20261104-224046/classifier_chain_logreg/python/metrics.json",
+      "language": "python",
+      "model": "classifier_chain_logreg",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_linear_svc/java/metrics.json",
+      "language": "java",
+      "model": "ovr_linear_svc",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_linear_svc/pharo/metrics.json",
+      "language": "pharo",
+      "model": "ovr_linear_svc",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_linear_svc/python/metrics.json",
+      "language": "python",
+      "model": "ovr_linear_svc",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_logreg/java/metrics.json",
+      "language": "java",
+      "model": "ovr_logreg",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_logreg/pharo/metrics.json",
+      "language": "pharo",
+      "model": "ovr_logreg",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_logreg/python/metrics.json",
+      "language": "python",
+      "model": "ovr_logreg",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_random_forest/java/metrics.json",
+      "language": "java",
+      "model": "ovr_random_forest",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_random_forest/pharo/metrics.json",
+      "language": "pharo",
+      "model": "ovr_random_forest",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_random_forest/python/metrics.json",
+      "language": "python",
+      "model": "ovr_random_forest",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_sgd/java/metrics.json",
+      "language": "java",
+      "model": "ovr_sgd",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_sgd/pharo/metrics.json",
+      "language": "pharo",
+      "model": "ovr_sgd",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final/20261104-224046/ovr_sgd/python/metrics.json",
+      "language": "python",
+      "model": "ovr_sgd",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final_gpu0/exp1/java/metrics.json",
+      "language": "java",
+      "model": "E1",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final_gpu0/exp1/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E1",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final_gpu0/exp1/python/metrics.json",
+      "language": "python",
+      "model": "E1",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final_gpu0/exp3/java/metrics.json",
+      "language": "java",
+      "model": "E3",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final_gpu0/exp3/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E3",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final_gpu0/exp3/python/metrics.json",
+      "language": "python",
+      "model": "E3",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final_gpu0/exp9/java/metrics.json",
+      "language": "java",
+      "model": "E9",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final_gpu0/exp9/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E9",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final_gpu0/exp9/python/metrics.json",
+      "language": "python",
+      "model": "E9",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final_gpu1/exp15/java/metrics.json",
+      "language": "java",
+      "model": "E15",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final_gpu1/exp15/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E15",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final_gpu1/exp15/python/metrics.json",
+      "language": "python",
+      "model": "E15",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/final_gpu1/exp17/java/metrics.json",
+      "language": "java",
+      "model": "E17",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "508818d4c42f7638f85b5a263953eb1bd2b5bd4bfe2376f7571d1cacbce0c8c4",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/final_gpu1/exp17/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E17",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "e585d5a37586f178c028811c74e7ddf35cd6bbb097c2d5ec764fb790962f3332",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/final_gpu1/exp17/python/metrics.json",
+      "language": "python",
+      "model": "E17",
+      "stage": "final",
+      "seed": 42,
+      "data_fingerprint": "a17f2a4465acc281a70e5d63de2feaecbfe9af46b951361d9583d667c7a33c5d",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/classifier_chain_logreg/java/metrics.json",
+      "language": "java",
+      "model": "classifier_chain_logreg",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/classifier_chain_logreg/pharo/metrics.json",
+      "language": "pharo",
+      "model": "classifier_chain_logreg",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/classifier_chain_logreg/python/metrics.json",
+      "language": "python",
+      "model": "classifier_chain_logreg",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/dummy_most_frequent/java/metrics.json",
+      "language": "java",
+      "model": "dummy_most_frequent",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/dummy_most_frequent/pharo/metrics.json",
+      "language": "pharo",
+      "model": "dummy_most_frequent",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/dummy_most_frequent/python/metrics.json",
+      "language": "python",
+      "model": "dummy_most_frequent",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_linear_svc/java/metrics.json",
+      "language": "java",
+      "model": "ovr_linear_svc",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_linear_svc/pharo/metrics.json",
+      "language": "pharo",
+      "model": "ovr_linear_svc",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_linear_svc/python/metrics.json",
+      "language": "python",
+      "model": "ovr_linear_svc",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_logreg/java/metrics.json",
+      "language": "java",
+      "model": "ovr_logreg",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_logreg/pharo/metrics.json",
+      "language": "pharo",
+      "model": "ovr_logreg",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_logreg/python/metrics.json",
+      "language": "python",
+      "model": "ovr_logreg",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_random_forest/java/metrics.json",
+      "language": "java",
+      "model": "ovr_random_forest",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_random_forest/pharo/metrics.json",
+      "language": "pharo",
+      "model": "ovr_random_forest",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_random_forest/python/metrics.json",
+      "language": "python",
+      "model": "ovr_random_forest",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_sgd/java/metrics.json",
+      "language": "java",
+      "model": "ovr_sgd",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_sgd/pharo/metrics.json",
+      "language": "pharo",
+      "model": "ovr_sgd",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold/20261102-222649/ovr_sgd/python/metrics.json",
+      "language": "python",
+      "model": "ovr_sgd",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp1/java/metrics.json",
+      "language": "java",
+      "model": "E1",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp1/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E1",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp1/python/metrics.json",
+      "language": "python",
+      "model": "E1",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp2/java/metrics.json",
+      "language": "java",
+      "model": "E2",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp2/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E2",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp2/python/metrics.json",
+      "language": "python",
+      "model": "E2",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp3/java/metrics.json",
+      "language": "java",
+      "model": "E3",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp3/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E3",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp3/python/metrics.json",
+      "language": "python",
+      "model": "E3",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp4/java/metrics.json",
+      "language": "java",
+      "model": "E4",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp4/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E4",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp4/python/metrics.json",
+      "language": "python",
+      "model": "E4",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp5/java/metrics.json",
+      "language": "java",
+      "model": "E5",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp5/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E5",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp5/python/metrics.json",
+      "language": "python",
+      "model": "E5",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp6/java/metrics.json",
+      "language": "java",
+      "model": "E6",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp6/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E6",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp6/python/metrics.json",
+      "language": "python",
+      "model": "E6",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp7/java/metrics.json",
+      "language": "java",
+      "model": "E7",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp7/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E7",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp7/python/metrics.json",
+      "language": "python",
+      "model": "E7",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp8/java/metrics.json",
+      "language": "java",
+      "model": "E8",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp8/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E8",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp8/python/metrics.json",
+      "language": "python",
+      "model": "E8",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp9/java/metrics.json",
+      "language": "java",
+      "model": "E9",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp9/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E9",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu0/exp9/python/metrics.json",
+      "language": "python",
+      "model": "E9",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp10/java/metrics.json",
+      "language": "java",
+      "model": "E10",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp10/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E10",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp10/python/metrics.json",
+      "language": "python",
+      "model": "E10",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp11/java/metrics.json",
+      "language": "java",
+      "model": "E11",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp11/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E11",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp11/python/metrics.json",
+      "language": "python",
+      "model": "E11",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp12/java/metrics.json",
+      "language": "java",
+      "model": "E12",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp12/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E12",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp12/python/metrics.json",
+      "language": "python",
+      "model": "E12",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp13/java/metrics.json",
+      "language": "java",
+      "model": "E13",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp13/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E13",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp13/python/metrics.json",
+      "language": "python",
+      "model": "E13",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp14/java/metrics.json",
+      "language": "java",
+      "model": "E14",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp14/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E14",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp14/python/metrics.json",
+      "language": "python",
+      "model": "E14",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp15/java/metrics.json",
+      "language": "java",
+      "model": "E15",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp15/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E15",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp15/python/metrics.json",
+      "language": "python",
+      "model": "E15",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp16/java/metrics.json",
+      "language": "java",
+      "model": "E16",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp16/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E16",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp16/python/metrics.json",
+      "language": "python",
+      "model": "E16",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp17/java/metrics.json",
+      "language": "java",
+      "model": "E17",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "b47c89897374a4df4179067e514a7e76ad5a9f5ec776db9e51b817dfd0062ce0",
+      "population_fingerprint": "91d5efb7fa8d125432c2d9fa92a332b008595c153b04c77555f90de2c82cf842"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp17/pharo/metrics.json",
+      "language": "pharo",
+      "model": "E17",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "e447db5e1bdde096bba0ea411b99215b54fd35d488db5f4e64dfe758ed97f3b8",
+      "population_fingerprint": "6d9f55f521e1455c41fdd1f02a9af7667b2742bd97ea8b6b2039f499a10ff59e"
+    },
+    {
+      "path": "results/training/kfold_gpu1/exp17/python/metrics.json",
+      "language": "python",
+      "model": "E17",
+      "stage": "kfold",
+      "seed": 42,
+      "data_fingerprint": "5a27b3134e34bc78928e73296b38ac3bd6f26c07beccfdd6c55e14e1c70cddcc",
+      "population_fingerprint": "6d8be402641df4f897a22a19dcc762d95518f329b1c6f6f6d814630241249a7c"
+    }
+  ],
+  "summary_mismatches": [],
+  "configs": [
+    {
+      "experiment": "E1",
+      "path": "configs/exp1_roberta_baseline.yaml",
+      "backbone": "roberta-base",
+      "variant": "bce",
+      "changes": {}
+    },
+    {
+      "experiment": "E2",
+      "path": "configs/exp2_roberta_weighted_bce.yaml",
+      "backbone": "roberta-base",
+      "variant": "weighted_bce",
+      "changes": {}
+    },
+    {
+      "experiment": "E3",
+      "path": "configs/exp3_roberta_focal.yaml",
+      "backbone": "roberta-base",
+      "variant": "focal",
+      "changes": {
+        "focal_gamma": 2.0,
+        "focal_alpha": null
+      }
+    },
+    {
+      "experiment": "E4",
+      "path": "configs/exp4_roberta_threshold_tuning.yaml",
+      "backbone": "roberta-base",
+      "variant": "threshold_tuning",
+      "changes": {}
+    },
+    {
+      "experiment": "E5",
+      "path": "configs/exp5_roberta_label_attention.yaml",
+      "backbone": "roberta-base",
+      "variant": "label_attention",
+      "changes": {}
+    },
+    {
+      "experiment": "E6",
+      "path": "configs/exp6_roberta_label_attention_contrastive.yaml",
+      "backbone": "roberta-base",
+      "variant": "label_attention_contrastive",
+      "changes": {
+        "contrastive_weight": 0.1,
+        "temperature": 0.1
+      }
+    },
+    {
+      "experiment": "E7",
+      "path": "configs/exp7_roberta_asl.yaml",
+      "backbone": "roberta-base",
+      "variant": "asl",
+      "changes": {
+        "asl_gamma_pos": 1.0,
+        "asl_gamma_neg": 4.0,
+        "asl_clip": 0.05,
+        "asl_detach_focal": true
+      }
+    },
+    {
+      "experiment": "E8",
+      "path": "configs/exp8_roberta_rdrop.yaml",
+      "backbone": "roberta-base",
+      "variant": "rdrop",
+      "changes": {
+        "rdrop_alpha": 1.0
+      }
+    },
+    {
+      "experiment": "E9",
+      "path": "configs/exp9_roberta_label_gnn.yaml",
+      "backbone": "roberta-base",
+      "variant": "label_gnn",
+      "changes": {
+        "graph_hidden": 128,
+        "graph_threshold": 0.1,
+        "graph_head": "residual_classifier_v2",
+        "early_stopping_patience": 3,
+        "min_epochs": 5,
+        "validation_tiebreaker": "micro_average_precision"
+      }
+    },
+    {
+      "experiment": "E10",
+      "path": "configs/exp10_roberta_fgm.yaml",
+      "backbone": "roberta-base",
+      "variant": "fgm",
+      "changes": {
+        "fgm_epsilon": 1.0,
+        "adversarial_weight": 1.0
+      }
+    },
+    {
+      "experiment": "E11",
+      "path": "configs/exp11_codebert_bce.yaml",
+      "backbone": "microsoft/codebert-base",
+      "variant": "codebert_bce",
+      "changes": {}
+    },
+    {
+      "experiment": "E12",
+      "path": "configs/exp12_roberta_label_attention_gnn.yaml",
+      "backbone": "roberta-base",
+      "variant": "label_attention_gnn",
+      "changes": {
+        "graph_hidden": 128,
+        "graph_threshold": 0.1
+      }
+    },
+    {
+      "experiment": "E13",
+      "path": "configs/exp13_codebert_head_lr.yaml",
+      "backbone": "microsoft/codebert-base",
+      "variant": "codebert_head_lr",
+      "changes": {
+        "encoder_learning_rate": 2e-05,
+        "head_learning_rate": 0.0001
+      }
+    },
+    {
+      "experiment": "E14",
+      "path": "configs/exp14_codebert_llrd.yaml",
+      "backbone": "microsoft/codebert-base",
+      "variant": "codebert_llrd",
+      "changes": {
+        "encoder_learning_rate": 2e-05,
+        "head_learning_rate": 0.0001,
+        "layerwise_lr_decay": 0.9
+      }
+    },
+    {
+      "experiment": "E15",
+      "path": "configs/exp15_codebert_rdrop.yaml",
+      "backbone": "microsoft/codebert-base",
+      "variant": "codebert_rdrop",
+      "changes": {
+        "rdrop_alpha": 1.0
+      }
+    },
+    {
+      "experiment": "E16",
+      "path": "configs/exp16_codebert_llrd_rdrop.yaml",
+      "backbone": "microsoft/codebert-base",
+      "variant": "codebert_llrd_rdrop",
+      "changes": {
+        "rdrop_alpha": 1.0,
+        "encoder_learning_rate": 2e-05,
+        "head_learning_rate": 0.0001,
+        "layerwise_lr_decay": 0.9
+      }
+    },
+    {
+      "experiment": "E17",
+      "path": "configs/exp17_codebert_focal.yaml",
+      "backbone": "microsoft/codebert-base",
+      "variant": "codebert_focal",
+      "changes": {
+        "focal_gamma": 2.0,
+        "focal_alpha": null
+      }
+    }
+  ],
+  "prediction_files": [],
+  "model_checkpoints": []
+}

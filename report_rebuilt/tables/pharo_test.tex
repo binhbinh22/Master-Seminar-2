@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering\small
+\caption{Pharo Stage 2 test results. HL is Hamming loss (lower is better).}\label{tab:pharotest}
+\begin{tabular}{lrrrr}\toprule
+Method & Micro-F1 & Macro-F1 & HL & Micro-AP\\\midrule
+E1 & 0.7371 & 0.6720 & 0.0828 & 0.7990\\
+E9 & 0.7157 & 0.6058 & 0.0909 & 0.7766\\
+E17 & 0.7080 & 0.6283 & 0.0917 & 0.8084\\
+E15 & 0.7050 & 0.6194 & 0.0917 & 0.8013\\
+E3 & 0.6919 & 0.6015 & 0.0990 & 0.7956\\
+Random forest & 0.6447 & 0.5607 & 0.1136 & 0.7126\\
+SGD & 0.6420 & 0.5788 & 0.1177 & 0.6618\\
+Logistic regression & 0.6400 & 0.5653 & 0.1169 & 0.6691\\
+Linear SVM & 0.6308 & 0.5601 & 0.1169 & 0.6545\\
+Classifier chain & 0.6161 & 0.5197 & 0.1274 & 0.6224\\
+\bottomrule\end{tabular}
+\end{table}

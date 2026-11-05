@@ -12,11 +12,11 @@ from src.data.two_stage import EVALUATION_NOTE, load_stage_data
 ROOT = Path(__file__).resolve().parents[3]
 
 
-def load(language, stage, data_dir=None):
+def load(language, stage, data_dir=None, *, store=None):
     root = Path(data_dir) if data_dir is not None else ROOT / "data" / (
         "k_fold_data" if stage == "kfold" else "full_training_data"
     )
-    bundle = load_stage_data(root, language, stage)
+    bundle = load_stage_data(root, language, stage, store=store)
     return {
         "bundle": bundle,
         "texts": np.array(bundle.texts, dtype=object),

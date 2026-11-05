@@ -26,6 +26,7 @@ def main():
     parser.add_argument("--output-dir", type=Path, default=None,
                         help="Base dir for results/training/<stage>/<timestamp> if unset")
     parser.add_argument("--data-dir", type=Path, default=None)
+    parser.add_argument("--storage", choices=("file", "memory"), default="file", help="Staged dataset persistence backend")
     args = parser.parse_args()
 
     languages = LANGUAGES if args.language == "all" else (args.language,)
@@ -36,7 +37,7 @@ def main():
         for language in languages:
             print(f"=== {method} / {language} / {args.stage} ===")
             result = run_staged(method, language, args.stage, output_base=base_dir,
-                                seed=args.seed, data_dir=args.data_dir)
+                                seed=args.seed, data_dir=args.data_dir, storage_backend=args.storage)
             if args.stage == "kfold":
                 cv = result["cross_validation"]["micro_f1"]
                 print(f"CV micro-F1: {cv['mean']:.4f} +/- {cv['std']:.4f}")

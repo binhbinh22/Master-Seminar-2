@@ -1,0 +1,10 @@
+\section{Conclusion}
+We compared five TF-IDF learning methods and seventeen RoBERTa/CodeBERT configurations on 6,738 multi-label code comment sentences. The results show that model selection should consider the language-specific corpus and the information types needed by the application.
+
+\textbf{RQ1:} Traditional models are competitive on Java: logistic regression essentially matches RoBERTa E1 screening micro-F1 and exceeds its macro-F1. E1 has higher observed micro-F1 than all five traditional methods on Python and Pharo.
+
+\textbf{RQ2:} CodeBERT R-Drop leads screening on Python and Java; RoBERTa focal leads Pharo. In the available final subset, the highest observed test micro-F1 belongs to E15, E17 and E1 for Python, Java and Pharo, respectively. Combined comparisons do not isolate one intervention as the cause of improvement.
+
+\textbf{RQ3:} Aggregate gains do not guarantee improvement for every label. Python DevelopmentNotes regresses under E15, while Java E17 loses F1 on Expand and Pointer despite higher overall scores. Per-label support, precision and recall are necessary companions to aggregate F1.
+
+Our software contribution includes shared dataset validation, interchangeable dataset stores, configuration-driven models and reproducible visualizations. This is an empirical comparison rather than a new architecture. Following Section~\ref{sec:validity}, future work should prioritize independent project-grouped evaluation, repeated seeds, sentence-level predictions and validation-only threshold calibration to establish how these tradeoffs transfer to practical comment-management tasks.

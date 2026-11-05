@@ -1,0 +1,73 @@
+{
+  "counts": {
+    "python": {
+      "kfold": {
+        "all": 2555
+      },
+      "final": {
+        "train": 2044,
+        "val": 255,
+        "test": 256
+      }
+    },
+    "java": {
+      "kfold": {
+        "all": 2418
+      },
+      "final": {
+        "train": 1935,
+        "val": 241,
+        "test": 242
+      }
+    },
+    "pharo": {
+      "kfold": {
+        "all": 1765
+      },
+      "final": {
+        "train": 1413,
+        "val": 176,
+        "test": 176
+      }
+    }
+  },
+  "checks": [
+    {
+      "language": "python",
+      "stage": "kfold",
+      "data_fingerprint": "63bda6d6debcac33309654cc91b35f1dc126c0f7ae16b5be0953ea9d45f9a29b",
+      "passed": true
+    },
+    {
+      "language": "python",
+      "stage": "final",
+      "data_fingerprint": "4f2d84fa7acdcc8c4149cf4b6ea76e42bcfcdb96072b1a96ea44995bc0f7a550",
+      "passed": true
+    },
+    {
+      "language": "java",
+      "stage": "kfold",
+      "data_fingerprint": "b40e5d2dd5fe6b1df6480911b22c485bc437ce74b308204bd0c3781134d9df2b",
+      "passed": true
+    },
+    {
+      "language": "java",
+      "stage": "final",
+      "data_fingerprint": "f219e0c47fde288155e0653a8a7c0c69195aa963c49374e812bf74b0f49db435",
+      "passed": true
+    },
+    {
+      "language": "pharo",
+      "stage": "kfold",
+      "data_fingerprint": "57fbfb2a072f1efc303a00b265153762fdee14c9bf3a880a721e6fdbdfb572aa",
+      "passed": true
+    },
+    {
+      "language": "pharo",
+      "stage": "final",
+      "data_fingerprint": "c97ea707b9c07d2ae8d7c419c12a290b7e01d108edc124e3e4821fc56322a7d4",
+      "passed": true
+    }
+  ],
+  "research_training_rerun": false
+}

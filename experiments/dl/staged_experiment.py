@@ -14,6 +14,7 @@ from transformers import AutoTokenizer
 
 from experiments.dl.roberta_experiment import make_loader, train_model
 from src.data.two_stage import EVALUATION_NOTE, load_stage_data
+from src.data.storage import dataset_store
 from src.evaluation.multilabel import SUMMARY_METRICS, evaluate_masked_multilabel
 from src.evaluation.summaries import summarize_metric_runs
 from src.evaluation.thresholds import predict_probabilities, tune_thresholds
@@ -49,7 +50,7 @@ def verify_selection(path, model_key, bundle, config_fingerprint):
 
 
 def run_staged(config_path, *, language=None, data_dir=None, output_dir=None,
-               device=None, seed=None, stage="kfold", selection=None):
+               device=None, seed=None, stage="kfold", selection=None, storage_backend="file"):
     started = time.monotonic()
     if stage not in ("kfold", "final"):
         raise ValueError("stage must be kfold or final")
@@ -72,7 +73,8 @@ def run_staged(config_path, *, language=None, data_dir=None, output_dir=None,
     if language not in ("python", "java", "pharo"):
         raise ValueError("Unknown language")
     root = Path(data_dir) if data_dir is not None else ROOT / "data" / ("k_fold_data" if stage == "kfold" else "full_training_data")
-    bundle = load_stage_data(root, language, stage)
+    store = dataset_store(storage_backend, root / language)
+    bundle = load_stage_data(root, language, stage, store=store)
     config_fingerprint = configuration_fingerprint(config)
     model_key = next((key for key, spec in MODEL_ZOO.items() if spec.variant == config["variant"]), None)
     if model_key is None:
@@ -89,14 +91,14 @@ def run_staged(config_path, *, language=None, data_dir=None, output_dir=None,
     if (output / "metrics.json").exists() or (output / "best_model.pt").exists():
         raise ValueError(f"Refusing to overwrite completed staged results at {output}; choose a new output directory")
     output.mkdir(parents=True, exist_ok=True)
-    config.update(stage=stage, output_dir=str(output))
+    config.update(stage=stage, output_dir=str(output), storage_backend=storage_backend)
     (output / "config.yaml").write_text(yaml.safe_dump(config, sort_keys=False))
     (output / "label_cols.json").write_text(json.dumps(list(bundle.label_names), indent=2) + "\n")
-    (output / "data_manifest.json").write_text((Path(bundle.data_dir) / "manifest.json").read_text())
+    (output / "data_manifest.json").write_bytes(store.read_bytes(Path(bundle.data_dir) / "manifest.json"))
     tokenizer = AutoTokenizer.from_pretrained(model_config["name"], use_fast=True)
     tokenizer.save_pretrained(output / "tokenizer")
     tensorboard = output / "tensorboard" / stamp
-    result = {"stage": stage, "protocol": bundle.protocol, "split_source": bundle.protocol,
+    result = {"stage": stage, "protocol": bundle.protocol, "split_source": bundle.protocol, "storage_backend": storage_backend,
               "model": model_key, "experiment": config["experiment"], "variant": config["variant"],
               "pretrained_backbone": model_config["name"], "language": language,
               "labels": list(bundle.label_names), "seed": training["seed"], "device": str(device),
