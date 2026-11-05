@@ -2,6 +2,8 @@
 \subsection{Selection and statistical validity}
 Stage 1 screens methods on the full population, including sentences later assigned to Stage 2 test. Final testing is therefore exploratory rather than independent confirmation. Neural CV selects an epoch on the same validation fold used for its reported score. This can introduce optimistic checkpoint-selection bias and differs from the fixed classical fitting process. A future outer holdout should exclude test data from configuration and epoch selection; inner validation or a fixed training schedule would address the checkpoint issue.
 
+The exploration budget is asymmetric: the five classical methods use fixed hyperparameter settings, with no systematic hyperparameter search documented in the archived runs, whereas the Transformer family is screened across seventeen configurations (E1--E17). Neural checkpoint selection adds another selection opportunity. The comparison therefore concerns the recorded configurations, not equally tuned model families; it does not establish that a tuned classical baseline would be inferior. A controlled follow-up should allocate comparable tuning budgets within inner validation and evaluate frozen choices on an independent outer test set.
+
 The cohort has one base seed, 42; fold seeds 42--46 are not repeated full-protocol seeds. Screening seventeen configurations creates multiple-comparison opportunities, and fold SD is descriptive variation rather than a confidence interval. No statistical significance is claimed. Small label supports make some F1 values sensitive to a few decisions. Repeated protocol seeds and paired uncertainty analysis are needed to establish whether small differences persist.
 
 \subsection{Data and external validity}
