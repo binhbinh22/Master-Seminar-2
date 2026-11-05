@@ -1,0 +1,305 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+\usetheme[color=blue,font=arial,titlefont=same,footerlogo=mark,bar=thin,titlepage=light,sectionpage=none,numbering=fraction,progressbar=on,dateaddress=off,framebg=off,footermeta=off,footer={Seminar 2 | Code Comment Classification}]{HUST}
+\makeatletter\let\sourcenote\beamer@orig@note\makeatother
+\usepackage{booktabs,amsmath,tabularx}
+\setbeamertemplate{navigation symbols}{}
+\title[Code Comment Classification]{Multi-label Code Comment\\Classification}
+\subtitle{Traditional Machine Learning and Transformer Models\\A Comparative Study on NLBSE'23}
+\author[Seminar 2 Research Group]{Seminar 2 Research Group}
+\institute{Hanoi University of Science and Technology\\School of Information \& Communication Technology}
+\date{5 November 2026}
+\newcommand{\src}[1]{\vfill{\tiny\color{gray}#1\par}}
+\newcommand{\fig}[2]{{\centering\includegraphics[width=#2\linewidth,height=.63\textheight,keepaspectratio]{figures/#1.pdf}\par}}
+\errorcontextlines=100
+\begin{document}
+\begin{frame}[plain]\titlepage\end{frame}
+\begin{frame}{Research team and supervision}
+\begin{columns}[T]
+\begin{column}{.60\textwidth}\textbf{Team members}\par\medskip
+\begin{tabular}{@{}ll@{}}
+Nguyễn Khắc Thái Bình & \texttt{20251324M}\\
+Lã Minh Trung & \texttt{20251319M}\\
+Nguyễn Thu Uyên & \texttt{20252279M}\\
+Nguyễn Thị Nhã Linh & \texttt{20261262M}\\
+Nguyễn Đức Anh & \texttt{20252469M}\\
+\end{tabular}\par\end{column}
+\begin{column}{.36\textwidth}\textbf{Instructor}\medskip
+
+Dr. Phuong Nguyen\\University of L'Aquila, Italy
+\medskip
+
+\textbf{Course:} Seminar 2\\\textbf{Academic year:} 2026--2027
+\end{column}\end{columns}
+\src{Original manuscript: docs/report/report.tex; updated report cover.}
+\sourcenote{[Sources] Original manuscript: docs/report/report.tex; updated report cover.}
+\end{frame}
+
+\begin{frame}{One comment can express several information types}
+\begin{block}{Task}
+Given a comment sentence, predict every applicable information category in its programming-language-specific taxonomy.
+\end{block}
+\medskip
+\textbf{Example:} ``decorated function in the instance itself, used as a context manager.''
+\medskip
+
+\textbf{Gold labels:} Expand \emph{and} Usage (Python, sentence 19).
+\medskip
+\begin{itemize}\item Supports comment navigation and documentation analysis.
+\item Predicting information type does not measure comment quality or correctness.\end{itemize}
+\src{Report Secs. 1, 3 and 6.7; prepared Python dataset, sentence 19.}
+\sourcenote{[Sources] Report Secs. 1, 3 and 6.7; prepared Python dataset, sentence 19.}
+\end{frame}
+
+\begin{frame}{Three questions structure the study}
+\begin{enumerate}
+\item \textbf{RQ1:} How competitive are traditional TF-IDF models against a pretrained Transformer reference?
+\medskip\item \textbf{RQ2:} Which neural configurations perform best across Python, Java and Pharo?
+\medskip\item \textbf{RQ3:} Do improvements in aggregate F1 also improve individual labels?
+\end{enumerate}
+\medskip
+Five classical learners; seventeen neural configurations; grouped evaluation and per-label analysis.
+\src{Report Sec. 1.1.}
+\sourcenote{[Sources] Report Sec. 1.1.}
+\end{frame}
+
+\begin{frame}{The dataset contains 6,738 comment sentences}
+\begin{center}\begin{tabular}{lrrrr}\toprule
+Language & Sentences & Labels & Cardinality & Text groups\\\midrule
+Python & 2,555 & 5 & 1.121 & 2,299\\
+Java & 2,418 & 7 & 1.177 & 1,668\\
+Pharo & 1,765 & 7 & 1.158 & 1,620\\\bottomrule
+\end{tabular}\par\end{center}
+\medskip
+\begin{itemize}\item Sentence IDs join category-wise records into binary target vectors.
+\item Taxonomies differ by language: 19 language-specific categories in total.
+\item Exact whitespace-normalized duplicate texts remain in one group.\end{itemize}
+\src{Report Sec. 3, Tables 2--3; NLBSE dataset: github.com/nlbse2023/code-comment-classification.}
+\sourcenote{[Sources] Report Sec. 3, Tables 2--3; NLBSE dataset: github.com/nlbse2023/code-comment-classification.}
+\end{frame}
+
+\begin{frame}{Label support is strongly imbalanced}
+\fig{eda_labels}{.98}
+\par\small Usage dominates Python; usage dominates Java; Example dominates Pharo.
+\src{Report Fig. 1; computed from full prepared targets (descriptive EDA).}
+\sourcenote{[Sources] Report Fig. 1; computed from full prepared targets (descriptive EDA).}
+\end{frame}
+
+\begin{frame}{Most sentences are short, but tails differ}
+\fig{eda_lengths}{.92}
+\par\small Median whitespace-delimited words: Python 6, Java 6, Pharo 7.\\These are text statistics, not tokenizer subword counts.
+\src{Report Fig. 2; prepared sentence texts.}
+\sourcenote{[Sources] Report Fig. 2; prepared sentence texts.}
+\end{frame}
+
+\begin{frame}{Models share targets and evaluation interfaces}
+\fig{model}{.85}
+\par\small TF-IDF models learn sparse lexical patterns; pretrained encoders learn contextual representations.
+\src{Report Fig. 6; src/models/ml and src/models/dl.}
+\sourcenote{[Sources] Report Fig. 6; src/models/ml and src/models/dl.}
+\end{frame}
+
+\begin{frame}{Five classical models use fixed settings}
+\begin{tabular}{ll}\toprule
+Method & Main recorded settings\\\midrule
+Logistic regression & One-vs-Rest; $C=5$; balanced weights\\
+Classifier chain & Logistic base; random label order; seed 42\\
+Linear SVM & One-vs-Rest; $C=1$; balanced weights\\
+SGD & Logistic loss; balanced weights; max. 2,000 iterations\\
+Random forest & One-vs-Rest; 300 trees; balanced weights\\\bottomrule
+\end{tabular}\par
+\medskip
+Word 1--2 grams + character 3--5 grams; fold-local TF-IDF fitting. No systematic hyperparameter search is documented for these archived runs.
+\src{Report Sec. 5.1, Table 5; fixed settings are not an equal tuning budget to neural screening.}
+\sourcenote{[Sources] Report Sec. 5.1, Table 5; fixed settings are not an equal tuning budget to neural screening.}
+\end{frame}
+
+\begin{frame}{Seventeen neural configurations test several factors}
+\begin{tabular}{ll}\toprule
+Factor & Configuration examples\\\midrule
+Backbone & E1: RoBERTa BCE; E11: CodeBERT BCE\\
+Loss & E2: weighted BCE; E3/E17: focal loss; E7: ASL\\
+Label structure & E5/E6: label attention; E12: label GNN\\
+Regularization & E8: R-Drop; E10: adversarial; E15: CodeBERT R-Drop\\
+Optimization & E9: patience/tie-break policy; E13/E14: layer-wise learning rates\\\bottomrule
+\end{tabular}\par
+\medskip
+E16 combines interventions. E4 shares E1 screening scores because threshold tuning is deferred; its final run is absent.
+\src{Report Sec. 5.2, Table 6; complete E1--E17 settings remain in report.}
+\sourcenote{[Sources] Report Sec. 5.2, Table 6; complete E1--E17 settings remain in report.}
+\end{frame}
+
+\begin{frame}{Multi-label objectives act on separate label scores}
+For each label $\ell$, the encoder predicts $p_\ell=\sigma(z_\ell)$.
+\[
+\mathcal{L}_{\mathrm{BCE}}=-\frac1L\sum_{\ell=1}^L[y_\ell\log p_\ell+(1-y_\ell)\log(1-p_\ell)].
+\]
+\begin{itemize}\item \textbf{Focal loss:} reduces the contribution of easy decisions.
+\item \textbf{ASL:} uses asymmetric focusing for positive and negative labels.
+\item \textbf{R-Drop:} penalizes disagreement between stochastic forward passes.
+\end{itemize}
+\medskip
+Reported final neural decisions use threshold 0.5.
+\src{Report Sec. 5.3; Lin et al. (2017), Ridnik et al. (2021), Wu et al. (2021); bibliography in report.}
+\sourcenote{[Sources] Report Sec. 5.3; Lin et al. (2017), Ridnik et al. (2021), Wu et al. (2021); bibliography in report.}
+\end{frame}
+
+\begin{frame}{Grouped screening precedes an exploratory final split}
+\fig{protocol}{.92}
+\par\small Stage 1: grouped five-fold CV. Stage 2: approximately 80/10/10.\\Final test sentences already participated in Stage 1 method selection.
+\src{Report Sec. 5.4, Fig. 7. Final testing is not independent confirmation.}
+\sourcenote{[Sources] Report Sec. 5.4, Fig. 7. Final testing is not independent confirmation.}
+\end{frame}
+
+\begin{frame}{Micro-F1 and label-level scores answer different questions}
+\[
+F1_{\mathrm{micro}}=\frac{2\sum_\ell TP_\ell}{2\sum_\ell TP_\ell+\sum_\ell FP_\ell+\sum_\ell FN_\ell},
+\qquad F1_{\mathrm{macro}}=\frac1L\sum_\ell F1_\ell.
+\]
+\begin{itemize}\item \textbf{Micro-F1:} pools decisions; frequent labels have greater influence.
+\item \textbf{Macro-F1:} weights labels equally; small supports can be unstable.
+\item \textbf{Precision, recall, support:} explain minority-label trade-offs.
+\item Hamming loss and average precision provide complementary views.\end{itemize}
+\src{Report Sec. 5.5; no statistical significance inferred from fold SD.}
+\sourcenote{[Sources] Report Sec. 5.5; no statistical significance inferred from fold SD.}
+\end{frame}
+
+\begin{frame}{RQ1: classical models remain competitive on Java}
+\fig{ml_vs_e1}{.95}
+\par\small Best classical vs. E1: Python 0.5882 vs. 0.6169; Java 0.5972 vs. 0.5968;\\Pharo 0.6486 vs. 0.7044. Error bars show fold SD, not confidence intervals.
+\src{Report Sec. 6.1, Fig. 8; Stage 1 mean micro-F1.}
+\sourcenote{[Sources] Report Sec. 6.1, Fig. 8; Stage 1 mean micro-F1.}
+\end{frame}
+
+\begin{frame}{RQ2: the strongest neural choice depends on language}
+\begin{center}\begin{tabular}{lccc}\toprule
+Configuration & Python & Java & Pharo\\\midrule
+E1: RoBERTa BCE & 0.6169 & 0.5968 & 0.7044\\
+E3: RoBERTa focal & 0.6219 & 0.5954 & \textbf{0.7152}\\
+E11: CodeBERT BCE & 0.6397 & 0.5980 & 0.6805\\
+E15: CodeBERT R-Drop & \textbf{0.6479} & \textbf{0.6225} & 0.6956\\\bottomrule
+\end{tabular}\par\end{center}
+\medskip
+\begin{itemize}\item E15 leads Python and Java screening; E3 leads Pharo.
+\item Code pretraining alone does not guarantee an improvement (E11 vs. E1).
+\item E3--E1 on Pharo: +1.08 pp, from displayed four-decimal scores.\end{itemize}
+\src{Report Sec. 6.2, Table 8; descriptive Stage 1 means, not significance-tested effects.}
+\sourcenote{[Sources] Report Sec. 6.2, Table 8; descriptive Stage 1 means, not significance-tested effects.}
+\end{frame}
+
+\begin{frame}{Final results are available for a fixed neural subset}
+\fig{cv_test}{.95}
+\par\small Highest observed final micro-F1: Python E15 0.6541; Java E17 0.7034; Pharo E1 0.7371.\\Final set: E1/E3/E9/E15/E17; different fits and scoring sets from CV.
+\src{Report Secs. 6.3--6.4, Fig. 9. Bars must not be read as generalization-gap estimates.}
+\sourcenote{[Sources] Report Secs. 6.3--6.4, Fig. 9. Bars must not be read as generalization-gap estimates.}
+\end{frame}
+
+\begin{frame}{RQ3: aggregate gains can hide label-level regressions}
+\begin{columns}[c]\begin{column}{.60\textwidth}\fig{java_heatmap}{1}\end{column}
+\begin{column}{.37\textwidth}\textbf{Java: E1 $\rightarrow$ E17}
+\medskip
+\begin{itemize}\item Micro-F1: 0.6947 $\rightarrow$ 0.7034.
+\item rational F1: 0.182 $\rightarrow$ 0.571.
+\item Expand F1: 0.630 $\rightarrow$ 0.474.
+\item Ownership F1: 1.000 for both; only 11 positives.\end{itemize}
+\end{column}\end{columns}
+\src{Report Sec. 6.5, Table 13 and Fig. 11; retrospective descriptive comparison.}
+\sourcenote{[Sources] Report Sec. 6.5, Table 13 and Fig. 11; retrospective descriptive comparison.}
+\end{frame}
+
+\begin{frame}{A difficult label improves through higher recall}
+\textbf{Java rational: 28 positive test examples}
+\medskip
+\begin{center}\begin{tabular}{lrrrrr}\toprule
+Model & TP & FP & FN & Recall & F1\\\midrule
+E1 & 3 & 2 & 25 & 0.1071 & 0.1818\\
+E17 & 12 & 2 & 16 & 0.4286 & 0.5714\\\bottomrule
+\end{tabular}\par\end{center}
+\medskip
+\begin{itemize}\item Nine additional true positives; false positives remain at two.
+\item Aggregate counts support this explanation.
+\item Missing row-level predictions prevent identifying which sentences changed.\end{itemize}
+\src{Report Sec. 6.7; stored Java final per-label metrics (E1 and E17).}
+\sourcenote{[Sources] Report Sec. 6.7; stored Java final per-label metrics (E1 and E17).}
+\end{frame}
+
+\begin{frame}{Validation stopping can precede the lowest training loss}
+\fig{neural_learning}{.93}
+\par\small Java E15 peaks at epoch 3 (validation micro-F1 0.6402), then declines while training loss falls.\\Stars mark selected epochs; objective magnitudes differ across E1 and E15.
+\src{Report Sec. 6.6, Fig. 14; stored training histories, not newly trained models.}
+\sourcenote{[Sources] Report Sec. 6.6, Fig. 14; stored training histories, not newly trained models.}
+\end{frame}
+
+\begin{frame}{Published benchmarks provide context, not a direct ranking}
+\begin{center}\begin{tabular}{lccc}\toprule
+Official method & Avg. precision & Avg. recall & Avg. F1\\\midrule
+Random forest baseline & 0.439 & 0.245 & 0.309\\
+Submitted logistic regression & 0.540 & 0.560 & 0.547\\
+CodeT5 & 0.728 & 0.606 & 0.657\\
+STACC & 0.710 & 0.794 & 0.744\\\bottomrule
+\end{tabular}\par\end{center}
+\medskip
+The official benchmark averages 19 binary-category scores on official partitions. Our per-language micro-F1 and grouped protocol are different. No superiority margin is claimed.
+\src{Kallis et al., NLBSE tool competition overview (2023), Table III; ojcchar.github.io/files/24-nlbse23-tools.pdf.}
+\sourcenote{[Sources] Kallis et al., NLBSE tool competition overview (2023), Table III; ojcchar.github.io/files/24-nlbse23-tools.pdf.}
+\end{frame}
+
+\begin{frame}{The tuning budgets are unequal}
+\begin{columns}[T]
+\begin{column}{.47\textwidth}\textbf{Classical family}\medskip
+\begin{itemize}\item Five learned methods.
+\item Fixed hyperparameter settings.
+\item No systematic search documented in archived results.\end{itemize}\end{column}
+\begin{column}{.47\textwidth}\textbf{Transformer family}\medskip
+\begin{itemize}\item Seventeen configurations screened.
+\item Multiple architecture/loss/optimization choices.
+\item Validation-based checkpoint selection.\end{itemize}\end{column}\end{columns}
+\medskip
+\begin{block}{Interpretation}These are results for recorded configurations, not equally tuned model families. A controlled follow-up needs comparable search budgets and an independent outer test set.\end{block}
+\src{Report Sec. 8.1; archived configuration coverage.}
+\sourcenote{[Sources] Report Sec. 8.1; archived configuration coverage.}
+\end{frame}
+
+\begin{frame}{Evaluation limitations bound the conclusions}
+\begin{itemize}\item \textbf{Selection dependence:} Stage 1 includes future final-test sentences.
+\medskip\item \textbf{Checkpoint selection:} the same CV fold chooses the epoch and supplies its reported score.
+\medskip\item \textbf{Limited replication:} one base seed; fold SD is not seed uncertainty or a confidence interval.
+\medskip\item \textbf{External validity:} no project-level holdout; taxonomies and label supports differ.
+\medskip\item \textbf{Missing artifacts:} original row-level predictions and distributed weights are unavailable.\end{itemize}
+\src{Report Sec. 8. No new statistical significance or unseen-project claim.}
+\sourcenote{[Sources] Report Sec. 8. No new statistical significance or unseen-project claim.}
+\end{frame}
+
+\begin{frame}{A shared pipeline supports reproducibility}
+\begin{columns}[c]\begin{column}{.60\textwidth}\fig{modules}{1}\end{column}
+\begin{column}{.37\textwidth}\begin{itemize}\item Shared validated targets, folds and fingerprints.
+\item FileStore / MemoryStore for staged dataset persistence.
+\item 35 offline software tests pass.
+\item Six prepared datasets regenerate identically.
+\item Plots and model exports remain filesystem-based.\end{itemize}\end{column}\end{columns}
+\src{Report Secs. 4 and 9; docs/storage.md. Adapters are revision-time additions; archived training was not rerun.}
+\sourcenote{[Sources] Report Secs. 4 and 9; docs/storage.md. Adapters are revision-time additions; archived training was not rerun.}
+\end{frame}
+
+\begin{frame}{Conclusions and the next controlled experiment}
+\begin{enumerate}\item \textbf{RQ1:} lexical baselines remain useful; Java screening performance is competitive with E1.
+\medskip\item \textbf{RQ2:} the best recorded neural configuration varies by language and evaluation subset.
+\medskip\item \textbf{RQ3:} aggregate gains require per-label precision, recall and support analysis.\end{enumerate}
+\medskip
+\begin{block}{Next experiment}Freeze an independent project-grouped test set; equalize tuning budgets; repeat seeds; export row-level predictions and checkpoints.\end{block}
+\src{Report Secs. 7--10. Results are descriptive within the recorded protocol.}
+\sourcenote{[Sources] Report Secs. 7--10. Results are descriptive within the recorded protocol.}
+\end{frame}
+
+\begin{frame}{Selected references}
+\small
+\begin{enumerate}\item Kallis et al. (2023). The NLBSE'23 tool competition.\medskip
+\item Pascarella \& Bacchelli (2017). Classifying code comments in Java open-source software.\medskip
+\item Liu et al. (2019). RoBERTa.\medskip
+\item Feng et al. (2020). CodeBERT.\medskip
+\item Lin et al. (2017). Focal loss for dense object detection.\medskip
+\item Wu et al. (2021). R-Drop.\medskip
+\item Al-Kaswan et al. (2023). STACC.\end{enumerate}
+\src{Full 19-entry bibliography and primary-source links: report\_rebuilt/references.bib. Theme: github.com/k1m1nonawa4869/HUST-Beamer-Theme.}
+\sourcenote{[Sources] Full 19-entry bibliography and primary-source links: report\_rebuilt/references.bib. Theme: github.com/k1m1nonawa4869/HUST-Beamer-Theme.}
+\end{frame}
+\end{document}
