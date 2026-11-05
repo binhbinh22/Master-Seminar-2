@@ -1,0 +1,15 @@
+\section{Complete Screening Metrics}\label{app:metrics}
+The following tables retain all available classical/dummy and neural Stage 1 means. Mean micro-F1 is the selection metric; other columns provide complementary views. Fold SD for all metrics remains available in the original run JSON and \texttt{audit\_facts.json} maps each run to its path. No average over the three languages is reported, since label spaces and distributions differ.
+\input{tables/python_cv}\FloatBarrier
+\input{tables/java_cv}\FloatBarrier
+\input{tables/pharo_cv}\FloatBarrier
+\section{Pharo Reference Per-label Results}
+\input{tables/pharo_perlabel}
+E1 is itself the highest observed Pharo test micro-F1 Transformer, so the table gives its precision, recall and F1 once. The heatmap in Figure~\ref{fig:phheat} provides the other configuration comparisons.
+\FloatBarrier
+\section{Evidence and Manuscript Reconciliation}
+The older \texttt{docs/report/report.tex} discusses an incomplete RoBERTa comparison and legacy classical values (including a 0.6282 result). Those values are not mixed with the shared staged cohort. The 71-page English report under \texttt{reports/} already describes the two-stage neural results but says compatible classical results are missing; the current snapshot contains them. The five-page English paper captures the main neural leaders and limitations. This reconstruction uses raw current run evidence whenever prose is stale.
+
+The top-four selection manifest and the fixed five-model final cohort are retained as separate facts. E4's deferred threshold tuning is distinguished from an actually tuned experiment. Exact duplicate grouping is distinguished from near-duplicate removal or project-independent evaluation. File-based operation and in-memory computation are distinguished from interchangeable persistence backends.
+
+An external evidence map is provided in \path{evidence_audit.md}, together with \path{source_inventory.csv}, \path{audit_facts.json}, and \path{implementation_gaps.md}. The inventory records candidate evidence hashes; the evidence map states which sources were substantively inspected, rather than implying every inventoried byte was manually reviewed.

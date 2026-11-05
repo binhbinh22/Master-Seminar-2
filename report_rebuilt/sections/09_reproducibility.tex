@@ -1,0 +1,67 @@
+\section{Reproducibility}
+\subsection{Repository and environment}
+\texttt{configs/} contains dataset metadata and seventeen neural YAML files. \texttt{data/} contains the raw copies and prepared staged splits. \texttt{src/data/}, \texttt{src/models/}, \texttt{src/training/}, and \texttt{src/evaluation/} contain reusable components; \texttt{experiments/} and \texttt{scripts/} expose execution. \texttt{results/training/} holds run evidence; summary CSVs are separate exports. \texttt{docs/report/report.tex} is an older manuscript, while \texttt{reports/} contains longer reports and short papers. All original files are preserved.
+
+The root requirements specify: torch $\geq2.4,<3$; transformers $\geq4.40,<5$; PyYAML $\geq6,<7$; tensorboard $\geq2.14,<3$; matplotlib $\geq3.7,<4$; tqdm $\geq4.66,<5$; NumPy $\geq1.24,<3$; pandas $\geq2.0,<3$; scikit-learn $\geq1.4,<2$; and joblib $\geq1.3,<2$. The historical Python version is unspecified. The reconstruction's Python 3.12.10 identifies the audit environment only. Record exact package versions and device details before future runs.
+
+\subsection{Installation and dataset setup}
+Run the following from the repository root in a chosen Python environment:
+\begin{lstlisting}
+python -m pip install -r requirements.txt
+\end{lstlisting}
+Prepared splits are already present and are the safest starting point for comparing the archived runs. The checked-in raw copies are at \texttt{data/<language>.csv}, whereas the default preparation command expects \texttt{data/raw/}. The following actual CLI explicitly selects the available raw directory and writes a new output tree:
+\begin{lstlisting}
+python -m src.data.prepare_two_stage --raw-dir data
+  --output-dir report_rebuilt/reproduction_data --folds 5 --seed 42
+\end{lstlisting}
+The two displayed lines form one command; join them when executing. This command is documented, not claimed to have been run here. The output root is deliberately new, preserving archived splits. To use the pinned downloader instead, the implemented command is:
+\begin{lstlisting}
+python -m src.data.nlbse2023 --download
+\end{lstlisting}
+Download setup requires network access. Neural training also requires access to pretrained model files or a suitable local cache. The staged commands below read the prepared dataset roots, not the raw downloader's official-partition bundle.
+
+\subsection{Training and evaluation commands}
+These concrete examples use implemented entry points and new output paths. They describe how to reproduce computations; they were not executed as new training during report reconstruction.
+\begin{lstlisting}
+python -m experiments.ml.train_baseline --stage kfold --language all --seed 42 --output-dir results/reproduction_ml_cv
+python -m experiments.ml.train_baseline --stage final --language all --methods ovr_logreg classifier_chain_logreg ovr_linear_svc ovr_sgd ovr_random_forest --seed 42 --output-dir results/reproduction_ml_final
+python -m experiments.dl.train_exp1 --stage kfold --language python --device cpu --seed 42 --output-dir results/reproduction_e1_cv/python
+python -m experiments.dl.train_exp1 --stage final --language python --device cpu --seed 42 --output-dir results/reproduction_e1_final/python
+\end{lstlisting}
+Replace the device with an available CUDA device for neural training when appropriate. CPU support in code is not a practical runtime guarantee for full screening. To orchestrate complete neural runs in a Bash-capable environment:
+\begin{lstlisting}
+bash scripts/train_kfold.sh --seed 42 --device cuda:0 --output-dir results/reproduction_dl_cv
+python -m src.evaluation.two_stage_results select --results results/reproduction_dl_cv --top-k 4 --output-dir results/reproduction_selection
+bash scripts/train_full.sh --selection results/reproduction_selection/selection.json --device cuda:0 --output-dir results/reproduction_dl_selected
+\end{lstlisting}
+This manifest-driven example follows the implemented top-four selection logic; it will not recreate the historical fixed five-model final subset. To run that subset explicitly, use the supported alternative:
+\begin{lstlisting}
+bash scripts/train_full.sh --experiments 1,3,9,15,17 --seed 42 --device cuda:0 --output-dir results/reproduction_dl_fixed_subset
+\end{lstlisting}
+The report's README supplies commands without prose line wrapping and distinguishes the two alternatives. None corrects the original test-selection dependence: reproducing a flawed protocol does not validate it.
+
+\subsection{Outputs and result generation}
+Each run writes a configuration, label order, data manifest, metrics, and plots. CV runs include folds and summaries; final neural runs may write checkpoint/threshold files, and final classical runs serialize the model/vectorizer. Code for ML row-level prediction CSVs exists even though the archived files are absent. Final neural evaluation is integrated into the runner rather than a verified standalone checkpoint-evaluation CLI. No such CLI is invented here.
+
+For the stored final neural roots, the existing exporter can generate a new report:
+\begin{lstlisting}
+python -m src.evaluation.two_stage_results report --results results/training/final_gpu0 results/training/final_gpu1 --output-dir report_rebuilt/reproduced_final_summary
+\end{lstlisting}
+For this reconstructed document, the included audit script reads all staged run JSONs and produces the tables, numerical facts, source inventory, and result figures:
+\begin{lstlisting}
+python report_rebuilt/scripts/audit.py
+python report_rebuilt/scripts/diagrams.py
+\end{lstlisting}
+It performs no training and writes only under \texttt{report\_rebuilt/}. Its checks compare raw labels with processed labels, reconstruct final populations, validate exact-group separation and CV coverage, check common recorded fingerprints, recalculate fold summaries, and check final F1 from stored label evidence. A separate temporary regeneration through the actual preparation/loader functions also reproduced all six staged dataset byte fingerprints, sentence orders, labels, and fold definitions. These are independent artifact checks, not a re-execution of the research training.
+
+The existing \texttt{test\_two\_stage.py} suite was also executed: two tests passed, including a tiny mocked-backbone training fixture, while its actual-data test stopped because it hard-codes the absent \texttt{data/raw/} directory. The successful temporary regeneration used the existing raw copies under \texttt{data/} instead. Fixture optimization in tests is not a new research experiment. The failure and path requirement are recorded in the validation notes; no original test was edited.
+
+\subsection{Notebooks and document build}
+Three EDA notebooks contain saved outputs. Their documented exporter is:
+\begin{lstlisting}
+python -m pip install -r notebooks/requirements.txt
+python scripts/export_eda_figures.py --output-dir results/EDA_new --dpi 300
+\end{lstlisting}
+Its raw-data expectations and local tokenizer requirements must be satisfied first; the exporter was not rerun here. The older preprocessing notebook belongs to a legacy protocol and should not be substituted for the audited two-stage pipeline.
+
+For Overleaf, upload the rebuilt report bundle, select \texttt{main.tex}, and use pdfLaTeX with BibTeX. Locally, run pdfLaTeX, BibTeX, then pdfLaTeX twice from \texttt{report\_rebuilt/}. No official template was found; a standard A4 academic article layout is used. Build and visual-QA outcomes are recorded in \texttt{validation.md}. Missing course implementation and original-experiment evidence remain explicit despite a successful document build.

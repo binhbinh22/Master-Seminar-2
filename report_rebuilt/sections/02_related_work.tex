@@ -1,0 +1,31 @@
+\section{Related Work and Background}
+\subsection{Code comment classification}
+NLBSE'23 distributes sentence-level comment categories and baseline classifiers for Java, Python, and Pharo~\cite{nlbse}. Its package includes category-wise data, official partitions, Random Forest classifiers, and TF-IDF/NLP feature material. The present repository reconstructs language-specific multi-label targets and uses new text-grouped partitions. Its Random Forest baseline is consequently an internal baseline, not a reproduction of the complete official competition procedure.
+
+\subsection{Multi-label text classification}
+Binary Relevance transforms a multi-label task into one binary prediction problem per category. It is simple and allows heterogeneous base classifiers, but does not explicitly use one predicted label to condition another. Classifier Chains add earlier labels as features for later classifiers in a chosen order~\cite{chains}. Their inference depends on preceding predictions, allowing dependencies to help while also permitting error propagation. A chain order is part of the experimental setup; this repository uses one seeded random order rather than an ensemble of orders.
+
+\subsection{Traditional machine learning for software text}
+The lexical approach represents comments by sparse word and character TF-IDF features. Word features capture recurring terms and short phrases; character features can match subword patterns in identifiers or inflected words. Linear decision functions then associate these features with categories. Random Forest provides a nonlinear comparator. These are methodological motivations, not verified explanations of individual decisions: the repository does not provide feature-attribution evidence supporting a causal account of the observed errors.
+
+\subsection{Pretrained Transformers for software engineering}
+RoBERTa studies how pretraining data and optimization choices affect BERT-style representations~\cite{roberta}. CodeBERT learns representations from programming and natural language, using an objective that incorporates replaced-token detection~\cite{codebert}. Their different pretraining backgrounds motivate a backbone comparison. Here both are fine-tuned on comment text only; source code, abstract syntax trees, and project context are not supplied to the classifier. A code-oriented checkpoint therefore need not improve every language or category.
+
+\subsection{Loss functions and regularization}
+BCE trains binary targets through sigmoid probabilities. Weighted BCE changes positive-target costs using label frequencies. Focal loss reduces the contribution of easy decisions~\cite{focal}, and the repository applies its binary form to comment labels. Asymmetric loss treats positive and negative decisions differently~\cite{asl}. R-Drop encourages agreement between predictions under two dropout realizations~\cite{rdrop}; its multi-label implementation uses Bernoulli rather than categorical KL divergence. Consistency regularization does not itself rebalance label prevalence. The exact implemented objectives are given in Section~\ref{sec:losses}.
+
+\subsection{Positioning of the present study}
+Table~\ref{tab:related} compares verified research resources by their methodological role. It intentionally omits cross-paper scores, since tasks and evaluation protocols differ. References were checked against primary repositories, paper records, or an institutional author manuscript record. This is a focused background review, not a systematic survey of all comment classifiers. Broader coverage of comment-taxonomy development and later competition entries remains a literature-review extension.
+
+\begin{table}[htbp]\centering\small
+\caption{Verified related resources and their relationship to this study.}\label{tab:related}
+\begin{tabularx}{\linewidth}{lXX}\toprule
+Resource & Verified focus & Role and comparison boundary\\\midrule
+NLBSE'23~\cite{nlbse} & Comment categories and official baselines & Dataset provenance; different splits/features here\\
+Read et al.~\cite{chains} & Binary label chains & Basis for the classical chain comparator\\
+Liu et al.~\cite{roberta} & Robust BERT-style pretraining & General-text pretrained backbone\\
+Feng et al.~\cite{codebert} & Programming/natural language pretraining & Alternative pretrained backbone\\
+Lin et al.~\cite{focal} & Focusing on hard detection examples & Binary objective adapted in E3/E17\\
+Liang et al.~\cite{rdrop} & Dropout-output consistency & Bernoulli adaptation in E8/E15/E16\\
+Ben-Baruch et al.~\cite{asl} & Asymmetric multi-label loss & Loss comparator E7\\\bottomrule
+\end{tabularx}\end{table}

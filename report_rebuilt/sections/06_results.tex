@@ -1,0 +1,53 @@
+\section{Experimental Results}
+The audited cohort contains 51 Transformer screening runs (17 configurations $\times$ 3 languages), 18 classical/dummy screening runs (6 $\times$ 3), 15 Transformer final runs (5 $\times$ 3), and 15 classical final runs (5 $\times$ 3). All use base seed 42. Results below are extracted from the original \texttt{metrics.json} files. The audit recomputed stored CV means and sample SDs from fold records, and final micro/macro-F1 from per-label counts/scores. The existing Stage 1/2 summary CSV micro-F1 values matched their source runs. No training was rerun and no significance test was performed.
+
+\subsection{Traditional ML versus the Transformer reference: RQ1}
+Table~\ref{tab:mlcv} and Figure~\ref{fig:mlvs} compare the shared Stage 1 folds. The strongest traditional method by mean micro-F1 is Random Forest for Python (0.5883), logistic regression for Java (0.5972), and SGD for Pharo (0.6486). E1 reaches 0.6169, 0.5968, and 0.7044, respectively. Relative to each language's strongest traditional model, E1 differs by approximately $+2.87$, $-0.04$, and $+5.58$ percentage points. These are descriptive differences between fold means, not significant effects.
+\input{tables/ml_cv}
+\reportfigure{ml_vs_e1}{Five traditional methods versus RoBERTa E1 on Stage 1 micro-F1. Error bars are sample SD across five folds, not confidence intervals. LR denotes logistic regression.}{fig:mlvs}{1}
+
+The Java logistic baseline also has macro-F1 0.6390 compared with 0.6273 for E1. The difference suggests that the more expensive reference encoder does not dominate lexical models under every metric. Pharo shows a clearer aggregate separation: E1 macro-F1 is 0.6053 versus 0.5604 for SGD, though this still does not prove better performance on every label. Full multi-metric screening tables are included in Appendix~\ref{app:metrics}.
+
+\textbf{Answer to RQ1.} Traditional TF-IDF models are competitive with E1 on Java and provide meaningful baselines elsewhere. E1 has higher observed screening micro-F1 than all five traditional methods on Python and Pharo. This comparison is qualified by neural within-fold checkpoint selection, a single base seed, and the absence of formal significance testing.
+
+\subsection{Transformer configuration comparison: RQ2}
+Table~\ref{tab:dlcv} covers every E1--E17 screening configuration. E15 (CodeBERT R-Drop) leads Python at 0.6479 and Java at 0.6225. E3 (RoBERTa focal) leads Pharo at 0.7152. Their improvements over E1 are about 3.10, 2.57, and 1.07 percentage points. There is no universal language-independent winner.
+\input{tables/transformer_cv}
+
+E11, the CodeBERT BCE backbone comparator, scores 0.6397 on Python, 0.5980 on Java, and 0.6805 on Pharo. It is higher than E1 on Python, nearly equal on Java, and lower on Pharo. Comparing E15 with E11 gives R-Drop-associated increments of about 0.82, 2.45, and 1.52 points within the CodeBERT backbone in this cohort. Those matched comparisons are more informative than attributing the entire E15--E1 difference to regularization. Nevertheless, one seed and no statistical controls are insufficient for a causal conclusion about expected gains.
+
+Loss changes do not improve every language. E3 is the leading Pharo screening configuration but slightly below E1 on Java. Weighted BCE and ASL alter precision/recall tradeoffs rather than uniformly raising micro-F1. E4 is identical to E1 in all reported screening metrics because screening defers threshold tuning; its row is not evidence that an optimized threshold has no value. More complex graph, attention, and layer-wise optimization variants also fail to dominate all simpler alternatives.
+
+\subsection{Final evaluation}
+Tables~\ref{tab:pythontest}--\ref{tab:pharotest} contain all available final results, including the five traditional models. They report micro-F1, macro-F1, Hamming loss, and micro-AP. They do not fill in the twelve missing neural configurations per language.
+\input{tables/python_test}
+\input{tables/java_test}
+\input{tables/pharo_test}
+
+Among final neural runs, E15 is highest on Python (micro-F1 0.6541, macro-F1 0.5965), E17 on Java (0.7034, 0.7342), and E1 on Pharo (0.7371, 0.6720). Across all available methods, these are also the highest test micro-F1 values. However, Java's classifier chain has macro-F1 0.7470 and micro-F1 0.6964, illustrating a different tradeoff from the neural test leader. The small difference between Java E17 and the chain is not evidence of statistical superiority. These are retrospective observations on an exploratory test set, not another model-selection recommendation.
+
+\subsection{Cross-validation versus test ranking}
+Figure~\ref{fig:cvtest} compares the five neural configurations having both stages. Python E15 remains first in this subset. Java E17 overtakes E15; Pharo's E1 overtakes its screening leader E3. CV and final test measure different fitted models and evaluation sets: CV averages selected fold-validation scores, whereas final training uses a new training/validation/test partition. Both training composition and checkpoint selection can affect ranking, as can sampling variation. The observed changes do not establish intrinsic model instability.
+\reportfigure{cv_test}{Stage 1 means and Stage 2 test micro-F1 for the five evaluated Transformers. Scores are not independent replications and differences must not be read as generalization-gap estimates.}{fig:cvtest}{1}
+
+\textbf{Answer to RQ2.} E15 leads full neural screening for Python and Java, while E3 leads Pharo. Within the available final subset, E15/E17/E1 yield the highest observed test micro-F1 for Python/Java/Pharo. The incomplete final subset, its difference from the top-four selection manifests, and method-selection dependence prevent a universal best-model or independent-confirmation claim.
+
+\subsection{Per-label performance: RQ3}
+Tables~\ref{tab:pythonlabels} and \ref{tab:javalabels} compare E1 with the highest observed final micro-F1 Transformer in the corresponding language. This retrospective comparator is descriptive. Figure~\ref{fig:pyheat} and the other heatmaps show all five final configurations so that regressions are not hidden by selecting a single winner.
+\input{tables/python_perlabel}
+\input{tables/java_perlabel}
+\reportfigure{python_heatmap}{Python test F1 by label and final Transformer configuration. Every value is read from stored per-label metrics; supports are given in Table~\ref{tab:pythonlabels}.}{fig:pyheat}{.95}
+\reportfigure{java_heatmap}{Java test F1 by label and configuration. High Ownership scores are based on only eleven positive test assignments.}{fig:jaheat}{.95}
+\reportfigure{pharo_heatmap}{Pharo test F1 by label and configuration. E1 leads aggregate test micro-F1, while some of its individual label scores are surpassed.}{fig:phheat}{.95}
+
+On Python, E15 raises aggregate micro-F1 from 0.6074 to 0.6541 and macro-F1 from 0.5547 to 0.5965. Yet DevelopmentNotes F1 falls from 0.346 to 0.286 (31 positives), while Expand rises from 0.385 to 0.494 and Parameters from 0.646 to 0.714. Thus even a simultaneous micro/macro improvement is compatible with a minority-label regression.
+
+On Java, E17 improves micro-F1 over E1 from 0.6947 to 0.7034 and macro-F1 from 0.6946 to 0.7342. The rational label rises from 0.182 to 0.571, while Expand falls from 0.630 to 0.474 and Pointer from 0.724 to 0.678. Ownership is 1.000 for both, based on eleven positives. Per-label recall and precision in Table~\ref{tab:javalabels} show whether a score change reflects missed positives or additional predicted positives; no sentence-level explanation is inferred from counts alone.
+
+On Pharo, E1 has higher aggregate scores than E15, but E15 has higher Keyimplementationpoints F1 (0.537 versus 0.512) and Keymessages F1 (0.677 versus 0.667). Classreferences support is only seven; its F1 ranges from 0.308 for E3 to 0.545 for E1 across the five final configurations. Such rare-category variation is practically relevant but imprecisely estimated. Full E1 per-label precision/recall and support for Pharo are supplied in the appendix.
+
+\textbf{Answer to RQ3.} No. Aggregate improvement does not imply improvement for each label. The stored metrics contain explicit counterexamples in Python and Java, and Pharo shows label-level gains within an aggregate-lower configuration. Neither micro- nor macro-F1 should replace per-label assessment when rare information types matter.
+
+\subsection{Qualitative error analysis}
+The staged ML runner implements sentence-level prediction export, but no such CSV was found in the checked-in results. The neural staged runner stores aggregate/per-label metrics and does not export row-level final predictions. No prediction tensor or distributed checkpoint was found that would recover the original decisions without retraining. As a result, representative false-positive or false-negative sentences cannot be identified from the available evidence. Quoting plausible raw comments as if they were observed errors would fabricate an analysis. The current error analysis is limited to numerical label-level patterns; sentence-level causes remain hypotheses for future work.
+\source{results/training/kfold/; results/training/kfold_gpu0/; results/training/kfold_gpu1/; results/training/final/; results/training/final_gpu0/; results/training/final_gpu1/; results/stage1_summary/; results/stage2_summary/}

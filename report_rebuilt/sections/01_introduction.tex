@@ -1,0 +1,22 @@
+\section{Introduction}
+Code comments complement source code by explaining intent, usage, design decisions, parameters, and implementation constraints. Their information is useful for documentation navigation, maintenance, and identifying the kinds of explanation available to a developer. A classifier can provide an information-type index over comment sentences, although classification performance alone does not establish a downstream maintenance benefit.
+
+The prediction unit in this study is a sentence within a class comment. A sentence may describe both what a component does and how to use it. Its annotation is therefore a set of categories, represented by several binary targets. Treating the task as mutually exclusive multi-class classification would discard legitimate co-occurring labels. It would also obscure the distinction between a sentence and the many sentence--category records used to distribute the original data.
+
+The NLBSE'23 benchmark provides a concrete setting for studying comment information types across three programming languages~\cite{nlbse}. Language-specific taxonomies, short fragments, identifier-like tokens, repeated wording, and uneven label supports complicate evaluation. A high score on frequent categories may conceal weak recall on rare ones. Sparse lexical models offer a relatively inexpensive reference, while pretrained encoders may capture contextual distinctions that TF-IDF cannot represent directly. Whether those advantages appear consistently must be measured under comparable data partitions.
+
+This study addresses a bounded empirical gap: how the implemented lexical baselines and neural configurations compare on the repository's shared partitions, and whether aggregate gains extend across labels. It does not claim that such comparisons are absent from the wider literature. The available runs cannot establish superiority on new projects, isolate every architectural factor, or provide a new official competition ranking.
+
+\subsection{Research questions}
+\begin{description}[style=nextline,leftmargin=0pt,labelindent=0pt,labelwidth=0pt]
+\item[RQ1.] How do traditional machine-learning approaches compare with a reference Transformer model for multi-label code comment classification? The comparison uses shared Stage 1 five-fold partitions and RoBERTa E1 as the reference.
+\item[RQ2.] Which Transformer configurations achieve the strongest performance across Python, Java, and Pharo? All E1--E17 screening results are compared, followed by the available, incomplete final-evaluation subset.
+\item[RQ3.] Do improvements in aggregate classification performance correspond to improvements across individual labels? Per-label precision, recall, F1, and support are examined alongside micro- and macro-F1.
+\end{description}
+
+\subsection{Contributions and scope}
+The contributions are a verified reconstruction of the sentence-level dataset; an implementation-grounded account of five ML methods and seventeen neural configurations; a comparison of completed experiments using consistent metric definitions; and an audit of software and reproducibility requirements. New tables and figures are derived from stored data and metrics. No model was retrained for this reconstruction.
+
+Evidence is distinguished throughout. \emph{Implemented and verified} means a corresponding source path or stored artifact was inspected and, where feasible, checked computationally. \emph{Documented but unverified} covers claims without sufficient implementation or execution evidence. \emph{Proposed} denotes future work. A feature implemented in code is not automatically an artifact present in the checkout, nor does inspecting its implementation prove that every execution path has been exercised.
+
+\source{src/data/prepare_two_stage.py; src/models/ml/models.py; src/models/dl/zoo.py; report_rebuilt/audit_facts.json}

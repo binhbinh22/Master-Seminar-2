@@ -1,0 +1,33 @@
+\section{Threats to Validity}
+\subsection{Selection dependence and checkpoint bias}
+\textbf{Unresolved: full-population method selection.} Stage 1 includes all sentences before the final split is used. The final test is consequently dependent on model selection even though the final fitting step does not directly train on that test split. Creating new model instances does not remove the earlier dependence. A new outer holdout, or a project-separated outer evaluation with all selection confined to training, is needed for confirmation.
+
+\textbf{Unresolved: fold checkpoint selection.} The held-out CV fold chooses the best neural epoch and supplies the reported score. This can favor neural models relative to fixed classical fits and inflate screening estimates. An inner validation split or fixed training schedule selected without the outer fold would address this issue. No corrected nested results were found; this report does not relabel the existing procedure.
+
+\subsection{Sampling, repetition, and statistical inference}
+\textbf{Unresolved: limited seeds and multiple comparisons.} The main cohort has one base seed, 42. Transformer fold seeds 42--46 change fits within one split plan; they are not five repeated full-protocol seeds. Screening seventeen neural configurations creates opportunities for selection on noise. Fold SD describes recorded fold variation only. Neither p-values, confidence intervals, nor statistical significance are claimed. Repeated seeds and an appropriate paired evaluation would be needed before interpreting small rank differences as reliable.
+
+\textbf{Unresolved: small category supports.} Several final-label supports are in the low tens or single digits. One changed decision can substantially alter their precision, recall, or F1. The observed label regressions are real properties of stored counts, but their persistence under new samples is unknown.
+
+\subsection{Leakage and external validity}
+\textbf{Mitigated: exact duplicate text within a split.} Identical whitespace-normalized strings are assigned as indivisible groups; the audit verified no group overlap between training and validation/test. TF-IDF is fit within folds, and label-graph/positive-weight statistics use only current training labels.
+
+\textbf{Unresolved: near duplicates and shared provenance.} Exact grouping does not remove semantically similar templates or prevent class overlap. The audit found substantial train/test class overlap in all languages. Project membership is not a grouping variable in the staged split builder. Results therefore do not establish generalization to unseen classes or projects. The raw \texttt{class} field alone is not a complete verified project mapping.
+
+\subsection{Metrics, coverage, and benchmark comparability}
+\textbf{Partly mitigated: class imbalance.} The report includes macro-F1, per-label support, precision/recall, and all-negative diagnostics alongside micro-F1. Balanced classical weights, weighted BCE, focal loss, and ASL are implemented options. These mechanisms do not remove the difficulty of rare categories or guarantee their improvement.
+
+\textbf{Unresolved: threshold sensitivity.} The final neural cohort uses 0.5; a tuned-threshold final comparison is absent. SVM ranking scores are not calibrated probabilities, and pooled AP can depend on inter-label score scaling. Threshold and score-scale choices limit direct interpretation of some metric differences.
+
+\textbf{Unresolved: final coverage and selection trace.} Only five neural configurations are evaluated finally per language, while seventeen are screened. The common final subset differs from each language's stored top four. It is not possible to infer missing final results or to claim every screening leader was followed by all manifest-selected candidates. The mismatch is recorded explicitly rather than reconciled through an invented selection story.
+
+\textbf{Unresolved: official-baseline comparability.} These experiments reconstruct targets and use new grouped partitions, different feature processing, and internal model implementations. The official NLBSE'23 package uses its own preparation and partitions~\cite{nlbse}. No competition-level improvement is claimed.
+
+\subsection{Implementation and reproducibility validity}
+\textbf{Partly mitigated: result provenance.} Existing summaries were compared with raw run JSONs; fold means/SDs and final F1 were recalculated. Dataset targets and group separation were independently checked. Source hashes and the commit are recorded. These checks detect arithmetic and provenance errors, not hidden training defects or data-annotation errors.
+
+\textbf{Unresolved: historical environment and cost.} Requirements are ranges, with no full original lockfile, precise GPU inventory, energy measurement, or comparable hardware budget. CPU ML and CUDA neural durations are not a controlled efficiency experiment. No cost-normalized ranking is supported.
+
+\textbf{Unresolved: artifact completeness.} Checkpoints, serialized classical models, and sentence-level predictions are absent from the audited snapshot. Thus original decisions cannot be replayed or qualitatively inspected without additional artifacts/retraining. A report can be numerically traceable while its underlying experiments are not fully reproducible from distributed outputs alone.
+
+\textbf{Unresolved: course implementation requirement.} Data are held in memory and read/written through files, but no replaceable persistence backend is verified. This is a concrete implementation gap, separate from methodological validity. The report is complete as an evidence reconstruction, but cannot certify full course compliance or submission readiness.

@@ -1,0 +1,42 @@
+\section{Dataset and Problem Formulation}
+\subsection{NLBSE'23 dataset}
+The audited population has 2,555 Python, 2,418 Java, and 1,765 Pharo sentences, totaling 6,738. The checked-in raw files are \texttt{data/python.csv}, \texttt{data/java.csv}, and \texttt{data/pharo.csv}. Each contains repeated sentence IDs: one record per category, including negative assignments. Thus Python has 12,775 raw records, Java 16,926, and Pharo 12,355; these are not counts of independent sentences. The dataset configuration pins an upstream source commit and download URLs.
+
+The audit pivoted the raw targets by sentence ID and category and compared every resulting target against \texttt{data/k\_fold\_data/<language>/all.csv}. It also checked that the final splits reconstruct the same sentence population and targets. Counts in Table~\ref{tab:data} are computed from these files rather than copied from manuscript prose.
+\input{tables/dataset}
+
+\subsection{Label taxonomy}
+Label order is taken from each language's \texttt{label\_cols.json}; original capitalization and spelling are retained. Python uses DevelopmentNotes, Expand, Parameters, Summary, and Usage. Java uses Expand, Ownership, Pointer, deprecation, rational, summary, and usage. Pharo uses Classreferences, Collaborators, Example, Intent, Keyimplementationpoints, Keymessages, and Responsibilities. There are 19 language-specific categories across the corpora, while each model run predicts only its language's five or seven labels.
+
+For interpretation, Summary/summary and Intent describe purpose; Usage/usage and Example concern use; Parameters concern input descriptions; DevelopmentNotes concern development or maintenance information; Ownership and deprecation identify attribution and obsolete functionality. Expand and rational concern elaboration or rationale; Pointer and Classreferences identify references; Pharo's remaining names concern interactions, responsibilities, messages, and implementation details. These are descriptive glosses of the category names, not a newly verified annotation manual. No complete operational annotation guide or inter-annotator agreement record was found locally, so fine semantic boundaries should not be inferred from these glosses.
+\input{tables/labels}
+
+\subsection{Multi-label classification formulation}
+For a language-specific dataset $D=\{(x_i,\mathbf y_i)\}_{i=1}^N$, each comment $x_i$ has a binary target vector
+\begin{equation}
+\mathbf y_i\in\{0,1\}^{L},\qquad L\in\{5,7\}.
+\end{equation}
+Here $y_{i\ell}=1$ denotes a positive assignment to label $\ell$; $y_{i\ell}=0$ denotes a negative assignment to that category, not a negative sentiment or an unusable sentence. Multi-class classification would choose a single class from $L$ mutually exclusive possibilities. Multi-label classification instead predicts a subset, including multiple positives when appropriate.
+
+In the reference neural formulation, an encoder supplies a sentence representation $h_i$, a linear head produces $z_{i\ell}$, and
+\begin{equation}
+p_{i\ell}=\sigma(z_{i\ell}),\qquad
+\widehat y_{i\ell}=\mathbb{1}[p_{i\ell}\geq\tau_\ell].
+\end{equation}
+Each output is a separate Bernoulli decision; probabilities need not sum to one. This factorized output does not imply that labels or shared hidden features are empirically independent. Chains and graph variants explicitly introduce additional dependency mechanisms.
+
+\subsection{Class imbalance and label cardinality}
+Label cardinality is $N^{-1}\sum_{i,\ell} y_{i\ell}$; label density divides cardinality by $L$. Cardinalities are 1.121, 1.177, and 1.158 for Python, Java, and Pharo, respectively. Their densities are 22.42\%, 16.81\%, and 16.54\%. A typical sentence has slightly more than one positive label and several negatives, explaining the excess of negative assignments. Across the three corpora there are 7,752 positives and 34,304 negatives, over 42,056 binary decisions.
+
+Python, Java, and Pharo contain 284, 397, and 231 sentences with more than one positive category. None has an all-zero target in this population. Within-language imbalance is also substantial: Pharo Classreferences has 77 positives compared with 748 for Example; Java Ownership has 115 compared with 912 for usage. Final-test rare-label supports can be very small (seven Classreferences and eleven Ownership positives), limiting the precision of label-level conclusions.
+
+\subsection{Data preprocessing and duplicate grouping}
+\texttt{raw\_to\_rows} validates IDs, class/text consistency, binary targets, complete categories, and the raw partition values. It pivots into one sentence record and normalizes whitespace with \texttt{" ".join(text.split())}. Text equality then determines \texttt{group\_id}. It does not deduplicate away rows: different sentence IDs with the same normalized text remain together as one group. The numbers of distinct text groups are 2,299, 1,668, and 1,620, leaving 256, 750, and 145 rows beyond one row per group. These excess counts are not numbers of duplicate pairs.
+
+This stage performs no additional stemming or identifier replacement. The TF-IDF vectorizers separately use their default lowercasing, whereas the tokenizer receives the normalized string. Earlier preprocessing in the upstream dataset must not be confused with new preprocessing performed here. Exact grouping does not detect paraphrases, punctuation variants, or all near duplicates.
+
+\subsection{Data splitting strategy}
+\texttt{grouped\_parts} aggregates each text group's positive counts and size, then greedily assigns whole groups to parts. A seeded permutation and size ordering feed a cost that balances per-label positives and sample counts relative to targets. This is a custom heuristic, not a verified implementation of a named iterative-stratification algorithm. Stage 1 uses five parts over the complete population. Stage 2 creates ten parts and combines eight for training, one for validation, and one for test. The inherited raw \texttt{partition} is validated but does not determine these new splits.
+
+Final train/validation/test sizes are 2,044/255/256 (Python), 1,935/241/242 (Java), and 1,413/176/176 (Pharo). The audit verified zero exact-group overlap within each CV split and across final splits, and exactly one validation appearance per sentence across five folds. Class-level separation is not enforced: 97 of 119 Python test classes, 93 of 112 Java test classes, and 74 of 93 Pharo test classes also occur in training. The splits therefore do not evaluate unseen-class or unseen-project generalization.
+\source{configs/datasets/nlbse2023_code_comments.yaml; src/data/prepare_two_stage.py; src/data/two_stage.py; data/k_fold_data/; data/full_training_data/}

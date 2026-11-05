@@ -1,0 +1,21 @@
+# Generated document and upload bundle remain available locally.
+/main.pdf
+/report_rebuilt_overleaf.zip
+
+# Build, audit console output, and visual-review intermediates.
+/build/
+/build_pass*.txt
+/build_bibtex.txt
+/audit_run.log
+*.aux
+*.bbl
+*.blg
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+__pycache__/

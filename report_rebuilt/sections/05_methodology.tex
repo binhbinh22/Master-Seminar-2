@@ -1,0 +1,107 @@
+\section{Methodology}
+\subsection{Traditional machine learning}
+For term $t$ and document $x$, TF-IDF multiplies a term count by inverse document frequency. With the vectorizer defaults, smoothed IDF is $1+\log[(1+n)/(1+\mathrm{df}(t))]$; feature vectors are normalized within each vectorizer. Word unigrams/bigrams and \texttt{char\_wb} character 3--5-grams are fit separately, then concatenated by \texttt{FeatureUnion}. Both have \texttt{min\_df=2} and at most 20,000 features, giving an upper bound of 40,000 concatenated dimensions, not a guaranteed vocabulary size. The defaults include lowercasing and no explicit stop-word list. No pretrained sentence embedding is used by these baselines.
+
+Logistic regression minimizes a regularized logistic objective and supplies probability estimates. Linear SVM learns margin-based separators, with raw decision scores for AP rather than calibrated probabilities. SGD uses a stochastic logistic-loss optimizer, not a different feature representation. Random Forest aggregates decision trees. One-vs-Rest wraps each of these estimators to produce binary decisions per label. Classifier Chain instead uses logistic estimators in a random, seed-controlled label order and conditions later estimators on preceding labels. Table~\ref{tab:mlconfig} gives explicit non-default builder settings; other scikit-learn defaults depend on the installed version.
+
+\begin{table}[htbp]\centering\small
+\caption{Verified traditional model settings from the builders. All use the same word/character TF-IDF construction.}\label{tab:mlconfig}
+\begin{tabularx}{\linewidth}{lX}\toprule
+Method & Explicit settings\\\midrule
+Logistic regression & One-vs-Rest; $C=5$; balanced class weights; 2,000 iterations maximum\\
+Classifier Chain & Logistic base with $C=5$, balanced weights, 2,000 iterations; random order; seed 42\\
+Linear SVM & One-vs-Rest LinearSVC; $C=1$; balanced class weights\\
+SGD & One-vs-Rest; logistic loss; 2,000 iterations; tolerance $10^{-3}$; balanced weights; seed 42\\
+Random Forest & One-vs-Rest; 300 trees; balanced weights; seed 42; all CPU jobs\\
+Majority dummy & One-vs-Rest most-frequent target; diagnostic baseline\\\bottomrule
+\end{tabularx}\end{table}
+
+The majority dummy is an additional diagnostic, not a sixth substantive learned method. Its five-fold records are included in the audit but no final dummy record is present. Hard predictions use each estimator's own \texttt{predict} method; no common neural sigmoid threshold is imposed on SVM margins.
+
+\subsection{Transformer-based models}
+RoBERTa and CodeBERT checkpoints are loaded through Hugging Face Transformers. The baseline model uses the first-token representation from \texttt{RobertaModel}, with hidden dimension 768, followed by a single linear $768\rightarrow L$ head. It does not use the full default \texttt{RobertaForSequenceClassification} head. The tokenizer returns padded/truncated sequences of length 128 and attention masks. Heads and loss masks are sized for one programming language at a time. Figure~\ref{fig:model} shows this reference path and the alternative feature path.
+\reportfigure{model}{Reference classification paths. Neural sigmoid outputs make separate binary label decisions; the TF-IDF branch uses estimator-specific hard predictions. Attention and graph variants modify the reference neural head.}{fig:model}{1}
+
+Table~\ref{tab:configs} lists all verified configurations. Backbone changes are represented by E11 and its CodeBERT derivatives. Loss variants include E2/E3/E7/E17. E5/E6/E9/E12 modify label representation or alignment; E8/E10/E15/E16 add regularization; E13/E14/E16 change optimization. These groups overlap, and E16 deliberately combines two interventions.
+
+\begin{table}[htbp]\centering\small
+\caption[Verified E1--E17 configurations]{Verified E1--E17 configurations. R denotes \texttt{roberta-base}; C denotes \texttt{microsoft/codebert-base}. Unspecified settings inherit the common configuration.}\label{tab:configs}
+\begin{tabularx}{\linewidth}{llX}\toprule
+ID & Backbone & Intervention and explicit settings\\\midrule
+E1 & R & BCE; first-token linear head\\
+E2 & R & Positive-weighted BCE; training negatives/positives per label\\
+E3 & R & Binary focal loss; $\gamma=2$, no alpha weighting\\
+E4 & R & BCE; final-validation threshold grid 0.05--0.95 in steps of 0.05; deferred during CV\\
+E5 & R & Learned label queries attending over non-padding tokens\\
+E6 & R & E5 plus sentence--label contrastive term; weight 0.1, temperature 0.1\\
+E7 & R & ASL; $\gamma_+=1$, $\gamma_-=4$, negative clip 0.05; detached focusing factor\\
+E8 & R & BCE plus R-Drop; consistency coefficient 1\\
+E9 & R & Residual label GNN v2; graph threshold 0.1, hidden size 128; patience 3, minimum 5 epochs; AP tie-breaker\\
+E10 & R & Clean/adversarial embedding BCE; $\epsilon=1$, adversarial weight 1\\
+E11 & C & BCE; reference CodeBERT backbone change\\
+E12 & R & Label attention followed by GNN; threshold 0.1, hidden size 128\\
+E13 & C & BCE; encoder LR $2\times10^{-5}$; head LR $10^{-4}$\\
+E14 & C & E13 learning rates plus layer-wise decay 0.9\\
+E15 & C & BCE plus R-Drop; consistency coefficient 1\\
+E16 & C & E14 layer-wise learning rates plus R-Drop coefficient 1\\
+E17 & C & Binary focal loss; $\gamma=2$, no alpha weighting\\\bottomrule
+\end{tabularx}\end{table}
+
+E5 computes a token-attention distribution for each learned label query and a label-specific context/logit. E6 additionally aligns projected first-token representations with positive label queries using a uniform multi-positive target. E9 estimates a cosine co-occurrence graph from training labels, adds self loops, normalizes by degree, and refines label embeddings through a two-layer graph residual. Its second graph layer is zero-initialized so the head begins at the ordinary linear-head scale. All fifteen stored E9 screening folds report head version 2. E12 applies graph message passing to attention-derived contexts. Graphs are per-language (5/7/7 nodes), not a joint 19-node experiment.
+
+E10 obtains an embedding gradient, masks padding positions, and adds a per-sentence L2-normalized perturbation. Its loss averages clean and perturbed BCE with the configured weight. E14/E16 assign the final encoder layer the encoder LR and layer $i$ the rate $\eta_e d^{K-1-i}$, with embedding rate $\eta_e d^K$, $d=0.9$ and $K$ encoder layers. Head LR is separate. Optimizer groups apply the same configured weight decay, including biases and normalization parameters; a standard no-decay grouping must not be assumed.
+
+\subsection{Loss functions}\label{sec:losses}
+For $M$ observed binary targets and sigmoid probabilities $p$, the reference objective is
+\begin{equation}
+\mathcal L_{\mathrm{BCE}}=-\frac1M\sum_{i,\ell}\left[y_{i\ell}\log p_{i\ell}+(1-y_{i\ell})\log(1-p_{i\ell})\right].
+\end{equation}
+The implementation uses numerically stable BCE with logits and averages only selected mask entries. In the per-language staged runs, targets are fully observed within each selected split.
+
+Weighted BCE replaces the positive term with $w_\ell y_{i\ell}\log p_{i\ell}$, where $w_\ell=n^-_\ell/n^+_\ell$ is calculated from current training targets only. Labels with no positives or no negatives receive neutral weight 1. This shifts the cost of positive errors and can trade precision for recall. It does not change the evaluation prevalence.
+
+For $p_t=yp+(1-y)(1-p)$, the implemented focal objective is
+\begin{equation}
+\mathcal L_{\mathrm{focal}}=-\frac1M\sum_{i,\ell}(1-p_{t,i\ell})^\gamma\log p_{t,i\ell},\qquad\gamma=2.
+\end{equation}
+As $p_t$ approaches one, the focusing multiplier suppresses easy examples. With $\gamma=0$, it reduces to unweighted BCE. Although the class supports optional alpha balancing, E3/E17 set alpha to null, so no explicit positive/negative alpha factor is applied. Focusing on hard decisions is distinct from automatically equalizing label supports.
+
+ASL uses different positive and negative exponents and clips negative probabilities before the negative log term. Its configured focusing factor is detached from gradient computation. This is a particular implementation choice that should accompany any attempted reproduction.
+
+For two dropout realizations with per-label Bernoulli distributions $P_\ell=\operatorname{Bern}(p_\ell)$ and $Q_\ell=\operatorname{Bern}(q_\ell)$, the R-Drop implementation uses
+\begin{align}
+\mathcal L_{\mathrm{RDrop}}&=\tfrac12(\mathcal L_{\mathrm{BCE}}^{(1)}+\mathcal L_{\mathrm{BCE}}^{(2)})+\alpha\mathcal R,\\
+\mathcal R&=\frac1{2M}\sum_{i,\ell}\left[D_{\mathrm{KL}}(P_{i\ell}\Vert Q_{i\ell})+D_{\mathrm{KL}}(Q_{i\ell}\Vert P_{i\ell})\right],\\
+D_{\mathrm{KL}}(P\Vert Q)&=p\log\frac pq+(1-p)\log\frac{1-p}{1-q},\qquad\alpha=1.
+\end{align}
+Training performs two forward passes; evaluation performs one. The consistency term regularizes predictions across dropout realizations. It does not directly balance positive and negative assignments. Weighted BCE and ASL explicitly address asymmetric target contributions; R-Drop and adversarial perturbations primarily target robustness/regularization.
+
+\subsection{Experimental protocol}
+\subsubsection{Stage 1: grouped five-fold screening}
+Every language's full sentence population is split into five text-grouped folds. Each traditional model fits a new vectorizer and classifier in each training fold. Each Transformer starts from its pretrained checkpoint with base seed 42 plus fold index (42--46). Mean fold micro-F1 is used to rank configurations; the recorded standard deviation is sample SD across five folds, not uncertainty across five independent dataset draws or a confidence interval.
+
+Neural training evaluates the held-out fold after each epoch, selects the checkpoint with maximum fold micro-F1, and reports that same selected validation score as the fold score. Thus the fold is both a checkpoint-selection set and a reporting set. This produces potential optimistic selection bias relative to an outer test fold. The procedure is \textbf{not nested cross-validation}. Classical fixed fits have no analogous per-epoch checkpoint selection, so identical split membership alone does not make the two selection procedures identical.
+
+Common neural settings are ten maximum epochs; batch size 16; evaluation batch size 32; accumulation 1; AdamW LR $2\times10^{-5}$; weight decay 0.01; 10\% warmup; gradient norm cap 1; patience 2; zero loader workers; mixed precision disabled. E9 changes patience to 3, requires at least five epochs before stopping, and breaks equal micro-F1 ties with micro-AP. The training loop restores the best state after stopping. It does not choose the final epoch simply because it was last executed.
+
+\subsubsection{Stage 2: fixed approximately 80/10/10 evaluation}
+Models are initialized afresh and trained on the fixed training split. Transformers use validation micro-F1 to choose a checkpoint and then score the test split. ML models fit once using the fixed settings; validation is diagnostic rather than an epoch-selection mechanism. E4's implementation can subsequently tune label thresholds on final validation, but no E4 final run is present. All reported final Transformer experiments use threshold 0.5.
+
+Stage 1 used the full population before Stage 2 splitting. Every final test sentence therefore participated in screening as training and/or validation evidence. Stage 2 test scores are \textbf{not independent of method selection}; they are exploratory results under a new fit and partition, not a clean confirmatory holdout. Figure~\ref{fig:protocol} makes the dependence explicit.
+\reportfigure{protocol}{Actual two-stage protocol. Full-population screening and within-fold checkpoint selection limit independence. The later 10\% test split is not an untouched outer test set.}{fig:protocol}{1}
+
+The saved top-four selection manifest lists Python E15/E13/E17/E11, Java E15/E17/E9/E12, and Pharo E3/E9/E8/E12. The actual final neural set is instead E1/E3/E9/E15/E17 for every language. This is neither full E1--E17 coverage nor strict execution of each manifest's top four. The results are described as a fixed available subset; no undocumented selection rationale is invented. No corrected independent or nested experimental cohort was found.
+
+\subsection{Evaluation metrics}
+Let $TP_\ell$, $FP_\ell$, and $FN_\ell$ denote per-label counts, and let $TP$, $FP$, $FN$ sum them across labels. Then
+\begin{align}
+P_\ell&=\frac{TP_\ell}{TP_\ell+FP_\ell},&R_\ell&=\frac{TP_\ell}{TP_\ell+FN_\ell},\\
+F1_\ell&=\frac{2TP_\ell}{2TP_\ell+FP_\ell+FN_\ell},&F1_{\mathrm{micro}}&=\frac{2TP}{2TP+FP+FN},\\
+F1_{\mathrm{macro}}&=\frac1L\sum_{\ell=1}^L F1_\ell,&HL&=\frac1{NL}\sum_{i,\ell}\mathbb 1[y_{i\ell}\ne\widehat y_{i\ell}].
+\end{align}
+Zero-denominator precision, recall, and F1 are reported as zero by the implementations. Micro-F1 emphasizes frequent positive decisions; macro-F1 weights labels equally. Hamming loss counts both false positives and false negatives over all binary assignments and is lower when performance is better. It can look small even for an unhelpful all-negative predictor.
+
+Average precision is a ranking metric. At successive distinct score thresholds $k$, $AP=\sum_k(R_k-R_{k-1})P_k$. Micro-AP flattens all sentence--label decisions into one ranking. Tied scores are grouped in the neural implementation; ML uses scikit-learn's AP. Per-label AP is undefined if no positives are observed, and only defined labels contribute to macro-AP. SVM decision scores support ranking evaluation without being probabilities; micro-AP can be sensitive to cross-label score scales.
+
+The all-negative predictor has binary assignment accuracy 77.58\% on Python, 83.19\% on Java, and 83.46\% on Pharo, despite zero positive recall and zero F1. These figures follow directly from dataset densities and explain why accuracy alone is misleading. They are calculated diagnostics, not additional trained-model measurements. Subset accuracy, which requires the complete label vector to match, is a different metric and is not substituted for micro-F1.
+\source{src/models/ml/features.py; src/models/ml/models.py; src/models/dl/; src/training/optimizers.py; src/training/masked_classifier.py; src/evaluation/multilabel.py; src/models/ml/metrics.py}
