@@ -1,0 +1,3 @@
+2026-11-04 22:41:08,487 classifier_chain_logreg java: fit on 1935 train sentences in 0.46s
+2026-11-04 22:41:08,560   validation micro-F1=0.6433  test micro-F1=0.6964
+2026-11-04 22:41:17,911 Done in 9.6s. Output: results/training/final/20261104-224046/classifier_chain_logreg/java

@@ -1,3 +1,0 @@
-2026-11-02 22:28:38,966 ovr_logreg python: fit on 2044 train sentences in 0.29s
-2026-11-02 22:28:39,004   validation micro-F1=0.5654  test micro-F1=0.5675
-2026-11-02 22:28:39,335 Done in 0.5s. Output: results/training/final/20261102-222837/ovr_logreg/python

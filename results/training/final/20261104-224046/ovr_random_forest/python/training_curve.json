@@ -1,0 +1,79 @@
+[
+  {
+    "step": 5,
+    "step_param": "n_estimators",
+    "train_loss": 0.030821917808219176,
+    "validation_micro_f1": 0.510569105691057,
+    "validation_macro_f1": 0.4748268885765786
+  },
+  {
+    "step": 10,
+    "step_param": "n_estimators",
+    "train_loss": 0.01086105675146771,
+    "validation_micro_f1": 0.5592592592592592,
+    "validation_macro_f1": 0.5160990571667263
+  },
+  {
+    "step": 20,
+    "step_param": "n_estimators",
+    "train_loss": 0.007240704500978474,
+    "validation_micro_f1": 0.5488029465930019,
+    "validation_macro_f1": 0.4974923829765633
+  },
+  {
+    "step": 30,
+    "step_param": "n_estimators",
+    "train_loss": 0.007240704500978474,
+    "validation_micro_f1": 0.5648312611012434,
+    "validation_macro_f1": 0.525245784060296
+  },
+  {
+    "step": 50,
+    "step_param": "n_estimators",
+    "train_loss": 0.005675146771037182,
+    "validation_micro_f1": 0.5662431941923775,
+    "validation_macro_f1": 0.521405606525233
+  },
+  {
+    "step": 75,
+    "step_param": "n_estimators",
+    "train_loss": 0.005577299412915852,
+    "validation_micro_f1": 0.5527272727272727,
+    "validation_macro_f1": 0.5019312410576694
+  },
+  {
+    "step": 100,
+    "step_param": "n_estimators",
+    "train_loss": 0.005577299412915852,
+    "validation_micro_f1": 0.567219152854512,
+    "validation_macro_f1": 0.5172024131474933
+  },
+  {
+    "step": 150,
+    "step_param": "n_estimators",
+    "train_loss": 0.005283757338551859,
+    "validation_micro_f1": 0.5808823529411765,
+    "validation_macro_f1": 0.532844647434313
+  },
+  {
+    "step": 200,
+    "step_param": "n_estimators",
+    "train_loss": 0.005185909980430528,
+    "validation_micro_f1": 0.578268876611418,
+    "validation_macro_f1": 0.533270020504063
+  },
+  {
+    "step": 250,
+    "step_param": "n_estimators",
+    "train_loss": 0.004892367906066536,
+    "validation_micro_f1": 0.5677655677655677,
+    "validation_macro_f1": 0.5242337323790557
+  },
+  {
+    "step": 300,
+    "step_param": "n_estimators",
+    "train_loss": 0.004892367906066536,
+    "validation_micro_f1": 0.5772058823529411,
+    "validation_macro_f1": 0.5336955010837287
+  }
+]

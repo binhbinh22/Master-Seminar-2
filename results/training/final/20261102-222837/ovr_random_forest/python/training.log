@@ -1,3 +1,0 @@
-2026-11-02 22:28:51,789 ovr_random_forest python: fit on 2044 train sentences in 3.90s
-2026-11-02 22:28:52,442   validation micro-F1=0.5772  test micro-F1=0.5421
-2026-11-02 22:28:53,091 Done in 5.1s. Output: results/training/final/20261102-222837/ovr_random_forest/python

@@ -31,6 +31,7 @@ from sklearn.base import clone
 
 from src.evaluation.multilabel import SUMMARY_METRICS
 from src.evaluation.summaries import summarize_metric_runs
+from src.models.ml.curves import CURVE_PARAM, save_curve_plot, training_curve
 from src.models.ml.data import load
 from src.models.ml.features import build_vectorizer
 from src.models.ml.metrics import compute_metrics
@@ -181,6 +182,7 @@ def run_staged(method, language, stage, *, output_dir=None, output_base=None, se
         rows = prediction_rows(sentence_ids, class_names, split_labels, range(n), labels, oof_score, oof_pred, label_names)
         write_predictions_csv(output / "predictions.csv", rows, label_names)
         test_metrics_for_plot = None
+        curve = []
     else:
         train_size = bundle.train_size
         train_idx = np.arange(train_size)
@@ -219,6 +221,11 @@ def run_staged(method, language, stage, *, output_dir=None, output_base=None, se
         rows += prediction_rows(sentence_ids, class_names, "test", test_idx, labels[test_idx], test_score, test_pred, label_names)
         write_predictions_csv(output / "predictions.csv", rows, label_names)
 
+        curve = training_curve(method, clf_template, X_train, labels[train_idx], X_val, labels[val_idx], label_names)
+        if curve:
+            (output / "training_curve.json").write_text(json.dumps(curve, indent=2) + "\n")
+        result["training_curve_param"] = CURVE_PARAM.get(method, (None,))[0]
+
         artifacts = output / "artifacts"
         artifacts.mkdir(exist_ok=True)
         joblib.dump(vec, artifacts / "vectorizer.joblib")
@@ -230,6 +237,7 @@ def run_staged(method, language, stage, *, output_dir=None, output_base=None, se
     metrics_path.write_text(json.dumps(result, indent=2) + "\n")
     plots = save_training_plots(output / "plots", {}, cross_validation=result.get("cross_validation"),
                                 test_metrics=test_metrics_for_plot)
+    plots += save_curve_plot(output / "plots", method, curve)
     result["plots"] = plots
     metrics_path.write_text(json.dumps(result, indent=2) + "\n")
     logger.info("Done in %.1fs. Output: %s", result["duration_seconds"], output)

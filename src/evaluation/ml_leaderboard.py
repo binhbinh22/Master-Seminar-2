@@ -2,6 +2,11 @@
 one for stage-1 CV (screening, 100% data) and one for stage-2 held-out test -- so you
 don't have to open each metrics.json by hand. Generic over method/language, unlike
 src.evaluation.two_stage_results which is tied to the DL MODEL_ZOO registry.
+
+`dummy_most_frequent` is excluded from both leaderboards: it always scores 0 (every
+label here has <50% prevalence, so "most frequent" is always the negative class), so it
+has no comparative value once its job -- confirming the real methods aren't just
+guessing -- is done. It still runs and is visible in its own metrics.json.
 """
 from __future__ import annotations
 
@@ -9,6 +14,8 @@ import argparse
 import csv
 import json
 from pathlib import Path
+
+EXCLUDED_METHODS = {"dummy_most_frequent"}
 
 
 def write_csv(path, rows):
@@ -26,7 +33,7 @@ def kfold_leaderboard(roots):
     for root in map(Path, roots):
         for path in sorted(root.rglob("metrics.json")):
             data = json.loads(path.read_text())
-            if data.get("stage") != "kfold" or not data.get("complete"):
+            if data.get("stage") != "kfold" or not data.get("complete") or data["method"] in EXCLUDED_METHODS:
                 continue
             cv = data["cross_validation"]
             rows.append({
@@ -47,7 +54,7 @@ def final_leaderboard(roots):
     for root in map(Path, roots):
         for path in sorted(root.rglob("metrics.json")):
             data = json.loads(path.read_text())
-            if data.get("stage") != "final" or not data.get("complete"):
+            if data.get("stage") != "final" or not data.get("complete") or data["method"] in EXCLUDED_METHODS:
                 continue
             val, test = data["validation"], data.get("test", {})
             rows.append({

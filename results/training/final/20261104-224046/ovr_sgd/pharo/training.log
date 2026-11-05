@@ -1,0 +1,3 @@
+2026-11-04 22:41:39,789 ovr_sgd pharo: fit on 1413 train sentences in 0.16s
+2026-11-04 22:41:39,827   validation micro-F1=0.6228  test micro-F1=0.6420
+2026-11-04 22:41:41,320 Done in 1.4s. Output: results/training/final/20261104-224046/ovr_sgd/pharo

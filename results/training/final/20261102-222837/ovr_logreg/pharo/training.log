@@ -1,3 +1,0 @@
-2026-11-02 22:28:40,625 ovr_logreg pharo: fit on 1413 train sentences in 0.38s
-2026-11-02 22:28:40,667   validation micro-F1=0.6294  test micro-F1=0.6400
-2026-11-02 22:28:41,023 Done in 0.6s. Output: results/training/final/20261102-222837/ovr_logreg/pharo

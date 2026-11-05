@@ -49,7 +49,8 @@ results/training/<stage>/<timestamp>/<method>/<language>/
 ├── metrics.json         # toàn bộ metric, thời gian, info chọn model
 ├── predictions.csv      # ID câu, split/fold, nhãn thật, xác suất/score, nhãn dự đoán
 ├── training.log          # log quá trình (console + file)
-├── plots/                # biểu đồ CV / test / per-label
+├── training_curve.json   # (chỉ stage final) xem mục "Training curve" bên dưới
+├── plots/                # biểu đồ CV / test / per-label / training curve
 └── artifacts/            # vectorizer.joblib + model.joblib (chỉ stage final)
 ```
 
@@ -69,6 +70,25 @@ checkpoint/epoch tốt nhất), các model tuyến tính ở đây hội tụ 1 
 "epoch" để chọn — nên `validation` chỉ là số chẩn đoán song song với `test`, **không được
 dùng để chọn hyperparameter hay mô hình**. Ghi rõ trong `metrics.json.validation_note`
 của từng run để không ai hiểu nhầm đây là bước tuning.
+
+### Training curve — có thật, không phải giả lập
+
+`sklearn` không expose loss theo từng bước lặp của `.fit()` như DL (gọi 1 lần là chạy
+xong toàn bộ solver). `src/models/ml/curves.py` tái tạo lại đường cong bằng cách
+**refit từ đầu ở nhiều mốc** `max_iter` (logreg/chain/SVC/SGD) hoặc `n_estimators`
+(Random Forest), rồi đo `train_loss` (Hamming loss trên train) và `validation micro-F1`
+ở mỗi mốc. Vì các solver này **tất định** khi cố định `random_state` (lbfgs, liblinear,
+SGD không-shuffle-ngẫu-nhiên-khác-seed), refit ở `max_iter=k` cho đúng trạng thái mà 1
+lần fit dài hơn sẽ đi qua ở bước thứ k — đây là tái dựng quỹ đạo tối ưu thật, không phải
+nội suy giả. Cái giá phải trả là refit lại nhiều lần thay vì 1 lần fit duy nhất (chấp
+nhận được — toàn bộ 18 run stage `final` kèm curve chạy trong ~2.5 phút).
+
+`dummy_most_frequent` không có trong `CURVE_PARAM` — nó không tối ưu gì nên không có gì
+để vẽ, `plots/` của nó chỉ có `test_summary.png` + `test_per_label.png`.
+
+Ví dụ đọc kết quả (`ovr_logreg`/Python): train loss giảm 0.30 → 0.018 rồi đi ngang từ
+epoch ~7, validation micro-F1 dao động rồi ổn định ~0.565 từ epoch ~8 — **hội tụ rõ
+ràng**, `max_iter=2000` hiện tại dư thừa so với mức cần thiết (~150-200 là đủ).
 
 ## Metrics — khớp field-name với DL
 
@@ -125,7 +145,9 @@ liệu dùng để đánh giá.
 | **Java** | ovr_logreg **0.5972±0.0566** > ovr_sgd 0.5932±0.0556 > ovr_linear_svc 0.5811±0.0577 > classifier_chain_logreg 0.5789±0.0675 > ovr_random_forest 0.5726±0.0405 |
 | **Pharo** | ovr_sgd **0.6486±0.0188** > ovr_random_forest 0.6458±0.0226 > ovr_logreg 0.6438±0.0223 > ovr_linear_svc 0.6372±0.0210 > classifier_chain_logreg 0.6209±0.0247 |
 
-(`dummy_most_frequent` = 0.0000 ở cả 3 ngôn ngữ — mọi nhãn đều có prevalence <50%.)
+(`dummy_most_frequent` không đưa vào bảng xếp hạng — luôn bằng 0.0000, xem lý do ở mục
+"Model". Vẫn chạy và có trong `metrics.json`/`results/training/.../dummy_most_frequent/`,
+chỉ ẩn khỏi leaderboard vì không có giá trị so sánh.)
 
 ### Giai đoạn 2 — test (held-out, 1 lần, 80/10/10)
 
