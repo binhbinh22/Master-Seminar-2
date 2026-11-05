@@ -1,8 +1,8 @@
 # Rebuilt research report
 
-English academic report for **Artificial Intelligence for Software Engineering**, academic year 2026–2027, University of L'Aquila, following the supplied task brief. Built from repository commit `8a84e2cc2294f42a09914ab0185114b2abc4dc9b`.
+English research report for **Seminar 2**, academic year 2026–2027, **Hanoi University of Science and Technology — School of Information & Communication Technology**. Instructor: **Dr. Phuong Nguyen (University of L'Aquila, Italy)**. Institution, course, instructor and all five team names/student IDs follow the existing `docs/report/report.tex`; the technical scope follows the supplied Artificial Intelligence for Software Engineering task brief. Experimental source snapshot: repository commit `8a84e2cc2294f42a09914ab0185114b2abc4dc9b`.
 
-Start with `main.pdf` (33-page compiled report, 9 figures, 17 tables), `evidence_audit.md` (claims and sources), and `implementation_gaps.md` (unresolved requirements). The report is a complete reconstruction of available evidence, **not a certification of submission readiness**. No research model was retrained. `report_rebuilt_overleaf.zip` was also compiled successfully after extraction into a fresh temporary directory.
+Start with `main.pdf` (32-page compiled report, 9 figures, 17 tables), `evidence_audit.md` (claims and sources), and `implementation_gaps.md` (unresolved requirements). The report is a complete reconstruction of available evidence, **not a certification of submission readiness**. No research model was retrained. `report_rebuilt_overleaf.zip` was also compiled successfully after extraction into a fresh temporary directory.
 
 Git tracks the editable sources, figures, tables, verification scripts and evidence documents. The generated `main.pdf`, Overleaf ZIP, compilation files and rendered review pages remain local and are ignored by Git. After cloning, build `main.tex` using the commands below to obtain the PDF; upload the tracked LaTeX sources, `sections/`, `tables/`, `figures/` and `references.bib` to Overleaf if the local ZIP is unavailable.
 
@@ -21,17 +21,17 @@ All original datasets, metrics and manuscripts are preserved. Temporary extracte
 
 ## Build in Overleaf
 
-Upload `report_rebuilt_overleaf.zip` as a new project, select `main.tex` and pdfLaTeX. Bibliography uses BibTeX. Figures and tables are bundled; original repository datasets and model weights are not needed to compile the document. No official course template was available, so a standard A4 article layout is used.
+Upload `report_rebuilt_overleaf.zip` as a new project, select `main.tex` and **XeLaTeX** to preserve Vietnamese names. Bibliography uses BibTeX. Times New Roman is used when installed, with TeX Gyre Termes as an Overleaf-compatible fallback. Figures and tables are bundled; original repository datasets and model weights are not needed to compile the document. The cover information follows the existing manuscript; the body uses a standard A4 article layout because no separately identified official template was available.
 
 ## Build locally
 
 From `report_rebuilt/`:
 
 ```powershell
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
+xelatex -interaction=nonstopmode -halt-on-error main.tex
 bibtex main
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
+xelatex -interaction=nonstopmode -halt-on-error main.tex
+xelatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
 ## Regenerate the evidence-derived assets

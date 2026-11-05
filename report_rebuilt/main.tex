@@ -1,7 +1,6 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\usepackage{fontspec}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
 \usepackage[margin=24mm,headheight=15pt]{geometry}
 \usepackage{amsmath,amssymb,booktabs,tabularx,longtable,graphicx,xcolor}
 \usepackage{microtype,fancyhdr,enumitem,float,placeins}
@@ -16,7 +15,7 @@
 \setlist{nosep,leftmargin=*}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\small Code Comment Classification}
-\fancyhead[R]{\small AI for Software Engineering}
+\fancyhead[R]{\small Seminar 2}
 \fancyfoot[C]{\thepage}
 \newcommand{\source}[1]{\par\begingroup\footnotesize\raggedright\textit{Repository evidence:} \texttt{\detokenize{#1}}.\par\endgroup}
 \newcommand{\reportfigure}[4]{\begin{figure}[htbp]\centering\includegraphics[width=#4\linewidth]{figures/#1.pdf}\caption{#2}\label{#3}\end{figure}}
@@ -24,14 +23,28 @@
 \hypersetup{pageanchor=false}
 \begin{titlepage}
 \centering
-{\large University of L'Aquila\par}
-\vspace{10mm}
-{\large Master's Course: Artificial Intelligence for Software Engineering\par}
-{Academic Year 2026--2027\par}
+{\large\bfseries HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY\par}
+\vspace{3mm}
+{\normalsize SCHOOL OF INFORMATION \& COMMUNICATION TECHNOLOGY\par}
 \vfill
 {\color{ink}\LARGE\bfseries Comparative Evaluation of Traditional Machine Learning and Transformer-Based Models for Multi-label Code Comment Classification\par}
 \vspace{10mm}
-{\Large An Evidence-Based Reconstruction of the NLBSE'23 Experiments\par}
+{\large An Evidence-Based Reconstruction of the NLBSE'23 Experiments\par}
+\vspace{10mm}
+{\large\bfseries Team Members\par}
+\vspace{4mm}
+\begin{tabular}{@{}ll@{}}
+Nguyễn Khắc Thái Bình & \texttt{20251324M}\\[3pt]
+Lã Minh Trung & \texttt{20251319M}\\[3pt]
+Nguyễn Thu Uyên & \texttt{20252279M}\\[3pt]
+Nguyễn Thị Nhã Linh & \texttt{20261262M}\\[3pt]
+Nguyễn Đức Anh & \texttt{20252469M}\\
+\end{tabular}
+\vspace{8mm}
+\par\textbf{Course:} Seminar 2\par
+\textbf{Instructor:} Dr. Phuong Nguyen\par
+University of L'Aquila, Italy\par
+\textbf{Academic Year:} 2026--2027\par
 \vfill
 {\large Research Report\par}
 {5 November 2026\par}
@@ -39,7 +52,7 @@
 \begin{minipage}{.88\textwidth}\small
 Source snapshot: \texttt{8a84e2cc2294f42a09914ab0185114b2abc4dc9b}.\\
 \url{https://github.com/binhbinh22/Master-Seminar-2}\\[4pt]
-This report reconstructs existing experiments; it does not report newly trained models. Final-test findings are exploratory. A switchable persistence backend and several reproducibility details remain incomplete. Author identities and an official course template were not available in the audited repository; course affiliation follows the supplied task brief.
+Institution, instructor, course and team details follow \texttt{docs/report/report.tex}. This report reconstructs existing experiments; it does not report newly trained models. Final-test findings are exploratory. A switchable persistence backend and several reproducibility details remain incomplete.
 \end{minipage}
 \end{titlepage}
 \hypersetup{pageanchor=true}

@@ -1,11 +1,18 @@
 """Inspect compiled PDF structure, bounds, log, and render every page for review."""
 from pathlib import Path
-import json,re
+import json,re,unicodedata
 import pymupdf as fitz
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'build/rendered';OUT.mkdir(parents=True,exist_ok=True)
 doc=fitz.open(ROOT/'main.pdf')
+cover=re.sub(r'\s+','',unicodedata.normalize('NFC',doc[0].get_text()))
+cover_fields=['HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY','SCHOOL OF INFORMATION & COMMUNICATION TECHNOLOGY',
+              'Dr. Phuong Nguyen','Nguyễn Khắc Thái Bình','20251324M','Lã Minh Trung','20251319M',
+              'Nguyễn Thu Uyên','20252279M','Nguyễn Thị Nhã Linh','20261262M','Nguyễn Đức Anh','20252469M',
+              'Course: Seminar 2','Academic Year: 2026']
+for field in cover_fields:
+    assert re.sub(r'\s+','',unicodedata.normalize('NFC',field)) in cover,field
 log=(ROOT/'main.log').read_text(errors='replace')
 errors=[line for line in log.splitlines() if re.search(r'Overfull|LaTeX Warning|Package .* Warning|undefined|Missing character|^!',line)]
 assert not errors,errors
@@ -34,6 +41,7 @@ for i,p in enumerate(doc):
     if any(term in text for term in ['Module-level architecture','Implemented experimental pipeline','Actual two-stage protocol','Figure 6:','Python test F1 by label','Java test F1 by label']):
         p.get_pixmap(matrix=fitz.Matrix(1.4,1.4),alpha=False).save(OUT/f'latest_page_{i+1:02}.png')
 result={'pages':len(doc),'figures':len(list((ROOT/'figures').glob('*.pdf'))),'generated_table_files':len(list((ROOT/'tables').glob('*.tex'))),
-        'latex_warnings_or_overflow':errors,'out_of_bounds_text':edges,'rendered_pages':len(doc),'bibtex_succeeded':(ROOT/'main.bbl').exists()}
+        'latex_warnings_or_overflow':errors,'out_of_bounds_text':edges,'rendered_pages':len(doc),'bibtex_succeeded':(ROOT/'main.bbl').exists(),
+        'cover_metadata_verified':True,'compiler':'XeLaTeX + BibTeX'}
 (ROOT/'pdf_validation.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
 print(json.dumps(result,indent=2))

@@ -4,14 +4,15 @@ Date: 5 November 2026. Scope: report artifacts and archived evidence, not a new 
 
 ## Document build
 
-- **Succeeded:** MiKTeX pdfLaTeX + BibTeX, with repeated pdfLaTeX passes to settle contents/cross-references.
-- Final report: **33 PDF pages**, including cover, contents, 10 main sections, references and appendices.
+- **Succeeded:** MiKTeX XeLaTeX + BibTeX, with repeated XeLaTeX passes to settle contents/cross-references. XeLaTeX preserves Vietnamese team names from the existing manuscript.
+- Final report: **32 PDF pages**, including cover, contents, 10 main sections, references and appendices. The page count changed from the initial 33-page build after switching the text font to support the restored cover metadata.
 - **9 vector figures/diagrams**, each also supplied as PNG; **17 numbered tables** (13 generated table files, four tables embedded in section sources).
 - Final log: no LaTeX/package warnings, undefined citations/references, missing figures/characters, or overfull boxes. A few underfull-line notices are cosmetic; rendered text remains within margins.
 - PDF text bounds and nonempty-page checks passed. All input paths and diagram/figure references exist.
 - Every page was rendered into contact sheets and visually inspected; important data/results/architecture pages were additionally inspected at higher resolution. Diagram text was fitted to its boxes and the CV/test legend moved outside bars. No clipping, broken table, or overlapping diagram text remained in the reviewed final assets.
 - `pdf_validation.json` records automated outcomes. `build/rendered/` contains visual-review intermediates.
-- The Overleaf ZIP was extracted into a fresh temporary directory and compiled independently with pdfLaTeX/BibTeX: **33 pages**, successful. It contains all required section, table, bibliography and figure files without depending on original repository paths for document compilation.
+- The updated Overleaf ZIP was extracted into a fresh temporary directory and compiled independently with XeLaTeX/BibTeX: **32 pages**, successful. It contains all required section, table, bibliography and figure files without depending on original repository paths for document compilation.
+- Institution, school, instructor, course, academic year and all five Vietnamese names/student IDs were checked against `docs/report/report.tex`, verified in extracted PDF text, and visually reviewed on the rendered cover. University of L'Aquila is the instructor's affiliation; the report's institution is Hanoi University of Science and Technology.
 
 ## Numerical and dataset verification
 

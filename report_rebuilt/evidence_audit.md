@@ -14,7 +14,7 @@ Audit date: 5 November 2026 (Asia/Saigon). Source: `main`, commit `8a84e2cc2294f
 
 | Source | Inspection and reconciliation |
 |---|---|
-| `docs/report/report.tex` and README | Inspected layout, methods, conclusion, references and outstanding tasks. Legacy 0.6282 classical result and incomplete neural comparison are not imported into the staged cohort. No official university template found. |
+| `docs/report/report.tex` and README | Inspected cover, layout, methods, conclusion, references and outstanding tasks. The cover supplies Hanoi University of Science and Technology, the School of Information & Communication Technology, Seminar 2, Dr. Phuong Nguyen (University of L'Aquila, Italy), academic year 2026–2027 and all five team names/student IDs; these are restored verbatim in the rebuilt report. Legacy 0.6282 classical results and the incomplete neural comparison are not imported into the staged cohort. No separately identified official university template/rubric found. |
 | `reports/CodeCommentClassification_Report_EN.pdf` | Extracted text (71 pages), inspected abstract and relevant methodological/result claims. Compatible ML results marked unavailable in this older report now exist in this snapshot. |
 | `reports/CodeCommentClassification_Paper_EN_FINAL.pdf` | Extracted text (5 pages), inspected summary and main comparison/validity statements. Neural leader values agree with current run evidence. |
 | Vietnamese report/paper PDFs | Discovered and text-extracted to assess manuscript coverage. Not used as authoritative numerical sources. |
@@ -25,6 +25,7 @@ Temporary manuscript text extractions are build intermediates, not newly authore
 
 | Report claim / output | Primary repository evidence | Verification / class |
 |---|---|---|
+| Cover institution, school, course, instructor, academic year and team identities | `docs/report/report.tex`, title page | Transcribed from the existing manuscript, as confirmed by the user; A |
 | 6,738 sentences, 5/7/7 labels | `data/{python,java,pharo}.csv`; `data/k_fold_data/*/all.csv`; `label_cols.json` | Pivoted raw targets by ID/category, compared every processed target; A |
 | Positive/negative counts, cardinality, multi-label prevalence | Same sentence-level files | Recalculated by `scripts/audit.py`; A |
 | Taxonomy spelling/order | `data/k_fold_data/*/label_cols.json`; `configs/datasets/nlbse2023_code_comments.yaml` | Parsed all label orders; descriptive glosses are not an annotation manual; A/B boundary |

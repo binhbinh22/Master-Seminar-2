@@ -15,7 +15,7 @@ This checklist distinguishes code, documentation, experiments, and artifacts. It
 - [ ] Distributed checkpoints, joblib models/vectorizers, or links with checksums. Saving is implemented, but these files are not in the current snapshot.
 - [ ] Classical prediction CSVs expected by the runner's output contract. No such files are in current results.
 - [ ] Verified annotation instructions and agreement information. Label names/targets are available; descriptive glosses do not replace an annotation guide.
-- [ ] Author identities/student IDs and any official course template/rubric. No identities have been invented.
+- [ ] An official course template/rubric beyond the existing manuscript layout. Institution, instructor, course, academic year and all five author names/student IDs are available in `docs/report/report.tex` and have been restored on the rebuilt cover.
 
 ## Missing experiments
 

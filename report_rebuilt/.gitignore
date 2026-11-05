@@ -18,4 +18,5 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.xdv
 __pycache__/
