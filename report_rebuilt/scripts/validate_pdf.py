@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'build/rendered';OUT.mkdir(parents=True,exist_ok=True)
 doc=fitz.open(ROOT/'main.pdf')
 cover=re.sub(r'\s+','',unicodedata.normalize('NFC',doc[0].get_text()))
-cover_fields=['HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY','SCHOOL OF INFORMATION & COMMUNICATION TECHNOLOGY',
+cover_fields=['Hanoi University of Science and Technology','SCHOOL OF INFORMATION & COMMUNICATION TECHNOLOGY',
               'Dr. Phuong Nguyen','Nguyễn Khắc Thái Bình','20251324M','Lã Minh Trung','20251319M',
               'Nguyễn Thu Uyên','20252279M','Nguyễn Thị Nhã Linh','20261262M','Nguyễn Đức Anh','20252469M',
               'Course: Seminar 2','Academic Year: 2026']
