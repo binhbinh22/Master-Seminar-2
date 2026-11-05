@@ -1,31 +1,39 @@
 \section{Related Work and Background}
 \subsection{Code comment classification}
-NLBSE'23 distributes sentence-level comment categories and baseline classifiers for Java, Python, and Pharo~\cite{nlbse}. Its package includes category-wise data, official partitions, Random Forest classifiers, and TF-IDF/NLP feature material. The present repository reconstructs language-specific multi-label targets and uses new text-grouped partitions. Its Random Forest baseline is consequently an internal baseline, not a reproduction of the complete official competition procedure.
+Haouari et al.~\cite{haouari} studied Java commenting practices and developed a taxonomy of the information conveyed by comments. This distinguishes understanding a comment's role from merely locating comment text. Pascarella and Bacchelli~\cite{pascarella} investigated six Java open-source systems, manually classified more than 2,000 comments, and evaluated automatic line-level classification. Their work motivates information-type classification while also showing that taxonomies and annotation units are part of the task definition.
+
+Language conventions matter. Rani et al.~\cite{rani_pharo} examined Pharo comment evolution, information types and adherence to class-comment templates. Their Java/Python study~\cite{rani_conventions} found that conventions do not adequately specify all information needs. These findings motivate our language-specific label spaces instead of assuming that one taxonomy transfers unchanged across ecosystems.
+
+Information types are distinct from comment quality. Rani et al.'s systematic review~\cite{rani_review} analyzed 47 relevant studies and identified a strong emphasis on Java and comment--code consistency. Predicting Usage or DevelopmentNotes does not establish correctness, completeness or freshness. Our target is agreement with annotated information categories, not a direct quality or productivity measure.
+
+NLBSE'23 provides a shared dataset and binary baseline classifiers. Its overview~\cite{nlbse_overview} reports submitted models and official evaluation results. STACC~\cite{stacc} uses SentenceTransformers-based binary classifiers, providing a concrete alternative to the token encoder and linear head used by our reference model. Published benchmark scores are presented separately in Section~\ref{sec:published}, since official partitions and aggregation differ from our grouped protocol.
 
 \subsection{Multi-label text classification}
-Binary Relevance transforms a multi-label task into one binary prediction problem per category. It is simple and allows heterogeneous base classifiers, but does not explicitly use one predicted label to condition another. Classifier Chains add earlier labels as features for later classifiers in a chosen order~\cite{chains}. Their inference depends on preceding predictions, allowing dependencies to help while also permitting error propagation. A chain order is part of the experimental setup; this repository uses one seeded random order rather than an ensemble of orders.
+Zhang and Zhou~\cite{mlreview} distinguish problem transformations from algorithms designed for label sets. Binary Relevance fits one binary learner per label. Classifier Chains condition later classifiers on preceding labels~\cite{chains}, allowing dependencies but introducing order sensitivity and error propagation. Our chain uses one seeded random order. A neural sigmoid head also produces independent binary outputs, while its shared encoder learns common features. Label attention and graph variants add explicit label-related representations.
 
 \subsection{Traditional machine learning for software text}
-The lexical approach represents comments by sparse word and character TF-IDF features. Word features capture recurring terms and short phrases; character features can match subword patterns in identifiers or inflected words. Linear decision functions then associate these features with categories. Random Forest provides a nonlinear comparator. These are methodological motivations, not verified explanations of individual decisions: the repository does not provide feature-attribution evidence supporting a causal account of the observed errors.
+Strong lexical baselines are necessary for short text and modest training sets. Wang and Manning~\cite{wang_manning} show that text feature choices and classifier variants materially affect baseline comparisons. Their sentiment/topic tasks differ from code comments, but motivate our inclusion of word bigrams and multiple linear learners. Character n-grams additionally match subword and identifier-like patterns. Logistic regression, SVM, SGD and Random Forest test whether contextual encoders improve over that shared sparse representation. Class weighting changes fitting costs; feature design changes the information available to the learner.
 
 \subsection{Pretrained Transformers for software engineering}
-RoBERTa studies how pretraining data and optimization choices affect BERT-style representations~\cite{roberta}. CodeBERT learns representations from programming and natural language, using an objective that incorporates replaced-token detection~\cite{codebert}. Their different pretraining backgrounds motivate a backbone comparison. Here both are fine-tuned on comment text only; source code, abstract syntax trees, and project context are not supplied to the classifier. A code-oriented checkpoint therefore need not improve every language or category.
+BERT introduced bidirectional Transformer pretraining and task-specific fine-tuning~\cite{bert}. RoBERTa revisited its pretraining and optimization recipe~\cite{roberta}; CodeBERT learns from programming and natural language with a hybrid objective~\cite{codebert}. Their pretraining backgrounds motivate a comparison but do not guarantee a language-independent winner. Our models receive comment text without surrounding code or syntax trees. STACC illustrates another design point based on sentence representations and binary heads~\cite{stacc}; it is discussed as related work rather than claimed as a reproduced experiment.
 
-\subsection{Loss functions and regularization}
-BCE trains binary targets through sigmoid probabilities. Weighted BCE changes positive-target costs using label frequencies. Focal loss reduces the contribution of easy decisions~\cite{focal}, and the repository applies its binary form to comment labels. Asymmetric loss treats positive and negative decisions differently~\cite{asl}. R-Drop encourages agreement between predictions under two dropout realizations~\cite{rdrop}; its multi-label implementation uses Bernoulli rather than categorical KL divergence. Consistency regularization does not itself rebalance label prevalence. The exact implemented objectives are given in Section~\ref{sec:losses}.
+\subsection{Loss functions, regularization and evaluation}
+Focal loss suppresses easy decisions~\cite{focal}, whereas ASL handles positive and negative assignments differently~\cite{asl}. We compare them with ordinary and positive-weighted BCE. R-Drop regularizes agreement across dropout realizations~\cite{rdrop}; AdamW decouples weight decay from adaptive optimization~\cite{adamw}. Weighting, consistency and optimization address different mechanisms and should not be treated as interchangeable imbalance remedies.
+
+Saito and Rehmsmeier~\cite{saito} explain why precision--recall evaluation is informative under class imbalance. We therefore use AP, micro/macro-F1 and label supports instead of relying on accuracy. Selection and statistical limitations are consolidated in Section~\ref{sec:validity}.
 
 \subsection{Positioning of the present study}
-Table~\ref{tab:related} compares verified research resources by their methodological role. It intentionally omits cross-paper scores, since tasks and evaluation protocols differ. References were checked against primary repositories, paper records, or an institutional author manuscript record. This is a focused background review, not a systematic survey of all comment classifiers. Broader coverage of comment-taxonomy development and later competition entries remains a literature-review extension.
-
+Our contribution combines shared exact-text-grouped partitions, five lexical methods, seventeen neural configurations and label-level analysis. It is a comparative study, not a new taxonomy or architecture. Table~\ref{tab:related} distinguishes the scope of the most relevant comment studies.
 \begin{table}[htbp]\centering\small
-\caption{Verified related resources and their relationship to this study.}\label{tab:related}
+\caption{Related studies and their relationship to the present comparison.}\label{tab:related}
 \begin{tabularx}{\linewidth}{lXX}\toprule
-Resource & Verified focus & Role and comparison boundary\\\midrule
-NLBSE'23~\cite{nlbse} & Comment categories and official baselines & Dataset provenance; different splits/features here\\
-Read et al.~\cite{chains} & Binary label chains & Basis for the classical chain comparator\\
-Liu et al.~\cite{roberta} & Robust BERT-style pretraining & General-text pretrained backbone\\
-Feng et al.~\cite{codebert} & Programming/natural language pretraining & Alternative pretrained backbone\\
-Lin et al.~\cite{focal} & Focusing on hard detection examples & Binary objective adapted in E3/E17\\
-Liang et al.~\cite{rdrop} & Dropout-output consistency & Bernoulli adaptation in E8/E15/E16\\
-Ben-Baruch et al.~\cite{asl} & Asymmetric multi-label loss & Loss comparator E7\\\bottomrule
+Study & Verified focus & Relationship / boundary\\\midrule
+Haouari et al.~\cite{haouari} & Java commenting practices and taxonomy & Information-type distinctions\\
+Pascarella \& Bacchelli~\cite{pascarella} & Six Java systems; manual/automatic classification & Earlier classification evidence; different unit/taxonomy\\
+Rani et al.~\cite{rani_pharo} & Pharo comment evolution and templates & Language-specific information types\\
+Rani et al.~\cite{rani_conventions} & Java/Python conventions & Guidelines versus actual comment content\\
+Rani et al.~\cite{rani_review} & Comment-quality literature review & Categories are distinct from quality\\
+NLBSE'23~\cite{nlbse_overview} & Competition and official RF baselines & Shared benchmark; different evaluation split\\
+STACC~\cite{stacc} & SentenceTransformers binary classifiers & Published neural comparator; not rerun here\\
+Present study & Three languages; TF-IDF and E1--E17 & Shared grouped screening and per-label comparison\\\bottomrule
 \end{tabularx}\end{table}

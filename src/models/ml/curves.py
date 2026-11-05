@@ -1,18 +1,10 @@
-"""Approximate a per-step training curve for sklearn estimators that otherwise give no
-visibility into their optimization progress (unlike DL's per-epoch loss).
+"""Refit diagnostics for sklearn estimators without per-epoch histories.
 
-sklearn's `.fit()` runs its solver's full loop internally and returns only the converged
-result -- no intermediate values. We get an equivalent curve by sweeping the estimator's
-"amount of training" hyperparameter (`max_iter` for the lbfgs/liblinear/SGD solvers,
-`n_estimators` for Random Forest) and refitting from scratch at each checkpoint. Because
-these solvers are deterministic given a fixed random_state, refitting at max_iter=k
-reproduces exactly the state a longer fit would have been in after k iterations -- this
-is a real reconstruction of the optimization trajectory, not a simulation. The cost is
-repeated full fits instead of one streaming fit; for this dataset size (≤2,044 train
-rows) that is a few extra seconds, not worth avoiding.
-
-`dummy_most_frequent` has no such parameter (it doesn't optimize anything) and is
-intentionally absent from CURVE_PARAM -- there is no curve to draw for it.
+Each point fits a fresh estimator with a different max_iter (or number of trees),
+then records training Hamming loss and validation F1. These are observed fits, not
+synthetic values, but are not guaranteed prefixes of a single optimization run:
+solver stopping criteria and implementation details may change the trajectory.
+The x-axis names the swept parameter; only SGD uses an epoch interpretation.
 """
 import warnings
 

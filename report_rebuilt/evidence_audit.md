@@ -54,7 +54,7 @@ Temporary manuscript text extractions are build intermediates, not newly authore
 | Label-level improvements/regressions | Final `test.per_label` dictionaries | Full label supports/P/R/F1 parsed, tables/heatmaps generated; A |
 | Row-level error analysis unavailable | File search over `results/`; staged runner source | No prediction artifact or best_model.pt found; aggregate counts cannot identify sentences; A (absence in snapshot) |
 | File persistence and serialization capabilities | Staged runners; `.gitignore` | Direct write paths verified; checkpoints/joblib not distributed; A implementation vs missing artifact |
-| Replaceable memory/file storage | Data loaders and runners; searches for store/repository abstractions | No interchangeable adapter interface found; requirement missing; C for proposed interface |
+| Replaceable memory/file dataset storage | `src/data/storage.py`; shared loader; ML/DL staged runners; `tests/test_storage.py` | Added in the report revision: ByteStore, FileStore, MemoryStore, CLI selection and six passing contract/equivalence tests. Historical results predate this change. Filesystem run exports remain a separate concern; A |
 | Environment and execution instructions | `requirements.txt`; CLI parsers; `scripts/train_kfold.sh`, `train_full.sh`; README | Commands derived from actual parsers; historical exact environment absent; A/B |
 | Notebook support | All four `notebooks/*.ipynb`; `notebooks/README.md`; saved EDA outputs | Notebook cells/output counts inspected; three EDA notebooks contain saved results; execution not rerun; A/B |
 
@@ -73,7 +73,7 @@ Specific per-run paths and fingerprints are exhaustive in `audit_facts.json`; so
 
 A separate regeneration invoked the real `prepare('data', temporary_directory)` and `load_stage_data()` functions. All six generated dataset byte fingerprints matched their corresponding local archived data, and population, sentence order, labels, and folds matched. This strengthens the artifact validation beyond the original audit script. No archived data were regenerated in place.
 
-Existing `test_two_stage.py` tests: two passed, one failed before actual-data checking because its hard-coded `data/raw/` is missing. The passing smoke test uses tiny mocked backbones and briefly optimizes fixture models; these are software tests, not new research-model experiments. Full research training was not rerun.
+The initial `test_two_stage.py` run had two passes and one missing-directory error. During revision the actual-data test was corrected to select the optional downloaded raw directory when present and otherwise use the checked-in raw CSVs under `data/`. Its original equivalence assertions remain. The complete offline suite now passes **35 tests**, including six new storage contracts/integration tests. Tiny mocked-backbone optimization in software fixtures is not a new research-model experiment. Full research training was not rerun.
 
 These checks do not reproduce research training, validate annotation semantics, establish statistical significance, or confirm external generalization.
 
@@ -90,3 +90,26 @@ Verified on 5 November 2026 through primary paper records and repositories; bibl
 - Asymmetric Loss arXiv record: https://arxiv.org/abs/2009.14119
 
 No unverified competition-paper author list from the older manuscript was copied. The local bibliography's ASL entry follows the retrieved arXiv record rather than silently substituting a different author/version record. A broader systematic literature search and full annotation-manual verification remain open.
+
+
+## Revision evidence additions
+
+- EDA distributions, conditional co-occurrence and four gold-label illustrations are regenerated from prepared sentence targets/text by `scripts/research_assets.py`; exact IDs and statistics are recorded in `research_assets.json`.
+- Learning diagnostics come from saved ML refit records and neural training histories. ML refits are not represented as optimization prefixes; neural objective magnitudes are not compared across different losses.
+- Official baseline context comes from Table III of the organizers' overview, with its distinct category-average evaluation protocol retained.
+- Dataset persistence is implemented in `src/data/storage.py` and checked by six new tests; historical experiments precede this revision. Artifact exports remain filesystem-based.
+
+Additional primary sources checked for the expanded bibliography:
+
+- Haouari et al.: https://www.iro.umontreal.ca/~felipe/bib2webV0.81/cv/papers/paper-esem-2011.pdf
+- Pascarella and Bacchelli: https://sback.it/publications/msr2017a.pdf
+- Pharo comment taxonomy: https://arxiv.org/abs/2005.11583
+- Comment conventions: https://arxiv.org/abs/2108.10766
+- Comment quality review: https://arxiv.org/abs/2209.08165
+- NLBSE competition overview: https://ojcchar.github.io/files/24-nlbse23-tools.pdf
+- STACC: https://arxiv.org/abs/2302.13149
+- Multi-label review: https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/tkde13rev.pdf
+- Wang and Manning: https://aclanthology.org/P12-2018/
+- BERT: https://aclanthology.org/N19-1423/
+- AdamW: https://arxiv.org/abs/1711.05101
+- Precision-recall evaluation: https://doi.org/10.1371/journal.pone.0118432

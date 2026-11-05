@@ -24,7 +24,7 @@ def save(fig,name):
     fig.savefig(OUT/f'{name}.png',bbox_inches='tight',pad_inches=.06,dpi=220); plt.close(fig)
 fig,ax=canvas(4)
 box(ax,.15,2.6,2.7,.95,'data/*.csv\nprepare_two_stage.py\nvalidate, pivot, group')
-box(ax,3.6,2.6,2.8,.95,'data/k_fold_data/\ndata/full_training_data/\nCSV + JSON manifests')
+box(ax,3.6,2.6,2.8,.95,'FileStore / MemoryStore\nCSV + JSON snapshots\nsrc.data.storage')
 box(ax,7.15,2.6,3.1,.95,'src.data.two_stage\nload_stage_data()\nStageBundle / validation')
 arrow(ax,(2.9,3.08),(3.55,3.08)); arrow(ax,(6.45,3.08),(7.1,3.08))
 box(ax,1.2,.8,3.3,1.1,'ML staged runner\nfeatures + models + scoring\nNumPy / scikit-learn')

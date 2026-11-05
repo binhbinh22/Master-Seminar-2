@@ -15,8 +15,4 @@ This study addresses a bounded empirical gap: how the implemented lexical baseli
 \end{description}
 
 \subsection{Contributions and scope}
-The contributions are a verified reconstruction of the sentence-level dataset; an implementation-grounded account of five ML methods and seventeen neural configurations; a comparison of completed experiments using consistent metric definitions; and an audit of software and reproducibility requirements. New tables and figures are derived from stored data and metrics. No model was retrained for this reconstruction.
-
-Evidence is distinguished throughout. \emph{Implemented and verified} means a corresponding source path or stored artifact was inspected and, where feasible, checked computationally. \emph{Documented but unverified} covers claims without sufficient implementation or execution evidence. \emph{Proposed} denotes future work. A feature implemented in code is not automatically an artifact present in the checkout, nor does inspecting its implementation prove that every execution path has been exercised.
-
-\source{src/data/prepare_two_stage.py; src/models/ml/models.py; src/models/dl/zoo.py; report_rebuilt/audit_facts.json}
+We provide a shared sentence-level formulation and grouped pipeline; compare five lexical learners with seventeen neural configurations; analyze aggregate, label-level and learning-dynamics results; and supply reproducible software with interchangeable dataset stores. Figures and tables use the team's recorded experiments. Revision-time software verification is distinguished from historical experiments in Section~9; source provenance is collected in Appendix~\ref{app:evidence}.

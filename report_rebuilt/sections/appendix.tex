@@ -1,15 +1,28 @@
 \section{Complete Screening Metrics}\label{app:metrics}
-The following tables retain all available classical/dummy and neural Stage 1 means. Mean micro-F1 is the selection metric; other columns provide complementary views. Fold SD for all metrics remains available in the original run JSON and \texttt{audit\_facts.json} maps each run to its path. No average over the three languages is reported, since label spaces and distributions differ.
+These tables give all distinct method scores using mean fold metrics. E4 shares E1's screening values and is omitted; all 51 original neural run records are preserved. No cross-language mean is reported because label spaces and distributions differ.
 \input{tables/python_cv}\FloatBarrier
 \input{tables/java_cv}\FloatBarrier
 \input{tables/pharo_cv}\FloatBarrier
 \section{Pharo Reference Per-label Results}
 \input{tables/pharo_perlabel}
-E1 is itself the highest observed Pharo test micro-F1 Transformer, so the table gives its precision, recall and F1 once. The heatmap in Figure~\ref{fig:phheat} provides the other configuration comparisons.
+E1 has the highest observed Pharo final micro-F1. Figure~\ref{fig:phheat} compares its label scores with the other configurations.
 \FloatBarrier
-\section{Evidence and Manuscript Reconciliation}
-The older \texttt{docs/report/report.tex} discusses an incomplete RoBERTa comparison and legacy classical values (including a 0.6282 result). Those values are not mixed with the shared staged cohort. The 71-page English report under \texttt{reports/} already describes the two-stage neural results but says compatible classical results are missing; the current snapshot contains them. The five-page English paper captures the main neural leaders and limitations. This reconstruction uses raw current run evidence whenever prose is stale.
+\section{Section-to-Artifact Map}\label{app:evidence}
+The scientific evidence snapshot is commit \texttt{8a84e2cc2294f42a09914ab0185114b2abc4dc9b} of \url{https://github.com/binhbinh22/Master-Seminar-2}. Current report-branch additions include the dataset storage adapters and tests. Original model results are retained. Table~\ref{tab:provenance} replaces per-section source-path blocks in the narrative.
+\begin{table}[htbp]\centering\small
+\caption{Primary artifacts supporting each report component.}\label{tab:provenance}
+\begin{tabularx}{\linewidth}{lX}\toprule
+Report component & Primary artifacts\\\midrule
+Cover & \path{docs/report/report.tex} (institution, instructor, five names/IDs)\\
+Dataset / EDA & \path{data/*.csv}; \path{data/k_fold_data/}; \path{data/full_training_data/}; three EDA notebooks\\
+Dataset persistence & \path{src/data/storage.py}; \path{src/data/two_stage.py}; \path{tests/test_storage.py}\\
+ML methods & \path{src/models/ml/features.py}; \path{src/models/ml/models.py}; ML staged runner\\
+Neural methods & \path{configs/exp*.yaml}; \path{src/models/dl/}; \path{src/training/}\\
+Stage 1 results & \path{results/training/kfold/}; \path{results/training/kfold_gpu0/}; \path{results/training/kfold_gpu1/}\\
+Stage 2 / label counts & \path{results/training/final/}; \path{results/training/final_gpu0/}; \path{results/training/final_gpu1/}\\
+Learning diagnostics & ML \path{training_curve.json}; neural \path{metrics.json} training histories\\
+Figures / numerical checks & \path{report_rebuilt/scripts/}; \path{audit_facts.json}; \path{research_assets.json}\\
+External comparisons & Primary publications in \path{references.bib}, especially NLBSE'23 Table III\\\bottomrule
+\end{tabularx}\end{table}
 
-The top-four selection manifest and the fixed five-model final cohort are retained as separate facts. E4's deferred threshold tuning is distinguished from an actually tuned experiment. Exact duplicate grouping is distinguished from near-duplicate removal or project-independent evaluation. File-based operation and in-memory computation are distinguished from interchangeable persistence backends.
-
-An external evidence map is provided in \path{evidence_audit.md}, together with \path{source_inventory.csv}, \path{audit_facts.json}, and \path{implementation_gaps.md}. The inventory records candidate evidence hashes; the evidence map states which sources were substantively inspected, rather than implying every inventoried byte was manually reviewed.
+Detailed run paths/hashes are supplied in \path{evidence_audit.md}, \path{source_inventory.csv} and \path{audit_facts.json}. The older manuscript's legacy classical values and incomplete neural comparison are not mixed into this staged cohort. The later PDF reports predate the compatible ML results now available. The top-four selection manifest and actual five-model final subset are documented separately rather than silently reconciled.

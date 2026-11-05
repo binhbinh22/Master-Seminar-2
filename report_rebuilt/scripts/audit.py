@@ -101,18 +101,21 @@ for method in ml+['E1']:
 table('ml_cv',['Method','Python','Java','Pharo'],rows,'Stage 1 micro-F1: mean and sample standard deviation across five folds. E1 uses fold validation for checkpoint selection.','tab:mlcv','lrrr')
 rows=[]
 for i in range(1,18):
+    if i==4: continue  # E4 has exactly E1 screening scores; explain once in the caption.
     model=f'E{i}'; rows.append([model]+[f'{cv[(l,model)][1]["cross_validation"]["micro_f1"]["mean"]:.4f} $\\pm$ {cv[(l,model)][1]["cross_validation"]["micro_f1"]["std"]:.4f}' for l in facts['datasets']])
-table('transformer_cv',['Configuration','Python','Java','Pharo'],rows,'All 51 verified Transformer screening runs. E4 uses the same fixed threshold as E1 in Stage 1.','tab:dlcv','lrrr')
+table('transformer_cv',['Configuration','Python','Java','Pharo'],rows,'Transformer screening mean and sample SD. E4 shares E1 scores in all three languages and is omitted because threshold tuning is deferred. All 51 run records remain available.','tab:dlcv','lrrr')
 for lang in facts['datasets']:
     for stage,collection in [('cv',cv),('test',final)]:
         rows=[]
         for (l,m),(p,d) in collection.items():
             if l!=lang: continue
+            if stage=='cv' and m=='E4': continue
             vals=d['cross_validation'] if stage=='cv' else d['test']
             get=lambda key: vals[key]['mean'] if stage=='cv' else vals[key]
             rows.append([tex(names.get(m,m))]+[f'{get(key):.4f}' for key in ['micro_f1','macro_f1','hamming_loss','micro_average_precision']])
         rows.sort(key=lambda row:-float(row[1]))
-        table(f'{lang}_{stage}',['Method','Micro-F1','Macro-F1','HL','Micro-AP'],rows,f'{lang.title()} {"Stage 1 fold means" if stage=="cv" else "Stage 2 exploratory test results"}. HL is Hamming loss (lower is better).',f'tab:{lang}{stage}','lrrrr')
+        note=' E4 shares E1 screening scores and is omitted.' if stage=='cv' else ''
+        table(f'{lang}_{stage}',['Method','Micro-F1','Macro-F1','HL','Micro-AP'],rows,f'{lang.title()} {"Stage 1 fold means" if stage=="cv" else "Stage 2 test results"}. HL is Hamming loss (lower is better).'+note,f'tab:{lang}{stage}','lrrrr')
 
 for lang in facts['datasets']:
     model=max([(m,d['cross_validation']['micro_f1']['mean']) for (l,m),(p,d) in cv.items() if l==lang and m.startswith('E')],key=lambda x:x[1])[0]

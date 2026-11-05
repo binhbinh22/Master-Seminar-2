@@ -25,7 +25,7 @@ RoBERTa and CodeBERT checkpoints are loaded through Hugging Face Transformers. T
 Table~\ref{tab:configs} lists all verified configurations. Backbone changes are represented by E11 and its CodeBERT derivatives. Loss variants include E2/E3/E7/E17. E5/E6/E9/E12 modify label representation or alignment; E8/E10/E15/E16 add regularization; E13/E14/E16 change optimization. These groups overlap, and E16 deliberately combines two interventions.
 
 \begin{table}[htbp]\centering\small
-\caption[Verified E1--E17 configurations]{Verified E1--E17 configurations. R denotes \texttt{roberta-base}; C denotes \texttt{microsoft/codebert-base}. Unspecified settings inherit the common configuration.}\label{tab:configs}
+\caption{Verified E1--E17 configurations. R: RoBERTa; C: CodeBERT. Unspecified settings inherit the common configuration.}\label{tab:configs}
 \begin{tabularx}{\linewidth}{llX}\toprule
 ID & Backbone & Intervention and explicit settings\\\midrule
 E1 & R & BCE; first-token linear head\\
@@ -104,4 +104,3 @@ Zero-denominator precision, recall, and F1 are reported as zero by the implement
 Average precision is a ranking metric. At successive distinct score thresholds $k$, $AP=\sum_k(R_k-R_{k-1})P_k$. Micro-AP flattens all sentence--label decisions into one ranking. Tied scores are grouped in the neural implementation; ML uses scikit-learn's AP. Per-label AP is undefined if no positives are observed, and only defined labels contribute to macro-AP. SVM decision scores support ranking evaluation without being probabilities; micro-AP can be sensitive to cross-label score scales.
 
 The all-negative predictor has binary assignment accuracy 77.58\% on Python, 83.19\% on Java, and 83.46\% on Pharo, despite zero positive recall and zero F1. These figures follow directly from dataset densities and explain why accuracy alone is misleading. They are calculated diagnostics, not additional trained-model measurements. Subset accuracy, which requires the complete label vector to match, is a different metric and is not substituted for micro-F1.
-\source{src/models/ml/features.py; src/models/ml/models.py; src/models/dl/; src/training/optimizers.py; src/training/masked_classifier.py; src/evaluation/multilabel.py; src/models/ml/metrics.py}

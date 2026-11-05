@@ -17,7 +17,6 @@
 \fancyhead[L]{\small Code Comment Classification}
 \fancyhead[R]{\small Seminar 2}
 \fancyfoot[C]{\thepage}
-\newcommand{\source}[1]{\par\begingroup\footnotesize\raggedright\textit{Repository evidence:} \texttt{\detokenize{#1}}.\par\endgroup}
 \newcommand{\reportfigure}[4]{\begin{figure}[htbp]\centering\includegraphics[width=#4\linewidth]{figures/#1.pdf}\caption{#2}\label{#3}\end{figure}}
 \begin{document}
 \hypersetup{pageanchor=false}
@@ -29,7 +28,7 @@
 \vfill
 {\color{ink}\LARGE\bfseries Comparative Evaluation of Traditional Machine Learning and Transformer-Based Models for Multi-label Code Comment Classification\par}
 \vspace{10mm}
-{\large An Evidence-Based Reconstruction of the NLBSE'23 Experiments\par}
+{\large A Comparative Study on the NLBSE'23 Dataset\par}
 \vspace{10mm}
 {\large\bfseries Team Members\par}
 \vspace{4mm}
@@ -48,18 +47,13 @@ University of L'Aquila, Italy\par
 \vfill
 {\large Research Report\par}
 {5 November 2026\par}
-\vspace{8mm}
-\begin{minipage}{.88\textwidth}\small
-Source snapshot: \texttt{8a84e2cc2294f42a09914ab0185114b2abc4dc9b}.\\
-\url{https://github.com/binhbinh22/Master-Seminar-2}\\[4pt]
-Institution, instructor, course and team details follow \texttt{docs/report/report.tex}. This report reconstructs existing experiments; it does not report newly trained models. Final-test findings are exploratory. A switchable persistence backend and several reproducibility details remain incomplete.
-\end{minipage}
 \end{titlepage}
 \hypersetup{pageanchor=true}
 \pagenumbering{roman}
 \begin{abstract}
-Class comment sentences can communicate several information types simultaneously. This report evaluates five traditional machine-learning methods and seventeen RoBERTa/CodeBERT configurations for multi-label classification of 6,738 NLBSE'23 sentences in Python, Java, and Pharo. Evidence is reconstructed from source code, fixed split artifacts, 69 completed five-fold screening records (including a majority dummy), and 30 final-evaluation records. Word and character TF-IDF provide competitive Java baselines: logistic regression reaches screening micro-F1 0.5972, compared with 0.5968 for the RoBERTa BCE reference. The reference has larger advantages over the strongest traditional models on Python and Pharo. CodeBERT with R-Drop leads Transformer screening on Python and Java (0.6479 and 0.6225); RoBERTa with focal loss leads Pharo (0.7152). Among the five Transformers evaluated on each final split, the highest test micro-F1 values are 0.6541 for Python (CodeBERT R-Drop), 0.7034 for Java (CodeBERT focal), and 0.7371 for Pharo (RoBERTa BCE). Higher aggregate F1 does not imply improvement on every label. Screening used the entire population before final splitting, and neural checkpoints were selected on the same validation fold later used for scoring. Accordingly, these measurements support an exploratory comparison rather than independent confirmation or a causal attribution to individual model components. The report documents software modules, numerical provenance, execution instructions, and unresolved implementation requirements without inventing missing predictions or experiments.
+We compare five traditional machine-learning methods and seventeen RoBERTa/CodeBERT configurations for multi-label classification of 6,738 NLBSE'23 comment sentences in Python, Java, and Pharo. Our pipeline combines language-specific binary targets, exact-text-grouped partitions, word/character TF-IDF baselines, and pretrained neural encoders. Logistic regression is competitive with RoBERTa BCE on Java screening micro-F1 (0.5972 versus 0.5968), while the Transformer reference has larger advantages on Python and Pharo. CodeBERT with R-Drop leads neural screening on Python and Java (0.6479 and 0.6225); RoBERTa with focal loss leads Pharo (0.7152). The highest observed final-test micro-F1 values are 0.6541, 0.7034, and 0.7371 for Python, Java, and Pharo, respectively. Label-level analysis shows that higher aggregate F1 can coexist with weaker minority-label detection. Exploratory data analysis and stored learning curves explain the support imbalance and the role of validation-based stopping. We also provide interchangeable dataset storage adapters and reproducible result-generation scripts. Results are interpreted under the evaluation design and limitations stated in Section~\ref{sec:validity}.
 \end{abstract}
+\noindent\textbf{Keywords:} code comments; multi-label classification; TF-IDF; RoBERTa; CodeBERT; class imbalance.
 \tableofcontents
 \listoffigures
 \listoftables
@@ -74,6 +68,8 @@ Class comment sentences can communicate several information types simultaneously
 \input{sections/08_validity}
 \input{sections/09_reproducibility}
 \input{sections/10_conclusion}
+\section*{Acknowledgements}
+We thank Dr. Phuong Nguyen for supervising the Seminar 2 project and the NLBSE'23 organizers and dataset contributors for making the benchmark and baseline materials publicly available.
 \FloatBarrier
 \bibliographystyle{plain}
 \bibliography{references}

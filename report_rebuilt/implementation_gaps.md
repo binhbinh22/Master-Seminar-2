@@ -1,10 +1,11 @@
 # Implementation and evidence gaps
 
-This checklist distinguishes code, documentation, experiments, and artifacts. It is not a record of completed improvements. Course requirements follow the supplied prompt; no official rubric was available locally.
+This checklist distinguishes completed revision work from remaining code, documentation, experiment and artifact gaps. Course requirements follow the supplied prompt; no official rubric was available locally.
 
-## Missing implementation
+## Implementation status
 
-- [ ] **Course requirement: interchangeable persistence.** File readers/writers and in-memory bundle/tensor objects exist, but there is no injected interface with memory and filesystem adapters, backend selection, and unchanged business logic. Implementing this requires code work beyond report authoring.
+- [x] **Interchangeable staged-dataset persistence.** Added ByteStore, FileStore and MemoryStore with read/write contracts. The shared loader and both staged CLI families accept backend selection without changing feature/model/evaluation logic. Six contract/integration tests pass, including all six real dataset snapshots. This is a revision-time implementation; archived models were not retrained.
+- [ ] **Interchangeable artifact exports.** Dataset reads/manifests use the adapter, while run metrics, tokenizers, plots and model exports still target the filesystem. A separate artifact-store abstraction is an additional extension.
 - [ ] **Neural row-level prediction export.** The staged neural runner produces aggregate metrics, not a final per-sentence decision file. Add sentence ID, split, ordered labels, truth, probabilities, hard predictions, thresholds and checkpoint identity.
 - [ ] **Documented checkpoint evaluation/inference entry point.** No verified standalone final checkpoint replay CLI is supplied. Current evaluation is integrated into training runners.
 
@@ -37,11 +38,11 @@ This checklist distinguishes code, documentation, experiments, and artifacts. It
 
 ## Recommended improvements (proposed only)
 
-1. Introduce a narrow data/artifact store interface and equivalent memory/file adapters with contract tests.
+1. Extend the tested dataset-store interface to artifact exports if fully in-memory result persistence is needed.
 2. Preserve immutable sentence-level predictions, checkpoints, split IDs, code revision, package lock and device metadata for every run.
 3. Freeze candidate configurations, then evaluate a fresh outer dataset partition, preferably by project/class, with nested selection where required.
 4. Run a prespecified seed set and report uncertainty, label supports, and precision/recall tradeoffs.
 5. Tune thresholds on validation alone and tie evaluation criteria to actual downstream error costs.
 6. Replace stale manuscript/README statements about missing ML results after project owners review the new report. Original files were preserved here.
 
-**Readiness:** the reconstructed report can be compiled and reviewed, but it does not establish full course compliance or submission readiness while the mandatory persistence requirement and critical evidence gaps remain unresolved.
+**Scope:** dataset persistence adapters are implemented and tested. The remaining checklist concerns artifact export breadth, reproducibility evidence and stronger experimental validation; these limits are collected in the report's limitations section.

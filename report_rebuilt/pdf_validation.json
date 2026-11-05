@@ -1,11 +1,13 @@
 {
-  "pages": 32,
-  "figures": 9,
-  "generated_table_files": 13,
+  "pages": 35,
+  "figures": 14,
+  "generated_table_files": 14,
   "latex_warnings_or_overflow": [],
   "out_of_bounds_text": [],
-  "rendered_pages": 32,
+  "rendered_pages": 35,
   "bibtex_succeeded": true,
   "cover_metadata_verified": true,
-  "compiler": "XeLaTeX + BibTeX"
+  "compiler": "XeLaTeX + BibTeX",
+  "bibliography_entries": 19,
+  "numbered_tables": 20
 }

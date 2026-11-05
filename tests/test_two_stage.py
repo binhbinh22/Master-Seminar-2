@@ -36,12 +36,15 @@ def fixture(root):
 
 class TwoStageTests(unittest.TestCase):
     def test_actual_data_matches_raw_and_reproduces(self):
+        raw_dir = Path("data/raw/nlbse2023")
+        if not (raw_dir / "python.csv").exists():
+            raw_dir = Path("data")
         with tempfile.TemporaryDirectory() as tmp:
-            prepare("data/raw", tmp)
+            prepare(raw_dir, tmp)
             for language in LANGUAGES:
                 cv = load_stage_data("data/k_fold_data", language, "kfold")
                 final = load_stage_data("data/full_training_data", language, "final")
-                rows = raw_to_rows(Path("data/raw/nlbse2023") / f"{language}.csv", list(cv.label_names))
+                rows = raw_to_rows(raw_dir / f"{language}.csv", list(cv.label_names))
                 self.assertEqual(cv.population_fingerprint, population_fingerprint(rows, list(cv.label_names)))
                 self.assertEqual(cv.population_fingerprint, final.population_fingerprint)
                 self.assertEqual(set(cv.sentence_ids), set(final.sentence_ids))

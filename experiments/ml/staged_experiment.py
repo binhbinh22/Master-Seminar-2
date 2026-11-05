@@ -33,6 +33,7 @@ from src.evaluation.multilabel import SUMMARY_METRICS
 from src.evaluation.summaries import summarize_metric_runs
 from src.models.ml.curves import CURVE_PARAM, save_curve_plot, training_curve
 from src.models.ml.data import load
+from src.data.storage import dataset_store
 from src.models.ml.features import build_vectorizer
 from src.models.ml.metrics import compute_metrics
 from src.models.ml.models import build_models
@@ -103,11 +104,13 @@ def model_config(clf):
             "base_params": base.get_params() if base is not None else None}
 
 
-def run_staged(method, language, stage, *, output_dir=None, output_base=None, seed=42, data_dir=None):
+def run_staged(method, language, stage, *, output_dir=None, output_base=None, seed=42, data_dir=None, storage_backend="file"):
     if stage not in ("kfold", "final"):
         raise ValueError("stage must be kfold or final")
     started = time.monotonic()
-    data = load(language, stage, data_dir=data_dir)
+    root = Path(data_dir) if data_dir is not None else ROOT / "data" / ("k_fold_data" if stage == "kfold" else "full_training_data")
+    store = dataset_store(storage_backend, root / language)
+    data = load(language, stage, data_dir=root, store=store)
     bundle = data["bundle"]
     texts, labels, label_names = data["texts"], data["labels"], data["label_names"]
     sentence_ids, class_names = data["sentence_ids"], data["class_names"]
@@ -121,14 +124,14 @@ def run_staged(method, language, stage, *, output_dir=None, output_base=None, se
     logger = make_logger(output)
 
     vectorizer_params = {"word_ngram_range": [1, 2], "char_ngram_range": [3, 5], "max_features_per_vectorizer": 20000}
-    config = {"method": method, "model_type": "classical_ml", "language": language, "stage": stage, "seed": seed,
+    config = {"method": method, "model_type": "classical_ml", "language": language, "stage": stage, "seed": seed, "storage_backend": storage_backend,
               "features": {"type": "tfidf_word_char", **vectorizer_params},
               "model": model_config(clf_template), "output_dir": str(output)}
     (output / "config.yaml").write_text(yaml.safe_dump(config, sort_keys=False))
     (output / "label_cols.json").write_text(json.dumps(label_names, indent=2) + "\n")
-    (output / "data_manifest.json").write_text((Path(bundle.data_dir) / "manifest.json").read_text())
+    (output / "data_manifest.json").write_bytes(store.read_bytes(Path(bundle.data_dir) / "manifest.json"))
 
-    result = {"stage": stage, "protocol": bundle.protocol, "method": method, "model_type": "classical_ml",
+    result = {"stage": stage, "protocol": bundle.protocol, "method": method, "model_type": "classical_ml", "storage_backend": storage_backend,
               "language": language, "labels": label_names, "seed": seed, "device": "cpu",
               "data_dir": bundle.data_dir, "dataset_samples": len(texts),
               "data_fingerprint": bundle.data_fingerprint, "population_fingerprint": bundle.population_fingerprint,

@@ -43,5 +43,7 @@ for i,p in enumerate(doc):
 result={'pages':len(doc),'figures':len(list((ROOT/'figures').glob('*.pdf'))),'generated_table_files':len(list((ROOT/'tables').glob('*.tex'))),
         'latex_warnings_or_overflow':errors,'out_of_bounds_text':edges,'rendered_pages':len(doc),'bibtex_succeeded':(ROOT/'main.bbl').exists(),
         'cover_metadata_verified':True,'compiler':'XeLaTeX + BibTeX'}
+result['bibliography_entries']=len(re.findall(r'\\bibitem\{',(ROOT/'main.bbl').read_text(encoding='utf-8')))
+result['numbered_tables']=len(re.findall(r'\\contentsline\s*\{table\}',(ROOT/'main.lot').read_text(encoding='utf-8')))
 (ROOT/'pdf_validation.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
 print(json.dumps(result,indent=2))
